@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BanditInfestation.Spawn
 {
-    class DisbandDeserterBehaviour
+    class DisbandDeserterSpawnBehaviour
     {
+
     }
 }
