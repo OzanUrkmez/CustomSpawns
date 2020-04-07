@@ -1,0 +1,7 @@
+D:\SteamLibrary\steamapps\common\Mount & Blade II Bannerlord\Modules\QuestryLord\bin\Win64_Shipping_Client\QuestryLord.dll
+D:\SteamLibrary\steamapps\common\Mount & Blade II Bannerlord\Modules\QuestryLord\bin\Win64_Shipping_Client\QuestryLord.pdb
+C:\Users\arkan\source\repos\QuestryLord\QuestryLord\obj\Debug\QuestryLord.csprojAssemblyReference.cache
+C:\Users\arkan\source\repos\QuestryLord\QuestryLord\obj\Debug\QuestryLord.csproj.CoreCompileInputs.cache
+C:\Users\arkan\source\repos\QuestryLord\QuestryLord\obj\Debug\QuestryLord.csproj.CopyComplete
+C:\Users\arkan\source\repos\QuestryLord\QuestryLord\obj\Debug\QuestryLord.dll
+C:\Users\arkan\source\repos\QuestryLord\QuestryLord\obj\Debug\QuestryLord.pdb
