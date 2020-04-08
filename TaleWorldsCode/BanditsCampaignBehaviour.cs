@@ -134,5 +134,39 @@ namespace Banditlord.TaleWorldsCode
             return result;
         }
 
+        public static void InitBanditParty(MobileParty banditParty, TextObject name, Clan faction, Settlement homeSettlement)
+        {
+            banditParty.Name = name;
+            banditParty.Party.Owner = faction.Leader;
+            banditParty.Party.Visuals.SetMapIconAsDirty();
+            banditParty.HomeSettlement = homeSettlement;
+            CreatePartyTrade(banditParty);
+            foreach (ItemObject itemObject in ItemObject.All)
+            {
+                if (itemObject.IsFood)
+                {
+                    int num = IsLooterFaction(banditParty.MapFaction) ? 8 : 16;
+                    int num2 = MBRandom.RoundRandomized((float)banditParty.MemberRoster.TotalManCount * (1f / (float)itemObject.Value) * (float)num * MBRandom.RandomFloat * MBRandom.RandomFloat * MBRandom.RandomFloat * MBRandom.RandomFloat);
+                    if (num2 > 0)
+                    {
+                        banditParty.ItemRoster.AddToCounts(itemObject, num2, true);
+                    }
+                }
+            }
+        }
+
+        // Token: 0x060020F7 RID: 8439 RVA: 0x00089110 File Offset: 0x00087310
+        private static void CreatePartyTrade(MobileParty banditParty)
+        {
+            float totalStrength = banditParty.Party.TotalStrength;
+            int initialGold = (int)(10f * (float)banditParty.Party.MemberRoster.TotalManCount * (0.5f + 1f * MBRandom.RandomFloat));
+            banditParty.InitializePartyTrade(initialGold);
+        }
+
+        private static bool IsLooterFaction(IFaction faction)
+        {
+            return !faction.Culture.CanHaveSettlement;
+        }
+
     }
 }

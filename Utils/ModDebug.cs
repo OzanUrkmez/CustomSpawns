@@ -18,7 +18,7 @@ namespace Banditlord
         {
             if (!ConfigLoader.Instance.Config.IsDebugMode)
                 return;
-            InformationManager.DisplayMessage(new InformationMessage(message, Color.ConvertStringToColor("red")));
+            InformationManager.DisplayMessage(new InformationMessage(message, Color.ConvertStringToColor("#FF8F00FF")));
         }
 
     }

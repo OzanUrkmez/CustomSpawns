@@ -19,14 +19,18 @@ namespace Banditlord.Spawn
 
         public static MobileParty SpawnBanditAtHideout(Settlement spawnedSettlement, Clan clan, PartyTemplateObject templateObject, TextObject partyName = null)
         {
+            //get name and show message.
             TextObject textObject = partyName ?? clan.Name;
-            ModDebug.ShowMessage("Banditlord: Spawning " + textObject.ToString() + " at " + spawnedSettlement.GatePosition);
+            ModDebug.ShowMessage("Banditlord: Spawning " + textObject.ToString() + " at " + spawnedSettlement.GatePosition + " in settlement " + spawnedSettlement.Name.ToString());
 
+            //create.
             int numberOfCreated = templateObject.NumberOfCreated;
             templateObject.IncrementNumberOfCreated();
             MobileParty mobileParty = MBObjectManager.Instance.CreateObject<MobileParty>(clan.StringId + "_" + numberOfCreated.ToString());
-
             mobileParty.InitializeMobileParty(textObject, templateObject, spawnedSettlement.GatePosition, 0, 0, MobileParty.PartyTypeEnum.Bandit, -1);
+
+            //initialize as bandit party
+            TaleWorldsCode.BanditsCampaignBehaviour.InitBanditParty(mobileParty, textObject, clan, spawnedSettlement);
 
             return mobileParty;
         }

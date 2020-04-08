@@ -13,7 +13,8 @@ namespace Banditlord.Spawn
     {
         public override void RegisterEvents()
         {
-            CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, BanditSpawnBehaviour);
+            CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, DailyBehaviour);
+            CampaignEvents.HourlyTickEvent.AddNonSerializedListener(this, HourlyBehaviour);
         }
 
         public override void SyncData(IDataStore dataStore)
@@ -21,9 +22,21 @@ namespace Banditlord.Spawn
 
         }
 
-        public void BanditSpawnBehaviour()
+        private bool spawnedToday = false;
+
+        public void HourlyBehaviour()
         {
-            SpawnBanditAtRandomHideout();
+            if (!spawnedToday)
+            {
+                SpawnBanditAtRandomHideout();
+                spawnedToday = true;
+            }
+
+        }
+
+        private void DailyBehaviour()
+        {
+            spawnedToday = true;
         }
 
         private void SpawnBanditAtRandomHideout()

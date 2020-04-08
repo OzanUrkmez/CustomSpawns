@@ -18,12 +18,10 @@ namespace Banditlord
         protected override void OnSubModuleLoad()
         {
             Config config = ConfigLoader.Instance.Config;
-            UX.ShowMessage("hi", Color.Black);
         }
 
         protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
         {
-            UX.ShowMessage("REEEEE", Color.Black);
             if (!(game.GameType is Campaign))
                 return;
             try
