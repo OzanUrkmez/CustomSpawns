@@ -51,8 +51,8 @@ namespace Banditlord.Spawn
         {
             try
             {
-                Clan clan = CampaignUtils.GetClanWithName("Mountain Bandits");
-                Spawner.SpawnBanditAtHideout(CampaignUtils.GetPreferableHideout(clan), clan, clan.DefaultPartyTemplate, new TextObject("Mountain Raiders"));
+                    Clan clan = CampaignUtils.GetClanWithName("Mountain Bandits");
+                    Spawner.SpawnBanditAtHideout(CampaignUtils.GetPreferableHideout(clan), clan, clan.DefaultPartyTemplate, new TextObject("Mountain Raiders"));
             }
             catch(Exception e)
             {

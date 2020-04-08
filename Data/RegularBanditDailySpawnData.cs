@@ -88,6 +88,23 @@ namespace Banditlord.Data
         public int MaximumOnMap { get; set; }
         public float ChanceOfSpawn { get; set; }
         public PartyTemplateObject PartyTemplate { get; set; }
+
+        private int numberSpawned = 0;
+
+        private void IncrementNumberSpawned()
+        {
+            numberSpawned++;
+        }
+
+        private void DecrementNumberSpawned()
+        {
+            numberSpawned--;
+        }
+
+        public bool CanSpawn()
+        {
+            return numberSpawned < MaximumOnMap;
+        }
     }
 
 }
