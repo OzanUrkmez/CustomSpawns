@@ -8,25 +8,34 @@ using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
+using System.Windows.Forms;
 
 namespace Banditlord
 {
     public class Main : MBSubModuleBase
     {
+
+        protected override void OnSubModuleLoad()
+        {
+            Config config = ConfigLoader.Instance.Config;
+            UX.ShowMessage("hi", Color.Black);
+        }
+
         protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
         {
-            base.OnGameStart(game, gameStarterObject);
+            UX.ShowMessage("REEEEE", Color.Black);
             if (!(game.GameType is Campaign))
                 return;
             try
             {
+                UX.ShowMessage("Banditlord is now enabled. Enjoy! :)", Color.ConvertStringToColor("#001FFFFF"));
                 AddBehaviours(gameStarterObject as CampaignGameStarter);
-                UX.ShowMessage("Banditlord is now enabled. Enjoy! :)", Color.ConvertStringToColor("Green"));
             }
             catch (Exception e)
             {
                 ErrorHandler.HandleException(e);
             }
+            base.OnGameStart(game, gameStarterObject);
         }
 
         private void AddBehaviours(CampaignGameStarter starter)

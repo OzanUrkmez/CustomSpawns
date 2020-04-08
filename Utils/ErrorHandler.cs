@@ -12,7 +12,7 @@ namespace Banditlord
 
         public static void HandleException(Exception e)
         {
-            MessageBox.Show(e.Message);
+            MessageBox.Show("Banditlord error has occured, please report to mod developer: " + e.Message);
         }
 
     }

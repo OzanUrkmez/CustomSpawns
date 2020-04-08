@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Banditlord
 {
-    class Config
+    public class Config
     {
 
         public bool IsDebugMode { get; set; }
