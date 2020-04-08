@@ -8,7 +8,7 @@ using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.CampaignSystem;
 
-namespace BanditInfestation
+namespace Banditlord
 {
     public class Main : MBSubModuleBase
     {

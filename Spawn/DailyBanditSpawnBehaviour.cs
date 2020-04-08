@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 
-namespace BanditInfestation.Spawn
+namespace Banditlord.Spawn
 {
     class DailyBanditSpawnBehaviour : CampaignBehaviorBase
     {

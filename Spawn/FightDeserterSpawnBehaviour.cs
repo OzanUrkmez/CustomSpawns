@@ -8,5 +8,9 @@ namespace BanditInfestation.Spawn
 {
     class FightDeserterSpawnBehaviour
     {
+
+
+
+
     }
 }

@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Banditlord.Spawn
+namespace Banditlord
 {
-    class DisbandDeserterSpawnBehaviour
+    class Config
     {
+
+        public bool IsDebugMode { get; set; }
 
     }
 }
