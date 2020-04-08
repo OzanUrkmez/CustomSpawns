@@ -28,7 +28,7 @@ namespace Banditlord.Spawn
         {
             if (!spawnedToday && Campaign.Current.IsNight)
             {
-                SpawnBanditAtRandomHideout();
+                RegularBanditSpawn();
                 spawnedToday = true;
             }
 
@@ -39,7 +39,7 @@ namespace Banditlord.Spawn
             spawnedToday = false;
         }
 
-        private void SpawnBanditAtRandomHideout()
+        private void RegularBanditSpawn()
         {
             try
             {
