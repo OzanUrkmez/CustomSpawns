@@ -71,6 +71,7 @@ namespace Banditlord.Data
 
                     dat.MaximumOnMap = int.Parse(node["MaximumOnMap"].Value);
                     dat.ChanceOfSpawn = float.Parse(node["ChanceOfSpawn"].Value);
+                    dat.Name = node["Name"].Value;
 
                     data.Add(dat);
                 }
@@ -88,6 +89,7 @@ namespace Banditlord.Data
         public int MaximumOnMap { get; set; }
         public float ChanceOfSpawn { get; set; }
         public PartyTemplateObject PartyTemplate { get; set; }
+        public string Name { get; set; }
 
         private int numberSpawned = 0;
 
