@@ -51,8 +51,19 @@ namespace Banditlord.Spawn
         {
             try
             {
-                    Clan clan = CampaignUtils.GetClanWithName("Mountain Bandits");
-                    Spawner.SpawnBanditAtHideout(CampaignUtils.GetPreferableHideout(clan), clan, clan.DefaultPartyTemplate, new TextObject("Mountain Raiders"));
+                var list = dataManager.Data;
+                Random rand = new Random();
+                foreach (Data.RegularBanditDailySpawnData data in list)
+                {
+                    if (data.CanSpawn())
+                    {
+                        if ((float)rand.NextDouble() < data.ChanceOfSpawn)
+                        {
+                            //spawn!
+                            Spawner.SpawnBanditAtHideout(CampaignUtils.GetPreferableHideout(data.OverridenSpawnClan??data.BanditClan), data.BanditClan, data.PartyTemplate, new TextObject(data.Name));
+                        }
+                    }
+                }
             }
             catch(Exception e)
             {
