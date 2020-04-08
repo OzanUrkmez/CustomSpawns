@@ -11,6 +11,14 @@ namespace Banditlord.Spawn
 {
     class DailyBanditSpawnBehaviour : CampaignBehaviorBase
     {
+
+        Data.RegularBanditDailySpawnDataManager dataManager;
+
+        public DailyBanditSpawnBehaviour(Data.RegularBanditDailySpawnDataManager data_manager)
+        {
+            dataManager = data_manager;
+        }
+
         public override void RegisterEvents()
         {
             CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, DailyBehaviour);

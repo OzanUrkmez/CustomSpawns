@@ -38,7 +38,7 @@ namespace Banditlord
 
         private void AddBehaviours(CampaignGameStarter starter)
         {
-            starter.AddBehavior(new Spawn.DailyBanditSpawnBehaviour());
+            starter.AddBehavior(new Spawn.DailyBanditSpawnBehaviour(Data.RegularBanditDailySpawnDataManager.Instance));
         }
 
     }
