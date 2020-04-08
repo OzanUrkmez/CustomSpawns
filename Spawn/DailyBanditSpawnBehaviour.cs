@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
+using TaleWorlds.Localization;
 
 namespace Banditlord.Spawn
 {
@@ -12,7 +13,7 @@ namespace Banditlord.Spawn
     {
         public override void RegisterEvents()
         {
-            CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, SpawnBanditAtRandomSettlement);
+            CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, BanditSpawnBehaviour);
         }
 
         public override void SyncData(IDataStore dataStore)
@@ -20,9 +21,22 @@ namespace Banditlord.Spawn
 
         }
 
-        private void SpawnBanditAtRandomSettlement()
+        public void BanditSpawnBehaviour()
         {
+            SpawnBanditAtRandomHideout();
+        }
 
+        private void SpawnBanditAtRandomHideout()
+        {
+            try
+            {
+                Clan clan = CampaignUtils.GetClanWithName("Mountain Bandits");
+                Spawner.SpawnBanditAtHideout(CampaignUtils.GetPreferableHideout(clan), clan, clan.DefaultPartyTemplate, new TextObject("Mountain Raiders"));
+            }
+            catch(Exception e)
+            {
+                ErrorHandler.HandleException(e);
+            }
         }
     }
 }

@@ -7,6 +7,7 @@ using TaleWorlds.Core;
 using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.Library;
 
 namespace Banditlord
 {
@@ -20,9 +21,11 @@ namespace Banditlord
             try
             {
                 AddBehaviours(gameStarterObject as CampaignGameStarter);
-            }catch(Exception e)
+                UX.ShowMessage("Banditlord is now enabled. Enjoy! :)", Color.ConvertStringToColor("Green"));
+            }
+            catch (Exception e)
             {
-                BanditModErrorHandler.HandleException(e);
+                ErrorHandler.HandleException(e);
             }
         }
 

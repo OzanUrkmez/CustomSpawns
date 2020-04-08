@@ -46,7 +46,7 @@ namespace Banditlord
             }
             catch (Exception e)
             {
-                BanditModErrorHandler.HandleException(e);
+                ErrorHandler.HandleException(e);
                 Config config = new Config();
                 config.IsDebugMode = true;
                 return config;

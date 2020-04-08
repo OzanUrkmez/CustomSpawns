@@ -17,25 +17,40 @@ namespace Banditlord
     class CampaignUtils
     {
 
-        public static Settlement ReturnPreferableHideout(Clan selectedFaction)
+        public static Settlement GetPreferableHideout(Clan preferredFaction, bool secondCall = false)
         {
             Settlement settlement;
-            Hideout hideout = TaleWorldsCode.BanditsCampaignBehaviour.SelectARandomHideout(selectedFaction, true, true, false);
+            Hideout hideout = TaleWorldsCode.BanditsCampaignBehaviour.SelectARandomHideout(preferredFaction, true, true, false);
             settlement = ((hideout != null) ? hideout.Owner.Settlement : null);
             if (settlement == null)
             {
-                hideout = TaleWorldsCode.BanditsCampaignBehaviour.SelectARandomHideout(selectedFaction, false, true, false);
+                hideout = TaleWorldsCode.BanditsCampaignBehaviour.SelectARandomHideout(preferredFaction, false, true, false);
                 settlement = ((hideout != null) ? hideout.Owner.Settlement : null);
                 if (settlement == null)
                 {
-                    hideout = TaleWorldsCode.BanditsCampaignBehaviour.SelectARandomHideout(selectedFaction, false, false, false);
+                    hideout = TaleWorldsCode.BanditsCampaignBehaviour.SelectARandomHideout(preferredFaction, false, false, false);
                     settlement = ((hideout != null) ? hideout.Owner.Settlement : null);
+                    if(settlement == null && !secondCall) //in case the selected faction is invalid
+                    {
+                        List<Clan> clans = Clan.BanditFactions.ToList();
+                        Random rnd = new Random();
+                        Clan chosen = clans[rnd.Next(0, clans.Count)];
+                        return GetPreferableHideout(chosen, true);
+                    }
                 }
             }
             return settlement;
         }
 
-
+        public static Clan GetClanWithName(string name)
+        {
+            foreach(Clan c in Clan.All)
+            {
+                if (c.Name.ToString().ToLower() == name.ToLower())
+                    return c;
+            }
+            return null;
+        }
 
     }
 }

@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BanditLord
+namespace Banditlord
 {
-    class BanditModErrorHandler
+    class ErrorHandler
     {
 
         public static void HandleException(Exception e)

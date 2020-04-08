@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BanditInfestation.Spawn
+namespace Banditlord.Spawn
 {
     class FightDeserterSpawnBehaviour
     {
-
-
 
 
     }
