@@ -85,5 +85,54 @@ namespace Banditlord.TaleWorldsCode
             return null;
         }
 
+        public static Settlement SelectARandomSettlementForLooterParty()
+        {
+            int num = 0;
+            foreach (Settlement settlement in Settlement.All)
+            {
+                if (settlement.IsTown || settlement.IsVillage)
+                {
+                    int num2 = CalculateDistanceScore(settlement.Position2D.DistanceSquared(MobileParty.MainParty.Position2D));
+                    num += num2;
+                }
+            }
+            int num3 = MBRandom.RandomInt(num);
+            foreach (Settlement settlement2 in Settlement.All)
+            {
+                if (settlement2.IsTown || settlement2.IsVillage)
+                {
+                    int num4 = CalculateDistanceScore(settlement2.Position2D.DistanceSquared(MobileParty.MainParty.Position2D));
+                    num3 -= num4;
+                    if (num3 <= 0)
+                    {
+                        return settlement2;
+                    }
+                }
+            }
+            return null;
+        }
+
+        private static int CalculateDistanceScore(float distance)
+        {
+            int result = 2;
+            if (distance < 10000f)
+            {
+                result = 8;
+            }
+            else if (distance < 40000f)
+            {
+                result = 6;
+            }
+            else if (distance < 160000f)
+            {
+                result = 4;
+            }
+            else if (distance < 420000f)
+            {
+                result = 3;
+            }
+            return result;
+        }
+
     }
 }
