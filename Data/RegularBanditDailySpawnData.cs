@@ -60,7 +60,7 @@ namespace Banditlord.Data
                     dat.PartyTemplate = (PartyTemplateObject)MBObjectManager.Instance.ReadObjectReferenceFromXml("party_template", typeof(PartyTemplateObject), node);
                     dat.BanditClan = (Clan)MBObjectManager.Instance.ReadObjectReferenceFromXml("bandit_clan", typeof(Clan), node);
 
-                    if(node.Attributes["overriden_spawn_clan"].Value == "")
+                    if (node.Attributes["overriden_spawn_clan"].Value == "")
                     {
                         dat.OverridenSpawnClan = null;
                     }
@@ -69,13 +69,19 @@ namespace Banditlord.Data
                         dat.OverridenSpawnClan = (Clan)MBObjectManager.Instance.ReadObjectReferenceFromXml("overriden_spawn_clan", typeof(Clan), node);
                     }
 
-                    dat.MaximumOnMap = int.Parse(node["MaximumOnMap"].Value);
-                    dat.ChanceOfSpawn = float.Parse(node["ChanceOfSpawn"].Value);
-                    dat.Name = node["Name"].Value;
+                    dat.MaximumOnMap = int.Parse(node["MaximumOnMap"].InnerText);
+                    if(dat.MaximumOnMap == 0)
+                    {
+                        throw new Exception("the node 'MaximumOnMap' cannot be set to 0!");
+                    }
+                    dat.ChanceOfSpawn = float.Parse(node["ChanceOfSpawn"].InnerText);
+                    dat.Name = node["Name"].InnerText;
+                    dat.ChanceInverseConstant = float.Parse(node["ChanceInverseConstant"].InnerText);
 
                     data.Add(dat);
                 }
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 ErrorHandler.HandleException(e);
             }
@@ -87,18 +93,30 @@ namespace Banditlord.Data
         public Clan BanditClan { get; set; }
         public Clan OverridenSpawnClan { get; set; }
         public int MaximumOnMap { get; set; }
-        public float ChanceOfSpawn { get; set; }
+        private float chanceOfSpawn;
+        public float ChanceOfSpawn
+        {
+            get
+            {
+                return ChanceOfSpawn + ChanceInverseConstant * (float)(MaximumOnMap - numberSpawned) / (float)(MaximumOnMap);
+            }
+            set
+            {
+                chanceOfSpawn = value;
+            }
+        }
+        public float ChanceInverseConstant { private get; set; }
         public PartyTemplateObject PartyTemplate { get; set; }
         public string Name { get; set; }
 
         private int numberSpawned = 0;
 
-        private void IncrementNumberSpawned()
+        public void IncrementNumberSpawned()
         {
             numberSpawned++;
         }
 
-        private void DecrementNumberSpawned()
+        public void DecrementNumberSpawned()
         {
             numberSpawned--;
         }
