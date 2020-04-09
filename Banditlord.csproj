@@ -216,6 +216,7 @@
   <ItemGroup>
     <Compile Include="Config\Config.cs" />
     <Compile Include="Config\ConfigLoader.cs" />
+    <Compile Include="Data\RegularBanditDailySpawnData.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Spawn\BanditFightEnslavementBehaviour.cs" />
