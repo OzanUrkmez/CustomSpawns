@@ -8,7 +8,7 @@ using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.Library;
 
-namespace Banditlord
+namespace CustomSpawns
 {
     class UX
     {

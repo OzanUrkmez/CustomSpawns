@@ -11,7 +11,7 @@ using TaleWorlds.Library;
 using TaleWorlds.Localization;
 using TaleWorlds.Core;
 
-namespace Banditlord.Data
+namespace CustomSpawns.Data
 {
     [Serializable]
     public class RegularBanditDailySpawnDataManager
@@ -44,7 +44,7 @@ namespace Banditlord.Data
 
         private RegularBanditDailySpawnDataManager()
         {
-            string path = Path.Combine(BasePath.Name, "Modules", "Banditlord", "ModuleData", "Data", "RegularBanditDailySpawn.xml");
+            string path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data", "RegularBanditDailySpawn.xml");
             ConstructListFromXML(path);
         }
 

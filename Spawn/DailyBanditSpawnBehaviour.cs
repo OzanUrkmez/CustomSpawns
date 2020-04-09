@@ -7,7 +7,7 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 using TaleWorlds.Localization;
 
-namespace Banditlord.Spawn
+namespace CustomSpawns.Spawn
 {
     class DailyBanditSpawnBehaviour : CampaignBehaviorBase
     {
@@ -21,6 +21,7 @@ namespace Banditlord.Spawn
 
         public void GetCurrentData()
         {
+            foreach(data)
             foreach(MobileParty mb in MobileParty.All)
             {
 

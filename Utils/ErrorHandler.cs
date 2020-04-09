@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Banditlord
+namespace CustomSpawns
 {
     class ErrorHandler
     {
 
         public static void HandleException(Exception e)
         {
-            MessageBox.Show("Banditlord error has occured, please report to mod developer: " + e.Message + " AT " + e.Source);
+            MessageBox.Show("CustomSpawns error has occured, please report to mod developer: " + e.Message + " AT " + e.Source);
         }
 
     }

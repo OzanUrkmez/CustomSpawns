@@ -12,7 +12,7 @@ using TaleWorlds.Localization;
 using TaleWorlds.CampaignSystem;
 
 
-namespace Banditlord
+namespace CustomSpawns
 {
     class CampaignUtils
     {

@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 
-namespace Banditlord
+namespace CustomSpawns
 {
     class ConfigLoader
     {
@@ -30,7 +30,7 @@ namespace Banditlord
 
         private ConfigLoader()
         {
-            string path = Path.Combine(BasePath.Name, "Modules", "Banditlord", "ModuleData", "config.xml");
+            string path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "config.xml");
             Config = getConfig(path);
         }
 

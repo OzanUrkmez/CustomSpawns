@@ -11,7 +11,7 @@ using TaleWorlds.Library;
 using TaleWorlds.Localization;
 using TaleWorlds.CampaignSystem;
 
-namespace Banditlord.TaleWorldsCode
+namespace CustomSpawns.TaleWorldsCode
 {
     class BanditsCampaignBehaviour
     {

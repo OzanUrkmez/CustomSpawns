@@ -10,7 +10,7 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
 using System.Windows.Forms;
 
-namespace Banditlord
+namespace CustomSpawns
 {
     public class Main : MBSubModuleBase
     {
@@ -26,7 +26,7 @@ namespace Banditlord
                 return;
             try
             {
-                UX.ShowMessage("Banditlord is now enabled. Enjoy! :)", Color.ConvertStringToColor("#001FFFFF"));
+                UX.ShowMessage("CustomSpawns is now enabled. Enjoy! :)", Color.ConvertStringToColor("#001FFFFF"));
                 AddBehaviours(gameStarterObject as CampaignGameStarter);
             }
             catch (Exception e)

@@ -9,7 +9,7 @@ using TaleWorlds.MountAndBlade;
 using TaleWorlds.Library;
 
 
-namespace Banditlord
+namespace CustomSpawns
 {
     class ModDebug
     {

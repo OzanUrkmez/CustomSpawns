@@ -12,7 +12,7 @@ using TaleWorlds.Localization;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 
-namespace Banditlord.Spawn
+namespace CustomSpawns.Spawn
 {
     class Spawner
     {
@@ -21,7 +21,7 @@ namespace Banditlord.Spawn
         {
             //get name and show message.
             TextObject textObject = partyName ?? clan.Name;
-            ModDebug.ShowMessage("Banditlord: Spawning " + textObject.ToString() + " at " + spawnedSettlement.GatePosition + " in settlement " + spawnedSettlement.Name.ToString());
+            ModDebug.ShowMessage("CustomSpawns: Spawning " + textObject.ToString() + " at " + spawnedSettlement.GatePosition + " in settlement " + spawnedSettlement.Name.ToString());
 
             //create.
             int numberOfCreated = templateObject.NumberOfCreated;
