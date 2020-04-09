@@ -127,6 +127,11 @@ namespace CustomSpawns.Data
             numberSpawned = num;
         }
 
+        public int GetNumberSpawned()
+        {
+            return numberSpawned;
+        }
+
         public bool CanSpawn()
         {
             return numberSpawned < MaximumOnMap;
