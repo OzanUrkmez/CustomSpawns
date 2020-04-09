@@ -21,10 +21,13 @@ namespace CustomSpawns.Spawn
 
         public void GetCurrentData()
         {
+            Dictionary<Data.RegularBanditDailySpawnData, int> oldValues = new Dictionary<Data.RegularBanditDailySpawnData, int>();
             foreach(Data.RegularBanditDailySpawnData dat in dataManager.Data)
             {
+                oldValues.Add(dat, dat.GetNumberSpawned());
                 dat.SetNumberSpawned(0);
             }
+
             foreach(MobileParty mb in MobileParty.All)
             {
                 foreach (var dat in dataManager.Data) {
@@ -40,7 +43,8 @@ namespace CustomSpawns.Spawn
                 //display necessary debug message.
                 foreach(var dat in dataManager.Data)
                 {
-                    ModDebug.ShowMessage(dat.Name + " count: " + dat.GetNumberSpawned());
+                    if(oldValues[dat] != dat.GetNumberSpawned()) //leave a log only if a change has occured. TODO we can also detect death with these and create custom behaviour/spawn schedules accordingly ;)
+                        ModDebug.ShowMessage(dat.Name + " count: " + dat.GetNumberSpawned());
                 }
             }
         }
@@ -82,13 +86,20 @@ namespace CustomSpawns.Spawn
                 Random rand = new Random();
                 foreach (Data.RegularBanditDailySpawnData data in list)
                 {
-                    if (data.CanSpawn())
+                    for (int i = 0; i < data.RepeatSpawnRolls; i++)
                     {
-                        if ((float)rand.NextDouble() < data.ChanceOfSpawn)
+                        if (data.CanSpawn())
                         {
-                            //spawn!
-                            Spawner.SpawnBanditAtHideout(CampaignUtils.GetPreferableHideout(data.OverridenSpawnClan??data.BanditClan), data.BanditClan, data.PartyTemplate, new TextObject(data.Name));
-                            data.IncrementNumberSpawned();
+                            if ((float)rand.NextDouble() < data.ChanceOfSpawn)
+                            {
+                                //spawn!
+                                Spawner.SpawnBanditAtHideout(CampaignUtils.GetPreferableHideout(data.OverridenSpawnClan ?? data.BanditClan), data.BanditClan, data.PartyTemplate, new TextObject(data.Name));
+                                data.IncrementNumberSpawned();
+                            }
+                        }
+                        else
+                        {
+                            break;
                         }
                     }
                 }

@@ -78,7 +78,7 @@ namespace CustomSpawns.Data
                     dat.ChanceOfSpawn = float.Parse(node["ChanceOfSpawn"].InnerText);
                     dat.Name = node["Name"].InnerText;
                     dat.ChanceInverseConstant = float.Parse(node["ChanceInverseConstant"].InnerText);
-
+                    dat.RepeatSpawnRolls = int.Parse(node["RepeatSpawnRolls"].InnerText);
                     data.Add(dat);
                 }
             }
@@ -109,6 +109,7 @@ namespace CustomSpawns.Data
         public float ChanceInverseConstant { private get; set; }
         public PartyTemplateObject PartyTemplate { get; set; }
         public string Name { get; set; }
+        public int RepeatSpawnRolls { get; set; }
 
         private int numberSpawned = 0;
 
