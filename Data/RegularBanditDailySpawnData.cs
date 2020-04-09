@@ -28,6 +28,7 @@ namespace Banditlord.Data
             private set
             {
                 _instance = value;
+                
             }
         }
 
@@ -119,6 +120,11 @@ namespace Banditlord.Data
         public void DecrementNumberSpawned()
         {
             numberSpawned--;
+        }
+
+        public void SetNumberSpawned(int num)
+        {
+            numberSpawned = num;
         }
 
         public bool CanSpawn()

@@ -19,6 +19,14 @@ namespace Banditlord.Spawn
             dataManager = data_manager;
         }
 
+        public void GetCurrentData()
+        {
+            foreach(MobileParty mb in MobileParty.All)
+            {
+
+            }
+        }
+
         public override void RegisterEvents()
         {
             CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, DailyBehaviour);
@@ -34,6 +42,7 @@ namespace Banditlord.Spawn
 
         public void HourlyBehaviour()
         {
+            GetCurrentData();
             if (!spawnedToday && Campaign.Current.IsNight)
             {
                 RegularBanditSpawn();
