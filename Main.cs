@@ -9,6 +9,7 @@ using TaleWorlds.MountAndBlade;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
 using System.Windows.Forms;
+using StoryMode;
 
 namespace CustomSpawns
 {
@@ -22,20 +23,37 @@ namespace CustomSpawns
             Config config = ConfigLoader.Instance.Config;
         }
 
-        protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
+        public override void OnCampaignStart(Game game, object starterObject)
         {
-            if (!(game.GameType is Campaign))
-                return;
+            base.OnCampaignStart(game, starterObject);
             try
             {
-                UX.ShowMessage("CustomSpawns "+ version +" is now enabled. Enjoy! :)", Color.ConvertStringToColor("#001FFFFF"));
+                InitializeGame(game, (IGameStarter)starterObject);
+            }catch(Exception e)
+            {
+                ErrorHandler.HandleException(e);
+            }
+        }
+
+        protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
+        {
+            base.OnGameStart(game, gameStarterObject);
+            if (!(game.GameType is Campaign) || ((StoryMode.CampaignStoryMode)game.GameType).CampaignGameLoadingType == Campaign.GameLoadingType.NewCampaign)
+                return;
+            InitializeGame(game, gameStarterObject);
+        }
+
+        private void InitializeGame(Game game, IGameStarter gameStarterObject)
+        {
+            try
+            {
+                UX.ShowMessage("CustomSpawns " + version + " is now enabled. Enjoy! :)", Color.ConvertStringToColor("#001FFFFF"));
                 AddBehaviours(gameStarterObject as CampaignGameStarter);
             }
             catch (Exception e)
             {
                 ErrorHandler.HandleException(e);
             }
-            base.OnGameStart(game, gameStarterObject);
         }
 
         private void AddBehaviours(CampaignGameStarter starter)
