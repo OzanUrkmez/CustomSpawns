@@ -99,7 +99,7 @@ namespace CustomSpawns.Data
         {
             get
             {
-                return ChanceOfSpawn + ChanceInverseConstant * (float)(MaximumOnMap - numberSpawned) / (float)(MaximumOnMap);
+                return chanceOfSpawn + ChanceInverseConstant * (float)(MaximumOnMap - numberSpawned) / (float)(MaximumOnMap);
             }
             set
             {
