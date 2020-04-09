@@ -26,7 +26,7 @@ namespace CustomSpawns.Spawn
             //create.
             int numberOfCreated = templateObject.NumberOfCreated;
             templateObject.IncrementNumberOfCreated();
-            MobileParty mobileParty = MBObjectManager.Instance.CreateObject<MobileParty>(clan.StringId + "_" + numberOfCreated.ToString());
+            MobileParty mobileParty = MBObjectManager.Instance.CreateObject<MobileParty>(templateObject.StringId + "_" + numberOfCreated.ToString());
             mobileParty.InitializeMobileParty(textObject, templateObject, spawnedSettlement.GatePosition, 0, 0, MobileParty.PartyTypeEnum.Bandit, -1);
 
             //initialize as bandit party

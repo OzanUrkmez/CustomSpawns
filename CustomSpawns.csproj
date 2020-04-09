@@ -7,8 +7,8 @@
     <ProjectGuid>{E1047BC3-78A9-444C-B74F-41E1B9744ED3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Banditlord</RootNamespace>
-    <AssemblyName>Banditlord</AssemblyName>
+    <RootNamespace>CustomSpawns</RootNamespace>
+    <AssemblyName>CustomSpawns</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Banditlord\bin\Win64_Shipping_Client\</OutputPath>
+    <OutputPath>D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\CustomSpawns\bin\Win64_Shipping_Client\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>

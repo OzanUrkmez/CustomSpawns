@@ -21,10 +21,27 @@ namespace CustomSpawns.Spawn
 
         public void GetCurrentData()
         {
-            foreach(data)
+            foreach(Data.RegularBanditDailySpawnData dat in dataManager.Data)
+            {
+                dat.SetNumberSpawned(0);
+            }
             foreach(MobileParty mb in MobileParty.All)
             {
-
+                foreach (var dat in dataManager.Data) {
+                    if (mb.StringId.Split('_')[0] == dat.PartyTemplate.StringId)
+                    {
+                        //increase count
+                        dat.IncrementNumberSpawned();
+                    }
+                }
+            }
+            if (ConfigLoader.Instance.Config.IsDebugMode)
+            {
+                //display necessary debug message.
+                foreach(var dat in dataManager.Data)
+                {
+                    ModDebug.ShowMessage(dat.Name + " count: " + dat.GetNumberSpawned());
+                }
             }
         }
 

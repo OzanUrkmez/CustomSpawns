@@ -1,0 +1,8 @@
+C:\Users\arkan\source\repos\CustomSpawns\CustomSpawns\obj\Debug\CustomSpawns.csprojAssemblyReference.cache
+C:\Users\arkan\source\repos\CustomSpawns\CustomSpawns\obj\Debug\CustomSpawns.csproj.CoreCompileInputs.cache
+D:\SteamLibrary\steamapps\common\Mount & Blade II Bannerlord\Modules\Banditlord\bin\Win64_Shipping_Client\Banditlord.dll
+D:\SteamLibrary\steamapps\common\Mount & Blade II Bannerlord\Modules\Banditlord\bin\Win64_Shipping_Client\Banditlord.pdb
+D:\SteamLibrary\steamapps\common\Mount & Blade II Bannerlord\Modules\CustomSpawns\bin\Win64_Shipping_Client\CustomSpawns.dll
+D:\SteamLibrary\steamapps\common\Mount & Blade II Bannerlord\Modules\CustomSpawns\bin\Win64_Shipping_Client\CustomSpawns.pdb
+C:\Users\arkan\source\repos\CustomSpawns\CustomSpawns\obj\Debug\CustomSpawns.dll
+C:\Users\arkan\source\repos\CustomSpawns\CustomSpawns\obj\Debug\CustomSpawns.pdb
