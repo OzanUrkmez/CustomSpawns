@@ -14,6 +14,8 @@ namespace CustomSpawns
 {
     public class Main : MBSubModuleBase
     {
+        public static readonly string version = "v1.0.0";
+
 
         protected override void OnSubModuleLoad()
         {
@@ -26,7 +28,7 @@ namespace CustomSpawns
                 return;
             try
             {
-                UX.ShowMessage("CustomSpawns is now enabled. Enjoy! :)", Color.ConvertStringToColor("#001FFFFF"));
+                UX.ShowMessage("CustomSpawns "+ version +" is now enabled. Enjoy! :)", Color.ConvertStringToColor("#001FFFFF"));
                 AddBehaviours(gameStarterObject as CampaignGameStarter);
             }
             catch (Exception e)
