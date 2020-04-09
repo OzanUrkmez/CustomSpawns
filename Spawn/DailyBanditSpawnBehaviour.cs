@@ -61,6 +61,7 @@ namespace Banditlord.Spawn
                         {
                             //spawn!
                             Spawner.SpawnBanditAtHideout(CampaignUtils.GetPreferableHideout(data.OverridenSpawnClan??data.BanditClan), data.BanditClan, data.PartyTemplate, new TextObject(data.Name));
+                            data.IncrementNumberSpawned();
                         }
                     }
                 }
