@@ -1,0 +1,3 @@
+-Addition of items to custom spawns and parties, such as horses to make them travel faster.
+-Ability to add preconditions and chance modifiers, such as one dependent on loyalty or stability of settlements or factions
+-customize base hp etc
