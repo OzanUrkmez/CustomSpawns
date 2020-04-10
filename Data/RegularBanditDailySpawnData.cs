@@ -97,6 +97,13 @@ namespace CustomSpawns.Data
                         }
                     }
 
+                    //handle extra linear speed.
+                    if(node["ExtraLinearSpeed"] != null)
+                    {
+                        float extra = float.Parse(node["ExtraLinearSpeed"].InnerText);
+                        Main.customSpeedModel.RegisterPartyExtraSpeed(dat.PartyTemplate.StringId, extra);
+                    }
+
                     data.Add(dat);
                 }
             }
