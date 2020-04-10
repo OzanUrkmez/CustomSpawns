@@ -61,7 +61,7 @@ namespace CustomSpawns.Data
                     dat.PartyTemplate = (PartyTemplateObject)MBObjectManager.Instance.ReadObjectReferenceFromXml("party_template", typeof(PartyTemplateObject), node);
                     dat.BanditClan = (Clan)MBObjectManager.Instance.ReadObjectReferenceFromXml("bandit_clan", typeof(Clan), node);
 
-                    if (node.Attributes["overriden_spawn_clan"].Value == "")
+                    if (node.Attributes["overriden_spawn_clan"].InnerText == "")
                     {
                         dat.OverridenSpawnClan = null;
                     }
@@ -81,8 +81,8 @@ namespace CustomSpawns.Data
                     dat.RepeatSpawnRolls = int.Parse(node["RepeatSpawnRolls"].InnerText);
 
                     //message
-                    string msg = node["SpawnMessage"] == null? "" : node["SpawnMessage"].Value;
-                    string color = node["SpawnMessageColor"] == null ? "" : node["SpawnMessageColor"].Value;
+                    string msg = node["SpawnMessage"] == null? "" : node["SpawnMessage"].InnerText;
+                    string color = node["SpawnMessageColor"] == null ? "" : node["SpawnMessageColor"].InnerText;
 
                     if(msg != "")
                     {
