@@ -61,13 +61,20 @@ namespace CustomSpawns.Data
                     dat.PartyTemplate = (PartyTemplateObject)MBObjectManager.Instance.ReadObjectReferenceFromXml("party_template", typeof(PartyTemplateObject), node);
                     dat.BanditClan = (Clan)MBObjectManager.Instance.ReadObjectReferenceFromXml("bandit_clan", typeof(Clan), node);
 
-                    if (node.Attributes["overriden_spawn_clan"].InnerText == "")
+
+                    int i = 0;
+                    string s = "overriden_spawn_clan";
+                    while (true)
                     {
-                        dat.OverridenSpawnClan = null;
-                    }
-                    else
-                    {
-                        dat.OverridenSpawnClan = (Clan)MBObjectManager.Instance.ReadObjectReferenceFromXml("overriden_spawn_clan", typeof(Clan), node);
+                        string s1 = s + "_" + i.ToString();
+                        if (node.Attributes[s1].InnerText == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            dat.OverridenSpawnClan.Add((Clan)MBObjectManager.Instance.ReadObjectReferenceFromXml(s1, typeof(Clan), node));
+                        }
                     }
 
                     dat.MaximumOnMap = int.Parse(node["MaximumOnMap"].InnerText);
@@ -117,7 +124,7 @@ namespace CustomSpawns.Data
     public class RegularBanditDailySpawnData
     {
         public Clan BanditClan { get; set; }
-        public Clan OverridenSpawnClan { get; set; }
+        public List<Clan> OverridenSpawnClan = new List<Clan>();
         public int MaximumOnMap { get; set; }
         private float chanceOfSpawn;
         public float ChanceOfSpawn
