@@ -16,7 +16,7 @@ namespace CustomSpawns
     public class Main : MBSubModuleBase
     {
         public static readonly string version = "v1.0.0";
-
+        public static CustomSpawnsCustomSpeedModel customSpeedModel;
 
         protected override void OnSubModuleLoad()
         {
@@ -49,6 +49,8 @@ namespace CustomSpawns
             {
                 UX.ShowMessage("CustomSpawns " + version + " is now enabled. Enjoy! :)", Color.ConvertStringToColor("#001FFFFF"));
                 AddBehaviours(gameStarterObject as CampaignGameStarter);
+                customSpeedModel = new CustomSpawnsCustomSpeedModel();
+                gameStarterObject.AddModel(customSpeedModel);
             }
             catch (Exception e)
             {
