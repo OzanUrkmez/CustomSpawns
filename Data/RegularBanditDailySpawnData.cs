@@ -79,6 +79,24 @@ namespace CustomSpawns.Data
                     dat.Name = node["Name"].InnerText;
                     dat.ChanceInverseConstant = float.Parse(node["ChanceInverseConstant"].InnerText);
                     dat.RepeatSpawnRolls = int.Parse(node["RepeatSpawnRolls"].InnerText);
+
+                    //message
+                    string msg = node["SpawnMessage"] == null? "" : node["SpawnMessage"].Value;
+                    string color = node["SpawnMessageColor"] == null ? "" : node["SpawnMessageColor"].Value;
+
+                    if(msg != "")
+                    {
+                        if(color == "")
+                        {
+                            dat.spawnMessage = new InformationMessage(msg, Color.Black);
+                        }
+                        else
+                        {
+                            Color c = UX.GetMessageColour(color) == "" ? (color[0] == '#'? Color.ConvertStringToColor(color) : Color.Black) : Color.ConvertStringToColor(UX.GetMessageColour(color));
+                            dat.spawnMessage = new InformationMessage(msg, c);
+                        }
+                    }
+
                     data.Add(dat);
                 }
             }
@@ -110,6 +128,7 @@ namespace CustomSpawns.Data
         public PartyTemplateObject PartyTemplate { get; set; }
         public string Name { get; set; }
         public int RepeatSpawnRolls { get; set; }
+        public InformationMessage spawnMessage { get; set; }
 
         private int numberSpawned = 0;
 
