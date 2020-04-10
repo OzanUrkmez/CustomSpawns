@@ -20,6 +20,7 @@ namespace CustomSpawns
 
         protected override void OnSubModuleLoad()
         {
+            customSpeedModel = new CustomSpawnsCustomSpeedModel();
             Config config = ConfigLoader.Instance.Config;
         }
 
@@ -49,7 +50,6 @@ namespace CustomSpawns
             {
                 UX.ShowMessage("CustomSpawns " + version + " is now enabled. Enjoy! :)", Color.ConvertStringToColor("#001FFFFF"));
                 AddBehaviours(gameStarterObject as CampaignGameStarter);
-                customSpeedModel = new CustomSpawnsCustomSpeedModel();
                 gameStarterObject.AddModel(customSpeedModel);
             }
             catch (Exception e)
