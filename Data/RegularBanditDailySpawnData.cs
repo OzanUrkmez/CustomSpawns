@@ -75,6 +75,7 @@ namespace CustomSpawns.Data
                         {
                             dat.OverridenSpawnClan.Add((Clan)MBObjectManager.Instance.ReadObjectReferenceFromXml(s1, typeof(Clan), node));
                         }
+                        i++;
                     }
 
                     dat.MaximumOnMap = int.Parse(node["MaximumOnMap"].InnerText);
