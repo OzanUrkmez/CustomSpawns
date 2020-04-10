@@ -67,7 +67,7 @@ namespace CustomSpawns.Data
                     while (true)
                     {
                         string s1 = s + "_" + i.ToString();
-                        if (node.Attributes[s1].InnerText == "")
+                        if (node.Attributes[s1] == null || node.Attributes[s1].InnerText == "")
                         {
                             break;
                         }
