@@ -88,8 +88,8 @@ namespace CustomSpawns.Spawn
                 Random rand = new Random();
                 foreach (Data.RegularBanditDailySpawnData data in list)
                 {
-                    int i = 0;
-                    for (i = 0; i < data.RepeatSpawnRolls; i++)
+                    int j = 0;
+                    for (int i = 0; i < data.RepeatSpawnRolls; i++)
                     {
                         if (data.CanSpawn())
                         {
@@ -98,6 +98,7 @@ namespace CustomSpawns.Spawn
                                 //spawn!
                                 Spawner.SpawnBanditAtHideout(CampaignUtils.GetPreferableHideout(data.OverridenSpawnClan ?? data.BanditClan), data.BanditClan, data.PartyTemplate, new TextObject(data.Name));
                                 data.IncrementNumberSpawned(); //increment for can spawn and chance modifications
+                                j++;
                             }
                         }
                         else
@@ -105,7 +106,7 @@ namespace CustomSpawns.Spawn
                             break;
                         }
                     }
-                    data.SetNumberSpawned(data.GetNumberSpawned() - i); //make sure that only the hourly checker really tells number spawned.
+                    data.SetNumberSpawned(data.GetNumberSpawned() - j); //make sure that only the hourly checker really tells number spawned.
                 }
             }
             catch(Exception e)
