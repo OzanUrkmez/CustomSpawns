@@ -99,6 +99,11 @@ namespace CustomSpawns.Spawn
                                 Spawner.SpawnBanditAtHideout(CampaignUtils.GetPreferableHideout(data.OverridenSpawnClan ?? data.BanditClan), data.BanditClan, data.PartyTemplate, new TextObject(data.Name));
                                 data.IncrementNumberSpawned(); //increment for can spawn and chance modifications
                                 j++;
+                                //message if available
+                                if(data.spawnMessage != null)
+                                {
+                                    UX.ShowMessage(data.spawnMessage);
+                                }
                             }
                         }
                         else
