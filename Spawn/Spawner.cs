@@ -32,6 +32,9 @@ namespace CustomSpawns.Spawn
             //initialize as bandit party
             TaleWorldsCode.BanditsCampaignBehaviour.InitBanditParty(mobileParty, textObject, clan, spawnedSettlement);
 
+            //fill reminiscent
+            CampaignUtils.FillReminiscentBanditParties(mobileParty, templateObject, MobileParty.PartyTypeEnum.Bandit);
+
             return mobileParty;
         }
 
