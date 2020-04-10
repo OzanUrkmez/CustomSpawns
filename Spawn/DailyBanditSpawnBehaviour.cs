@@ -95,8 +95,14 @@ namespace CustomSpawns.Spawn
                         {
                             if ((float)rand.NextDouble() < data.ChanceOfSpawn)
                             {
+                                Clan spawnClan = data.BanditClan;
+                                //deal with override of spawn clan.
+                                if(data.OverridenSpawnClan.Count != 0)
+                                {
+                                    spawnClan = data.OverridenSpawnClan[rand.Next(0, data.OverridenSpawnClan.Count)];
+                                }
                                 //spawn!
-                                Spawner.SpawnBanditAtHideout(CampaignUtils.GetPreferableHideout(data.OverridenSpawnClan ?? data.BanditClan), data.BanditClan, data.PartyTemplate, new TextObject(data.Name));
+                                Spawner.SpawnBanditAtHideout(CampaignUtils.GetPreferableHideout(spawnClan), data.BanditClan, data.PartyTemplate, new TextObject(data.Name));
                                 data.IncrementNumberSpawned(); //increment for can spawn and chance modifications
                                 j++;
                                 //message if available
