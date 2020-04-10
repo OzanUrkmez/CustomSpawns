@@ -17,6 +17,11 @@ namespace CustomSpawns
             InformationManager.DisplayMessage(new InformationMessage(message, messageColor));
         }
 
+        public static void ShowMessage(InformationMessage msg)
+        {
+            InformationManager.DisplayMessage(msg);
+        }
+
         private static Dictionary<string, string> flagToMessageColour = new Dictionary<string, string>()
         {
             { "danger", "FF2300FF"}
