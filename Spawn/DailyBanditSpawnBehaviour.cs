@@ -105,12 +105,14 @@ namespace CustomSpawns.Spawn
                                 Settlement firstHideout = null;
                                 if (ConfigLoader.Instance.Config.SpawnAtOneHideout)
                                 {
-                                    foreach(Settlement s in Settlement.All)
+                                    foreach (Settlement s in Settlement.All)
                                     {
                                         if (s.IsHideout())
                                         {
                                             firstHideout = s;
+                                            break;
                                         }
+                                    }
                                 }
                                 Spawner.SpawnBanditAtHideout(ConfigLoader.Instance.Config.SpawnAtOneHideout? firstHideout : CampaignUtils.GetPreferableHideout(spawnClan), data.BanditClan, data.PartyTemplate, 
                                     new TextObject(data.Name));
