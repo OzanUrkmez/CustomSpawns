@@ -39,7 +39,7 @@ namespace CustomSpawns
 
         public void RegisterPartyExtraSpeed(string partyBaseID, float extraSpeed)
         {
-            if (partyIDToExtraSpeed.ContainsKey(partyBaseID))
+            if (partyIDToExtraSpeed.ContainsKey(partyBaseID) || !ConfigLoader.Instance.Config.ModifyPartySpeeds)
                 return;
             partyIDToExtraSpeed.Add(partyBaseID, extraSpeed);
         }

@@ -12,5 +12,6 @@ namespace CustomSpawns
 
         public bool IsDebugMode { get; set; }
         public bool SpawnAtOneHideout { get; set; }
+        public bool ModifyPartySpeeds { get; set; }
     }
 }
