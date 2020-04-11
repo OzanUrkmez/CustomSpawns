@@ -112,7 +112,7 @@ namespace CustomSpawns.TaleWorldsCode
             return null;
         }
 
-        private static int CalculateDistanceScore(float distance)
+        public static int CalculateDistanceScore(float distance)
         {
             int result = 2;
             if (distance < 10000f)

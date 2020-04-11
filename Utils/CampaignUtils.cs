@@ -43,6 +43,36 @@ namespace CustomSpawns
             return settlement;
         }
 
+        public static Settlement PickRandomSettlementOfCulture(List<CultureCode> c)
+        {
+            int num = 0;
+            List<Settlement> permissible = new List<Settlement>();
+            foreach (Settlement s in Settlement.All)
+            {
+                if((s.IsTown || s.IsVillage) && (c.Contains(s.Culture.GetCultureCode())))
+                {
+                    permissible.Add(s);
+                }
+            }
+            foreach (Settlement s in permissible)
+            {
+                    int num2 = TaleWorldsCode.BanditsCampaignBehaviour.CalculateDistanceScore(s.Position2D.DistanceSquared(MobileParty.MainParty.Position2D));
+                    num += num2;
+            }
+            int num3 = MBRandom.RandomInt(num);
+            foreach (Settlement s in permissible)
+            {
+                    int num4 = TaleWorldsCode.BanditsCampaignBehaviour.CalculateDistanceScore(s.Position2D.DistanceSquared(MobileParty.MainParty.Position2D)); //makes it more likely that the spawn will be closer to the player.
+                    num3 -= num4;
+                    if (num3 <= 0)
+                    {
+                        return s;
+                    }
+            }
+            ModDebug.ShowMessage("Unable to find proper settlement of" + c.ToString() + " for some reason.");
+            return permissible.Count == 0? null: permissible[0];
+        }
+
         public static Clan GetClanWithName(string name)
         {
             foreach(Clan c in Clan.All)
