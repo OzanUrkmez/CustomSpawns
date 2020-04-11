@@ -141,7 +141,8 @@ namespace CustomSpawns.Data
                         }
                         else
                         {
-                            dat.SpawnAlongWith.Add(((PartyTemplateObject)MBObjectManager.Instance.ReadObjectReferenceFromXml(s1, typeof(PartyTemplateObject), node)));
+                            PartyTemplateObject pt = (PartyTemplateObject)MBObjectManager.Instance.ReadObjectReferenceFromXml(s1, typeof(PartyTemplateObject), node);
+                            dat.SpawnAlongWith.Add(new AccompanyingParty(pt, NameSignifierData.Instance.GetPartyNameFromID(pt.StringId)));
                         }
                         k++;
                     }
@@ -161,7 +162,7 @@ namespace CustomSpawns.Data
         public Clan BanditClan { get; set; }
         public List<Clan> OverridenSpawnClan = new List<Clan>();
         public List<CultureCode> OverridenSpawnCultures = new List<CultureCode>();
-        public List<PartyTemplateObject> SpawnAlongWith = new List<PartyTemplateObject>();
+        public List<AccompanyingParty> SpawnAlongWith = new List<AccompanyingParty>();
         public int MaximumOnMap { get; set; }
         private float chanceOfSpawn;
         public float ChanceOfSpawn
@@ -209,6 +210,18 @@ namespace CustomSpawns.Data
         }
 
 
+    }
+
+    public struct AccompanyingParty
+    {
+        public PartyTemplateObject templateObject;
+        public string name;
+
+        public AccompanyingParty(PartyTemplateObject pt, string n)
+        {
+            templateObject = pt;
+            name = n;
+        }
     }
 
 }
