@@ -25,7 +25,7 @@ namespace CustomSpawns
         public static void ShowParseSpawnMessage(InformationMessage msg, string spawnPlaceName)
         {
             string s = msg.Information;
-            string[] codes = s.Split('[');
+            string[] codes = s.Split(new string[] { "[", "]"}, StringSplitOptions.None);
             if (codes.Length == 1) {
                 ShowMessage(msg);
                 return;
@@ -34,7 +34,7 @@ namespace CustomSpawns
             {
                 switch (codes[i])
                 {
-                    case "spawnPlace]":
+                    case "spawnPlace":
                         codes[i] = spawnPlaceName;
                         break;
                 }
