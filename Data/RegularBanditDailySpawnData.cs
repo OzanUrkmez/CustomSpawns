@@ -143,6 +143,7 @@ namespace CustomSpawns.Data
                         {
                             PartyTemplateObject pt = (PartyTemplateObject)MBObjectManager.Instance.ReadObjectReferenceFromXml(s1, typeof(PartyTemplateObject), node);
                             dat.SpawnAlongWith.Add(new AccompanyingParty(pt, NameSignifierData.Instance.GetPartyNameFromID(pt.StringId)));
+                            Main.customSpeedModel.RegisterPartyExtraSpeed(pt.StringId, NameSignifierData.Instance.GetSpeedModifierFromID(pt.StringId));
                         }
                         k++;
                     }
