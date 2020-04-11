@@ -10,6 +10,13 @@
 -more complicated spawn rolls and such
 -spawns shall be in different factions, and will be able to attack each other etc.
 -make faces of desert cult more varied
--CANNOT UNUSE MY MOD!! FIND A FIX!
+-CANNOT UNUSE MY MOD!! FIND A FIX! (just UI and remove every party that is with cs_...
 -better peasant troop trees!
 -add variance to barbarians
+-localized peasant revolts etc. more specific upgrade trees. improve their troops etc. 
+-ADD MORE VARIED TROOPS!!
+-search for hideouts near certain cultures/settlements etc
+-manhunters!
+-infighting between spawns. So different factions
+-ASK FOR PEOPLE TO SHARE THE MOD ETC. 
+-Custom dialogue
