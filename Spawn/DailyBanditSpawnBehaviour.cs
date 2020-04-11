@@ -103,7 +103,7 @@ namespace CustomSpawns.Spawn
                                 }
                                 //spawn!
                                 Settlement firstHideout = null;
-                                if (ConfigLoader.Instance.Config.SpawnAtOneHideout)
+                                if (ConfigLoader.Instance.Config.SpawnAtOneHideout) //check for one hideout
                                 {
                                     foreach (Settlement s in Settlement.All)
                                     {
@@ -114,6 +114,7 @@ namespace CustomSpawns.Spawn
                                         }
                                     }
                                 }
+                                //spawn nao!
                                 Spawner.SpawnBanditAtHideout(ConfigLoader.Instance.Config.SpawnAtOneHideout? firstHideout : CampaignUtils.GetPreferableHideout(spawnClan), data.BanditClan, data.PartyTemplate, 
                                     new TextObject(data.Name));
                                 data.IncrementNumberSpawned(); //increment for can spawn and chance modifications
