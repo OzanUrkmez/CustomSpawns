@@ -5,3 +5,5 @@
 -implement features like Spawn along with
 -spawn in/around settlements etc
 -checks like IsStarving can be checked to spawn things when they are true. There are so many flags like that!
+-message where revolts etc. are! big events should also tell of where they are happening
+-revolts etc more likely to happen to places with high adversity, under siege, frequently raided etc
