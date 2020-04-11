@@ -102,7 +102,18 @@ namespace CustomSpawns.Spawn
                                     spawnClan = data.OverridenSpawnClan[rand.Next(0, data.OverridenSpawnClan.Count)];
                                 }
                                 //spawn!
-                                Spawner.SpawnBanditAtHideout(CampaignUtils.GetPreferableHideout(spawnClan), data.BanditClan, data.PartyTemplate, new TextObject(data.Name));
+                                Settlement firstHideout = null;
+                                if (ConfigLoader.Instance.Config.SpawnAtOneHideout)
+                                {
+                                    foreach(Settlement s in Settlement.All)
+                                    {
+                                        if (s.IsHideout())
+                                        {
+                                            firstHideout = s;
+                                        }
+                                }
+                                Spawner.SpawnBanditAtHideout(ConfigLoader.Instance.Config.SpawnAtOneHideout? firstHideout : CampaignUtils.GetPreferableHideout(spawnClan), data.BanditClan, data.PartyTemplate, 
+                                    new TextObject(data.Name));
                                 data.IncrementNumberSpawned(); //increment for can spawn and chance modifications
                                 j++;
                                 //message if available
