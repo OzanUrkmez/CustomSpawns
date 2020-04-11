@@ -7,3 +7,6 @@
 -checks like IsStarving can be checked to spawn things when they are true. There are so many flags like that!
 -message where revolts etc. are! big events should also tell of where they are happening
 -revolts etc more likely to happen to places with high adversity, under siege, frequently raided etc
+-more complicated spawn rolls and such
+-spawns shall be in different factions, and will be able to attack each other etc.
+-make faces of desert cult more varied

@@ -146,7 +146,7 @@ namespace CustomSpawns.Data
         public Clan BanditClan { get; set; }
         public List<Clan> OverridenSpawnClan = new List<Clan>();
         public List<CultureCode> OverridenSpawnCultures = new List<CultureCode>();
-        public List<PartyTemplateObject> SpawnAlongWith = new List<PartyTemplateObject>(); //TODO implement
+        public List<PartyTemplateObject> SpawnAlongWith = new List<PartyTemplateObject>();
         public int MaximumOnMap { get; set; }
         private float chanceOfSpawn;
         public float ChanceOfSpawn

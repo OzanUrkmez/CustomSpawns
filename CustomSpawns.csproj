@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="StoryMode">
       <HintPath>D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\StoryMode\bin\Win64_Shipping_Client\StoryMode.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

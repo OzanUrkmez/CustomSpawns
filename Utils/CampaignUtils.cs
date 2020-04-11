@@ -70,7 +70,7 @@ namespace CustomSpawns
                     }
             }
             ModDebug.ShowMessage("Unable to find proper settlement of" + c.ToString() + " for some reason.");
-            return permissible.Count == 0? null: permissible[0];
+            return permissible.Count == 0? Settlement.All[0]: permissible[0];
         }
 
         public static Clan GetClanWithName(string name)
