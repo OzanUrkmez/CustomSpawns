@@ -32,7 +32,7 @@ namespace CustomSpawns.Data
 
 
         private Dictionary<string, string> IDToName = new Dictionary<string, string>();
-
+        private Dictionary<string, float> IDToSpeedModifier = new Dictionary<string, float>();
         private NameSignifierData()
         {
             string path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data", "NameSignifiers.xml");
@@ -41,23 +41,47 @@ namespace CustomSpawns.Data
 
         private void ConstructFromXML(string path)
         {
-            XmlDocument doc = new XmlDocument();
-            doc.Load(path);
-
-            foreach(XmlNode node in doc.DocumentElement)
+            try
             {
-                if(node.Attributes["id"] == null || node.Attributes["value"] == null)
+                XmlDocument doc = new XmlDocument();
+                doc.Load(path);
+
+                foreach (XmlNode node in doc.DocumentElement)
                 {
-                    ErrorHandler.HandleException(new Exception("There must be an id and value attribute defined for each element in NameSignifiers.xml"));
-                    continue;
+                    if (node.Attributes["id"] == null || node.Attributes["value"] == null)
+                    {
+                        ErrorHandler.HandleException(new Exception("There must be an id and value attribute defined for each element in NameSignifiers.xml"));
+                        continue;
+                    }
+                    string id = node.Attributes["id"].InnerText;
+                    IDToName.Add(id, node.Attributes["value"].InnerText);
+                    if (node.Attributes["speed_modifier"] != null)
+                    {
+
+                        float result;
+                        if (!float.TryParse(node.Attributes["speed_modifier"].InnerText, out result))
+                        {
+                            throw new Exception("Please enter a valid float for the speed modifier!");
+                        }
+                        IDToSpeedModifier.Add(id, result);
+                    }
                 }
-                IDToName.Add(node.Attributes["id"].InnerText, node.Attributes["value"].InnerText);
+
+            }
+            catch (Exception e)
+            {
+                ErrorHandler.HandleException(e);
             }
         }
 
         public string GetPartyNameFromID(string id)
         {
             return IDToName[id];
+        }
+
+        public float GetSpeedModifierFromID(string id)
+        {
+            return IDToSpeedModifier[id];
         }
     }
 }
