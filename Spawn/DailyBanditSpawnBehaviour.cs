@@ -122,14 +122,14 @@ namespace CustomSpawns.Spawn
                                     spawnOverride = CampaignUtils.PickRandomSettlementOfCulture(data.OverridenSpawnCultures);
                                 }
                                 //spawn nao!
-                                Spawner.SpawnBanditAtHideout(ConfigLoader.Instance.Config.SpawnAtOneHideout? firstHideout : (spawnOverride == null? CampaignUtils.GetPreferableHideout(spawnClan) : spawnOverride),
-                                    data.BanditClan, data.PartyTemplate, new TextObject(data.Name));
+                                Settlement spawnSettlement = ConfigLoader.Instance.Config.SpawnAtOneHideout ? firstHideout : (spawnOverride == null ? CampaignUtils.GetPreferableHideout(spawnClan) : spawnOverride);
+                                Spawner.SpawnBanditAtHideout(spawnSettlement, data.BanditClan, data.PartyTemplate, new TextObject(data.Name));
                                 data.IncrementNumberSpawned(); //increment for can spawn and chance modifications
                                 j++;
                                 //message if available
                                 if(data.spawnMessage != null)
                                 {
-                                    UX.ShowMessage(data.spawnMessage);
+                                    UX.ShowParseSpawnMessage(data.spawnMessage, spawnSettlement.Name.ToString());
                                 }
                             }
                         }
