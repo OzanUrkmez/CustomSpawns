@@ -61,7 +61,7 @@ namespace CustomSpawns.Data
                     dat.PartyTemplate = (PartyTemplateObject)MBObjectManager.Instance.ReadObjectReferenceFromXml("party_template", typeof(PartyTemplateObject), node);
                     dat.BanditClan = (Clan)MBObjectManager.Instance.ReadObjectReferenceFromXml("bandit_clan", typeof(Clan), node);
 
-
+                    
                     int i = 0;
                     string s = "overriden_spawn_clan";
                     while (true)
@@ -77,6 +77,23 @@ namespace CustomSpawns.Data
                         }
                         i++;
                     }
+
+                    int j = 0;
+                    string st = "overriden_spawn_culture";
+                    while (true)
+                    {
+                        string s1 = st + "_" + j.ToString();
+                        if (node.Attributes[s1] == null || node.Attributes[s1].InnerText == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            dat.OverridenSpawnCultures.Add(((CultureObject)MBObjectManager.Instance.ReadObjectReferenceFromXml(s1, typeof(CultureObject), node)).GetCultureCode());
+                        }
+                        j++;
+                    }
+
 
                     dat.MaximumOnMap = int.Parse(node["MaximumOnMap"].InnerText);
                     if(dat.MaximumOnMap == 0)
@@ -128,6 +145,7 @@ namespace CustomSpawns.Data
     {
         public Clan BanditClan { get; set; }
         public List<Clan> OverridenSpawnClan = new List<Clan>();
+        public List<CultureCode> OverridenSpawnCultures = new List<CultureCode>();
         public List<PartyTemplateObject> SpawnAlongWith = new List<PartyTemplateObject>(); //TODO implement
         public int MaximumOnMap { get; set; }
         private float chanceOfSpawn;
