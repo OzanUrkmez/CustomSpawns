@@ -112,6 +112,8 @@ namespace CustomSpawns.Data
                         Main.customSpeedModel.RegisterPartyExtraSpeed(dat.PartyTemplate.StringId, extra);
                     }
 
+                    //Spawn along with
+
                     data.Add(dat);
                 }
             }
@@ -126,6 +128,7 @@ namespace CustomSpawns.Data
     {
         public Clan BanditClan { get; set; }
         public List<Clan> OverridenSpawnClan = new List<Clan>();
+        public List<PartyTemplateObject> SpawnAlongWith = new List<PartyTemplateObject>(); //TODO implement
         public int MaximumOnMap { get; set; }
         private float chanceOfSpawn;
         public float ChanceOfSpawn
