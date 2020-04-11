@@ -32,9 +32,9 @@ namespace CustomSpawns
             }
             for(int i = 0; i < codes.Length; i++)
             {
-                switch (codes[i])
+                switch (codes[i].ToLower())
                 {
-                    case "spawnPlace":
+                    case "spawnplace":
                         codes[i] = spawnPlaceName;
                         break;
                 }
