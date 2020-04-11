@@ -22,6 +22,27 @@ namespace CustomSpawns
             InformationManager.DisplayMessage(msg);
         }
 
+        public static void ShowParseSpawnMessage(InformationMessage msg, string spawnPlaceName)
+        {
+            string s = msg.Information;
+            string[] codes = s.Split('[');
+            if (codes.Length == 1) {
+                ShowMessage(msg);
+                return;
+            }
+            for(int i = 0; i < codes.Length; i++)
+            {
+                switch (codes[i])
+                {
+                    case "spawnPlace]":
+                        codes[i] = spawnPlaceName;
+                        break;
+                }
+            }
+            msg.Information = string.Join("", codes);
+            ShowMessage(msg);
+        }
+
         private static Dictionary<string, string> flagToMessageColour = new Dictionary<string, string>()
         {
             { "danger", "#FF2300FF"}
