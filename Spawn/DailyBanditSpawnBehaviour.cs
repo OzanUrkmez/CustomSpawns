@@ -101,9 +101,9 @@ namespace CustomSpawns.Spawn
                                 {
                                     spawnClan = data.OverridenSpawnClan[rand.Next(0, data.OverridenSpawnClan.Count)];
                                 }
-                                //spawn!
+                                //check for one hideout
                                 Settlement firstHideout = null;
-                                if (ConfigLoader.Instance.Config.SpawnAtOneHideout) //check for one hideout
+                                if (ConfigLoader.Instance.Config.SpawnAtOneHideout)
                                 {
                                     foreach (Settlement s in Settlement.All)
                                     {
@@ -114,9 +114,16 @@ namespace CustomSpawns.Spawn
                                         }
                                     }
                                 }
+                                //deal with town spawn
+                                Settlement spawnOverride = null;
+                                if(data.OverridenSpawnCultures.Count != 0)
+                                {
+                                    //spawn at overriden spawn instead!
+                                    spawnOverride = CampaignUtils.PickRandomSettlementOfCulture(data.OverridenSpawnCultures);
+                                }
                                 //spawn nao!
-                                Spawner.SpawnBanditAtHideout(ConfigLoader.Instance.Config.SpawnAtOneHideout? firstHideout : CampaignUtils.GetPreferableHideout(spawnClan), data.BanditClan, data.PartyTemplate, 
-                                    new TextObject(data.Name));
+                                Spawner.SpawnBanditAtHideout(ConfigLoader.Instance.Config.SpawnAtOneHideout? firstHideout : (spawnOverride == null? CampaignUtils.GetPreferableHideout(spawnClan) : spawnOverride),
+                                    data.BanditClan, data.PartyTemplate, new TextObject(data.Name));
                                 data.IncrementNumberSpawned(); //increment for can spawn and chance modifications
                                 j++;
                                 //message if available
