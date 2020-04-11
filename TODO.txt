@@ -3,3 +3,5 @@
 -customize base hp etc
 -addition of conditional number of horses, such as for 50% of troops etc
 -implement features like Spawn along with
+-spawn in/around settlements etc
+-checks like IsStarving can be checked to spawn things when they are true. There are so many flags like that!
