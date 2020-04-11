@@ -130,6 +130,21 @@ namespace CustomSpawns.Data
                     }
 
                     //Spawn along with
+                    int k = 0;
+                    string str = "spawn_along_with";
+                    while (true)
+                    {
+                        string s1 = str + "_" + k.ToString();
+                        if (node.Attributes[s1] == null || node.Attributes[s1].InnerText == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            dat.SpawnAlongWith.Add(((PartyTemplateObject)MBObjectManager.Instance.ReadObjectReferenceFromXml(s1, typeof(PartyTemplateObject), node)));
+                        }
+                        k++;
+                    }
 
                     data.Add(dat);
                 }
