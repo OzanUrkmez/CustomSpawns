@@ -15,12 +15,20 @@ namespace CustomSpawns
 {
     public class Main : MBSubModuleBase
     {
-        public static readonly string version = "v1.0.2";
+        public static readonly string version = "v1.0.3";
         public static CustomSpawnsCustomSpeedModel customSpeedModel;
+
+        private static bool removalMode = false;
 
         protected override void OnSubModuleLoad()
         {
             Config config = ConfigLoader.Instance.Config;
+            if (config.IsRemovalMode)
+            {
+                removalMode = true;
+                return;
+            }
+            removalMode = false;
             customSpeedModel = new CustomSpawnsCustomSpeedModel();
         }
 
@@ -30,7 +38,8 @@ namespace CustomSpawns
             try
             {
                 InitializeGame(game, (IGameStarter)starterObject);
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 ErrorHandler.HandleException(e);
             }
@@ -48,9 +57,10 @@ namespace CustomSpawns
         {
             try
             {
+
                 UX.ShowMessage("CustomSpawns " + version + " is now enabled. Enjoy! :)", Color.ConvertStringToColor("#001FFFFF"));
                 AddBehaviours(gameStarterObject as CampaignGameStarter);
-                if(ConfigLoader.Instance.Config.ModifyPartySpeeds)
+                if (ConfigLoader.Instance.Config.ModifyPartySpeeds && !removalMode)
                     gameStarterObject.AddModel(customSpeedModel);
             }
             catch (Exception e)
@@ -61,7 +71,14 @@ namespace CustomSpawns
 
         private void AddBehaviours(CampaignGameStarter starter)
         {
-            starter.AddBehavior(new Spawn.DailyBanditSpawnBehaviour(Data.RegularBanditDailySpawnDataManager.Instance));
+            if (!removalMode)
+            {
+                starter.AddBehavior(new Spawn.DailyBanditSpawnBehaviour(Data.RegularBanditDailySpawnDataManager.Instance));
+            }
+            else
+            {
+                starter.AddBehavior(new Utils.RemoverBehaviour());
+            }
         }
 
     }
