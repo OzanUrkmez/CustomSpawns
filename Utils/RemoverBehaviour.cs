@@ -35,14 +35,19 @@ namespace CustomSpawns.Utils
 
         private void RemoveEverything()
         {
+            List<MobileParty> toBeRemoved = new List<MobileParty>();
             foreach (MobileParty mb in MobileParty.All)
             {
                 if (mb.StringId.StartsWith("cs"))
                 {
                     //one of our parties.
-                    UX.ShowMessage("CustomSpawns: removing " + mb.StringId, Color.ConvertStringToColor("#001FFFFF"));
-                    mb.RemoveParty();
+                    toBeRemoved.Add(mb);
                 }
+            }
+            for(int i = 0; i < toBeRemoved.Count; i++)
+            {
+                UX.ShowMessage("CustomSpawns: removing " + toBeRemoved[i].StringId, Color.ConvertStringToColor("#001FFFFF"));
+                toBeRemoved[i].RemoveParty();
             }
             UX.ShowMessage("CustomSpawns is now safe to remove from your game.", Color.ConvertStringToColor("#001FFFFF"));
         }
