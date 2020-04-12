@@ -1,5 +1,2 @@
-# BanditInfestation
- A M&B:Bannerlord mod to enhance the bandits.
-
-Special Thanks:
-https://github.com/tynakuh/TyniBannerlordFixes for providing a good code basis to follow.
+# CustomSpawns
+ A M&B:Bannerlord mod/API to allow for spawning troops and stacks independent of the games' main spawning system.
