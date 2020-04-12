@@ -43,6 +43,28 @@ namespace CustomSpawns.Utils
                     //one of our parties.
                     toBeRemoved.Add(mb);
                 }
+                else
+                {
+                    //party will still exist but could still contain our troops or prisoners
+                    List<CharacterObject> charObjectsToBeRemoved = new List<CharacterObject>();
+                    foreach(var t in mb.MemberRoster.Troops)
+                    {
+                        charObjectsToBeRemoved.Add(t);
+                    }
+                    for (int i = 0; i < charObjectsToBeRemoved.Count; i++) {
+                        mb.MemberRoster.RemoveTroop(charObjectsToBeRemoved[i], mb.MemberRoster.GetTroopCount(charObjectsToBeRemoved[i]));
+                    }
+                    //now do it for prisoners
+                    charObjectsToBeRemoved.Clear();
+                    foreach (var t in mb.PrisonRoster.Troops)
+                    {
+                        charObjectsToBeRemoved.Add(t);
+                    }
+                    for (int i = 0; i < charObjectsToBeRemoved.Count; i++)
+                    {
+                        mb.PrisonRoster.RemoveTroop(charObjectsToBeRemoved[i], mb.PrisonRoster.GetTroopCount(charObjectsToBeRemoved[i]));
+                    }
+                }
             }
             for(int i = 0; i < toBeRemoved.Count; i++)
             {
