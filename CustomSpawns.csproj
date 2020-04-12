@@ -234,6 +234,7 @@
     <Compile Include="Utils\ErrorHandler.cs" />
     <Compile Include="Utils\CampaignUtils.cs" />
     <Compile Include="Utils\ModDebug.cs" />
+    <Compile Include="Utils\RemoverBehaviour.cs" />
     <Compile Include="Utils\Utils.cs" />
     <Compile Include="Utils\UX.cs" />
   </ItemGroup>
