@@ -49,16 +49,18 @@ namespace CustomSpawns.Utils
                     List<CharacterObject> charObjectsToBeRemoved = new List<CharacterObject>();
                     foreach(var t in mb.MemberRoster.Troops)
                     {
-                        charObjectsToBeRemoved.Add(t);
+                        if(t.StringId.StartsWith("cs"))
+                            charObjectsToBeRemoved.Add(t);
                     }
                     for (int i = 0; i < charObjectsToBeRemoved.Count; i++) {
-                        mb.MemberRoster.RemoveTroop(charObjectsToBeRemoved[i], mb.MemberRoster.GetTroopCount(charObjectsToBeRemoved[i]));
+                            mb.MemberRoster.RemoveTroop(charObjectsToBeRemoved[i], mb.MemberRoster.GetTroopCount(charObjectsToBeRemoved[i]));
                     }
                     //now do it for prisoners
                     charObjectsToBeRemoved.Clear();
                     foreach (var t in mb.PrisonRoster.Troops)
                     {
-                        charObjectsToBeRemoved.Add(t);
+                        if (t.StringId.StartsWith("cs"))
+                            charObjectsToBeRemoved.Add(t);
                     }
                     for (int i = 0; i < charObjectsToBeRemoved.Count; i++)
                     {
