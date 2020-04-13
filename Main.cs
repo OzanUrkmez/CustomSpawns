@@ -76,6 +76,7 @@ namespace CustomSpawns
             if (!removalMode)
             {
                 starter.AddBehavior(new Spawn.DailyBanditSpawnBehaviour(Data.RegularBanditDailySpawnDataManager.Instance));
+                starter.AddBehavior(new AI.HourlyPatrolAroundSpawnBehaviour());
             }
             else
             {
