@@ -48,7 +48,7 @@ namespace CustomSpawns.Data
             ConstructListFromXML(path);
             foreach (string p in Utils.Utils.GetAllValidDependentModsPaths())
             {
-                ConstructListFromXML(p);
+                ConstructListFromXML(Path.Combine(p, "RegularBanditDailySpawn.xml"));
             }
         }
 

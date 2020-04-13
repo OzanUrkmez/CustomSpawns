@@ -39,7 +39,7 @@ namespace CustomSpawns.Data
             ConstructFromXML(path);
             foreach(string p in Utils.Utils.GetAllValidDependentModsPaths())
             {
-                ConstructFromXML(p);
+                ConstructFromXML(Path.Combine(p, "NameSignifiers.xml"));
             }
         }
 

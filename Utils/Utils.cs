@@ -39,12 +39,14 @@ namespace CustomSpawns.Utils
                 List<string> validPaths = new List<string>();
                 //construct the array
                 string basePath = Path.Combine(BasePath.Name, "Modules");
-                string[] all = Directory.GetFiles(basePath);
+                var all = Directory.EnumerateDirectories(basePath);
                 foreach(string path in all)
                 {
-                    if(File.Exists(Path.Combine(path, "CustomSpawns")))
+                    if(Directory.Exists(Path.Combine(path, "CustomSpawns")))
                     {
                         validPaths.Add(Path.Combine(path, "CustomSpawns"));
+                        string modName = "";
+                        UX.ShowMessage(modName + " is now integrated into the Custom Spawns API!" , Color.ConvertStringToColor("#001FFFFF"));
                     }
                 }
                 dependentModsArray = validPaths.ToArray();
