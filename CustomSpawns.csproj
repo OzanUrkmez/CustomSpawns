@@ -218,6 +218,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AI\AIManager.cs" />
+    <Compile Include="AI\HourlyPatrolAroundSpawnBehaviour.cs" />
     <Compile Include="CustomSpawnsCustomSpeedModel.cs" />
     <Compile Include="Config\Config.cs" />
     <Compile Include="Config\ConfigLoader.cs" />

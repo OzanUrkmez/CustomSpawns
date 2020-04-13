@@ -32,7 +32,7 @@ namespace CustomSpawns.AI
                     return;
                 }
                 bool isPreOccupied = patroller.patrollerParty.DefaultBehavior == AiBehavior.EngageParty || patroller.patrollerParty.DefaultBehavior == AiBehavior.GoAroundParty ||
-                    patroller.patrollerParty.DefaultBehavior == AiBehavior.GoToSettlement || patroller.patrollerParty.DefaultBehavior == AiBehavior.JoinParty || patroller.patrollerParty.DefaultBehavior == AiBehavior.FleeToPoint;
+                     patroller.patrollerParty.DefaultBehavior == AiBehavior.JoinParty || patroller.patrollerParty.DefaultBehavior == AiBehavior.FleeToPoint;
                 if (!isPreOccupied)
                 {
                     patroller.patrollerParty.SetMovePatrolAroundSettlement(patroller.patrolledSettlement);
