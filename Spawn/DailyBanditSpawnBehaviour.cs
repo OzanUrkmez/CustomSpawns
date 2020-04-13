@@ -128,12 +128,12 @@ namespace CustomSpawns.Spawn
                                 data.IncrementNumberSpawned(); //increment for can spawn and chance modifications
                                 j++;
                                 //AI Checks!
-                                HandleAIChecks(spawnedParty, data);
+                                HandleAIChecks(spawnedParty, data, spawnSettlement);
                                 //accompanying spawns
                                 foreach(var accomp in data.SpawnAlongWith)
                                 {
                                     MobileParty juniorParty = Spawner.SpawnBanditAtHideout(spawnSettlement, data.BanditClan, accomp.templateObject, new TextObject(accomp.name));
-                                    HandleAIChecks(juniorParty, data); //junior party has same AI behaviour as main party.
+                                    HandleAIChecks(juniorParty, data, spawnSettlement); //junior party has same AI behaviour as main party.
                                 }
                                 //message if available
                                 if(data.spawnMessage != null)
@@ -156,9 +156,10 @@ namespace CustomSpawns.Spawn
             }
         }
 
-        private void HandleAIChecks(MobileParty mb, Data.RegularBanditDailySpawnData data)
+        private void HandleAIChecks(MobileParty mb, Data.RegularBanditDailySpawnData data, Settlement spawnedSettlement)
         {
-
+            if (data.PatrolAroundSpawn)
+                AI.AIManager.HourlyPatrolAroundSpawn.RegisterMobilePartyToPatrol(mb, spawnedSettlement);
         }
     }
 }
