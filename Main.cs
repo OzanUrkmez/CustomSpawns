@@ -35,6 +35,8 @@ namespace CustomSpawns
         public override void OnCampaignStart(Game game, object starterObject)
         {
             base.OnCampaignStart(game, starterObject);
+            if (!(game.GameType is Campaign))
+                return;
             try
             {
                 InitializeGame(game, (IGameStarter)starterObject);
