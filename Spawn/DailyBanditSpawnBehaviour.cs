@@ -124,13 +124,16 @@ namespace CustomSpawns.Spawn
                                 //get settlement
                                 Settlement spawnSettlement = ConfigLoader.Instance.Config.SpawnAtOneHideout ? firstHideout : (spawnOverride == null ? CampaignUtils.GetPreferableHideout(spawnClan) : spawnOverride);
                                 //spawn nao!
-                                Spawner.SpawnBanditAtHideout(spawnSettlement, data.BanditClan, data.PartyTemplate, new TextObject(data.Name));
+                                MobileParty spawnedParty = Spawner.SpawnBanditAtHideout(spawnSettlement, data.BanditClan, data.PartyTemplate, new TextObject(data.Name));
                                 data.IncrementNumberSpawned(); //increment for can spawn and chance modifications
                                 j++;
+                                //AI Checks!
+                                HandleAIChecks(spawnedParty, data);
                                 //accompanying spawns
                                 foreach(var accomp in data.SpawnAlongWith)
                                 {
-                                    Spawner.SpawnBanditAtHideout(spawnSettlement, data.BanditClan, accomp.templateObject, new TextObject(accomp.name));
+                                    MobileParty juniorParty = Spawner.SpawnBanditAtHideout(spawnSettlement, data.BanditClan, accomp.templateObject, new TextObject(accomp.name));
+                                    HandleAIChecks(juniorParty, data); //junior party has same AI behaviour as main party.
                                 }
                                 //message if available
                                 if(data.spawnMessage != null)
@@ -151,6 +154,14 @@ namespace CustomSpawns.Spawn
             {
                 ErrorHandler.HandleException(e);
             }
+        }
+
+        private void HandleAIChecks(MobileParty mb, Data.RegularBanditDailySpawnData data)
+        {
+
+        }
+        {
+
         }
     }
 }
