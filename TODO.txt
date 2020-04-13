@@ -2,7 +2,6 @@
 -Ability to add preconditions and chance modifiers, such as one dependent on loyalty or stability of settlements or factions
 -customize base hp etc
 -addition of conditional number of horses, such as for 50% of troops etc
--implement features like Spawn along with
 -spawn in/around settlements etc
 -checks like IsStarving can be checked to spawn things when they are true. There are so many flags like that!
 -message where revolts etc. are! big events should also tell of where they are happening
@@ -10,7 +9,6 @@
 -more complicated spawn rolls and such
 -spawns shall be in different factions, and will be able to attack each other etc.
 -make faces of desert cult more varied
--CANNOT UNUSE MY MOD!! FIND A FIX! (just UI and remove every party that is with cs_...
 -better peasant troop trees!
 -add variance to barbarians
 -localized peasant revolts etc. more specific upgrade trees. improve their troops etc. 
@@ -18,8 +16,8 @@
 -search for hideouts near certain cultures/settlements etc
 -manhunters!
 -infighting between spawns. So different factions
--ASK FOR PEOPLE TO SHARE THE MOD ETC. 
 -Custom dialogue
+-custom loot
 
 -Custom spawn change probabilities based on loyalty etc. For exmaple for peasant revolters! yes yes
 -make revolters patrol around the place they have revolted in!
@@ -28,3 +26,6 @@
 
 
 -later, build an API that allows for people to directly interact with your code so that they can implement their own checks.
+-add safe guard for AI registration checks
+
+-when ready, share github link
