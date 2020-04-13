@@ -160,8 +160,5 @@ namespace CustomSpawns.Spawn
         {
 
         }
-        {
-
-        }
     }
 }
