@@ -24,3 +24,7 @@
 -Custom spawn change probabilities based on loyalty etc. For exmaple for peasant revolters! yes yes
 -make revolters patrol around the place they have revolted in!
 -add "clean" API install for other mods to use
+-days passed modifiers
+
+
+-later, build an API that allows for people to directly interact with your code so that they can implement their own checks.
