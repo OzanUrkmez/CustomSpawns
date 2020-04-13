@@ -65,6 +65,7 @@ namespace CustomSpawns.Data
                     dat.PartyTemplate = (PartyTemplateObject)MBObjectManager.Instance.ReadObjectReferenceFromXml("party_template", typeof(PartyTemplateObject), node);
                     dat.BanditClan = (Clan)MBObjectManager.Instance.ReadObjectReferenceFromXml("bandit_clan", typeof(Clan), node);
 
+                    //have bannerlord read attributes
                     
                     int i = 0;
                     string s = "overriden_spawn_clan";
@@ -98,16 +99,19 @@ namespace CustomSpawns.Data
                         j++;
                     }
 
-
+                    //get elements
                     dat.MaximumOnMap = int.Parse(node["MaximumOnMap"].InnerText);
                     if(dat.MaximumOnMap == 0)
                     {
                         throw new Exception("the node 'MaximumOnMap' cannot be set to 0!");
                     }
+
                     dat.ChanceOfSpawn = float.Parse(node["ChanceOfSpawn"].InnerText);
                     dat.Name = node["Name"].InnerText;
                     dat.ChanceInverseConstant = float.Parse(node["ChanceInverseConstant"].InnerText);
                     dat.RepeatSpawnRolls = int.Parse(node["RepeatSpawnRolls"].InnerText);
+
+                    dat.PatrolAroundSpawn = node["PatrolAroundSpawn"] == null ? false : bool.Parse(node["PatrolAroundSpawn"].InnerText);
 
                     //message
                     string msg = node["SpawnMessage"] == null? "" : node["SpawnMessage"].InnerText;
@@ -186,7 +190,7 @@ namespace CustomSpawns.Data
         public string Name { get; set; }
         public int RepeatSpawnRolls { get; set; }
         public InformationMessage spawnMessage { get; set; }
-
+        public bool PatrolAroundSpawn { get; set; }
         private int numberSpawned = 0;
 
         public void IncrementNumberSpawned()
