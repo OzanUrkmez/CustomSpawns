@@ -22,7 +22,25 @@ namespace CustomSpawns.AI
 
         private void HourlyPatrolTick()
         {
-
+            List<Patroller> toRemove = new List<Patroller>();
+            foreach(var patroller in registeredPatrollers)
+            {
+                if(patroller.patrollerParty.MemberRoster.Count == 0 || patroller.patrolledSettlement == null)
+                {
+                    //ded or for some reason settlement dead
+                    toRemove.Add(patroller);
+                    return;
+                }
+                bool isPreOccupied = patroller.patrollerParty.DefaultBehavior == AiBehavior.EngageParty || patroller.patrollerParty.DefaultBehavior == AiBehavior.GoAroundParty ||
+                    patroller.patrollerParty.DefaultBehavior == AiBehavior.GoToSettlement || patroller.patrollerParty.DefaultBehavior == AiBehavior.JoinParty || patroller.patrollerParty.DefaultBehavior == AiBehavior.FleeToPoint;
+                if (!isPreOccupied)
+                {
+                    patroller.patrollerParty.SetMovePatrolAroundSettlement(patroller.patrolledSettlement);
+                }
+            }
+            for (int i = 0; i < toRemove.Count; i++){
+                registeredPatrollers.Remove(toRemove[i]);
+            }
         }
 
         private List<Patroller> registeredPatrollers = new List<Patroller>();

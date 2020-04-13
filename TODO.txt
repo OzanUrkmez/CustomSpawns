@@ -29,3 +29,4 @@
 -add safe guard for AI registration checks
 
 -when ready, share github link
+-LOOK MORE INTO AI BEHAVIOR. There seems to be a join party behaviour! There also seems to be an escort party behaviour!
