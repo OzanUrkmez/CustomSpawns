@@ -61,6 +61,7 @@ namespace CustomSpawns.AI
             if (patrollerInstance.patrolledSettlement == s)
                 return;
             registeredPatrollers.Add(new Patroller(mb, s));
+            ModDebug.ShowMessage(mb.StringId + " is now engaged in patrol behaviour around " + s.Name);
         }
 
         struct Patroller
