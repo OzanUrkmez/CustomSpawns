@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TaleWorlds.Library;
+using System.IO;
 
 namespace CustomSpawns.Utils
 {
@@ -26,6 +28,28 @@ namespace CustomSpawns.Utils
                     isFirst = false;
                 }
             } while (hasRemainingItems);
+        }
+
+        private static string[] dependentModsArray;
+
+        public static string[] GetAllValidDependentModsPaths()
+        {
+            if (dependentModsArray == null)
+            {
+                List<string> validPaths = new List<string>();
+                //construct the array
+                string basePath = Path.Combine(BasePath.Name, "Modules");
+                string[] all = Directory.GetFiles(basePath);
+                foreach(string path in all)
+                {
+                    if(File.Exists(Path.Combine(path, "CustomSpawns")))
+                    {
+                        validPaths.Add(Path.Combine(path, "CustomSpawns"));
+                    }
+                }
+                dependentModsArray = validPaths.ToArray();
+            }
+            return dependentModsArray;
         }
 
     }
