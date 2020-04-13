@@ -91,7 +91,7 @@ namespace CustomSpawns.Spawn
                     int j = 0;
                     for (int i = 0; i < data.RepeatSpawnRolls; i++)
                     {
-                        if (data.CanSpawn())
+                        if (data.CanSpawn() && (data.MinimumNumberOfDaysUntilSpawn < (int)Math.Ceiling(Campaign.Current.CampaignStartTime.ElapsedDaysUntilNow)))
                         {
                             if ((float)rand.NextDouble() < data.ChanceOfSpawn)
                             {

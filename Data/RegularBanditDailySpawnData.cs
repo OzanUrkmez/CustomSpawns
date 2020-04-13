@@ -112,6 +112,7 @@ namespace CustomSpawns.Data
                     dat.RepeatSpawnRolls = int.Parse(node["RepeatSpawnRolls"].InnerText);
 
                     dat.PatrolAroundSpawn = node["PatrolAroundSpawn"] == null ? false : bool.Parse(node["PatrolAroundSpawn"].InnerText);
+                    dat.MinimumNumberOfDaysUntilSpawn = node["MinimumNumberOfDaysUntilSpawn"] == null ? -1 : int.Parse(node["MinimumNumberOfDaysUntilSpawn"].InnerText);
 
                     //message
                     string msg = node["SpawnMessage"] == null? "" : node["SpawnMessage"].InnerText;
@@ -174,6 +175,7 @@ namespace CustomSpawns.Data
         public List<AccompanyingParty> SpawnAlongWith = new List<AccompanyingParty>();
         public int MaximumOnMap { get; set; }
         private float chanceOfSpawn;
+        public int MinimumNumberOfDaysUntilSpawn { get; set; }
         public float ChanceOfSpawn
         {
             get
