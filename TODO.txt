@@ -22,3 +22,4 @@
 -Custom dialogue
 
 -Custom spawn change probabilities based on loyalty etc. For exmaple for peasant revolters! yes yes
+-make revolters patrol around the place they have revolted in!
