@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TaleWorlds.Library;
 using System.IO;
+using System.Xml;
 
 namespace CustomSpawns.Utils
 {
@@ -28,30 +29,6 @@ namespace CustomSpawns.Utils
                     isFirst = false;
                 }
             } while (hasRemainingItems);
-        }
-
-        private static string[] dependentModsArray;
-
-        public static string[] GetAllValidDependentModsPaths()
-        {
-            if (dependentModsArray == null)
-            {
-                List<string> validPaths = new List<string>();
-                //construct the array
-                string basePath = Path.Combine(BasePath.Name, "Modules");
-                var all = Directory.EnumerateDirectories(basePath);
-                foreach(string path in all)
-                {
-                    if(Directory.Exists(Path.Combine(path, "CustomSpawns")))
-                    {
-                        validPaths.Add(Path.Combine(path, "CustomSpawns"));
-                        string modName = "";
-                        UX.ShowMessage(modName + " is now integrated into the Custom Spawns API!" , Color.ConvertStringToColor("#001FFFFF"));
-                    }
-                }
-                dependentModsArray = validPaths.ToArray();
-            }
-            return dependentModsArray;
         }
 
     }
