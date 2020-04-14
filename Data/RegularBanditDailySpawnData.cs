@@ -46,9 +46,9 @@ namespace CustomSpawns.Data
         {
             string path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data", "RegularBanditDailySpawn.xml");
             ConstructListFromXML(path);
-            foreach (string p in Utils.Utils.GetAllValidDependentModsPaths())
+            foreach (var subMod in ModIntegration.SubModManager.dependentModsArray)
             {
-                ConstructListFromXML(Path.Combine(p, "RegularBanditDailySpawn.xml"));
+                ConstructListFromXML(Path.Combine(subMod.CustomSpawnsDirectoryPath, "NameSignifiers.xml"));
             }
         }
 
