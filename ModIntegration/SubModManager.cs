@@ -19,9 +19,11 @@ namespace CustomSpawns.ModIntegration
             if (dependentModsArray == null)
             {
                 //construct the array
+                var loadedModules = TaleWorlds.Engine.Utilities.GetModulesNames();
                 string basePath = Path.Combine(BasePath.Name, "Modules");
                 List<SubMod> subMods = new List<SubMod>();
                 var all = Directory.EnumerateDirectories(basePath);
+                var loadedMods = new List<ModuleInfo>();
                 foreach (string path in all)
                 {
                     if (Directory.Exists(Path.Combine(path, "CustomSpawns"))) //mod is a custom spawns mod!
@@ -42,8 +44,11 @@ namespace CustomSpawns.ModIntegration
                             XmlDocument doc = new XmlDocument();
                             doc.LoadXml(Path.Combine(path, "CustomSpawns", "CustomSpawnsSubMod.xml"));
                             string subModuleName = doc.DocumentElement["SubModuleName"].InnerText;
-                            SubMod mod = new SubMod(subModuleName);
-                            subMods.Add(mod);
+                            if (loadedModules.Contains(subModuleName)) //load mod only if it is enabled.
+                            {
+                                SubMod mod = new SubMod(subModuleName);
+                                subMods.Add(mod);
+                            }
                         }
                         catch
                         {
