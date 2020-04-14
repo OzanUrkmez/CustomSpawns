@@ -11,7 +11,9 @@ namespace CustomSpawns.ModIntegration
 
         public string SubModuleName { get; private set; }
 
-        public SubMod(string subModuleName)
+        public string CustomSpawnsDirectoryPath { get; private set; }
+
+        public SubMod(string subModuleName, string customSpawnsPath)
         {
             SubModuleName = subModuleName;
         }

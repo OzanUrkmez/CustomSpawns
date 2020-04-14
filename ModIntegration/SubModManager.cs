@@ -46,7 +46,7 @@ namespace CustomSpawns.ModIntegration
                             string subModuleName = doc.DocumentElement["SubModuleName"].InnerText;
                             if (loadedModules.Contains(subModuleName)) //load mod only if it is enabled.
                             {
-                                SubMod mod = new SubMod(subModuleName);
+                                SubMod mod = new SubMod(subModuleName, Path.Combine(path, "CustomSpawns"));
                                 subMods.Add(mod);
                             }
                         }
