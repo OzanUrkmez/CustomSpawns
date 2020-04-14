@@ -49,7 +49,7 @@ namespace CustomSpawns.Utils
                     List<CharacterObject> charObjectsToBeRemoved = new List<CharacterObject>();
                     foreach(var t in mb.MemberRoster.Troops)
                     {
-                        if(t.StringId.StartsWith("cs"))
+                        if(t.StringId.StartsWith("cs_"))
                             charObjectsToBeRemoved.Add(t);
                     }
                     for (int i = 0; i < charObjectsToBeRemoved.Count; i++) {
@@ -59,7 +59,7 @@ namespace CustomSpawns.Utils
                     charObjectsToBeRemoved.Clear();
                     foreach (var t in mb.PrisonRoster.Troops)
                     {
-                        if (t.StringId.StartsWith("cs"))
+                        if (t.StringId.StartsWith("cs_"))
                             charObjectsToBeRemoved.Add(t);
                     }
                     for (int i = 0; i < charObjectsToBeRemoved.Count; i++)

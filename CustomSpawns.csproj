@@ -226,6 +226,8 @@
     <Compile Include="Data\NameSignifierData.cs" />
     <Compile Include="Data\RegularBanditDailySpawnData.cs" />
     <Compile Include="Main.cs" />
+    <Compile Include="ModIntegration\SubMod.cs" />
+    <Compile Include="ModIntegration\SubModManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Spawn\BanditFightEnslavementBehaviour.cs" />
     <Compile Include="Spawn\DailyBanditSpawnBehaviour.cs" />
