@@ -23,6 +23,7 @@ namespace CustomSpawns
         protected override void OnSubModuleLoad()
         {
             Config config = ConfigLoader.Instance.Config;
+            ModIntegration.SubModManager.LoadAllValidDependentMods();
             if (config.IsRemovalMode)
             {
                 removalMode = true;

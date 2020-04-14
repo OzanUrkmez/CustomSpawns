@@ -14,7 +14,7 @@ namespace CustomSpawns.ModIntegration
 
         private static string[] dependentModsArray;
 
-        public static string[] GetAllValidDependentModsPaths()
+        public static string[] LoadAllValidDependentMods()
         {
             if (dependentModsArray == null)
             {
