@@ -69,7 +69,7 @@ namespace CustomSpawns.Data
                     dat.BanditClan = (Clan)MBObjectManager.Instance.ReadObjectReferenceFromXml("bandit_clan", typeof(Clan), node);
 
                     //have bannerlord read attributes
-                    
+
                     int i = 0;
                     string s = "overriden_spawn_clan";
                     while (true)
@@ -103,16 +103,16 @@ namespace CustomSpawns.Data
                     }
 
                     //get elements
-                    dat.MaximumOnMap = int.Parse(node["MaximumOnMap"].InnerText);
-                    if(dat.MaximumOnMap == 0)
+                    dat.MaximumOnMap = node["MaximumOnMap"] == null? 0 : int.Parse(node["MaximumOnMap"].InnerText);
+                    if (dat.MaximumOnMap < 1)
                     {
-                        throw new Exception("the node 'MaximumOnMap' cannot be set to 0!");
+                        throw new Exception("the node 'MaximumOnMap' cannot be less than 1!");
                     }
 
-                    dat.ChanceOfSpawn = float.Parse(node["ChanceOfSpawn"].InnerText);
-                    dat.Name = node["Name"].InnerText;
-                    dat.ChanceInverseConstant = float.Parse(node["ChanceInverseConstant"].InnerText);
-                    dat.RepeatSpawnRolls = int.Parse(node["RepeatSpawnRolls"].InnerText);
+                    dat.ChanceOfSpawn = node["ChanceOfSpawn"] == null? 1 : float.Parse(node["ChanceOfSpawn"].InnerText);
+                    dat.Name = node["Name"] == null ? "Unnamed" : node["Name"].InnerText;
+                    dat.ChanceInverseConstant = node["ChanceInverseConstant"] == null? 0 : float.Parse(node["ChanceInverseConstant"].InnerText);
+                    dat.RepeatSpawnRolls = node["RepeatSpawnRolls"] == null? 1 : int.Parse(node["RepeatSpawnRolls"].InnerText);
 
                     dat.PatrolAroundSpawn = node["PatrolAroundSpawn"] == null ? false : bool.Parse(node["PatrolAroundSpawn"].InnerText);
                     dat.MinimumNumberOfDaysUntilSpawn = node["MinimumNumberOfDaysUntilSpawn"] == null ? -1 : int.Parse(node["MinimumNumberOfDaysUntilSpawn"].InnerText);
