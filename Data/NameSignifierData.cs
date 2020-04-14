@@ -35,12 +35,16 @@ namespace CustomSpawns.Data
         private Dictionary<string, float> IDToSpeedModifier = new Dictionary<string, float>();
         private NameSignifierData()
         {
-            string path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data", "NameSignifiers.xml");
-            ConstructFromXML(path);
+            if (!Main.isAPIMode)
+            {
+                string path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data", "NameSignifiers.xml");
+                ConstructFromXML(path);
+            }
             foreach(var subMod in ModIntegration.SubModManager.dependentModsArray)
             {
                 ConstructFromXML(Path.Combine(subMod.CustomSpawnsDirectoryPath, "NameSignifiers.xml"));
             }
+
         }
 
         private void ConstructFromXML(string path)
