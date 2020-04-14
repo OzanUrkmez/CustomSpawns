@@ -56,12 +56,19 @@ namespace CustomSpawns
             InitializeGame(game, gameStarterObject);
         }
 
+        protected override void OnBeforeInitialModuleScreenSetAsRoot() //assure player :) also myself lol
+        {
+            UX.ShowMessage("CustomSpawns " + version + " is now enabled. Enjoy! :)", Color.ConvertStringToColor("#001FFFFF"));
+            foreach(var subMod in ModIntegration.SubModManager.dependentModsArray)
+            {
+                UX.ShowMessage( subMod.SubModuleName + " is now integrated into the CustomSpawns API.", Color.ConvertStringToColor("#001FFFFF"));
+            }
+        }
+
         private void InitializeGame(Game game, IGameStarter gameStarterObject)
         {
             try
             {
-
-                UX.ShowMessage("CustomSpawns " + version + " is now enabled. Enjoy! :)", Color.ConvertStringToColor("#001FFFFF"));
                 AddBehaviours(gameStarterObject as CampaignGameStarter);
                 if (ConfigLoader.Instance.Config.ModifyPartySpeeds && !removalMode)
                     gameStarterObject.AddModel(customSpeedModel);
