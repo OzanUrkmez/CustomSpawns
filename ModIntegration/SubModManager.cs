@@ -12,19 +12,19 @@ namespace CustomSpawns.ModIntegration
     public static class SubModManager
     {
 
-        private static string[] dependentModsArray;
+        public static SubMod[] dependentModsArray { get; private set; }
 
-        public static string[] LoadAllValidDependentMods()
+        public static void LoadAllValidDependentMods()
         {
             if (dependentModsArray == null)
             {
-                List<string> validPaths = new List<string>();
                 //construct the array
                 string basePath = Path.Combine(BasePath.Name, "Modules");
+                List<SubMod> subMods = new List<SubMod>();
                 var all = Directory.EnumerateDirectories(basePath);
                 foreach (string path in all)
                 {
-                    if (Directory.Exists(Path.Combine(path, "CustomSpawns")))
+                    if (Directory.Exists(Path.Combine(path, "CustomSpawns"))) //mod is a custom spawns mod!
                     {
                         //check if mod is a valid M&B mod.
                         try
@@ -36,30 +36,23 @@ namespace CustomSpawns.ModIntegration
                         {
                             ErrorHandler.HandleException(new Exception("The submodule in path " + path + " does not have a SubModule.xml file or has an invalid one!"));
                         }
-                        //check if mod is a valid Custom Spawns mod. 
+                        //check if mod is a valid Custom Spawns mod. If so, construct the mod.
                         try
                         {
                             XmlDocument doc = new XmlDocument();
                             doc.LoadXml(Path.Combine(path, "CustomSpawns", "CustomSpawnsSubMod.xml"));
+                            string subModuleName = doc.DocumentElement["SubModuleName"].InnerText;
+                            SubMod mod = new SubMod(subModuleName);
+                            subMods.Add(mod);
                         }
                         catch
                         {
                             ErrorHandler.HandleException(new Exception("The submodule in path " + path + " does not have a CustomSpawnsSubMod.xml file or has an invalid one!"));
                         }
-
-                        var loadedMods = new List<ModuleInfo>();
-                        foreach (var moduleName in )
-                        {
-
-                        }
-                        validPaths.Add(Path.Combine(path, "CustomSpawns"));
-                        string modName = "";
-                        UX.ShowMessage(modName + " is now integrated into the Custom Spawns API!", Color.ConvertStringToColor("#001FFFFF"));
                     }
                 }
-                dependentModsArray = validPaths.ToArray();
+                dependentModsArray = subMods.ToArray();
             }
-            return dependentModsArray;
         }
 
     }

@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace CustomSpawns.ModIntegration
 {
-    class SubMod
+    public class SubMod
     {
+
+        public string SubModuleName { get; private set; }
+
+        public SubMod(string subModuleName)
+        {
+            SubModuleName = subModuleName;
+        }
     }
 }
