@@ -33,3 +33,5 @@
 -possible power level bug with custom troops?
 -more complex AI behaviour! (slavers actually travelling from parts of the land and if they succeed something happens?)
 -custom spawns that spawn depending on other spawns. Maybe join them etc!
+
+ADD MORE TUTORIALS ETC!! Caution people about overriding base-game upgrade trees. It is doable just through XML but very very precarious
