@@ -32,9 +32,9 @@ namespace CustomSpawns.ModIntegration
                         try
                         {
                             XmlDocument doc = new XmlDocument();
-                            doc.LoadXml(Path.Combine(path, "Submodule.xml"));
+                            doc.Load(Path.Combine(path, "Submodule.xml"));
                         }
-                        catch
+                        catch(Exception e)
                         {
                             ErrorHandler.HandleException(new Exception("The submodule in path " + path + " does not have a SubModule.xml file or has an invalid one!"));
                         }
@@ -42,7 +42,7 @@ namespace CustomSpawns.ModIntegration
                         try
                         {
                             XmlDocument doc = new XmlDocument();
-                            doc.LoadXml(Path.Combine(path, "CustomSpawns", "CustomSpawnsSubMod.xml"));
+                            doc.Load(Path.Combine(path, "CustomSpawns", "CustomSpawnsSubMod.xml"));
                             string subModuleName = doc.DocumentElement["SubModuleName"].InnerText;
                             if (loadedModules.Contains(subModuleName)) //load mod only if it is enabled.
                             {
@@ -50,7 +50,7 @@ namespace CustomSpawns.ModIntegration
                                 subMods.Add(mod);
                             }
                         }
-                        catch
+                        catch(Exception e)
                         {
                             ErrorHandler.HandleException(new Exception("The submodule in path " + path + " does not have a CustomSpawnsSubMod.xml file or has an invalid one!"));
                         }
