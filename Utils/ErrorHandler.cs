@@ -10,9 +10,9 @@ namespace CustomSpawns
     class ErrorHandler
     {
 
-        public static void HandleException(Exception e)
+        public static void HandleException(Exception e, string during = "")
         {
-            MessageBox.Show("CustomSpawns error has occured, please report to mod developer: " + e.Message + " AT " + e.Source);
+            MessageBox.Show("CustomSpawns error has occured, please report to mod developer: " + e.Message + " AT " + e.Source + "DURING " + during);
         }
 
     }

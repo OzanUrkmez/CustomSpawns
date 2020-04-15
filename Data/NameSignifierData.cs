@@ -78,7 +78,7 @@ namespace CustomSpawns.Data
             }
             catch (Exception e)
             {
-                ErrorHandler.HandleException(e);
+                ErrorHandler.HandleException(e, "Name Signifier Data Parsing");
             }
         }
 
