@@ -35,3 +35,9 @@
 -custom spawns that spawn depending on other spawns. Maybe join them etc!
 
 ADD MORE TUTORIALS ETC!! Caution people about overriding base-game upgrade trees. It is doable just through XML but very very precarious
+
+-Add hideout, settlement etc. ONLY VERY LATER THIS WOULD BE VERY HARD
+-Bands of AI ganging up on a near settlement etc. Moving together, waiting for each other etc. This would actually be totally doable. Show messages etc too for these things sometimes. Can do boss parties raiding etc!
+
+EXTREME MAYBE:
+-complex behaviour by which small parties remember the approximate placement of an enemy party and if this small party meets with another they might try to hunt it together. communication simulation. of course they would go to last seen place. maybe but seems like a neat idea or a basis for one
