@@ -14,5 +14,6 @@ namespace CustomSpawns
         public bool SpawnAtOneHideout { get; set; }
         public bool ModifyPartySpeeds { get; set; }
         public bool IsRemovalMode { get; set; }
+        public bool IsAllSpawnMode { get; set; }
     }
 }

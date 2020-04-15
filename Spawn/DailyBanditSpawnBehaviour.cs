@@ -93,7 +93,7 @@ namespace CustomSpawns.Spawn
                     {
                         if (data.CanSpawn() && (data.MinimumNumberOfDaysUntilSpawn < (int)Math.Ceiling(Campaign.Current.CampaignStartTime.ElapsedDaysUntilNow)))
                         {
-                            if ((float)rand.NextDouble() < data.ChanceOfSpawn)
+                            if (ConfigLoader.Instance.Config.IsAllSpawnMode || (float)rand.NextDouble() < data.ChanceOfSpawn)
                             {
                                 Clan spawnClan = data.BanditClan;
                                 //deal with override of spawn clan.
