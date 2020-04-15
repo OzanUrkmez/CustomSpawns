@@ -12,7 +12,7 @@ namespace CustomSpawns
 
         public static void HandleException(Exception e, string during = "")
         {
-            MessageBox.Show("CustomSpawns error has occured, please report to mod developer: " + e.Message + " AT " + e.Source + "DURING " + during);
+            MessageBox.Show("CustomSpawns error has occured, please report to mod developer: " + e.Message + " AT " + e.Source + "DURING " + during + " TRACE: " + e.StackTrace);
         }
 
     }
