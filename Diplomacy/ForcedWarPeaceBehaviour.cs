@@ -11,6 +11,13 @@ namespace CustomSpawns.Diplomacy
 {
     class ForcedWarPeaceBehaviour : CampaignBehaviorBase
     {
+        public ForcedWarPeaceBehaviour(Data.DiplomacyDataManager dataManager)
+        {
+            this.dataManager = dataManager;
+        }
+
+        private Data.DiplomacyDataManager dataManager;
+
         public override void RegisterEvents()
         {
             CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, DailyBehaviour);
