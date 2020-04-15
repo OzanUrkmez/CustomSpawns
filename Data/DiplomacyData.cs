@@ -50,7 +50,9 @@ namespace CustomSpawns.Data
             }
             foreach (var subMod in ModIntegration.SubModManager.dependentModsArray)
             {
-                ConstructListFromXML(Path.Combine(subMod.CustomSpawnsDirectoryPath, "Diplomacy.xml"));
+                string path = Path.Combine(subMod.CustomSpawnsDirectoryPath, "Diplomacy.xml");
+                if (File.Exists(path))
+                    ConstructListFromXML(path);
             }
         }
 

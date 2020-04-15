@@ -11,7 +11,6 @@ using TaleWorlds.Library;
 
 namespace CustomSpawns.Data
 {
-    [Serializable]
     public class NameSignifierData
     {
 
@@ -42,7 +41,9 @@ namespace CustomSpawns.Data
             }
             foreach(var subMod in ModIntegration.SubModManager.dependentModsArray)
             {
-                ConstructFromXML(Path.Combine(subMod.CustomSpawnsDirectoryPath, "NameSignifiers.xml"));
+                string path = Path.Combine(subMod.CustomSpawnsDirectoryPath, "NameSignifiers.xml");
+                if (File.Exists(path))
+                    ConstructFromXML(path);
             }
 
         }
