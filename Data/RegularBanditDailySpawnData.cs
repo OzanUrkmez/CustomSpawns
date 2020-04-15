@@ -70,7 +70,7 @@ namespace CustomSpawns.Data
                     RegularBanditDailySpawnData dat = new RegularBanditDailySpawnData();
 
                     dat.PartyTemplate = (PartyTemplateObject)MBObjectManager.Instance.ReadObjectReferenceFromXml("party_template", typeof(PartyTemplateObject), node);
-                    dat.BanditClan = (Clan)MBObjectManager.Instance.ReadObjectReferenceFromXml("bandit_clan", typeof(Clan), node);
+                    dat.SpawnClan = (Clan)MBObjectManager.Instance.ReadObjectReferenceFromXml("bandit_clan", typeof(Clan), node);
 
                     //have bannerlord read attributes
 
@@ -176,7 +176,7 @@ namespace CustomSpawns.Data
     }
     public class RegularBanditDailySpawnData
     {
-        public Clan BanditClan { get; set; }
+        public Clan SpawnClan { get; set; }
         public List<Clan> OverridenSpawnClan = new List<Clan>();
         public List<CultureCode> OverridenSpawnCultures = new List<CultureCode>();
         public List<AccompanyingParty> SpawnAlongWith = new List<AccompanyingParty>();

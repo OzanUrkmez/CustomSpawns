@@ -223,8 +223,10 @@
     <Compile Include="CustomSpawnsCustomSpeedModel.cs" />
     <Compile Include="Config\Config.cs" />
     <Compile Include="Config\ConfigLoader.cs" />
+    <Compile Include="Data\DiplomacyData.cs" />
     <Compile Include="Data\NameSignifierData.cs" />
     <Compile Include="Data\RegularBanditDailySpawnData.cs" />
+    <Compile Include="Diplomacy\ForcedWarPeaceBehaviour.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="ModIntegration\SubMod.cs" />
     <Compile Include="ModIntegration\SubModManager.cs" />

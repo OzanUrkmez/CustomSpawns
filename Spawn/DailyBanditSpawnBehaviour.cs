@@ -95,7 +95,7 @@ namespace CustomSpawns.Spawn
                         {
                             if (ConfigLoader.Instance.Config.IsAllSpawnMode || (float)rand.NextDouble() < data.ChanceOfSpawn)
                             {
-                                Clan spawnClan = data.BanditClan;
+                                Clan spawnClan = data.SpawnClan;
                                 //deal with override of spawn clan.
                                 if(data.OverridenSpawnClan.Count != 0)
                                 {
@@ -124,7 +124,7 @@ namespace CustomSpawns.Spawn
                                 //get settlement
                                 Settlement spawnSettlement = ConfigLoader.Instance.Config.SpawnAtOneHideout ? firstHideout : (spawnOverride == null ? CampaignUtils.GetPreferableHideout(spawnClan) : spawnOverride);
                                 //spawn nao!
-                                MobileParty spawnedParty = Spawner.SpawnBanditAtHideout(spawnSettlement, data.BanditClan, data.PartyTemplate, new TextObject(data.Name));
+                                MobileParty spawnedParty = Spawner.SpawnBanditAtHideout(spawnSettlement, data.SpawnClan, data.PartyTemplate, new TextObject(data.Name));
                                 data.IncrementNumberSpawned(); //increment for can spawn and chance modifications
                                 j++;
                                 //AI Checks!
@@ -132,7 +132,7 @@ namespace CustomSpawns.Spawn
                                 //accompanying spawns
                                 foreach(var accomp in data.SpawnAlongWith)
                                 {
-                                    MobileParty juniorParty = Spawner.SpawnBanditAtHideout(spawnSettlement, data.BanditClan, accomp.templateObject, new TextObject(accomp.name));
+                                    MobileParty juniorParty = Spawner.SpawnBanditAtHideout(spawnSettlement, data.SpawnClan, accomp.templateObject, new TextObject(accomp.name));
                                     HandleAIChecks(juniorParty, data, spawnSettlement); //junior party has same AI behaviour as main party.
                                 }
                                 //message if available
