@@ -70,7 +70,10 @@ namespace CustomSpawns.Data
                     RegularBanditDailySpawnData dat = new RegularBanditDailySpawnData();
 
                     dat.PartyTemplate = (PartyTemplateObject)MBObjectManager.Instance.ReadObjectReferenceFromXml("party_template", typeof(PartyTemplateObject), node);
-                    dat.SpawnClan = (Clan)MBObjectManager.Instance.ReadObjectReferenceFromXml("bandit_clan", typeof(Clan), node);
+                    if(node.Attributes["spawn_clan"] == null)
+                        dat.SpawnClan = (Clan)MBObjectManager.Instance.ReadObjectReferenceFromXml("bandit_clan", typeof(Clan), node);
+                    else
+                        dat.SpawnClan = (Clan)MBObjectManager.Instance.ReadObjectReferenceFromXml("spawn_clan", typeof(Clan), node);
 
                     //have bannerlord read attributes
 
@@ -113,6 +116,7 @@ namespace CustomSpawns.Data
                         throw new Exception("the node 'MaximumOnMap' cannot be less than 1!");
                     }
 
+                    dat.PartyType = node["PartyType"] == null ? MobileParty.PartyTypeEnum.Bandit : StringToPartyTypeEnumIfInvalidBandit(node["PartyType"].InnerText);
                     dat.ChanceOfSpawn = node["ChanceOfSpawn"] == null? 1 : float.Parse(node["ChanceOfSpawn"].InnerText);
                     dat.Name = node["Name"] == null ? "Unnamed" : node["Name"].InnerText;
                     dat.ChanceInverseConstant = node["ChanceInverseConstant"] == null? 0 : float.Parse(node["ChanceInverseConstant"].InnerText);
@@ -120,6 +124,7 @@ namespace CustomSpawns.Data
 
                     dat.PatrolAroundSpawn = node["PatrolAroundSpawn"] == null ? false : bool.Parse(node["PatrolAroundSpawn"].InnerText);
                     dat.MinimumNumberOfDaysUntilSpawn = node["MinimumNumberOfDaysUntilSpawn"] == null ? -1 : int.Parse(node["MinimumNumberOfDaysUntilSpawn"].InnerText);
+
 
                     //message
                     string msg = node["SpawnMessage"] == null? "" : node["SpawnMessage"].InnerText;
@@ -173,9 +178,31 @@ namespace CustomSpawns.Data
             }
         }
 
+        private MobileParty.PartyTypeEnum StringToPartyTypeEnumIfInvalidBandit(string s)
+        {
+            switch (s)
+            {
+                case "Default":
+                    return MobileParty.PartyTypeEnum.Default;
+                case "Bandit":
+                    return MobileParty.PartyTypeEnum.Bandit;
+                case "Caravan":
+                    return MobileParty.PartyTypeEnum.Caravan;
+                case "GarrisonParty":
+                    return MobileParty.PartyTypeEnum.GarrisonParty;
+                case "Lord":
+                    return MobileParty.PartyTypeEnum.Lord;
+                case "Villager":
+                    return MobileParty.PartyTypeEnum.Villager;
+                default:
+                    return MobileParty.PartyTypeEnum.Bandit;
+            }
+        }
+
     }
     public class RegularBanditDailySpawnData
     {
+        public MobileParty.PartyTypeEnum PartyType { get; set; }
         public Clan SpawnClan { get; set; }
         public List<Clan> OverridenSpawnClan = new List<Clan>();
         public List<CultureCode> OverridenSpawnCultures = new List<CultureCode>();

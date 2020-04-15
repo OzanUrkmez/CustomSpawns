@@ -17,7 +17,7 @@ namespace CustomSpawns.Spawn
     class Spawner
     {
 
-        public static MobileParty SpawnBanditAtHideout(Settlement spawnedSettlement, Clan clan, PartyTemplateObject templateObject, TextObject partyName = null)
+        public static MobileParty SpawnBanditAtHideout(Settlement spawnedSettlement, Clan clan, PartyTemplateObject templateObject,MobileParty.PartyTypeEnum partyType,  TextObject partyName = null)
         {
             //get name and show message.
             TextObject textObject = partyName ?? clan.Name;
@@ -27,7 +27,7 @@ namespace CustomSpawns.Spawn
             int numberOfCreated = templateObject.NumberOfCreated;
             templateObject.IncrementNumberOfCreated();
             MobileParty mobileParty = MBObjectManager.Instance.CreateObject<MobileParty>(templateObject.StringId + "_" + numberOfCreated.ToString());
-            mobileParty.InitializeMobileParty(textObject, templateObject, spawnedSettlement.GatePosition, 0, 0, MobileParty.PartyTypeEnum.Bandit, -1);
+            mobileParty.InitializeMobileParty(textObject, templateObject, spawnedSettlement.GatePosition, 0, 0, partyType, -1);
 
             //initialize as bandit party
             TaleWorldsCode.BanditsCampaignBehaviour.InitBanditParty(mobileParty, textObject, clan, spawnedSettlement);

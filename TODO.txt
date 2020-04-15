@@ -18,7 +18,7 @@
 -infighting between spawns. So different factions
 -Custom dialogue
 -custom loot
-
+-specific settlement spawning
 -Custom spawn change probabilities based on loyalty etc. For exmaple for peasant revolters! yes yes
 -make revolters patrol around the place they have revolted in!
 -add "clean" API install for other mods to use
@@ -38,6 +38,7 @@ ADD MORE TUTORIALS ETC!! Caution people about overriding base-game upgrade trees
 
 -Add hideout, settlement etc. ONLY VERY LATER THIS WOULD BE VERY HARD
 -Bands of AI ganging up on a near settlement etc. Moving together, waiting for each other etc. This would actually be totally doable. Show messages etc too for these things sometimes. Can do boss parties raiding etc!
+
 
 EXTREME MAYBE:
 -complex behaviour by which small parties remember the approximate placement of an enemy party and if this small party meets with another they might try to hunt it together. communication simulation. of course they would go to last seen place. maybe but seems like a neat idea or a basis for one
