@@ -56,6 +56,8 @@ namespace CustomSpawns.Data
 
                 foreach (XmlNode node in doc.DocumentElement)
                 {
+                    if (node.NodeType == XmlNodeType.Comment)
+                        continue;
                     if (node.Attributes["id"] == null || node.Attributes["value"] == null)
                     {
                         ErrorHandler.HandleException(new Exception("There must be an id and value attribute defined for each element in NameSignifiers.xml"));

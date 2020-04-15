@@ -63,6 +63,9 @@ namespace CustomSpawns.Data
             {
                 foreach (XmlNode node in doc.DocumentElement)
                 {
+                    if (node.NodeType == XmlNodeType.Comment)
+                        continue;
+
                     RegularBanditDailySpawnData dat = new RegularBanditDailySpawnData();
 
                     dat.PartyTemplate = (PartyTemplateObject)MBObjectManager.Instance.ReadObjectReferenceFromXml("party_template", typeof(PartyTemplateObject), node);
