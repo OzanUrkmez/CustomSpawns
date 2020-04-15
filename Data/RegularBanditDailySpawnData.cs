@@ -13,7 +13,6 @@ using TaleWorlds.Core;
 
 namespace CustomSpawns.Data
 {
-    [Serializable]
     public class RegularBanditDailySpawnDataManager
     {
 
