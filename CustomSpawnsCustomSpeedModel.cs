@@ -48,16 +48,13 @@ namespace CustomSpawns
                 }
             }
             explainedNumber.LimitMin(1f);
-            float calc = base.CalculateFinalSpeed(mobileParty, baseSpeed, explanation);
             string key = string.Join("_", Utils.Utils.TakeAllButLast<string>(mobileParty.StringId.Split('_')).ToArray<string>()); //TODO if this is non-trivial make it more efficient
             if (partyIDToExtraSpeed.ContainsKey(key))
             {
-                ExplainedNumber explainedNumber = new ExplainedNumber(calc, explanation);
                 float extra = partyIDToExtraSpeed[key];
                 explainedNumber.AddFactor(extra, explanationText);
-                return calc + extra;
             }
-            return calc;
+            return explainedNumber.ResultNumber;
         }
 
         private Dictionary<string, float> partyIDToExtraSpeed = new Dictionary<string, float>();
