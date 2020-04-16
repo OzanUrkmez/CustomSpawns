@@ -31,13 +31,13 @@ namespace CustomSpawns.Data
             }
         }
 
-        private List<DiplomacyData> data = new List<DiplomacyData>();
+        private Dictionary<string, DiplomacyData> data = new Dictionary<string, DiplomacyData>();
 
-        public IList<DiplomacyData> Data
+        public MBReadOnlyDictionary<string, DiplomacyData> Data
         {
             get
             {
-                return data.AsReadOnly();
+                return data.GetReadOnlyDictionary();
             }
         }
 
@@ -80,7 +80,7 @@ namespace CustomSpawns.Data
                         HandleForcedWarPeaceBehaviourData(forceNode, diplomacyData);
                     }
 
-                    data.Add(diplomacyData);
+                    data.Add(diplomacyData.clanString, diplomacyData);
                 }
 
             }
