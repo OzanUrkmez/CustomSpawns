@@ -102,5 +102,11 @@ namespace CustomSpawns
             }
         }
 
+        public static Settlement PickRandomSettlementAmong(List<Settlement> list)
+        {
+            Random rand = new Random();
+            return list[rand.Next(0, list.Count)];
+        }
+
     }
 }

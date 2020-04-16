@@ -116,7 +116,11 @@ namespace CustomSpawns.Spawn
                                 }
                                 //deal with town spawn
                                 Settlement spawnOverride = null;
-                                if(data.OverridenSpawnCultures.Count != 0)
+                                if(data.OverridenSpawnSettlements.Count != 0)
+                                {
+                                    spawnOverride = CampaignUtils.PickRandomSettlementAmong(data.OverridenSpawnSettlements);
+                                }
+                                if(spawnOverride != null && data.OverridenSpawnCultures.Count != 0)
                                 {
                                     //spawn at overriden spawn instead!
                                     spawnOverride = CampaignUtils.PickRandomSettlementOfCulture(data.OverridenSpawnCultures);
