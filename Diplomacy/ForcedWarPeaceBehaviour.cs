@@ -43,10 +43,20 @@ namespace CustomSpawns.Diplomacy
                     {
                         if (declared == null)
                             continue;
-                        if (declared.Kingdom == null)
-                            FactionManager.DeclareWar(c, declared);
+                        if (declared.Kingdom != null)
+                        {//we deal with kingdom
+                            if (forcedWarPeaceInstance.exceptionKingdoms.Contains(declared.Kingdom))
+                            {
+                                FactionManager.SetNeutral(c, declared.Kingdom);
+                            }
+                            else {
+                                FactionManager.DeclareWar(c, declared.Kingdom);
+                            }
+                        }
                         else
-                            FactionManager.DeclareWar(c, declared.Kingdom);
+                        {
+                            FactionManager.DeclareWar(c, declared);
+                        }
                     }
                 }
             }catch(Exception e)

@@ -109,6 +109,7 @@ namespace CustomSpawns.Data
                     {
                         case "all": //handle case where All clans except maybe some are designated as enemies.
                             List<string> exceptions = new List<string>();
+                            List<string> exceptionKingdoms = new List<string>();
                             int j = 0;
                             string st = "but";
                             while (true)
@@ -124,6 +125,21 @@ namespace CustomSpawns.Data
                                 }
                                 j++;
                             }
+                            j = 0;
+                            st = "but_kingdom";
+                            while (true)
+                            {
+                                string s1 = st + "_" + j.ToString();
+                                if (forceNodeChild.Attributes[s1] == null || forceNodeChild.Attributes[s1].InnerText == "")
+                                {
+                                    break;
+                                }
+                                else
+                                {
+                                    exceptionKingdoms.Add(forceNodeChild.Attributes[s1].InnerText);
+                                }
+                                j++;
+                            }
                             foreach (Clan c in Clan.All)
                             {
                                 string stringID = c.StringId;
@@ -131,7 +147,13 @@ namespace CustomSpawns.Data
                                     diplomacyData.ForcedWarPeaceDataInstance.atWarClans.Add(c);
 
                             }
-                                break;
+                            foreach(Kingdom k in Kingdom.All)
+                            {
+                                string stringID = k.StringId;
+                                if (exceptionKingdoms.Contains(stringID))
+                                    diplomacyData.ForcedWarPeaceDataInstance.exceptionKingdoms.Add(k);
+                            }
+                            break;
                         default:
                             throw new Exception("Invalid forced war special data flag detected");
                     }
@@ -148,6 +170,7 @@ namespace CustomSpawns.Data
         public class ForcedWarPeaceData
         {
             public List<Clan> atWarClans = new List<Clan>();
+            public List<Kingdom> exceptionKingdoms = new List<Kingdom>();
         }
 
         public ForcedWarPeaceData ForcedWarPeaceDataInstance;
