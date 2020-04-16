@@ -30,20 +30,28 @@ namespace CustomSpawns.Diplomacy
 
         private void DailyClanBehaviour(Clan c)
         {
-            if(dataManager == null)
+            try
             {
-                GetData();
-            }
-            if (dataManager.Data.ContainsKey(c.StringId) && dataManager.Data[c.StringId].ForcedWarPeaceDataInstance != null)
-            {
-                var forcedWarPeaceInstance = dataManager.Data[c.StringId].ForcedWarPeaceDataInstance;
-                foreach(Clan declared in forcedWarPeaceInstance.atWarClans)
+                if (dataManager == null)
                 {
-                    if (declared.Kingdom == null)
-                        FactionManager.DeclareWar(c, declared);
-                    else
-                        FactionManager.DeclareWar(c, declared.Kingdom);
+                    GetData();
                 }
+                if (dataManager.Data.ContainsKey(c.StringId) && dataManager.Data[c.StringId].ForcedWarPeaceDataInstance != null)
+                {
+                    var forcedWarPeaceInstance = dataManager.Data[c.StringId].ForcedWarPeaceDataInstance;
+                    foreach (Clan declared in forcedWarPeaceInstance.atWarClans)
+                    {
+                        if (declared == null)
+                            continue;
+                        if (declared.Kingdom == null)
+                            FactionManager.DeclareWar(c, declared);
+                        else
+                            FactionManager.DeclareWar(c, declared.Kingdom);
+                    }
+                }
+            }catch(Exception e)
+            {
+                ErrorHandler.HandleException(e, " daily clan behaviour processing of ForcedWarPeaceBehaviour.cs ");
             }
         }
 
