@@ -71,6 +71,7 @@ namespace CustomSpawns
             try
             {
                 AddBehaviours(gameStarterObject as CampaignGameStarter);
+                //do overrides
                 if (ConfigLoader.Instance.Config.ModifyPartySpeeds && !removalMode)
                     gameStarterObject.AddModel(customSpeedModel);
             }
