@@ -86,7 +86,7 @@ namespace CustomSpawns.Data
             }
             catch (Exception e)
             {
-                ErrorHandler.HandleException(e, "Name Signifier Data Parsing of " + path);
+                ErrorHandler.HandleException(e, "Diplomacy Data Parsing of " + path);
             }
         }
 
