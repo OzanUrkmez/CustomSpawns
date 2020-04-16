@@ -142,12 +142,35 @@ namespace CustomSpawns.Data
                             dat.spawnMessage = new InformationMessage(msg, c);
                         }
                     }
-
                     //handle extra linear speed.
-                    if(node["ExtraLinearSpeed"] != null)
+                    float extraSpeed = float.MinValue;
+                    if (node["ExtraLinearSpeed"] != null)
                     {
-                        float extra = float.Parse(node["ExtraLinearSpeed"].InnerText);
-                        Main.customSpeedModel.RegisterPartyExtraSpeed(dat.PartyTemplate.StringId, extra);
+                        if (!float.TryParse(node["ExtraLinearSpeed"].InnerText, out extraSpeed)) { 
+                            throw new Exception("ExtraLinearSpeed must be a float value! ");
+                        }
+                        Main.customSpeedModel.RegisterPartyExtraSpeed(dat.PartyTemplate.StringId, extraSpeed);
+                    }
+
+                    //min max party speed modifiers
+                    float minSpeed = float.MinValue;
+                    if (node["MinimumFinalSpeed"] != null)
+                    {
+                        if (!float.TryParse(node["MinimumFinalSpeed"].InnerText, out minSpeed))
+                        {
+                            throw new Exception("MinimumFinalSpeed must be a float value! ");
+                        }
+                        Main.customSpeedModel.RegisterPartyMinimumSpeed(dat.PartyTemplate.StringId, minSpeed);
+                    }
+
+                    float maxSpeed = float.MinValue;
+                    if (node["MaximumFinalSpeed"] != null)
+                    {
+                        if (!float.TryParse(node["MaximumFinalSpeed"].InnerText, out maxSpeed))
+                        {
+                            throw new Exception("MaximumFinalSpeed must be a float value! ");
+                        }
+                        Main.customSpeedModel.RegisterPartyMaximumSpeed(dat.PartyTemplate.StringId, maxSpeed);
                     }
 
                     //Spawn along with
@@ -164,7 +187,12 @@ namespace CustomSpawns.Data
                         {
                             PartyTemplateObject pt = (PartyTemplateObject)MBObjectManager.Instance.ReadObjectReferenceFromXml(s1, typeof(PartyTemplateObject), node);
                             dat.SpawnAlongWith.Add(new AccompanyingParty(pt, NameSignifierData.Instance.GetPartyNameFromID(pt.StringId)));
-                            Main.customSpeedModel.RegisterPartyExtraSpeed(pt.StringId, NameSignifierData.Instance.GetSpeedModifierFromID(pt.StringId));
+                            if(extraSpeed != float.MinValue)
+                                Main.customSpeedModel.RegisterPartyExtraSpeed(pt.StringId, extraSpeed);
+                            if (minSpeed != float.MinValue)
+                                Main.customSpeedModel.RegisterPartyMinimumSpeed(pt.StringId, minSpeed);
+                            if (maxSpeed != float.MinValue)
+                                Main.customSpeedModel.RegisterPartyMaximumSpeed(pt.StringId, maxSpeed);
                         }
                         k++;
                     }

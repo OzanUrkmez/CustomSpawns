@@ -68,6 +68,15 @@ namespace CustomSpawns
             partyIDToExtraSpeed.Add(partyBaseID, extraSpeed);
         }
 
+        public void RegisterPartyMinimumSpeed(string partyBaseID, float minimumSpeed)
+        {
+
+        }
+
+        public void RegisterPartyMaximumSpeed(string partyBaseID, float minimumSpeed)
+        {
+
+        }
 
         //ALL THIS TAKEN FROM TALEWORLDS GAME FILES:
         private static readonly TextObject _textCargo = new TextObject("{=fSGY71wd}Cargo within capacity", null);
