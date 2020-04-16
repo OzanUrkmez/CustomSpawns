@@ -7,7 +7,7 @@ using TaleWorlds.Core;
 using TaleWorlds.Localization;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents.Map;
-
+using Helpers;
 
 namespace CustomSpawns
 {
@@ -23,6 +23,31 @@ namespace CustomSpawns
 
         public override float CalculateFinalSpeed(MobileParty mobileParty, float baseSpeed, StatExplainer explanation)
         {
+            PartyBase party = mobileParty.Party;
+            ExplainedNumber explainedNumber = new ExplainedNumber(baseSpeed, explanation, null);
+            TerrainType faceTerrainType = Campaign.Current.MapSceneWrapper.GetFaceTerrainType(mobileParty.CurrentNavigationFace);
+            if (faceTerrainType == TerrainType.Forest)
+            {
+                explainedNumber.AddFactor(-0.3f, _movingInForest);
+                PerkHelper.AddFeatBonusForPerson(DefaultFeats.Cultural.BattanianForestAgility, mobileParty.Leader, ref explainedNumber);
+            }
+            else if (faceTerrainType == TerrainType.Water || faceTerrainType == TerrainType.River || faceTerrainType == TerrainType.Bridge || faceTerrainType == TerrainType.ShallowRiver)
+            {
+                explainedNumber.AddFactor(-0.3f, _fordEffect);
+            }
+            if (Campaign.Current.IsNight)
+            {
+                explainedNumber.AddFactor(-0.25f, _night);
+            }
+            if (faceTerrainType == TerrainType.Snow)
+            {
+                explainedNumber.AddFactor(-0.1f, _snow);
+                if (party.Leader != null)
+                {
+                    PerkHelper.AddFeatBonusForPerson(DefaultFeats.Cultural.SturgianSnowAgility, party.Leader, ref explainedNumber);
+                }
+            }
+            explainedNumber.LimitMin(1f);
             float calc = base.CalculateFinalSpeed(mobileParty, baseSpeed, explanation);
             string key = string.Join("_", Utils.Utils.TakeAllButLast<string>(mobileParty.StringId.Split('_')).ToArray<string>()); //TODO if this is non-trivial make it more efficient
             if (partyIDToExtraSpeed.ContainsKey(key))
@@ -43,5 +68,47 @@ namespace CustomSpawns
                 return;
             partyIDToExtraSpeed.Add(partyBaseID, extraSpeed);
         }
+
+
+        //ALL THIS TAKEN FROM TALEWORLDS GAME FILES:
+        private static readonly TextObject _textCargo = new TextObject("{=fSGY71wd}Cargo within capacity", null);
+
+        private static readonly TextObject _textOverburdened = new TextObject("{=xgO3cCgR}Overburdened", null);
+
+        private static readonly TextObject _textOverPartySize = new TextObject("{=bO5gL3FI}Men within party size", null);
+
+        private static readonly TextObject _textOverPrisonerSize = new TextObject("{=Ix8YjLPD}Men within prisoner size", null);
+
+        private static readonly TextObject _textCavalry = new TextObject("{=YVGtcLHF}Cavalry", null);
+
+        private static readonly TextObject _textKhuzaitCavalryBonus = new TextObject("{=yi07dBks}Khuzait Cavalry Bonus", null);
+
+        private static readonly TextObject _textMountedFootmen = new TextObject("{=5bSWSaPl}Footmen on horses", null);
+
+        private static readonly TextObject _textWounded = new TextObject("{=aLsVKIRy}Wounded Members", null);
+
+        private static readonly TextObject _textPrisoners = new TextObject("{=N6QTvjMf}Prisoners", null);
+
+        private static readonly TextObject _textHerd = new TextObject("{=NhAMSaWU}Herd", null);
+
+        private static readonly TextObject _difficulty = new TextObject("{=uG2Alcat}Game Difficulty", null);
+
+        private static readonly TextObject _textHighMorale = new TextObject("{=aDQcIGfH}High Morale", null);
+
+        private static readonly TextObject _textLowMorale = new TextObject("{=ydspCDIy}Low Morale", null);
+
+        private static readonly TextObject _textDisorganized = new TextObject("{=JuwBb2Yg}Disorganized", null);
+
+        private static readonly TextObject _movingInForest = new TextObject("{=rTFaZCdY}Forest", null);
+
+        private static readonly TextObject _fordEffect = new TextObject("{=NT5fwUuJ}Fording", null);
+
+        private static readonly TextObject _night = new TextObject("{=fAxjyMt5}Night", null);
+
+        private static readonly TextObject _snow = new TextObject("{=vLjgcdgB}Snow", null);
+
+        private static readonly TextObject _desert = new TextObject("{=ecUwABe2}Desert", null);
+
+        private static readonly TextObject _sturgiaSnowBonus = new TextObject("{=0VfEGekD}Sturgia Snow Bonus", null);
     }
 }
