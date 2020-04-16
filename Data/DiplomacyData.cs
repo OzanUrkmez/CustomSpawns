@@ -68,11 +68,12 @@ namespace CustomSpawns.Data
                     if (node.NodeType == XmlNodeType.Comment)
                         continue;
                     DiplomacyData diplomacyData = new DiplomacyData();
-                    if(node.Attributes["target"] == null)
+                    if(node.Attributes["target"] == null || node.Attributes["target"].InnerText == "")
                     {
                         throw new Exception("Each diplomacy data instance must have a target faction!");
                     }
-                    if(node["ForceWarPeaceBehaviour"] != null)
+                    diplomacyData.clanString = node.Attributes["target"].InnerText;
+                    if (node["ForceWarPeaceBehaviour"] != null)
                     {
                         //handle forced war peace data.
                         diplomacyData.ForcedWarPeaceDataInstance = new DiplomacyData.ForcedWarPeaceData();
