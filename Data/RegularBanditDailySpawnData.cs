@@ -109,6 +109,22 @@ namespace CustomSpawns.Data
                         j++;
                     }
 
+                    j = 0;
+                    st = "overriden_spawn_settlement";
+                    while (true)
+                    {
+                        string s1 = st + "_" + j.ToString();
+                        if (node.Attributes[s1] == null || node.Attributes[s1].InnerText == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            dat.OverridenSpawnSettlements.Add(((Settlement)MBObjectManager.Instance.ReadObjectReferenceFromXml(s1, typeof(Settlement), node)));
+                        }
+                        j++;
+                    }
+
                     //get elements
                     dat.MaximumOnMap = node["MaximumOnMap"] == null? 0 : int.Parse(node["MaximumOnMap"].InnerText);
                     if (dat.MaximumOnMap < 1)
@@ -233,6 +249,7 @@ namespace CustomSpawns.Data
         public MobileParty.PartyTypeEnum PartyType { get; set; }
         public Clan SpawnClan { get; set; }
         public List<Clan> OverridenSpawnClan = new List<Clan>();
+        public List<Settlement> OverridenSpawnSettlements = new List<Settlement>();
         public List<CultureCode> OverridenSpawnCultures = new List<CultureCode>();
         public List<AccompanyingParty> SpawnAlongWith = new List<AccompanyingParty>();
         public int MaximumOnMap { get; set; }
