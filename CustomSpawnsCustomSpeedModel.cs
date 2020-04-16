@@ -11,7 +11,7 @@ using Helpers;
 
 namespace CustomSpawns
 {
-   
+
     public class CustomSpawnsCustomSpeedModel : DefaultPartySpeedCalculatingModel
     {
         private static readonly TextObject explanationText = new TextObject("Custom Spawns Modification");
@@ -54,12 +54,20 @@ namespace CustomSpawns
                     PerkHelper.AddFeatBonusForPerson(DefaultFeats.Cultural.SturgianSnowAgility, party.Leader, ref explainedNumber);
                 }
             }
-            explainedNumber.LimitMin(1f);
+            if (partyIDToMinimumSpeed.ContainsKey(key))//minimum adjustment
+                explainedNumber.LimitMin(partyIDToMinimumSpeed[key]);
+            else
+                explainedNumber.LimitMin(1f);
+
+            if (partyIDToMaximumSpeed.ContainsKey(key))//maximum adjustment
+                explainedNumber.LimitMax(partyIDToMaximumSpeed[key]);
 
             return explainedNumber.ResultNumber;
         }
 
         private Dictionary<string, float> partyIDToExtraSpeed = new Dictionary<string, float>();
+        private Dictionary<string, float> partyIDToMinimumSpeed = new Dictionary<string, float>();
+        private Dictionary<string, float> partyIDToMaximumSpeed = new Dictionary<string, float>();
 
         public void RegisterPartyExtraSpeed(string partyBaseID, float extraSpeed)
         {
@@ -70,12 +78,16 @@ namespace CustomSpawns
 
         public void RegisterPartyMinimumSpeed(string partyBaseID, float minimumSpeed)
         {
-
+            if (partyIDToMinimumSpeed.ContainsKey(partyBaseID) || !ConfigLoader.Instance.Config.ModifyPartySpeeds)
+                return;
+            partyIDToMinimumSpeed.Add(partyBaseID, minimumSpeed);
         }
 
-        public void RegisterPartyMaximumSpeed(string partyBaseID, float minimumSpeed)
+        public void RegisterPartyMaximumSpeed(string partyBaseID, float maximumSpeed)
         {
-
+            if (partyIDToMaximumSpeed.ContainsKey(partyBaseID) || !ConfigLoader.Instance.Config.ModifyPartySpeeds)
+                return;
+            partyIDToMaximumSpeed.Add(partyBaseID, maximumSpeed);
         }
 
         //ALL THIS TAKEN FROM TALEWORLDS GAME FILES:
