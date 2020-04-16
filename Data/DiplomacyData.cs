@@ -127,7 +127,7 @@ namespace CustomSpawns.Data
                             {
                                 string stringID = c.StringId;
                                 if (!exceptions.Contains(stringID))
-                                    diplomacyData.ForcedWarPeaceDataInstance.atWarString.Add(stringID);
+                                    diplomacyData.ForcedWarPeaceDataInstance.atWarClans.Add(c);
 
                             }
                                 break;
@@ -146,7 +146,7 @@ namespace CustomSpawns.Data
 
         public class ForcedWarPeaceData
         {
-            public List<string> atWarString = new List<string>();
+            public List<Clan> atWarClans = new List<Clan>();
         }
 
         public ForcedWarPeaceData ForcedWarPeaceDataInstance;
