@@ -39,25 +39,38 @@ namespace CustomSpawns.Diplomacy
                 if (dataManager.Data.ContainsKey(c.StringId) && dataManager.Data[c.StringId].ForcedWarPeaceDataInstance != null)
                 {
                     var forcedWarPeaceInstance = dataManager.Data[c.StringId].ForcedWarPeaceDataInstance;
-                    foreach (Clan declared in forcedWarPeaceInstance.atWarClans)
+                    foreach (Clan declared in Clan.All)
                     {
-                        if (declared == null)
-                            continue;
-                        if (declared.Kingdom != null)
-                        {//we deal with kingdom
-                            if (forcedWarPeaceInstance.exceptionKingdoms.Contains(declared.Kingdom))
-                            {
-                                FactionManager.SetNeutral(c, declared.Kingdom);
+                        if (forcedWarPeaceInstance.atWarClans.Contains(declared))
+                        {
+                            if (declared == null)
+                                continue;
+                            if (declared.Kingdom != null)
+                            {//we deal with kingdom
+                                if (!forcedWarPeaceInstance.exceptionKingdoms.Contains(declared.Kingdom))
+                                {
+                                    FactionManager.DeclareWar(c, declared.Kingdom);
+                                }
                             }
-                            else {
-                                FactionManager.DeclareWar(c, declared.Kingdom);
+                            else
+                            {
+                                FactionManager.DeclareWar(c, declared);
                             }
                         }
                         else
                         {
-                            FactionManager.DeclareWar(c, declared);
+                            //what if clan left kingdom, and it was in but?
+                            if (declared.Kingdom == null)
+                                FactionManager.SetNeutral(c, declared);
                         }
                     }
+
+                    foreach(var k in forcedWarPeaceInstance.exceptionKingdoms)
+                    {
+                        FactionManager.SetNeutral(c, k);
+                    }
+
+
                 }
             }catch(Exception e)
             {
