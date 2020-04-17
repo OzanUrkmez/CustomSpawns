@@ -162,8 +162,14 @@ namespace CustomSpawns.Spawn
 
         private void HandleAIChecks(MobileParty mb, Data.RegularBanditDailySpawnData data, Settlement spawnedSettlement)
         {
-            if (data.PatrolAroundSpawn)
-                AI.AIManager.HourlyPatrolAroundSpawn.RegisterMobilePartyToPatrol(mb, spawnedSettlement);
+            try
+            {
+                if (data.PatrolAroundSpawn)
+                    AI.AIManager.HourlyPatrolAroundSpawn.RegisterMobilePartyToPatrol(mb, spawnedSettlement);
+            }catch(Exception e)
+            {
+                ErrorHandler.HandleException(e);
+            }
         }
     }
 }

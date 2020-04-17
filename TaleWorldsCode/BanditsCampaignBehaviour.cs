@@ -139,6 +139,10 @@ namespace CustomSpawns.TaleWorldsCode
             banditParty.Name = name;
             banditParty.Party.Owner = faction.Leader;
             banditParty.Party.Visuals.SetMapIconAsDirty();
+            if(faction.Leader.HomeSettlement == null)
+            {
+                faction.UpdateHomeSettlement(homeSettlement);
+            }
             banditParty.HomeSettlement = homeSettlement;
             CreatePartyTrade(banditParty);
             foreach (ItemObject itemObject in ItemObject.All)
