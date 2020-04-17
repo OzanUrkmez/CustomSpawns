@@ -120,7 +120,7 @@ namespace CustomSpawns.Spawn
                                 {
                                     spawnOverride = CampaignUtils.PickRandomSettlementAmong(data.OverridenSpawnSettlements);
                                 }
-                                if(spawnOverride != null && data.OverridenSpawnCultures.Count != 0)
+                                if(spawnOverride == null && data.OverridenSpawnCultures.Count != 0)
                                 {
                                     //spawn at overriden spawn instead!
                                     spawnOverride = CampaignUtils.PickRandomSettlementOfCulture(data.OverridenSpawnCultures);
