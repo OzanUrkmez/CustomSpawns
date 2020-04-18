@@ -27,8 +27,7 @@ namespace CustomSpawns.Spawn
             //create.
             int numberOfCreated = templateObject.NumberOfCreated;
             templateObject.IncrementNumberOfCreated();
-            MobileParty mobileParty = new MobileParty();
-            mobileParty.StringId = templateObject.StringId + "_" + numberOfCreated.ToString();
+            MobileParty mobileParty = MBObjectManager.Instance.CreateObject<MobileParty>(templateObject.StringId + "_" + numberOfCreated.ToString());
             mobileParty.InitializeMobileParty(textObject, ConstructTroopRoster(templateObject), new TroopRoster(), spawnedSettlement.GatePosition, 0);
 
             //initialize
