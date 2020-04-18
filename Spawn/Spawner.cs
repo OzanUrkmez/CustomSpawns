@@ -11,6 +11,7 @@ using TaleWorlds.Library;
 using TaleWorlds.Localization;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
+using Helpers;
 
 namespace CustomSpawns.Spawn
 {
@@ -27,13 +28,10 @@ namespace CustomSpawns.Spawn
             int numberOfCreated = templateObject.NumberOfCreated;
             templateObject.IncrementNumberOfCreated();
             MobileParty mobileParty = MBObjectManager.Instance.CreateObject<MobileParty>(templateObject.StringId + "_" + numberOfCreated.ToString());
-            mobileParty.InitializeMobileParty(textObject, templateObject, spawnedSettlement.GatePosition, 0, 0, partyType, -1);
+            mobileParty.InitializeMobileParty(textObject, ConstructTroopRoster(templateObject), new TroopRoster(), spawnedSettlement.GatePosition, 0);
 
-            //initialize as bandit party
+            //initialize
             Spawner.InitParty(mobileParty, textObject, clan, spawnedSettlement);
-
-            //fill reminiscent
-            CampaignUtils.FillReminiscentBanditParties(mobileParty, templateObject, MobileParty.PartyTypeEnum.Bandit);
 
             return mobileParty;
         }
@@ -68,6 +66,25 @@ namespace CustomSpawns.Spawn
                     }
                 }
             }
+        }
+
+        private static TroopRoster ConstructTroopRoster(PartyTemplateObject pt, int troopNumberLimit = -1)
+        {
+            TroopRoster returned = new TroopRoster();
+            float gameProcess = MiscHelper.GetGameProcess();
+            float num = 0.25f + 0.75f * gameProcess;
+            int num2 = MBRandom.RandomInt(2);
+            float num3 = (num2 == 0) ? MBRandom.RandomFloat : (MBRandom.RandomFloat * MBRandom.RandomFloat * MBRandom.RandomFloat * 4f);
+            float num4 = (num2 == 0) ? (num3 * 0.8f + 0.2f) : (1f + num3);
+            float randomFloat = MBRandom.RandomFloat;
+            float randomFloat2 = MBRandom.RandomFloat;
+            float randomFloat3 = MBRandom.RandomFloat;
+            for (int i = 0; i < pt.Stacks.Count; i++)
+            {
+                float f = (pt.Stacks.Count > 0) ? ((float)pt.Stacks[i].MinValue + num * num4 * randomFloat * (float)(pt.Stacks[i].MaxValue - pt.Stacks[i].MinValue)) : 0f;
+                returned.AddToCounts(pt.Stacks[i].Character, MBRandom.RoundRandomized(f), false);
+            }
+            return returned;
         }
 
     }

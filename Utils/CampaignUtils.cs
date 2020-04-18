@@ -83,25 +83,6 @@ namespace CustomSpawns
             return null;
         }
 
-        public static void FillReminiscentBanditParties(MobileParty mb, PartyTemplateObject pt, MobileParty.PartyTypeEnum partyType, int troopNumberLimit = -1)
-        {
-            if (pt.Stacks.Count < 3)
-                return;
-            float gameProcess = MiscHelper.GetGameProcess();
-            float num = 0.25f + 0.75f * gameProcess;
-            int num2 = MBRandom.RandomInt(2);
-            float num3 = (num2 == 0) ? MBRandom.RandomFloat : (MBRandom.RandomFloat * MBRandom.RandomFloat * MBRandom.RandomFloat * 4f);
-            float num4 = (num2 == 0) ? (num3 * 0.8f + 0.2f) : (1f + num3);
-            float randomFloat = MBRandom.RandomFloat;
-            float randomFloat2 = MBRandom.RandomFloat;
-            float randomFloat3 = MBRandom.RandomFloat;
-            for (int i = 2; i < pt.Stacks.Count; i++)
-            {
-                float f = (pt.Stacks.Count > 0) ? ((float)pt.Stacks[i].MinValue + num * num4 * randomFloat * (float)(pt.Stacks[i].MaxValue - pt.Stacks[i].MinValue)) : 0f;
-                mb.AddElementToMemberRoster(pt.Stacks[i].Character, MBRandom.RoundRandomized(f), false);
-            }
-        }
-
         public static Settlement PickRandomSettlementAmong(List<Settlement> list)
         {
             Random rand = new Random();
