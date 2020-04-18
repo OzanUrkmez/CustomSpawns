@@ -30,6 +30,8 @@ namespace CustomSpawns.Diplomacy
 
         private void DailyClanBehaviour(Clan c)
         {
+            if (c == null)
+                return;
             try
             {
                 if (dataManager == null)
@@ -41,6 +43,8 @@ namespace CustomSpawns.Diplomacy
                     var forcedWarPeaceInstance = dataManager.Data[c.StringId].ForcedWarPeaceDataInstance;
                     foreach (Clan declared in Clan.All)
                     {
+                        if (declared == null || declared == c || (declared.Kingdom == c.Kingdom && c.Kingdom != null))
+                            continue;
                         if (forcedWarPeaceInstance.atWarClans.Contains(declared))
                         {
                             if (declared == null)
@@ -49,30 +53,35 @@ namespace CustomSpawns.Diplomacy
                             {//we deal with kingdom
                                 if (!forcedWarPeaceInstance.exceptionKingdoms.Contains(declared.Kingdom))
                                 {
-                                    FactionManager.DeclareWar(c, declared.Kingdom);
+                                    if (!FactionManager.IsAtWarAgainstFaction(c, declared.Kingdom))
+                                        FactionManager.DeclareWar(c, declared.Kingdom);
                                 }
                             }
                             else
                             {
-                                FactionManager.DeclareWar(c, declared);
+                                if (!FactionManager.IsAtWarAgainstFaction(c, declared))
+                                    FactionManager.DeclareWar(c, declared);
                             }
                         }
                         else
                         {
-                            //what if clan left kingdom, and it was in but?
-                            if (declared.Kingdom == null)
+                            //what if clan left kingdom, and it was in but ?
+                            if (declared.Kingdom == null && !FactionManager.IsNeutralWithFaction(c, declared))
                                 FactionManager.SetNeutral(c, declared);
                         }
                     }
 
-                    foreach(var k in forcedWarPeaceInstance.exceptionKingdoms)
+                    foreach (var k in forcedWarPeaceInstance.exceptionKingdoms)
                     {
-                        FactionManager.SetNeutral(c, k);
+                        if (k == null)
+                            return;
+                        if (!FactionManager.IsNeutralWithFaction(c, k))
+                            FactionManager.SetNeutral(c, k);
                     }
 
-
                 }
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 ErrorHandler.HandleException(e, " daily clan behaviour processing of ForcedWarPeaceBehaviour.cs ");
             }

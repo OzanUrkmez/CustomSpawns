@@ -137,7 +137,14 @@ namespace CustomSpawns.TaleWorldsCode
         public static void InitBanditParty(MobileParty banditParty, TextObject name, Clan faction, Settlement homeSettlement)
         {
             banditParty.Name = name;
-            banditParty.Party.Owner = faction.Leader;
+            if(faction.Leader == null)
+            {
+                banditParty.Party.Owner = faction.Heroes.First();
+            }
+            else
+            {
+                banditParty.Party.Owner = faction.Leader;
+            }
             banditParty.Party.Visuals.SetMapIconAsDirty();
             if(faction.Leader.HomeSettlement == null)
             {
