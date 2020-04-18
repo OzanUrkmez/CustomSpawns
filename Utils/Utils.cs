@@ -11,7 +11,10 @@ namespace CustomSpawns.Utils
 {
     public static class Utils
     {
-
+        public static bool IsCustomSpawnsStringID(string strindID)
+        {
+            return (strindID.StartsWith("cs_"));
+        }
         public static IEnumerable<T> TakeAllButLast<T>(this IEnumerable<T> source)
         {
             var it = source.GetEnumerator();
