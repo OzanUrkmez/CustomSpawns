@@ -18,7 +18,7 @@ namespace CustomSpawns.Spawn
     class Spawner
     {
 
-        public static MobileParty SpawnBanditAtHideout(Settlement spawnedSettlement, Clan clan, PartyTemplateObject templateObject,MobileParty.PartyTypeEnum partyType,  TextObject partyName = null)
+        public static MobileParty SpawnParty(Settlement spawnedSettlement, Clan clan, PartyTemplateObject templateObject,MobileParty.PartyTypeEnum partyType,  TextObject partyName = null)
         {
             //get name and show message.
             TextObject textObject = partyName ?? clan.Name;
@@ -36,7 +36,7 @@ namespace CustomSpawns.Spawn
             return mobileParty;
         }
 
-        public static void InitParty(MobileParty banditParty, TextObject name, Clan faction, Settlement homeSettlement)
+        private static void InitParty(MobileParty banditParty, TextObject name, Clan faction, Settlement homeSettlement)
         {
             banditParty.Name = name;
             if (faction.Leader == null)
@@ -68,7 +68,7 @@ namespace CustomSpawns.Spawn
             }
         }
 
-        private static TroopRoster ConstructTroopRoster(PartyTemplateObject pt, int troopNumberLimit = -1)
+        private static TroopRoster ConstructTroopRoster(PartyTemplateObject pt, int troopNumberLimit = -1) //TODO implement troop number limit.
         {
             TroopRoster returned = new TroopRoster();
             float gameProcess = MiscHelper.GetGameProcess();
