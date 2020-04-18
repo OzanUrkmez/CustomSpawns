@@ -88,6 +88,7 @@ namespace CustomSpawns
                 starter.AddBehavior(new Spawn.DailyBanditSpawnBehaviour(Data.RegularBanditDailySpawnDataManager.Instance));
                 starter.AddBehavior(new AI.HourlyPatrolAroundSpawnBehaviour());
                 starter.AddBehavior(new Diplomacy.ForcedWarPeaceBehaviour());
+                starter.AddBehavior(new Economics.SimpleAllSpawnNotStarveBehaviour()); //TODO for now we shall have to use this.
             }
             else
             {
