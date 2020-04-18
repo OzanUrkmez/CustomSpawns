@@ -26,7 +26,7 @@ namespace CustomSpawns.Economics
         {
             foreach (MobileParty mobileParty in MobileParty.All)
             {
-                if (mobileParty.IsBandit && mobileParty.IsPartyTradeActive)
+                if (!mobileParty.IsBandit && mobileParty.IsPartyTradeActive && Utils.Utils.IsCustomSpawnsStringID(mobileParty.StringId))
                 {
                     mobileParty.PartyTradeGold = (int)((double)mobileParty.PartyTradeGold * 0.95 + (double)(50f * (float)mobileParty.Party.MemberRoster.TotalManCount * 0.05f));
                     if (MBRandom.RandomFloat < 0.03f && mobileParty.MapEvent != null)
