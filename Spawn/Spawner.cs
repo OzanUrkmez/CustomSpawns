@@ -27,7 +27,8 @@ namespace CustomSpawns.Spawn
             //create.
             int numberOfCreated = templateObject.NumberOfCreated;
             templateObject.IncrementNumberOfCreated();
-            MobileParty mobileParty = MBObjectManager.Instance.CreateObject<MobileParty>(templateObject.StringId + "_" + numberOfCreated.ToString());
+            MobileParty mobileParty = new MobileParty();
+            mobileParty.StringId = templateObject.StringId + "_" + numberOfCreated.ToString();
             mobileParty.InitializeMobileParty(textObject, ConstructTroopRoster(templateObject), new TroopRoster(), spawnedSettlement.GatePosition, 0);
 
             //initialize
@@ -41,7 +42,7 @@ namespace CustomSpawns.Spawn
             banditParty.Name = name;
             if (faction.Leader == null)
             {
-                banditParty.Party.Owner = faction.Heroes.First();
+                banditParty.Party.Owner = faction.Heroes.ToList().Count == 0? null : faction.Heroes.First();
             }
             else
             {

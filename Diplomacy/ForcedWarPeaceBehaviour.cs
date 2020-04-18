@@ -40,6 +40,7 @@ namespace CustomSpawns.Diplomacy
                 }
                 if (dataManager.Data.ContainsKey(c.StringId) && dataManager.Data[c.StringId].ForcedWarPeaceDataInstance != null)
                 {
+
                     var forcedWarPeaceInstance = dataManager.Data[c.StringId].ForcedWarPeaceDataInstance;
                     foreach (Clan declared in Clan.All)
                     {
