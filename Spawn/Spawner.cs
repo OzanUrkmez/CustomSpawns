@@ -30,12 +30,44 @@ namespace CustomSpawns.Spawn
             mobileParty.InitializeMobileParty(textObject, templateObject, spawnedSettlement.GatePosition, 0, 0, partyType, -1);
 
             //initialize as bandit party
-            TaleWorldsCode.BanditsCampaignBehaviour.InitBanditParty(mobileParty, textObject, clan, spawnedSettlement);
+            Spawner.InitParty(mobileParty, textObject, clan, spawnedSettlement);
 
             //fill reminiscent
             CampaignUtils.FillReminiscentBanditParties(mobileParty, templateObject, MobileParty.PartyTypeEnum.Bandit);
 
             return mobileParty;
+        }
+
+        public static void InitParty(MobileParty banditParty, TextObject name, Clan faction, Settlement homeSettlement)
+        {
+            banditParty.Name = name;
+            if (faction.Leader == null)
+            {
+                banditParty.Party.Owner = faction.Heroes.First();
+            }
+            else
+            {
+                banditParty.Party.Owner = faction.Leader;
+            }
+            banditParty.Party.Visuals.SetMapIconAsDirty();
+            if (faction.Leader.HomeSettlement == null)
+            {
+                faction.UpdateHomeSettlement(homeSettlement);
+            }
+            banditParty.HomeSettlement = homeSettlement;
+            TaleWorldsCode.BanditsCampaignBehaviour.CreatePartyTrade(banditParty);
+            foreach (ItemObject itemObject in ItemObject.All)
+            {
+                if (itemObject.IsFood)
+                {
+                    int num = TaleWorldsCode.BanditsCampaignBehaviour.IsLooterFaction(banditParty.MapFaction) ? 8 : 16;
+                    int num2 = MBRandom.RoundRandomized((float)banditParty.MemberRoster.TotalManCount * (1f / (float)itemObject.Value) * (float)num * MBRandom.RandomFloat * MBRandom.RandomFloat * MBRandom.RandomFloat * MBRandom.RandomFloat);
+                    if (num2 > 0)
+                    {
+                        banditParty.ItemRoster.AddToCounts(itemObject, num2, true);
+                    }
+                }
+            }
         }
 
     }

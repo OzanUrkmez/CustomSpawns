@@ -226,6 +226,7 @@
     <Compile Include="Data\DiplomacyData.cs" />
     <Compile Include="Data\NameSignifierData.cs" />
     <Compile Include="Data\RegularBanditDailySpawnData.cs" />
+    <Compile Include="Diplomacy\DiplomacyUtils.cs" />
     <Compile Include="Diplomacy\ForcedWarPeaceBehaviour.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="ModIntegration\SubMod.cs" />
