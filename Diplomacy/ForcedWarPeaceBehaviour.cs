@@ -67,7 +67,7 @@ namespace CustomSpawns.Diplomacy
                         {
                             //what if clan left kingdom, and it was in but ?
                             if (declared.Kingdom == null && !FactionManager.IsNeutralWithFaction(c, declared))
-                                FactionManager.SetNeutral(c, declared);
+                                DiplomacyUtils.SetNeutral(c, declared);
                         }
                     }
 
@@ -76,7 +76,7 @@ namespace CustomSpawns.Diplomacy
                         if (k == null)
                             return;
                         if (!FactionManager.IsNeutralWithFaction(c, k))
-                            FactionManager.SetNeutral(c, k);
+                            DiplomacyUtils.SetNeutral(c, k);
                     }
 
                 }

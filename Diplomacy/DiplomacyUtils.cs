@@ -18,5 +18,10 @@ namespace CustomSpawns.Diplomacy
         {
             DeclareWarAction.Apply(faction, provocator);
         }
+
+        public static void SetNeutral(IFaction f1, IFaction f2)
+        {
+            MakePeaceAction.Apply(f1, f2);
+        }
     }
 }
