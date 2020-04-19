@@ -89,5 +89,10 @@ namespace CustomSpawns
             return list[rand.Next(0, list.Count)];
         }
 
+        public static Settlement GetClosestHostileSettlement(MobileParty mb)
+        {
+
+        }
+
     }
 }

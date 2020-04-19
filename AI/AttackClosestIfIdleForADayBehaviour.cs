@@ -22,11 +22,27 @@ namespace CustomSpawns.AI
 
         private List<MobileParty> registeredParties = new List<MobileParty>();
 
+        private List<MobileParty> yesterdayIdleParties = new List<MobileParty>();
         private void DailyCheckBehaviour(MobileParty mb)
         {
             if (!registeredParties.Contains(mb))
                 return;
-
+            if (mb.Ai.AiState == AIState.Undefined || mb.Ai.AiState == AIState.WaitingAtSettlement)
+            {
+                if (yesterdayIdleParties.Contains(mb))
+                {
+                    yesterdayIdleParties.Remove(mb);
+                    mb.SetMoveGoToPoint(mb.FindReachablePointAroundPosition(CampaignUtils.GetClosestHostileSettlement(mb).GatePosition, 10));
+                }
+                else
+                {
+                    yesterdayIdleParties.Add(mb);
+                }
+            }
+            else
+            {
+                yesterdayIdleParties.Remove(mb);
+            }
         }
 
         public void RegisterParty(MobileParty mb)
