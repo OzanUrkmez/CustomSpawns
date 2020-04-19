@@ -102,7 +102,7 @@ namespace CustomSpawns
                     min = s;
                 }
             }
-            return null;
+            return min;
         }
 
     }

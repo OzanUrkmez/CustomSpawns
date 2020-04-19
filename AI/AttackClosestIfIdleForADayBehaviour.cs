@@ -31,8 +31,11 @@ namespace CustomSpawns.AI
             {
                 if (yesterdayIdleParties.Contains(mb))
                 {
+                    Settlement closestHostile = CampaignUtils.GetClosestHostileSettlement(mb);
+                    if (closestHostile == null)
+                        return;
+                    mb.SetMoveGoToPoint(mb.FindReachablePointAroundPosition(closestHostile.GatePosition, 10));
                     yesterdayIdleParties.Remove(mb);
-                    mb.SetMoveGoToPoint(mb.FindReachablePointAroundPosition(CampaignUtils.GetClosestHostileSettlement(mb).GatePosition, 10));
                 }
                 else
                 {
