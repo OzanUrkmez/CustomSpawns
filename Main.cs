@@ -82,6 +82,8 @@ namespace CustomSpawns
             }
         }
 
+        public static UtilityBehaviours.OnSaveStartRunBehaviour currentOnSaveStartRunBehaviour;
+
         private void AddBehaviours(CampaignGameStarter starter)
         {
             if (!removalMode)
@@ -91,11 +93,19 @@ namespace CustomSpawns
                 starter.AddBehavior(new AI.AttackClosestIfIdleForADayBehaviour());
                 starter.AddBehavior(new Diplomacy.ForcedWarPeaceBehaviour());
                 starter.AddBehavior(new Economics.SimpleAllSpawnNotStarveBehaviour()); //TODO for now we shall have to use this.
+                currentOnSaveStartRunBehaviour = new UtilityBehaviours.OnSaveStartRunBehaviour();
+                starter.AddBehavior(currentOnSaveStartRunBehaviour);
+                currentOnSaveStartRunBehaviour.RegisterFunctionToRun(OnSaveStart);
             }
             else
             {
                 starter.AddBehavior(new Utils.RemoverBehaviour());
             }
+        }
+
+        private void OnSaveStart()
+        {
+
         }
 
     }

@@ -9,7 +9,7 @@ using TaleWorlds.Localization;
 
 namespace CustomSpawns.UtilityBehaviours
 {
-    class OnSaveStartRunBehaviour : CampaignBehaviorBase
+    public class OnSaveStartRunBehaviour : CampaignBehaviorBase
     {
         public override void RegisterEvents()
         {
