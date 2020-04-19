@@ -57,7 +57,7 @@ namespace CustomSpawns.Data
                 string path = Path.Combine(subMod.CustomSpawnsDirectoryPath, "CustomDailySpawn.xml");
                 if (!File.Exists(path))
                 {
-                    path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data", "RegularBanditDailySpawn.xml");
+                    path = Path.Combine(subMod.CustomSpawnsDirectoryPath, "RegularBanditDailySpawn.xml");
                 }
                 if (File.Exists(path))
                     ConstructListFromXML(path);
