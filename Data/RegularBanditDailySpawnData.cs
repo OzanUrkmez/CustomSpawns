@@ -149,6 +149,7 @@ namespace CustomSpawns.Data
                     dat.PatrolAroundSpawn = node["PatrolAroundSpawn"] == null ? false : bool.Parse(node["PatrolAroundSpawn"].InnerText);
                     dat.MinimumNumberOfDaysUntilSpawn = node["MinimumNumberOfDaysUntilSpawn"] == null ? -1 : int.Parse(node["MinimumNumberOfDaysUntilSpawn"].InnerText);
 
+                    dat.AttackClosestIfIdleForADay = node["AttackClosestIfIdleForADay"] == null ? true : bool.Parse(node["AttackClosestIfIdleForADay"].InnerText);
 
                     //message
                     string msg = node["SpawnMessage"] == null? "" : node["SpawnMessage"].InnerText;
@@ -263,6 +264,7 @@ namespace CustomSpawns.Data
         public int MaximumOnMap { get; set; }
         private float chanceOfSpawn;
         public int MinimumNumberOfDaysUntilSpawn { get; set; }
+        public bool AttackClosestIfIdleForADay { get; set; }
         public float ChanceOfSpawn
         {
             get
