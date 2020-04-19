@@ -15,5 +15,10 @@ namespace CustomSpawns
             MessageBox.Show("CustomSpawns error has occured, please report to mod developer: " + e.Message + " AT " + e.Source + "DURING " + during + " TRACE: " + e.StackTrace);
         }
 
+        public static void ShowPureErrorMessage(string errorMessage)
+        {
+            MessageBox.Show(errorMessage);
+        }
+
     }
 }
