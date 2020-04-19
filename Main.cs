@@ -88,7 +88,7 @@ namespace CustomSpawns
         {
             if (!removalMode)
             {
-                starter.AddBehavior(new Spawn.DailyBanditSpawnBehaviour(Data.RegularBanditDailySpawnDataManager.Instance));
+                starter.AddBehavior(new Spawn.DailyBanditSpawnBehaviour(Data.SpawnDataManager.Instance));
                 starter.AddBehavior(new AI.HourlyPatrolAroundSpawnBehaviour());
                 starter.AddBehavior(new AI.AttackClosestIfIdleForADayBehaviour());
                 starter.AddBehavior(new Diplomacy.ForcedWarPeaceBehaviour());
@@ -105,7 +105,10 @@ namespace CustomSpawns
 
         private void OnSaveStart()
         {
+            foreach(MobileParty mb in MobileParty.All)
+            {
 
+            }
         }
 
     }

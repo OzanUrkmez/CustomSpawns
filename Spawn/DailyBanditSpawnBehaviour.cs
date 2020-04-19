@@ -12,17 +12,17 @@ namespace CustomSpawns.Spawn
     class DailyBanditSpawnBehaviour : CampaignBehaviorBase
     {
 
-        Data.RegularBanditDailySpawnDataManager dataManager;
+        Data.SpawnDataManager dataManager;
 
-        public DailyBanditSpawnBehaviour(Data.RegularBanditDailySpawnDataManager data_manager)
+        public DailyBanditSpawnBehaviour(Data.SpawnDataManager data_manager)
         {
             dataManager = data_manager;
         }
 
         public void GetCurrentData()
         {
-            Dictionary<Data.RegularBanditDailySpawnData, int> oldValues = new Dictionary<Data.RegularBanditDailySpawnData, int>();
-            foreach(Data.RegularBanditDailySpawnData dat in dataManager.Data)
+            Dictionary<Data.SpawnData, int> oldValues = new Dictionary<Data.SpawnData, int>();
+            foreach(Data.SpawnData dat in dataManager.Data)
             {
                 oldValues.Add(dat, dat.GetNumberSpawned());
                 dat.SetNumberSpawned(0);
@@ -86,7 +86,7 @@ namespace CustomSpawns.Spawn
             {
                 var list = dataManager.Data;
                 Random rand = new Random();
-                foreach (Data.RegularBanditDailySpawnData data in list)
+                foreach (Data.SpawnData data in list)
                 {
                     int j = 0;
                     for (int i = 0; i < data.RepeatSpawnRolls; i++)
@@ -160,7 +160,7 @@ namespace CustomSpawns.Spawn
             }
         }
 
-        private void HandleAIChecks(MobileParty mb, Data.RegularBanditDailySpawnData data, Settlement spawnedSettlement)
+        private void HandleAIChecks(MobileParty mb, Data.SpawnData data, Settlement spawnedSettlement)
         {
             try
             {

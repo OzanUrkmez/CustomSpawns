@@ -13,16 +13,16 @@ using TaleWorlds.Core;
 
 namespace CustomSpawns.Data
 {
-    public class RegularBanditDailySpawnDataManager
+    public class SpawnDataManager
     {
 
-        static RegularBanditDailySpawnDataManager _instance;
+        static SpawnDataManager _instance;
 
-        public static RegularBanditDailySpawnDataManager Instance
+        public static SpawnDataManager Instance
         {
             get
             {
-                return _instance ?? new RegularBanditDailySpawnDataManager();
+                return _instance ?? new SpawnDataManager();
             }
             private set
             {
@@ -31,9 +31,9 @@ namespace CustomSpawns.Data
             }
         }
 
-        private List<RegularBanditDailySpawnData> data = new List<RegularBanditDailySpawnData>();
+        private List<SpawnData> data = new List<SpawnData>();
 
-        public IList<RegularBanditDailySpawnData> Data
+        public IList<SpawnData> Data
         {
             get
             {
@@ -41,7 +41,7 @@ namespace CustomSpawns.Data
             }
         }
 
-        private RegularBanditDailySpawnDataManager()
+        private SpawnDataManager()
         {
             if (!Main.isAPIMode)
             {
@@ -75,7 +75,7 @@ namespace CustomSpawns.Data
                     if (node.NodeType == XmlNodeType.Comment)
                         continue;
 
-                    RegularBanditDailySpawnData dat = new RegularBanditDailySpawnData();
+                    SpawnData dat = new SpawnData();
 
                     dat.PartyTemplate = (PartyTemplateObject)MBObjectManager.Instance.ReadObjectReferenceFromXml("party_template", typeof(PartyTemplateObject), node);
                     if(node.Attributes["spawn_clan"] == null)
@@ -253,7 +253,7 @@ namespace CustomSpawns.Data
         }
 
     }
-    public class RegularBanditDailySpawnData
+    public class SpawnData
     {
         public MobileParty.PartyTypeEnum PartyType { get; set; }
         public Clan SpawnClan { get; set; }
