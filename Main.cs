@@ -16,7 +16,7 @@ namespace CustomSpawns
     public class Main : MBSubModuleBase
     {
         public static readonly string version = "v1.1.0";
-        public static readonly bool isAPIMode = false;
+        public static readonly bool isAPIMode = true;
         public static CustomSpawnsCustomSpeedModel customSpeedModel;
 
         private static bool removalMode = false;
@@ -60,7 +60,8 @@ namespace CustomSpawns
         protected override void OnBeforeInitialModuleScreenSetAsRoot() //assure player :) also myself lol
         {
             UX.ShowMessage("CustomSpawns " + version + " is now enabled. Enjoy! :)", Color.ConvertStringToColor("#001FFFFF"));
-            foreach(var subMod in ModIntegration.SubModManager.dependentModsArray)
+            AI.AIManager.FlushRegisteredBehaviours(); //forget old behaviours to allocate space. 
+            foreach (var subMod in ModIntegration.SubModManager.dependentModsArray)
             {
                 UX.ShowMessage( subMod.SubModuleName + " is now integrated into the CustomSpawns API.", Color.ConvertStringToColor("#001FFFFF"));
             }

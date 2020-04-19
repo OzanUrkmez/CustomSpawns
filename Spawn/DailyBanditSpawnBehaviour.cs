@@ -165,7 +165,7 @@ namespace CustomSpawns.Spawn
             try
             {
                 if (data.PatrolAroundSpawn)
-                    AI.AIManager.HourlyPatrolAroundSpawn.RegisterMobilePartyToPatrol(mb, spawnedSettlement);
+                    AI.AIManager.HourlyPatrolAroundSpawn.RegisterParty(mb, spawnedSettlement);
                 if (data.AttackClosestIfIdleForADay)
                     AI.AIManager.AttackClosestIfIdleForADayBehaviour.RegisterParty(mb);
             }catch(Exception e)

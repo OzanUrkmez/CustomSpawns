@@ -7,7 +7,7 @@ using TaleWorlds.CampaignSystem;
 
 namespace CustomSpawns.AI
 {
-    public class HourlyPatrolAroundSpawnBehaviour : CampaignBehaviorBase
+    public class HourlyPatrolAroundSpawnBehaviour : CampaignBehaviorBase, IAIBehaviour
     {
         public override void RegisterEvents()
         {
@@ -51,19 +51,6 @@ namespace CustomSpawns.AI
             return patroller;
         }
 
-        public void RegisterMobilePartyToPatrol(MobileParty mb, Settlement s)
-        {
-            var patrollerInstance = GetPatroller(mb);
-            if (patrollerInstance.patrollerParty != null && patrollerInstance.patrolledSettlement != s)
-            {
-                ErrorHandler.HandleException(new Exception("The same mobile party cannot patrol around two different settlements!"));
-            }
-            if (patrollerInstance.patrolledSettlement == s)
-                return;
-            registeredPatrollers.Add(new Patroller(mb, s));
-            ModDebug.ShowMessage(mb.StringId + " is now engaged in patrol behaviour around " + s.Name);
-        }
-
         struct Patroller
         {
             public MobileParty patrollerParty;
@@ -75,5 +62,41 @@ namespace CustomSpawns.AI
                 patrolledSettlement = s;
             }
         }
+
+        #region Registration and AI Manager Integration
+
+        public bool RegisterParty(MobileParty mb, Settlement s)
+        {
+            var behaviours = AI.AIManager.GetAIBehavioursForParty(mb);
+            foreach (var b in behaviours)
+            {
+                if (!b.IsCompatible(this))
+                    return false;
+            }
+            var patrollerInstance = GetPatroller(mb);
+            if (patrollerInstance.patrollerParty != null && patrollerInstance.patrolledSettlement != s)
+            {
+                ErrorHandler.HandleException(new Exception("The same mobile party cannot patrol around two different settlements!"));
+            }
+            if (patrollerInstance.patrolledSettlement == s)
+                return false;
+            registeredPatrollers.Add(new Patroller(mb, s));
+            ModDebug.ShowMessage(mb.StringId + " is now engaged in patrol behaviour around " + s.Name);
+            AIManager.RegisterAIBehaviour(mb, this);
+            return true;
+        }
+
+        #endregion
+
+        #region IAIBehaviour Implementation
+
+        public bool IsCompatible(IAIBehaviour AIBehaviour, bool secondCall)
+        {
+            if (AIBehaviour is PatrolAroundClosestLestInterruptedAndSwitchBehaviour || AIBehaviour is HourlyPatrolAroundSpawnBehaviour)
+                return false;
+            return secondCall? true : AIBehaviour.IsCompatible(this, true);
+        }
+
+        #endregion
     }
 }

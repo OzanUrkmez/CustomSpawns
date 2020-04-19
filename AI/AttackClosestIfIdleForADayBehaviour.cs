@@ -7,7 +7,7 @@ using TaleWorlds.CampaignSystem;
 
 namespace CustomSpawns.AI
 {
-    public class AttackClosestIfIdleForADayBehaviour : CampaignBehaviorBase
+    public class AttackClosestIfIdleForADayBehaviour : CampaignBehaviorBase, IAIBehaviour
     {
         public override void RegisterEvents()
         {
@@ -48,9 +48,33 @@ namespace CustomSpawns.AI
             }
         }
 
-        public void RegisterParty(MobileParty mb)
+        #region Registration and AI Manager Integration
+
+        public bool RegisterParty(MobileParty mb)
         {
+            var behaviours = AI.AIManager.GetAIBehavioursForParty(mb);
+            foreach(var b in behaviours)
+            {
+                if (!b.IsCompatible(this))
+                    return false;
+            }
             registeredParties.Add(mb);
+            ModDebug.ShowMessage(mb.StringId + " is now prevented from idling for 2 days. If it does idle for 2 days it will head to closest hostile settlement.");
+            AIManager.RegisterAIBehaviour(mb, this);
+            return true;
         }
+
+        #endregion
+
+        #region IAIBehaviour Implementation
+
+        public bool IsCompatible(IAIBehaviour AIBehaviour, bool secondCall)
+        {
+            if (AIBehaviour is AttackClosestIfIdleForADayBehaviour)
+                return false;
+            return secondCall ? true : AIBehaviour.IsCompatible(this, true);
+        }
+
+        #endregion
     }
 }
