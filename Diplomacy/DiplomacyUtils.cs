@@ -19,9 +19,15 @@ namespace CustomSpawns.Diplomacy
             DeclareWarAction.Apply(faction, provocator);
         }
 
+        public static void ApplyExtremeHatred(IFaction f, IFaction f2)
+        {
+            FactionManager.SetStanceTwoSided(f, f2, -70);
+        }
+
         public static void SetNeutral(IFaction f1, IFaction f2)
         {
             MakePeaceAction.Apply(f1, f2);
+            FactionManager.SetStanceTwoSided(f1, f2, 0);
         }
 
         public static string[] GetHardCodedExceptionClans()
