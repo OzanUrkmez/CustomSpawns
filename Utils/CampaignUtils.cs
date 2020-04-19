@@ -91,7 +91,18 @@ namespace CustomSpawns
 
         public static Settlement GetClosestHostileSettlement(MobileParty mb)
         {
-
+            Settlement min = null;
+            float minDistance = float.MaxValue;
+            foreach(Settlement s in Settlement.All)
+            {
+                float dist = mb.Position2D.Distance(s.GatePosition);
+                if (FactionManager.IsAtWarAgainstFaction(mb.MapFaction, s.MapFaction) && dist < minDistance)
+                {
+                    minDistance = dist;
+                    min = s;
+                }
+            }
+            return null;
         }
 
     }
