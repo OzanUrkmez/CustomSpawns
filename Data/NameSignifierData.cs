@@ -65,16 +65,20 @@ namespace CustomSpawns.Data
                         continue;
                     }
                     string id = node.Attributes["id"].InnerText;
-                    IDToName.Add(id, node.Attributes["value"].InnerText);
-                    if (node.Attributes["speed_modifier"] != null)
+                    if (!IDToName.ContainsKey(id))
                     {
-
-                        float result;
-                        if (!float.TryParse(node.Attributes["speed_modifier"].InnerText, out result))
+                        IDToName.Add(id, node.Attributes["value"].InnerText);
+                        if (node.Attributes["speed_modifier"] != null)
                         {
-                            throw new Exception("Please enter a valid float for the speed modifier!");
+
+                            float result;
+                            if (!float.TryParse(node.Attributes["speed_modifier"].InnerText, out result))
+                            {
+                                throw new Exception("Please enter a valid float for the speed modifier!");
+                            }
+                            if(!IDToSpeedModifier.ContainsKey(id))
+                            IDToSpeedModifier.Add(id, result);
                         }
-                        IDToSpeedModifier.Add(id, result);
                     }
                 }
 
