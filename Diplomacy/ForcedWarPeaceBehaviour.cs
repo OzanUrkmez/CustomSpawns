@@ -56,13 +56,19 @@ namespace CustomSpawns.Diplomacy
                                 if (!forcedWarPeaceInstance.exceptionKingdoms.Contains(declared.Kingdom))
                                 {
                                     if (!FactionManager.IsAtWarAgainstFaction(c, declared.Kingdom))
+                                    {
                                         DiplomacyUtils.DeclareWar(declared.Kingdom, c);
+                                        DiplomacyUtils.ApplyExtremeHatred(declared.Kingdom, c);
+                                    }
                                 }
                             }
                             else
                             {
                                 if (!FactionManager.IsAtWarAgainstFaction(c, declared))
+                                {
                                     DiplomacyUtils.DeclareWar(declared, c);
+                                    DiplomacyUtils.ApplyExtremeHatred(declared, c);
+                                }
                             }
                         }
                         else
