@@ -228,6 +228,7 @@
     <Compile Include="Data\RegularBanditDailySpawnData.cs" />
     <Compile Include="Diplomacy\DiplomacyUtils.cs" />
     <Compile Include="Diplomacy\ForcedWarPeaceBehaviour.cs" />
+    <Compile Include="Economics\SimpleAllSpawnNotStarveBehaviour.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="ModIntegration\SubMod.cs" />
     <Compile Include="ModIntegration\SubModManager.cs" />
