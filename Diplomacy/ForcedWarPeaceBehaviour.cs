@@ -30,7 +30,7 @@ namespace CustomSpawns.Diplomacy
 
         private void DailyClanBehaviour(Clan c)
         {
-            if (c == null || c.IsDeactivated)
+            if (c == null || c.IsDeactivated || DiplomacyUtils.GetHardCodedExceptionClans().Contains(c.StringId))
                 return;
             try
             {
@@ -44,7 +44,8 @@ namespace CustomSpawns.Diplomacy
                     var forcedWarPeaceInstance = dataManager.Data[c.StringId].ForcedWarPeaceDataInstance;
                     foreach (Clan declared in Clan.All)
                     {
-                        if (declared == null || declared.IsDeactivated || declared == c || (declared.Kingdom == c.Kingdom && c.Kingdom != null))
+                        if (declared == null || declared.IsDeactivated || DiplomacyUtils.GetHardCodedExceptionClans().Contains(declared.StringId) || declared == c ||
+                            (declared.Kingdom == c.Kingdom && c.Kingdom != null))
                             continue;
                         if (forcedWarPeaceInstance.atWarClans.Contains(declared))
                         {

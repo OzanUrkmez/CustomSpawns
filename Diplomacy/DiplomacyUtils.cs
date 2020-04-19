@@ -23,5 +23,13 @@ namespace CustomSpawns.Diplomacy
         {
             MakePeaceAction.Apply(f1, f2);
         }
+
+        public static string[] GetHardCodedExceptionClans()
+        {
+            return new string[]
+            {
+                "test_clan"
+            };
+        }
     }
 }
