@@ -117,5 +117,44 @@ namespace CustomSpawns.Spawn
             }
         }
 
+        public static Settlement GetSpawnSettlement(Data.SpawnData data, Random rand = null)
+        {
+            if(rand == null)
+                rand = new Random();
+            Clan spawnClan = data.SpawnClan;
+            //deal with override of spawn clan.
+            if (data.OverridenSpawnClan.Count != 0)
+            {
+                spawnClan = data.OverridenSpawnClan[rand.Next(0, data.OverridenSpawnClan.Count)];
+            }
+            //check for one hideout
+            Settlement firstHideout = null;
+            if (ConfigLoader.Instance.Config.SpawnAtOneHideout)
+            {
+                foreach (Settlement s in Settlement.All)
+                {
+                    if (s.IsHideout())
+                    {
+                        firstHideout = s;
+                        break;
+                    }
+                }
+            }
+            //deal with town spawn
+            Settlement spawnOverride = null;
+            if (data.OverridenSpawnSettlements.Count != 0)
+            {
+                spawnOverride = CampaignUtils.PickRandomSettlementAmong(data.OverridenSpawnSettlements);
+            }
+            if (spawnOverride == null && data.OverridenSpawnCultures.Count != 0)
+            {
+                //spawn at overriden spawn instead!
+                spawnOverride = CampaignUtils.PickRandomSettlementOfCulture(data.OverridenSpawnCultures);
+            }
+            //get settlement
+            Settlement spawnSettlement = ConfigLoader.Instance.Config.SpawnAtOneHideout ? firstHideout : (spawnOverride == null ? CampaignUtils.GetPreferableHideout(spawnClan) : spawnOverride);
+            return spawnSettlement;
+        }
+
     }
 }
