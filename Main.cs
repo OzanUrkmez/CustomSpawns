@@ -114,10 +114,22 @@ namespace CustomSpawns
         private void OnSaveStart()
         {
             //restore lost AI behaviours!
-            var partyIDToData = Data.SpawnDataManager.Instance.PartyIDToData;
-            foreach(MobileParty mb in MobileParty.All)
+            try
             {
-                
+                var partyIDToData = Data.SpawnDataManager.Instance.PartyIDToData;
+                foreach (MobileParty mb in MobileParty.All)
+                {
+                    string id = CampaignUtils.IsolateMobilePartyStringID(mb);
+                    if(id != "" && partyIDToData.ContainsKey(id))
+                    {
+                        var spawnData = partyIDToData[id];
+                        Spawn.Spawner.HandleAIChecks(mb, spawnData, mb.HomeSettlement);
+                    }
+
+                }
+            }catch(Exception e)
+            {
+                ErrorHandler.HandleException(e, " reconstruction of save custom spawns mobile party data");
             }
         }
 
