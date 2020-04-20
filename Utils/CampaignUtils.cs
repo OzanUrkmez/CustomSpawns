@@ -43,17 +43,35 @@ namespace CustomSpawns
             return settlement;
         }
 
-        public static Settlement PickRandomSettlementOfCulture(List<CultureCode> c)
+        public static Settlement PickRandomSettlementOfCulture(List<CultureCode> c, List<Data.SpawnSettlementType> preferredTypes = null)
         {
             int num = 0;
             List<Settlement> permissible = new List<Settlement>();
-            foreach (Settlement s in Settlement.All)
+            if (preferredTypes != null)
             {
-                if((s.IsTown || s.IsVillage) && (c.Contains(s.Culture.GetCultureCode())))
+                foreach (Settlement s in Settlement.All)
                 {
-                    permissible.Add(s);
+                    foreach (var type in preferredTypes)
+                    {
+                        if (SettlementIsOfValidType(s, type))
+                        {
+                            permissible.Add(s);
+                            break;
+                        }
+                    }
                 }
             }
+            if (permissible.Count == 0)
+            {
+                foreach (Settlement s in Settlement.All)
+                {
+                    if ((s.IsTown || s.IsVillage) && (c.Contains(s.Culture.GetCultureCode())))
+                    {
+                        permissible.Add(s);
+                    }
+                }
+            }
+            permissible.Randomize();
             foreach (Settlement s in permissible)
             {
                     int num2 = TaleWorldsCode.BanditsCampaignBehaviour.CalculateDistanceScore(s.Position2D.DistanceSquared(MobileParty.MainParty.Position2D));
@@ -62,7 +80,7 @@ namespace CustomSpawns
             int num3 = MBRandom.RandomInt(num);
             foreach (Settlement s in permissible)
             {
-                    int num4 = TaleWorldsCode.BanditsCampaignBehaviour.CalculateDistanceScore(s.Position2D.DistanceSquared(MobileParty.MainParty.Position2D)); //makes it more likely that the spawn will be closer to the player.
+                    int num4 = TaleWorldsCode.BanditsCampaignBehaviour.CalculateDistanceScore(s.Position2D.DistanceSquared(MobileParty.MainParty.Position2D)); //makes it more likely that the spawn will be further to the player.
                     num3 -= num4;
                     if (num3 <= 0)
                     {
@@ -83,10 +101,32 @@ namespace CustomSpawns
             return null;
         }
 
-        public static Settlement PickRandomSettlementAmong(List<Settlement> list)
+        public static Settlement PickRandomSettlementAmong(List<Settlement> list, List<Data.SpawnSettlementType> preferredTypes = null, Random rand = null)
         {
-            Random rand = new Random();
-            return list[rand.Next(0, list.Count)];
+            if(rand == null)
+                rand = new Random();
+            var preferred = new List<Settlement>();
+            if (preferredTypes != null)
+            {
+                foreach (Settlement s in list)
+                {
+                    foreach (var type in preferredTypes) {
+                        if (SettlementIsOfValidType(s, type))
+                        {
+                            preferred.Add(s);
+                            break;
+                        }
+                    }
+                }
+            }
+            if (preferred.Count == 0)
+            {
+                return list[rand.Next(0, list.Count)];
+            }
+            else
+            {
+                return preferred[rand.Next(0, preferred.Count)];
+            }
         }
 
         public static Settlement GetClosestHostileSettlement(MobileParty mb)
@@ -108,6 +148,20 @@ namespace CustomSpawns
         public static string IsolateMobilePartyStringID(MobileParty mobileParty)
         {
             return string.Join("_", Utils.Utils.TakeAllButLast<string>(mobileParty.StringId.Split('_')).ToArray<string>()); 
+        }
+
+        public static bool SettlementIsOfValidType(Settlement s, Data.SpawnSettlementType t)
+        {
+            switch (t)
+            {
+                case Data.SpawnSettlementType.Castle:
+                    return s.IsCastle;
+                case Data.SpawnSettlementType.Town:
+                    return s.IsTown;
+                case Data.SpawnSettlementType.Village:
+                    return s.IsVillage;
+            }
+            return false;
         }
 
     }

@@ -144,12 +144,12 @@ namespace CustomSpawns.Spawn
             Settlement spawnOverride = null;
             if (data.OverridenSpawnSettlements.Count != 0)
             {
-                spawnOverride = CampaignUtils.PickRandomSettlementAmong(data.OverridenSpawnSettlements);
+                spawnOverride = CampaignUtils.PickRandomSettlementAmong(data.OverridenSpawnSettlements, data.TrySpawnAtList, rand);
             }
             if (spawnOverride == null && data.OverridenSpawnCultures.Count != 0)
             {
                 //spawn at overriden spawn instead!
-                spawnOverride = CampaignUtils.PickRandomSettlementOfCulture(data.OverridenSpawnCultures);
+                spawnOverride = CampaignUtils.PickRandomSettlementOfCulture(data.OverridenSpawnCultures, data.TrySpawnAtList);
             }
             //get settlement
             Settlement spawnSettlement = ConfigLoader.Instance.Config.SpawnAtOneHideout ? firstHideout : (spawnOverride == null ? CampaignUtils.GetPreferableHideout(spawnClan) : spawnOverride);
