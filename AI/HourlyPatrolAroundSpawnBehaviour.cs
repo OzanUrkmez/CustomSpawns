@@ -34,6 +34,9 @@ namespace CustomSpawns.AI
                 bool isPreOccupied = patroller.patrollerParty.DefaultBehavior == AiBehavior.EngageParty || patroller.patrollerParty.DefaultBehavior == AiBehavior.GoAroundParty ||
                      patroller.patrollerParty.DefaultBehavior == AiBehavior.JoinParty || patroller.patrollerParty.DefaultBehavior == AiBehavior.FleeToPoint;
                 if (!isPreOccupied)
+                    isPreOccupied = patroller.patrollerParty.ShortTermBehavior == AiBehavior.EngageParty || patroller.patrollerParty.ShortTermBehavior == AiBehavior.GoAroundParty ||
+                         patroller.patrollerParty.ShortTermBehavior == AiBehavior.JoinParty || patroller.patrollerParty.ShortTermBehavior == AiBehavior.FleeToPoint;
+                if (!isPreOccupied)
                 {
                     patroller.patrollerParty.SetMovePatrolAroundSettlement(patroller.patrolledSettlement);
                 }

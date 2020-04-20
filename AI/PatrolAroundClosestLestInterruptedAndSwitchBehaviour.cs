@@ -37,9 +37,12 @@ namespace CustomSpawns.AI
                 }
                 bool isPreOccupied = dat.party.DefaultBehavior == AiBehavior.EngageParty || dat.party.DefaultBehavior == AiBehavior.GoAroundParty ||
                 dat.party.DefaultBehavior == AiBehavior.JoinParty || dat.party.DefaultBehavior == AiBehavior.FleeToPoint;
-                if(isPreOccupied)
+                if(!isPreOccupied)
+                    isPreOccupied = dat.party.ShortTermBehavior == AiBehavior.EngageParty || dat.party.ShortTermBehavior == AiBehavior.GoAroundParty ||
+                dat.party.ShortTermBehavior == AiBehavior.JoinParty || dat.party.ShortTermBehavior == AiBehavior.FleeToPoint;
+                if (isPreOccupied)
                 {
-                    dat.currentDays = 0; //TODO TEST IF IS PRE OCCUPIED WORKS!
+                    dat.currentDays = 0; 
                     instances[i] = dat;
                     continue;
                 }
