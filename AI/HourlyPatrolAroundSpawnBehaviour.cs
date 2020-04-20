@@ -25,7 +25,7 @@ namespace CustomSpawns.AI
             List<Patroller> toRemove = new List<Patroller>();
             foreach(var patroller in registeredPatrollers)
             {
-                if(patroller.patrollerParty.MemberRoster.Count == 0 || patroller.patrolledSettlement == null)
+                if(patroller.patrollerParty == null || patroller.patrollerParty.MemberRoster.Count == 0 || patroller.patrolledSettlement == null)
                 {
                     //ded or for some reason settlement dead
                     toRemove.Add(patroller);

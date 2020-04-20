@@ -145,6 +145,53 @@ namespace CustomSpawns
             return min;
         }
 
+        public static Settlement GetClosestNonHostileCityAmong(MobileParty mb, List<Data.SpawnSettlementType> preferredTypes = null, Settlement exception = null)
+        {
+            List<Settlement> viableSettlements = new List<Settlement>();
+            foreach(Settlement s in Settlement.All)
+            {
+                foreach(var type in preferredTypes)
+                {
+                    if (SettlementIsOfValidType(s, type))
+                    {
+                        viableSettlements.Add(s);
+                        break;
+                    }
+                }
+            }
+            Settlement min = null;
+            float minDistance = float.MaxValue;
+            if(viableSettlements.Count == 0)
+            {
+                foreach (Settlement s in Settlement.All)
+                {
+                    if (s == exception)
+                        continue;
+                    float dist = mb.Position2D.Distance(s.GatePosition);
+                    if ((FactionManager.IsNeutralWithFaction(mb.MapFaction, s.MapFaction) || FactionManager.IsAlliedWithFaction(mb.MapFaction, s.MapFaction)) && dist < minDistance)
+                    {
+                        minDistance = dist;
+                        min = s;
+                    }
+                }
+            }
+            else
+            {
+                foreach (Settlement s in viableSettlements)
+                {
+                    if (s == exception)
+                        continue;
+                    float dist = mb.Position2D.Distance(s.GatePosition);
+                    if ((FactionManager.IsNeutralWithFaction(mb.MapFaction, s.MapFaction) || FactionManager.IsAlliedWithFaction(mb.MapFaction, s.MapFaction)) && dist < minDistance)
+                    {
+                        minDistance = dist;
+                        min = s;
+                    }
+                }
+            }
+            return min;
+        }
+
         public static string IsolateMobilePartyStringID(MobileParty mobileParty)
         {
             return string.Join("_", Utils.Utils.TakeAllButLast<string>(mobileParty.StringId.Split('_')).ToArray<string>()); 

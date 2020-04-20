@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TaleWorlds.Core;
 using TaleWorlds.CampaignSystem;
 
 namespace CustomSpawns.AI
@@ -25,7 +26,57 @@ namespace CustomSpawns.AI
 
         private void hourlyAI()
         {
+            List<PatrolAroundClosestLestInterruptedAndSwitchBehaviourData> toRemove = new List<PatrolAroundClosestLestInterruptedAndSwitchBehaviourData>();
+            for(int i = 0; i < instances.Count; i++)
+            {
+                var dat = instances[i];
+                if(dat.party == null || !dat.party.IsActive || dat.party.MemberRoster.Count == 0)
+                {
+                    toRemove.Add(dat);
+                    continue;
+                }
+                bool isPreOccupied = dat.party.DefaultBehavior == AiBehavior.EngageParty || dat.party.DefaultBehavior == AiBehavior.GoAroundParty ||
+                dat.party.DefaultBehavior == AiBehavior.JoinParty || dat.party.DefaultBehavior == AiBehavior.FleeToPoint;
+                if(isPreOccupied)
+                {
+                    dat.currentDays = 0; //TODO TEST IF IS PRE OCCUPIED WORKS!
+                    continue;
+                }
+                if(dat.currentPatrolledSettlement == null)
+                {
+                    dat.currentPatrolledSettlement = GetSettlementToPatrol(dat);
+                    if (dat.currentPatrolledSettlement == null)
+                        continue;
+                    dat.currentDays = 0;
+                    dat.currentRolledDays = GetRolledDay(dat);
+                }
+                dat.party.SetMovePatrolAroundSettlement(dat.currentPatrolledSettlement);
+                dat.currentDays += (1f / 24f);
+                if(dat.currentDays >= dat.currentRolledDays)
+                {
+                    dat.currentDays = 0;
+                    dat.currentPatrolledSettlement = GetSettlementToPatrol(dat);
+                    if (dat.currentPatrolledSettlement == null)
+                        continue;
+                    dat.party.SetMovePatrolAroundSettlement(dat.currentPatrolledSettlement);
+                    dat.currentRolledDays = GetRolledDay(dat);
+                }
+            }
 
+            foreach(var dat in toRemove)
+            {
+                instances.Remove(dat);
+            }
+        }
+
+        private Settlement GetSettlementToPatrol(PatrolAroundClosestLestInterruptedAndSwitchBehaviourData dat)
+        {
+            return CampaignUtils.GetClosestNonHostileCityAmong(dat.party, dat.preferredSettlements, dat.currentPatrolledSettlement);
+        }
+
+        private float GetRolledDay(PatrolAroundClosestLestInterruptedAndSwitchBehaviourData dat)
+        {
+            return MBRandom.RandomFloatRanged(dat.minStablePatrolDays, dat.maxStablePatrolDays);
         }
 
         #region Registration and AI Manager Integration
@@ -63,8 +114,10 @@ namespace CustomSpawns.AI
 
         public struct PatrolAroundClosestLestInterruptedAndSwitchBehaviourData
         {
+            public Settlement currentPatrolledSettlement;
             public MobileParty party;
             public float currentDays;
+            public float currentRolledDays;
             public float minStablePatrolDays;
             public float maxStablePatrolDays;
             public bool isValidData;
@@ -78,6 +131,8 @@ namespace CustomSpawns.AI
                 isValidData = true;
                 this.preferredSettlements = preferredSettlements;
                 currentDays = 0;
+                currentPatrolledSettlement = null;
+                currentRolledDays = 0;
             }
 
             public PatrolAroundClosestLestInterruptedAndSwitchBehaviourData(MobileParty party, PatrolAroundClosestLestInterruptedAndSwitchBehaviourData data)
@@ -88,6 +143,8 @@ namespace CustomSpawns.AI
                 isValidData = true;
                 this.preferredSettlements = data.preferredSettlements;
                 currentDays = 0;
+                currentPatrolledSettlement = null;
+                currentRolledDays = 0;
             }
         }
     }
