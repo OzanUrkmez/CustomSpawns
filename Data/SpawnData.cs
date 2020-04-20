@@ -268,7 +268,7 @@ namespace CustomSpawns.Data
             }
             catch (Exception e)
             {
-                ErrorHandler.HandleException(e, "Regular Bandit Daily Spawn Data Parsing of " + filePath);
+                ErrorHandler.HandleException(e, "Spawn Data Parsing of " + filePath);
             }
         }
 
