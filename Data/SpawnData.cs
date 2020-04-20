@@ -248,7 +248,8 @@ namespace CustomSpawns.Data
                         else
                         {
                             PartyTemplateObject pt = (PartyTemplateObject)MBObjectManager.Instance.ReadObjectReferenceFromXml(s1, typeof(PartyTemplateObject), node);
-                            dat.SpawnAlongWith.Add(new AccompanyingParty(pt, NameSignifierData.Instance.GetPartyNameFromID(pt.StringId)));
+                            dat.SpawnAlongWith.Add(new AccompanyingParty(pt, NameSignifierData.Instance.GetPartyNameFromID(pt.StringId),
+                                NameSignifierData.Instance.GetPartyFollowBehaviourFlagFromID(pt.StringId)));
                             Main.customSpeedModel.RegisterPartyExtraSpeed(pt.StringId, NameSignifierData.Instance.GetSpeedModifierFromID(pt.StringId));
                             if (minSpeed != float.MinValue)
                                 Main.customSpeedModel.RegisterPartyMinimumSpeed(pt.StringId, minSpeed);
@@ -354,11 +355,13 @@ namespace CustomSpawns.Data
     {
         public PartyTemplateObject templateObject;
         public string name;
+        public bool accompanyMainParty; //TODO implement this!!
 
-        public AccompanyingParty(PartyTemplateObject pt, string n)
+        public AccompanyingParty(PartyTemplateObject pt, string n, bool accompanyMainParty)
         {
             templateObject = pt;
             name = n;
+            this.accompanyMainParty = accompanyMainParty; 
         }
     }
 
