@@ -40,6 +40,7 @@ namespace CustomSpawns.AI
                 if(isPreOccupied)
                 {
                     dat.currentDays = 0; //TODO TEST IF IS PRE OCCUPIED WORKS!
+                    instances[i] = dat;
                     continue;
                 }
                 if(dat.currentPatrolledSettlement == null)
@@ -57,13 +58,17 @@ namespace CustomSpawns.AI
                     dat.currentDays = 0;
                     dat.currentPatrolledSettlement = GetSettlementToPatrol(dat);
                     if (dat.currentPatrolledSettlement == null)
+                    {
+                        instances[i] = dat;
                         continue;
+                    }
                     dat.party.SetMovePatrolAroundSettlement(dat.currentPatrolledSettlement);
                     dat.currentRolledDays = GetRolledDay(dat);
                 }
+                instances[i] = dat;
             }
 
-            foreach(var dat in toRemove)
+            foreach (var dat in toRemove)
             {
                 instances.Remove(dat);
             }
