@@ -26,7 +26,7 @@ namespace CustomSpawns
             PartyBase party = mobileParty.Party;
             ExplainedNumber explainedNumber = new ExplainedNumber(baseSpeed, explanation, null);
             explainedNumber.LimitMin(1f);
-            string key = string.Join("_", Utils.Utils.TakeAllButLast<string>(mobileParty.StringId.Split('_')).ToArray<string>()); //TODO if this is non-trivial make it more efficient
+            string key = CampaignUtils.IsolateMobilePartyStringID(mobileParty); //TODO if this is non-trivial make it more efficient
             if (partyIDToExtraSpeed.ContainsKey(key))
             {
                 float extra = partyIDToExtraSpeed[key];

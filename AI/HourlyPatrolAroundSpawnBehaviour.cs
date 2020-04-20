@@ -81,6 +81,7 @@ namespace CustomSpawns.AI
             if (patrollerInstance.patrolledSettlement == s)
                 return false;
             registeredPatrollers.Add(new Patroller(mb, s));
+            mb.HomeSettlement = s;
             ModDebug.ShowMessage(mb.StringId + " is now engaged in patrol behaviour around " + s.Name);
             AIManager.RegisterAIBehaviour(mb, this);
             return true;

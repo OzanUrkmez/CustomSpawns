@@ -31,9 +31,7 @@ namespace CustomSpawns.Spawn
             foreach(MobileParty mb in MobileParty.All)
             {
                 foreach (var dat in dataManager.Data) {
-                    var split = mb.StringId.Split('_');
-                    string compared = string.Join("_", Utils.Utils.TakeAllButLast<string>(split));
-                    if (compared == dat.PartyTemplate.StringId)
+                    if (CampaignUtils.IsolateMobilePartyStringID(mb) == dat.PartyTemplate.StringId)
                     {
                         //increase count
                         dat.IncrementNumberSpawned();

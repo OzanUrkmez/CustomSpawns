@@ -105,5 +105,10 @@ namespace CustomSpawns
             return min;
         }
 
+        public static string IsolateMobilePartyStringID(MobileParty mobileParty)
+        {
+            return string.Join("_", Utils.Utils.TakeAllButLast<string>(mobileParty.StringId.Split('_')).ToArray<string>()); 
+        }
+
     }
 }
