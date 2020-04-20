@@ -249,8 +249,7 @@ namespace CustomSpawns.Data
                         {
                             PartyTemplateObject pt = (PartyTemplateObject)MBObjectManager.Instance.ReadObjectReferenceFromXml(s1, typeof(PartyTemplateObject), node);
                             dat.SpawnAlongWith.Add(new AccompanyingParty(pt, NameSignifierData.Instance.GetPartyNameFromID(pt.StringId)));
-                            if(extraSpeed != float.MinValue)
-                                Main.customSpeedModel.RegisterPartyExtraSpeed(pt.StringId, extraSpeed);
+                            Main.customSpeedModel.RegisterPartyExtraSpeed(pt.StringId, NameSignifierData.Instance.GetSpeedModifierFromID(pt.StringId));
                             if (minSpeed != float.MinValue)
                                 Main.customSpeedModel.RegisterPartyMinimumSpeed(pt.StringId, minSpeed);
                             if (maxSpeed != float.MinValue)
