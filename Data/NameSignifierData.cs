@@ -39,6 +39,7 @@ namespace CustomSpawns.Data
 
         private Dictionary<string, string> IDToName = new Dictionary<string, string>();
         private Dictionary<string, float> IDToSpeedModifier = new Dictionary<string, float>();
+        private Dictionary<string, bool> IDToFollowMainParty = new Dictionary<string, bool>();
         private NameSignifierData()
         {
             if (!Main.isAPIMode)
@@ -84,7 +85,23 @@ namespace CustomSpawns.Data
                                 throw new Exception("Please enter a valid float for the speed modifier!");
                             }
                             if(!IDToSpeedModifier.ContainsKey(id))
-                            IDToSpeedModifier.Add(id, result);
+                                IDToSpeedModifier.Add(id, result);
+                        }
+                        if (!!IDToFollowMainParty.ContainsKey(id))
+                        {
+                            if (node.Attributes["escort_main_party"] != null)
+                            {
+                                bool result;
+                                if(!bool.TryParse(node.Attributes["escort_main_party"].InnerText, out result))
+                                {
+                                    throw new Exception("The value for escort_main_party must either be true or false!");
+                                }
+                                IDToFollowMainParty.Add(id, result);
+                            }
+                            else
+                            {
+                                IDToFollowMainParty.Add(id, true);
+                            }
                         }
                     }
                 }
