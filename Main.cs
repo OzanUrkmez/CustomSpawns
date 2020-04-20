@@ -71,6 +71,7 @@ namespace CustomSpawns
         {
             try
             {
+                ClearLastInstances();
                 AddBehaviours(gameStarterObject as CampaignGameStarter);
                 //do overrides
                 if (ConfigLoader.Instance.Config.ModifyPartySpeeds && !removalMode)
@@ -83,6 +84,13 @@ namespace CustomSpawns
         }
 
         public static UtilityBehaviours.OnSaveStartRunBehaviour currentOnSaveStartRunBehaviour;
+
+        private void ClearLastInstances()
+        {
+            Data.DiplomacyDataManager.ClearInstance(this);
+            Data.SpawnDataManager.ClearInstance(this);
+            Data.NameSignifierData.ClearInstance(this);
+        }
 
         private void AddBehaviours(CampaignGameStarter starter)
         {
@@ -106,9 +114,10 @@ namespace CustomSpawns
         private void OnSaveStart()
         {
             //restore lost AI behaviours!
+            var partyIDToData = Data.SpawnDataManager.Instance.PartyIDToData;
             foreach(MobileParty mb in MobileParty.All)
             {
-
+                
             }
         }
 

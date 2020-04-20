@@ -31,6 +31,13 @@ namespace CustomSpawns.Data
             }
         }
 
+        public static void ClearInstance(Main caller)
+        {
+            if (caller == null)
+                return;
+            _instance = null;
+        }
+
         private Dictionary<string, DiplomacyData> data = new Dictionary<string, DiplomacyData>();
 
         public MBReadOnlyDictionary<string, DiplomacyData> Data

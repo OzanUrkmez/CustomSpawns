@@ -29,6 +29,13 @@ namespace CustomSpawns.Data
             }
         }
 
+        public static void ClearInstance(Main caller)
+        {
+            if (caller == null)
+                return;
+            _instance = null;
+        }
+
 
         private Dictionary<string, string> IDToName = new Dictionary<string, string>();
         private Dictionary<string, float> IDToSpeedModifier = new Dictionary<string, float>();

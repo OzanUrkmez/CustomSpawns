@@ -31,6 +31,13 @@ namespace CustomSpawns.Data
             }
         }
 
+        public static void ClearInstance(Main caller)
+        {
+            if (caller == null)
+                return;
+            _instance = null;
+        }
+
         private List<SpawnData> data = new List<SpawnData>();
         private Dictionary<string, SpawnData> partyIDtoData = new Dictionary<string, SpawnData>();
 
