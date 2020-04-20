@@ -105,6 +105,12 @@ namespace CustomSpawns.Spawn
                     aiRegistrations.Add("Attack Closest Settlement If Idle for A Day Behaviour: ", success);
                     invalid = invalid ? true : !success;
                 }
+                if (data.PatrolAroundClosestLestInterruptedAndSwitch.isValidData)
+                {
+                    bool success = AI.AIManager.PatrolAroundClosestLestInterruptedAndSwitchBehaviour.RegisterParty(mb, data.PatrolAroundClosestLestInterruptedAndSwitch);
+                    aiRegistrations.Add("Patrol Around Closest Lest Interrupted And Switch Behaviour: ", success);
+                    invalid = invalid ? true : !success;
+                }
                 if (invalid && ConfigLoader.Instance.Config.IsDebugMode)
                 {
                     ErrorHandler.ShowPureErrorMessage("Custom Spawns AI XML registration error has occured. The party being registered was: " + mb.StringId +

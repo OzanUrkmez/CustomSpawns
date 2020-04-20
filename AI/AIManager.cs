@@ -14,6 +14,7 @@ namespace CustomSpawns.AI
 
         public static AttackClosestIfIdleForADayBehaviour AttackClosestIfIdleForADayBehaviour { get; set; }
 
+        public static PatrolAroundClosestLestInterruptedAndSwitchBehaviour PatrolAroundClosestLestInterruptedAndSwitchBehaviour { get; set; }
 
         private static Dictionary<MobileParty, List<IAIBehaviour>> partyBehaviours = new Dictionary<MobileParty, List<IAIBehaviour>>();
 

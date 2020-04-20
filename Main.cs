@@ -99,6 +99,7 @@ namespace CustomSpawns
                 starter.AddBehavior(new Spawn.DailyBanditSpawnBehaviour(Data.SpawnDataManager.Instance));
                 starter.AddBehavior(new AI.HourlyPatrolAroundSpawnBehaviour());
                 starter.AddBehavior(new AI.AttackClosestIfIdleForADayBehaviour());
+                starter.AddBehavior(new AI.PatrolAroundClosestLestInterruptedAndSwitchBehaviour());
                 starter.AddBehavior(new Diplomacy.ForcedWarPeaceBehaviour());
                 starter.AddBehavior(new Economics.SimpleAllSpawnNotStarveBehaviour()); //TODO for now we shall have to use this.
                 currentOnSaveStartRunBehaviour = new UtilityBehaviours.OnSaveStartRunBehaviour();
