@@ -76,18 +76,24 @@ namespace CustomSpawns.Data
                     if (!IDToName.ContainsKey(id))
                     {
                         IDToName.Add(id, node.Attributes["value"].InnerText);
-                        if (node.Attributes["speed_modifier"] != null)
+                        if (!IDToSpeedModifier.ContainsKey(id))
                         {
-
-                            float result;
-                            if (!float.TryParse(node.Attributes["speed_modifier"].InnerText, out result))
+                            if (node.Attributes["speed_modifier"] != null)
                             {
-                                throw new Exception("Please enter a valid float for the speed modifier!");
-                            }
-                            if(!IDToSpeedModifier.ContainsKey(id))
+
+                                float result;
+                                if (!float.TryParse(node.Attributes["speed_modifier"].InnerText, out result))
+                                {
+                                    throw new Exception("Please enter a valid float for the speed modifier!");
+                                }
                                 IDToSpeedModifier.Add(id, result);
+                            }
+                            else
+                            {
+                                IDToSpeedModifier.Add(id, 0);
+                            }
                         }
-                        if (!!IDToFollowMainParty.ContainsKey(id))
+                        if (!IDToFollowMainParty.ContainsKey(id))
                         {
                             if (node.Attributes["escort_main_party"] != null)
                             {
@@ -121,6 +127,11 @@ namespace CustomSpawns.Data
         public float GetSpeedModifierFromID(string id)
         {
             return IDToSpeedModifier[id];
+        }
+
+        public bool GetPartyFollowBehaviourFlagFromID(string id)
+        {
+            return IDToFollowMainParty[id];
         }
     }
 }
