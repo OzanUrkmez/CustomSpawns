@@ -209,16 +209,23 @@ namespace CustomSpawns.Data
                         }
                         if (!val)
                             break;
+                        XmlNode innerNode = node["PatrolAroundClosestLestInterruptedAndSwitch"];
                         float minDays = 0;
                         float maxDays = 10;
                         List<SpawnSettlementType> TryPatrolAround = new List<SpawnSettlementType>();
-                        if (!float.TryParse(node.Attributes["min_stable_days"].InnerText, out minDays))
-                            throw new Exception("min_stable_days must be a float value!");
-                        if (!float.TryParse(node.Attributes["max_stable_days"].InnerText, out maxDays))
-                            throw new Exception("max_stable_days must be a float value!");
-                        if(node.Attributes["try_patrol_around"] != null && node.Attributes["try_patrol_around"].InnerText != "")
+                        try
                         {
-                            TryPatrolAround = ConstructTrySettlementList(node.Attributes["try_patrol_around"].InnerText);
+                            if (!float.TryParse(innerNode.Attributes["min_stable_days"].InnerText, out minDays))
+                                throw new Exception("min_stable_days must be a float value!");
+                            if (!float.TryParse(innerNode.Attributes["max_stable_days"].InnerText, out maxDays))
+                                throw new Exception("max_stable_days must be a float value!");
+                            if (innerNode.Attributes["try_patrol_around"] != null && innerNode.Attributes["try_patrol_around"].InnerText != "")
+                            {
+                                TryPatrolAround = ConstructTrySettlementList(innerNode.Attributes["try_patrol_around"].InnerText);
+                            }
+                        }catch
+                        {
+                            throw new Exception("not all attributes in PatrolAroundClosestLestInterruptedAndSwitch were filled properly!");
                         }
                         dat.PatrolAroundClosestLestInterruptedAndSwitch =
                             new AI.PatrolAroundClosestLestInterruptedAndSwitchBehaviour.PatrolAroundClosestLestInterruptedAndSwitchBehaviourData(null, minDays, maxDays, TryPatrolAround);
