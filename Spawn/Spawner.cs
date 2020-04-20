@@ -87,7 +87,7 @@ namespace CustomSpawns.Spawn
             return returned;
         }
 
-        public static void HandleAIChecks(MobileParty mb, Data.SpawnData data, Settlement spawnedSettlement)
+        public static void HandleAIChecks(MobileParty mb, Data.SpawnData data, Settlement spawnedSettlement) //TODO handle sub parties being reconstructed!
         {
             try
             {
