@@ -130,12 +130,12 @@ namespace CustomSpawns.Spawn
                                 data.IncrementNumberSpawned(); //increment for can spawn and chance modifications
                                 j++;
                                 //AI Checks!
-                                HandleAIChecks(spawnedParty, data, spawnSettlement);
+                                Spawner.HandleAIChecks(spawnedParty, data, spawnSettlement);
                                 //accompanying spawns
                                 foreach(var accomp in data.SpawnAlongWith)
                                 {
                                     MobileParty juniorParty = Spawner.SpawnParty(spawnSettlement, data.SpawnClan, accomp.templateObject, data.PartyType, new TextObject(accomp.name));
-                                    HandleAIChecks(juniorParty, data, spawnSettlement); //junior party has same AI behaviour as main party.
+                                    Spawner.HandleAIChecks(juniorParty, data, spawnSettlement); //junior party has same AI behaviour as main party.
                                 }
                                 //message if available
                                 if(data.spawnMessage != null)
@@ -153,35 +153,6 @@ namespace CustomSpawns.Spawn
                 }
             }
             catch(Exception e)
-            {
-                ErrorHandler.HandleException(e);
-            }
-        }
-
-        private void HandleAIChecks(MobileParty mb, Data.SpawnData data, Settlement spawnedSettlement)
-        {
-            try
-            {
-                bool invalid = false;
-                Dictionary<string, bool> aiRegistrations = new Dictionary<string, bool>();
-                if (data.PatrolAroundSpawn)
-                {
-                    bool success = AI.AIManager.HourlyPatrolAroundSpawn.RegisterParty(mb, spawnedSettlement);
-                    aiRegistrations.Add("Patrol around spawn behaviour: ", success);
-                    invalid = invalid ? true : !success;
-                }
-                if (data.AttackClosestIfIdleForADay)
-                {
-                    bool success = AI.AIManager.AttackClosestIfIdleForADayBehaviour.RegisterParty(mb);
-                    aiRegistrations.Add("Attack Closest Settlement If Idle for A Day Behaviour: ", success);
-                    invalid = invalid ? true : !success;
-                }
-                if (invalid && ConfigLoader.Instance.Config.IsDebugMode)
-                {
-                    ErrorHandler.ShowPureErrorMessage("Custom Spawns AI XML registration error has occured. The party being registered was: " + mb.StringId +
-                        "\n Here is more info about the behaviours being registered: \n" + aiRegistrations.ToString());
-                }
-            }catch(Exception e)
             {
                 ErrorHandler.HandleException(e);
             }
