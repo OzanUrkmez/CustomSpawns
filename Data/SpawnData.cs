@@ -263,7 +263,8 @@ namespace CustomSpawns.Data
                     }
 
                     data.Add(dat);
-                    partyIDtoData.Add(dat.PartyTemplate.StringId, dat);
+                    if(!partyIDtoData.ContainsKey(dat.PartyTemplate.StringId)) //TODO add way to alert modder that he should use one party template for one AI 
+                        partyIDtoData.Add(dat.PartyTemplate.StringId, dat);
                 }
             }
             catch (Exception e)
