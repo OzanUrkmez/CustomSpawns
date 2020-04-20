@@ -200,8 +200,15 @@ namespace CustomSpawns.Data
                     }
 
                     //patrol around closest lest interrupted and switch 
-                    if(node["PatrolAroundClosestLestInterruptedAndSwitch"] != null && node["PatrolAroundClosestLestInterruptedAndSwitch"].InnerText == "true")
+                    if(node["PatrolAroundClosestLestInterruptedAndSwitch"] != null)
                     {
+                        bool val = false;
+                        if (!bool.TryParse(node["PatrolAroundClosestLestInterruptedAndSwitch"].InnerText, out val))
+                        {
+                            break;
+                        }
+                        if (!val)
+                            break;
                         float minDays = 0;
                         float maxDays = 10;
                         List<SpawnSettlementType> TryPatrolAround = new List<SpawnSettlementType>();
