@@ -32,12 +32,21 @@ namespace CustomSpawns.Data
         }
 
         private List<SpawnData> data = new List<SpawnData>();
+        private Dictionary<string, SpawnData> partyIDtoData = new Dictionary<string, SpawnData>();
 
         public IList<SpawnData> Data
         {
             get
             {
                 return data.AsReadOnly();
+            }
+        }
+
+        public MBReadOnlyDictionary<string, SpawnData> PartyIDToData
+        {
+            get
+            {
+                return partyIDtoData.GetReadOnlyDictionary();
             }
         }
 
@@ -223,6 +232,7 @@ namespace CustomSpawns.Data
                     }
 
                     data.Add(dat);
+                    partyIDtoData.Add(dat.PartyTemplate.StringId, dat);
                 }
             }
             catch (Exception e)

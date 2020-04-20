@@ -105,6 +105,7 @@ namespace CustomSpawns
 
         private void OnSaveStart()
         {
+            //restore lost AI behaviours!
             foreach(MobileParty mb in MobileParty.All)
             {
 
