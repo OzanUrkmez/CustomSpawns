@@ -170,22 +170,7 @@ namespace CustomSpawns.Data
                     //try spawn at list creation
                     if (node["TrySpawnAt"] != null && node["TrySpawnAt"].InnerText != "")
                     {
-                        string[] trySpawnAtArray = node["TrySpawnAt"].InnerText.Split('|');
-                        foreach(var place in trySpawnAtArray)
-                        {
-                            switch (place)
-                            {
-                                case "Village":
-                                    dat.TrySpawnAtList.Add(SpawnSettlementType.Village);
-                                    break;
-                                case "Town":
-                                    dat.TrySpawnAtList.Add(SpawnSettlementType.Town);
-                                    break;
-                                case "Castle":
-                                    dat.TrySpawnAtList.Add(SpawnSettlementType.Castle);
-                                    break;
-                            }
-                        }
+                        dat.TrySpawnAtList = ConstructTrySettlementList(node["TrySpawnAt"].InnerText);
                     }
 
                     //message
@@ -212,6 +197,24 @@ namespace CustomSpawns.Data
                             throw new Exception("ExtraLinearSpeed must be a float value! ");
                         }
                         Main.customSpeedModel.RegisterPartyExtraSpeed(dat.PartyTemplate.StringId, extraSpeed);
+                    }
+
+                    //patrol around closest lest interrupted and switch 
+                    if(node["PatrolAroundClosestLestInterruptedAndSwitch"] != null && node["PatrolAroundClosestLestInterruptedAndSwitch"].InnerText == "true")
+                    {
+                        float minDays = 0;
+                        float maxDays = 10;
+                        List<SpawnSettlementType> TryPatrolAround = new List<SpawnSettlementType>();
+                        if (!float.TryParse(node.Attributes["min_stable_days"].InnerText, out minDays))
+                            throw new Exception("min_stable_days must be a float value!");
+                        if (!float.TryParse(node.Attributes["max_stable_days"].InnerText, out maxDays))
+                            throw new Exception("max_stable_days must be a float value!");
+                        if(node.Attributes["try_patrol_around"] != null && node.Attributes["try_patrol_around"].InnerText != "")
+                        {
+                            TryPatrolAround = ConstructTrySettlementList(node.Attributes["try_patrol_around"].InnerText);
+                        }
+                        dat.PatrolAroundClosestLestInterruptedAndSwitch =
+                            new AI.PatrolAroundClosestLestInterruptedAndSwitchBehaviour.PatrolAroundClosestLestInterruptedAndSwitchBehaviourData(minDays, maxDays, TryPatrolAround);
                     }
 
                     //min max party speed modifiers
@@ -290,6 +293,28 @@ namespace CustomSpawns.Data
             }
         }
 
+        public static List<SpawnSettlementType> ConstructTrySettlementList(string input)
+        {
+            string[] trySpawnAtArray = input.Split('|');
+            List<SpawnSettlementType> returned = new List<SpawnSettlementType>();
+            foreach (var place in trySpawnAtArray)
+            {
+                switch (place)
+                {
+                    case "Village":
+                        returned.Add(SpawnSettlementType.Village);
+                        break;
+                    case "Town":
+                        returned.Add(SpawnSettlementType.Town);
+                        break;
+                    case "Castle":
+                        returned.Add(SpawnSettlementType.Castle);
+                        break;
+                }
+            }
+            return returned;
+        }
+
     }
     public class SpawnData
     {
@@ -304,6 +329,7 @@ namespace CustomSpawns.Data
         private float chanceOfSpawn;
         public int MinimumNumberOfDaysUntilSpawn { get; set; }
         public bool AttackClosestIfIdleForADay { get; set; }
+        public AI.PatrolAroundClosestLestInterruptedAndSwitchBehaviour.PatrolAroundClosestLestInterruptedAndSwitchBehaviourData PatrolAroundClosestLestInterruptedAndSwitch { get; set; }
         public float ChanceOfSpawn
         {
             get
@@ -347,6 +373,7 @@ namespace CustomSpawns.Data
         {
             return numberSpawned < MaximumOnMap;
         }
+
 
 
     }

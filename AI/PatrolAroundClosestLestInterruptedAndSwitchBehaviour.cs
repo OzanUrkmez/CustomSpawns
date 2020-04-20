@@ -20,5 +20,21 @@ namespace CustomSpawns.AI
         }
 
         #endregion
+
+        public struct PatrolAroundClosestLestInterruptedAndSwitchBehaviourData
+        {
+            public float minStablePatrolDays;
+            public float maxStablePatrolDays;
+            public bool isValidData;
+            public List<Data.SpawnSettlementType> preferredSettlements;
+
+            public PatrolAroundClosestLestInterruptedAndSwitchBehaviourData(float minDays, float maxDays, List<Data.SpawnSettlementType> preferredSettlements)
+            {
+                minStablePatrolDays = minDays;
+                maxStablePatrolDays = maxDays;
+                isValidData = true;
+                this.preferredSettlements = preferredSettlements;
+            }
+        }
     }
 }
