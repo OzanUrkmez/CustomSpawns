@@ -21,11 +21,12 @@ namespace CustomSpawns.AI
             
         }
 
+        private List<PatrolAroundClosestLestInterruptedAndSwitchBehaviourData> instances = new List<PatrolAroundClosestLestInterruptedAndSwitchBehaviourData>();
+
         private void hourlyAI()
         {
 
         }
-
 
         #region Registration and AI Manager Integration
 
@@ -41,6 +42,7 @@ namespace CustomSpawns.AI
                 " switch settlements every " + data.minStablePatrolDays.ToString() + " to " + 
                 data.maxStablePatrolDays.ToString() + " days.");
             AIManager.RegisterAIBehaviour(mb, this);
+            instances.Add(data);
             return true;
         }
 
@@ -61,17 +63,31 @@ namespace CustomSpawns.AI
 
         public struct PatrolAroundClosestLestInterruptedAndSwitchBehaviourData
         {
+            public MobileParty party;
+            public float currentDays;
             public float minStablePatrolDays;
             public float maxStablePatrolDays;
             public bool isValidData;
             public List<Data.SpawnSettlementType> preferredSettlements;
 
-            public PatrolAroundClosestLestInterruptedAndSwitchBehaviourData(float minDays, float maxDays, List<Data.SpawnSettlementType> preferredSettlements)
+            public PatrolAroundClosestLestInterruptedAndSwitchBehaviourData(MobileParty party, float minDays, float maxDays, List<Data.SpawnSettlementType> preferredSettlements)
             {
+                this.party = party;
                 minStablePatrolDays = minDays;
                 maxStablePatrolDays = maxDays;
                 isValidData = true;
                 this.preferredSettlements = preferredSettlements;
+                currentDays = 0;
+            }
+
+            public PatrolAroundClosestLestInterruptedAndSwitchBehaviourData(MobileParty party, PatrolAroundClosestLestInterruptedAndSwitchBehaviourData data)
+            {
+                this.party = party;
+                minStablePatrolDays = data.minStablePatrolDays;
+                maxStablePatrolDays = data.maxStablePatrolDays;
+                isValidData = true;
+                this.preferredSettlements = data.preferredSettlements;
+                currentDays = 0;
             }
         }
     }

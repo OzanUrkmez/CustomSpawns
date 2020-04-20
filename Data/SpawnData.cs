@@ -214,7 +214,7 @@ namespace CustomSpawns.Data
                             TryPatrolAround = ConstructTrySettlementList(node.Attributes["try_patrol_around"].InnerText);
                         }
                         dat.PatrolAroundClosestLestInterruptedAndSwitch =
-                            new AI.PatrolAroundClosestLestInterruptedAndSwitchBehaviour.PatrolAroundClosestLestInterruptedAndSwitchBehaviourData(minDays, maxDays, TryPatrolAround);
+                            new AI.PatrolAroundClosestLestInterruptedAndSwitchBehaviour.PatrolAroundClosestLestInterruptedAndSwitchBehaviourData(null, minDays, maxDays, TryPatrolAround);
                     }
 
                     //min max party speed modifiers

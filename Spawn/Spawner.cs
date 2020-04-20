@@ -107,7 +107,8 @@ namespace CustomSpawns.Spawn
                 }
                 if (data.PatrolAroundClosestLestInterruptedAndSwitch.isValidData)
                 {
-                    bool success = AI.AIManager.PatrolAroundClosestLestInterruptedAndSwitchBehaviour.RegisterParty(mb, data.PatrolAroundClosestLestInterruptedAndSwitch);
+                    bool success = AI.AIManager.PatrolAroundClosestLestInterruptedAndSwitchBehaviour.RegisterParty(mb, 
+                        new AI.PatrolAroundClosestLestInterruptedAndSwitchBehaviour.PatrolAroundClosestLestInterruptedAndSwitchBehaviourData(mb, data.PatrolAroundClosestLestInterruptedAndSwitch));
                     aiRegistrations.Add("Patrol Around Closest Lest Interrupted And Switch Behaviour: ", success);
                     invalid = invalid ? true : !success;
                 }
