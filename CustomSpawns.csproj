@@ -228,7 +228,7 @@
     <Compile Include="Config\ConfigLoader.cs" />
     <Compile Include="Data\DiplomacyData.cs" />
     <Compile Include="Data\NameSignifierData.cs" />
-    <Compile Include="Data\RegularBanditDailySpawnData.cs" />
+    <Compile Include="Data\SpawnData.cs" />
     <Compile Include="Diplomacy\DiplomacyUtils.cs" />
     <Compile Include="Diplomacy\ForcedWarPeaceBehaviour.cs" />
     <Compile Include="Economics\SimpleAllSpawnNotStarveBehaviour.cs" />
@@ -242,6 +242,7 @@
     <Compile Include="Spawn\FightDeserterSpawnBehaviour.cs" />
     <Compile Include="Spawn\Spawner.cs" />
     <Compile Include="TaleWorldsCode\BanditsCampaignBehaviour.cs" />
+    <Compile Include="UtilityBehaviours\OnSaveStartRunBehaviour.cs" />
     <Compile Include="Utils\ErrorHandler.cs" />
     <Compile Include="Utils\CampaignUtils.cs" />
     <Compile Include="Utils\ModDebug.cs" />

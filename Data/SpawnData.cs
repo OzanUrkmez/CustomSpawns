@@ -167,6 +167,27 @@ namespace CustomSpawns.Data
 
                     dat.AttackClosestIfIdleForADay = node["AttackClosestIfIdleForADay"] == null ? true : bool.Parse(node["AttackClosestIfIdleForADay"].InnerText);
 
+                    //try spawn at list creation
+                    if (node["TrySpawnAt"] != null && node["TrySpawnAt"].InnerText != "")
+                    {
+                        string[] trySpawnAtArray = node["TrySpawnAt"].InnerText.Split('|');
+                        foreach(var place in trySpawnAtArray)
+                        {
+                            switch (place)
+                            {
+                                case "Village":
+                                    dat.TrySpawnAtList.Add(SpawnSettlementType.Village);
+                                    break;
+                                case "Town":
+                                    dat.TrySpawnAtList.Add(SpawnSettlementType.Town);
+                                    break;
+                                case "Castle":
+                                    dat.TrySpawnAtList.Add(SpawnSettlementType.Castle);
+                                    break;
+                            }
+                        }
+                    }
+
                     //message
                     string msg = node["SpawnMessage"] == null? "" : node["SpawnMessage"].InnerText;
                     string color = node["SpawnMessageColor"] == null ? "" : node["SpawnMessageColor"].InnerText;
@@ -274,6 +295,7 @@ namespace CustomSpawns.Data
     {
         public MobileParty.PartyTypeEnum PartyType { get; set; }
         public Clan SpawnClan { get; set; }
+        public List<SpawnSettlementType> TrySpawnAtList = new List<SpawnSettlementType>();
         public List<Clan> OverridenSpawnClan = new List<Clan>();
         public List<Settlement> OverridenSpawnSettlements = new List<Settlement>();
         public List<CultureCode> OverridenSpawnCultures = new List<CultureCode>();
@@ -339,6 +361,11 @@ namespace CustomSpawns.Data
             templateObject = pt;
             name = n;
         }
+    }
+
+    public enum SpawnSettlementType
+    {
+        Village, Castle, Town
     }
 
 }
