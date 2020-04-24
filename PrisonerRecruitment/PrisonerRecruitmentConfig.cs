@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CustomSpawns.PrisonerRecruitment
 {
     [Serializable]
-    class PrisonerRecruitmentConfig
+    public class PrisonerRecruitmentConfig
     {
 
         public bool Enabled { get; set; }

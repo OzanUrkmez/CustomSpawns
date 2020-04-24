@@ -46,7 +46,7 @@ namespace CustomSpawns.PrisonerRecruitment
         {
             try
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(Config));
+                XmlSerializer serializer = new XmlSerializer(typeof(PrisonerRecruitmentConfig));
                 using (var reader = new StreamReader(filePath))
                 {
                     PrisonerRecruitmentConfig returned = (PrisonerRecruitmentConfig)serializer.Deserialize(reader);
