@@ -203,7 +203,7 @@ namespace CustomSpawns.Data
                     float baseSpeedOverride = float.MinValue;
                     if (node["BaseSpeedOverride"] != null)
                     {
-                        if (!float.TryParse(node["BaseSpeedOverride"].InnerText, out extraSpeed))
+                        if (!float.TryParse(node["BaseSpeedOverride"].InnerText, out baseSpeedOverride))
                         {
                             throw new Exception("BaseSpeedOverride must be a float value! ");
                         }
