@@ -33,6 +33,13 @@ namespace CustomSpawns
                 explainedNumber.AddFactor(extra, explanationText);
             }
             TerrainType faceTerrainType = Campaign.Current.MapSceneWrapper.GetFaceTerrainType(mobileParty.CurrentNavigationFace);
+            if (partyIDToMinimumSpeed.ContainsKey(key))//minimum adjustment
+                explainedNumber.LimitMin(partyIDToMinimumSpeed[key]);
+            else
+                explainedNumber.LimitMin(1f);
+
+            if (partyIDToMaximumSpeed.ContainsKey(key))//maximum adjustment
+                explainedNumber.LimitMax(partyIDToMaximumSpeed[key]);
             if (faceTerrainType == TerrainType.Forest)
             {
                 explainedNumber.AddFactor(-0.3f, _movingInForest);
@@ -54,13 +61,7 @@ namespace CustomSpawns
                     PerkHelper.AddFeatBonusForPerson(DefaultFeats.Cultural.SturgianSnowAgility, party.Leader, ref explainedNumber);
                 }
             }
-            if (partyIDToMinimumSpeed.ContainsKey(key))//minimum adjustment
-                explainedNumber.LimitMin(partyIDToMinimumSpeed[key]);
-            else
-                explainedNumber.LimitMin(1f);
 
-            if (partyIDToMaximumSpeed.ContainsKey(key))//maximum adjustment
-                explainedNumber.LimitMax(partyIDToMaximumSpeed[key]);
 
             return explainedNumber.ResultNumber;
         }
