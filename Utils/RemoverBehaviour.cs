@@ -28,8 +28,8 @@ namespace CustomSpawns.Utils
         {
             if (!removed)
             {
-                RemoveEverything();
                 removed = true;
+                RemoveEverything();
             }
         }
 
@@ -69,7 +69,12 @@ namespace CustomSpawns.Utils
                 }
             }
             for(int i = 0; i < toBeRemoved.Count; i++)
-            {
+            { 
+                if(toBeRemoved[i].Party.MapEvent != null)
+                {
+                    UX.ShowMessage("CustomSpawns: the party " + toBeRemoved[i].StringId + " is currently engaged at a map event and thus cannot be removed until this event is completed.", Color.ConvertStringToColor("#001FFFFF"));
+                    removed = false;
+                }
                 UX.ShowMessage("CustomSpawns: removing " + toBeRemoved[i].StringId, Color.ConvertStringToColor("#001FFFFF"));
                 toBeRemoved[i].RemoveParty();
             }
