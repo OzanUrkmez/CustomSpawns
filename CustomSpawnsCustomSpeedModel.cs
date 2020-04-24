@@ -33,13 +33,16 @@ namespace CustomSpawns
                 explainedNumber.AddFactor(extra, explanationText);
             }
             TerrainType faceTerrainType = Campaign.Current.MapSceneWrapper.GetFaceTerrainType(mobileParty.CurrentNavigationFace);
+            float num = explainedNumber.ResultNumber;
             if (partyIDToMinimumSpeed.ContainsKey(key))//minimum adjustment
-                explainedNumber.LimitMin(partyIDToMinimumSpeed[key]);
+                 num = Math.Max(num, partyIDToMinimumSpeed[key]);
             else
                 explainedNumber.LimitMin(1f);
 
             if (partyIDToMaximumSpeed.ContainsKey(key))//maximum adjustment
-                explainedNumber.LimitMax(partyIDToMaximumSpeed[key]);
+                 num = Math.Min(num, partyIDToMaximumSpeed[key]);
+
+            explainedNumber.Add(num - explainedNumber.ResultNumber, new TextObject("Custom Spawns modification"));
             if (faceTerrainType == TerrainType.Forest)
             {
                 explainedNumber.AddFactor(-0.3f, _movingInForest);
