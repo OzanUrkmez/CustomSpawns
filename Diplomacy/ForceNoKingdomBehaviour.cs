@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
+using TaleWorlds.Core;
 using TaleWorlds.Localization;
+using TaleWorlds.CampaignSystem.Actions;
 
 
 namespace CustomSpawns.Diplomacy
@@ -38,7 +40,7 @@ namespace CustomSpawns.Diplomacy
                 {
                     if(dataManager.Data[c.StringId].ForceNoKingdom && c.Kingdom != null)
                     {
-                        c.ClanLeaveKingdom(true);
+                        ChangeKingdomAction.ApplyByLeaveKingdom(c, false);
                         ModDebug.ShowMessage(c.StringId + " has forcefully been removed from parent kingdom");
                     }
                 }
