@@ -87,6 +87,16 @@ namespace CustomSpawns.Data
                         XmlElement forceNode = node["ForceWarPeaceBehaviour"];
                         HandleForcedWarPeaceBehaviourData(forceNode, diplomacyData);
                     }
+                    if(node["ForceNoKingdom"] != null)
+                    {
+                        //handle forcing of no parent kingdoms.
+                        bool result;
+                        if(!bool.TryParse(node["ForceNoKingdom"].InnerText, out result))
+                        {
+                            throw new Exception("ForceNoKingdom must be a boolean value!");
+                        }
+                        diplomacyData.ForceNoKingdom = result;
+                    }
 
                     data.Add(diplomacyData.clanString, diplomacyData);
                 }
@@ -181,6 +191,8 @@ namespace CustomSpawns.Data
         }
 
         public ForcedWarPeaceData ForcedWarPeaceDataInstance;
+
+        public bool ForceNoKingdom { get; set; }
 
     }
 }
