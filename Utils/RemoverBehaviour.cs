@@ -78,7 +78,8 @@ namespace CustomSpawns.Utils
                 UX.ShowMessage("CustomSpawns: removing " + toBeRemoved[i].StringId, Color.ConvertStringToColor("#001FFFFF"));
                 toBeRemoved[i].RemoveParty();
             }
-            UX.ShowMessage("CustomSpawns is now safe to remove from your game.", Color.ConvertStringToColor("#001FFFFF"));
+            if(removed)
+                UX.ShowMessage("CustomSpawns is now safe to remove from your game.", Color.ConvertStringToColor("#001FFFFF"));
         }
     }
 }
