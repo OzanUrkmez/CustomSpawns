@@ -11,6 +11,8 @@ namespace CustomSpawns.PrisonerRecruitment
     {
 
         public bool Enabled { get; set; }
+        public bool PrisonRecruitmentDebugEnabled { get; set; }
+        public bool ApplyToVanilla { get; set; }
         public float BaseRecruitChance { get; set; }
         public float BaseDevalueChance { get; set; }
         public float PrisonerLevelReverseModifierPerLevel { get; set; }

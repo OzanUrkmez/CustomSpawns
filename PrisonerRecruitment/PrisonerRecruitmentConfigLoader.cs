@@ -49,7 +49,9 @@ namespace CustomSpawns.PrisonerRecruitment
                 XmlSerializer serializer = new XmlSerializer(typeof(Config));
                 using (var reader = new StreamReader(filePath))
                 {
-                    return (PrisonerRecruitmentConfig)serializer.Deserialize(reader);
+                    PrisonerRecruitmentConfig returned = (PrisonerRecruitmentConfig)serializer.Deserialize(reader);
+                    HandleConfig(returned);
+                    return returned;
                 }
             }
             catch (Exception e)
@@ -58,6 +60,12 @@ namespace CustomSpawns.PrisonerRecruitment
                 PrisonerRecruitmentConfig config = new PrisonerRecruitmentConfig();
                 return config;
             }
+        }
+
+        private void HandleConfig(PrisonerRecruitmentConfig config)
+        {
+            if (config.PrisonRecruitmentDebugEnabled && !ConfigLoader.Instance.Config.IsDebugMode)
+                config.PrisonRecruitmentDebugEnabled = false;
         }
     }
 }
