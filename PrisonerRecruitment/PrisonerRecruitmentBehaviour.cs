@@ -57,6 +57,8 @@ namespace CustomSpawns.PrisonerRecruitment
                 List<CharacterObject> devalued = new List<CharacterObject>();
                 foreach (CharacterObject c in mb.PrisonRoster.Troops)
                 {
+                    if (c.IsHero || c.IsPlayerCharacter)
+                        continue;
                     if (c.Culture != null && mb.Party.Culture != null && c.Culture != mb.Party.Culture)
                     {
                         recruitChance -= Config.DifferentCultureReverseModifier;
