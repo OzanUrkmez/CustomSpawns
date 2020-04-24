@@ -32,7 +32,6 @@ namespace CustomSpawns.PrisonerRecruitment
 
         private void DailyPrisonerRecruitmentEvent(MobileParty mb)
         {
-            return;
             try
             {
                 if (Config.Enabled == false)
