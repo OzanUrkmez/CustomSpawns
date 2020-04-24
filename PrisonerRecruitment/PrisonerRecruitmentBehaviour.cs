@@ -88,12 +88,17 @@ namespace CustomSpawns.PrisonerRecruitment
 
         private void PartyRecruitAndRemovePrisoner(MobileParty mb, CharacterObject c)
         {
-
+            if (Config.PrisonRecruitmentDebugEnabled)
+            {
+                ModDebug.ShowMessage("recruiting " + c.StringId + " from prisoners of party " + mb.StringId);
+            }
+            mb.PrisonRoster.RemoveTroop(c, 1);
+            mb.AddElementToMemberRoster(c, 1);
         }
 
         private void PartyDevaluePrisoner(MobileParty mb, CharacterObject c)
         {
-
+            
         }
 
         private void DailyGarrisonEvent()
