@@ -27,7 +27,12 @@ namespace CustomSpawns
             ExplainedNumber explainedNumber = new ExplainedNumber(baseSpeed, explanation, null);
             explainedNumber.LimitMin(1f);
             string key = CampaignUtils.IsolateMobilePartyStringID(mobileParty); //TODO if this is non-trivial make it more efficient
-            if (partyIDToExtraSpeed.ContainsKey(key))
+            if (partyIDToBaseSpeed.ContainsKey(key))
+            {
+                float bs = partyIDToBaseSpeed[key];
+                explainedNumber.Add(bs - explainedNumber.ResultNumber, explanationText);
+            }
+            else if (partyIDToExtraSpeed.ContainsKey(key))
             {
                 float extra = partyIDToExtraSpeed[key];
                 explainedNumber.Add(extra, explanationText);
