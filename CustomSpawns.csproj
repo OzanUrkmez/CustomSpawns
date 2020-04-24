@@ -234,6 +234,7 @@
     <Compile Include="Data\SpawnData.cs" />
     <Compile Include="Diplomacy\DiplomacyUtils.cs" />
     <Compile Include="Diplomacy\ForcedWarPeaceBehaviour.cs" />
+    <Compile Include="Diplomacy\ForceNoKingdomBehaviour.cs" />
     <Compile Include="Economics\SimpleAllSpawnNotStarveBehaviour.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="ModIntegration\SubMod.cs" />
