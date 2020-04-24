@@ -34,7 +34,7 @@ namespace CustomSpawns.PrisonerRecruitment
         {
             try
             {
-                if (Config.Enabled == false)
+                if (Config.Enabled == false || mb.IsMainParty)
                     return;
                 if (!Config.ApplyToVanilla && !Utils.Utils.IsCustomSpawnsStringID(mb.StringId))
                     return;
