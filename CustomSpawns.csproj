@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="QuestryGameGeneral">
+      <HintPath>D:\Foo\Questry\QuestryGameGeneral\QuestryGameGeneral\bin\Debug\QuestryGameGeneral.dll</HintPath>
+    </Reference>
     <Reference Include="StoryMode">
       <HintPath>D:\SteamLibrary\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\StoryMode\bin\Win64_Shipping_Client\StoryMode.dll</HintPath>
       <Private>False</Private>
