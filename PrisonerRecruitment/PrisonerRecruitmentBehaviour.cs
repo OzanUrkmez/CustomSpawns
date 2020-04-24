@@ -48,8 +48,8 @@ namespace CustomSpawns.PrisonerRecruitment
 
                 recruitChance = Config.BaseRecruitChance;
                 devalueChance = Config.BaseDevalueChance;
-                recruitChance += Config.MercifulTraitModifier * mb.Leader.GetTraitLevel(DefaultTraits.Mercy);
-                devalueChance -= Config.MercifulTraitModifier * mb.Leader.GetTraitLevel(DefaultTraits.Mercy);
+                recruitChance += Config.MercifulTraitModifier * (mb.Leader == null? 0 : mb.Leader.GetTraitLevel(DefaultTraits.Mercy));
+                devalueChance -= Config.MercifulTraitModifier * (mb.Leader == null? 0 : mb.Leader.GetTraitLevel(DefaultTraits.Mercy));
                 capTimes = (int)((float)mb.PrisonRoster.Count / ((float)mb.MemberRoster.Count * Config.PrisonerPartyPercentageCap));
                 recruitChance *= (float)Math.Pow(capTimes, Config.CapReverseFinalCoefficientPerCap);
 
@@ -57,7 +57,7 @@ namespace CustomSpawns.PrisonerRecruitment
                 List<CharacterObject> devalued = new List<CharacterObject>();
                 foreach (CharacterObject c in mb.PrisonRoster.Troops)
                 {
-                    if (c.Culture != mb.Party.Culture)
+                    if (c.Culture != null && mb.Party.Culture != null && c.Culture != mb.Party.Culture)
                     {
                         recruitChance -= Config.DifferentCultureReverseModifier;
                         devalueChance -= Config.DifferentCultureReverseModifier;
