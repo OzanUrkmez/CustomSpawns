@@ -40,6 +40,7 @@ namespace CustomSpawns.Data
         private Dictionary<string, string> IDToName = new Dictionary<string, string>();
         private Dictionary<string, float> IDToSpeedModifier = new Dictionary<string, float>();
         private Dictionary<string, bool> IDToFollowMainParty = new Dictionary<string, bool>();
+        private Dictionary<string, float> IDToBaseSpeedOverride = new Dictionary<string, float>();
         private NameSignifierData()
         {
             if (!Main.isAPIMode)
@@ -109,6 +110,22 @@ namespace CustomSpawns.Data
                                 IDToFollowMainParty.Add(id, true);
                             }
                         }
+                        if (!IDToBaseSpeedOverride.ContainsKey(id))
+                        {
+                            if(node.Attributes["base_speed_override"] != null)
+                            {
+                                float result;
+                                if (!float.TryParse(node.Attributes["base_speed_override"].InnerText, out result))
+                                {
+                                    throw new Exception("Please enter a valid float for the base speed override!");
+                                }
+                                IDToBaseSpeedOverride.Add(id, result);
+                            }
+                            else
+                            {
+                                IDToBaseSpeedOverride.Add(id, float.MinValue);
+                            }
+                        }
                     }
                 }
 
@@ -127,6 +144,11 @@ namespace CustomSpawns.Data
         public float GetSpeedModifierFromID(string id)
         {
             return IDToSpeedModifier[id];
+        }
+
+        public float GetBaseSpeedModifierOverrideFromID(string id)
+        {
+            return IDToBaseSpeedOverride[id];
         }
 
         public bool GetPartyFollowBehaviourFlagFromID(string id)

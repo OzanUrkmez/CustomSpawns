@@ -30,7 +30,7 @@ namespace CustomSpawns
             if (partyIDToExtraSpeed.ContainsKey(key))
             {
                 float extra = partyIDToExtraSpeed[key];
-                explainedNumber.AddFactor(extra, explanationText);
+                explainedNumber.Add(extra, explanationText);
             }
             TerrainType faceTerrainType = Campaign.Current.MapSceneWrapper.GetFaceTerrainType(mobileParty.CurrentNavigationFace);
             float num = explainedNumber.ResultNumber;
@@ -42,7 +42,7 @@ namespace CustomSpawns
             if (partyIDToMaximumSpeed.ContainsKey(key))//maximum adjustment
                  num = Math.Min(num, partyIDToMaximumSpeed[key]);
 
-            explainedNumber.Add(num - explainedNumber.ResultNumber, new TextObject("Custom Spawns modification"));
+            explainedNumber.Add(num - explainedNumber.ResultNumber, new TextObject("Custom Spawns final modification"));
             if (faceTerrainType == TerrainType.Forest)
             {
                 explainedNumber.AddFactor(-0.3f, _movingInForest);
@@ -70,6 +70,7 @@ namespace CustomSpawns
         }
 
         private Dictionary<string, float> partyIDToExtraSpeed = new Dictionary<string, float>();
+        private Dictionary<string, float> partyIDToBaseSpeed = new Dictionary<string, float>();
         private Dictionary<string, float> partyIDToMinimumSpeed = new Dictionary<string, float>();
         private Dictionary<string, float> partyIDToMaximumSpeed = new Dictionary<string, float>();
 
@@ -92,6 +93,13 @@ namespace CustomSpawns
             if (partyIDToMaximumSpeed.ContainsKey(partyBaseID) || !ConfigLoader.Instance.Config.ModifyPartySpeeds)
                 return;
             partyIDToMaximumSpeed.Add(partyBaseID, maximumSpeed);
+        }
+
+        public void RegisterPartyBaseSpeed(string partyBaseID, float maximumSpeed)
+        {
+            if (partyIDToBaseSpeed.ContainsKey(partyBaseID) || !ConfigLoader.Instance.Config.ModifyPartySpeeds)
+                return;
+            partyIDToBaseSpeed.Add(partyBaseID, maximumSpeed);
         }
 
         //ALL THIS TAKEN FROM TALEWORLDS GAME FILES:

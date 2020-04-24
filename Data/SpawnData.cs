@@ -199,8 +199,23 @@ namespace CustomSpawns.Data
                         Main.customSpeedModel.RegisterPartyExtraSpeed(dat.PartyTemplate.StringId, extraSpeed);
                     }
 
+                    //handle base speed override
+                    float baseSpeedOverride = float.MinValue;
+                    if (node["BaseSpeedOverride"] != null)
+                    {
+                        if (!float.TryParse(node["BaseSpeedOverride"].InnerText, out extraSpeed))
+                        {
+                            throw new Exception("BaseSpeedOverride must be a float value! ");
+                        }
+                        Main.customSpeedModel.RegisterPartyBaseSpeed(dat.PartyTemplate.StringId, baseSpeedOverride);
+                    }
+                    else
+                    {
+                        Main.customSpeedModel.RegisterPartyBaseSpeed(dat.PartyTemplate.StringId, float.MinValue);
+                    }
+
                     //patrol around closest lest interrupted and switch 
-                    if(node["PatrolAroundClosestLestInterruptedAndSwitch"] != null)
+                    if (node["PatrolAroundClosestLestInterruptedAndSwitch"] != null)
                     {
                         bool val = false;
                         if (!bool.TryParse(node["PatrolAroundClosestLestInterruptedAndSwitch"].InnerText, out val))
@@ -268,6 +283,7 @@ namespace CustomSpawns.Data
                             dat.SpawnAlongWith.Add(new AccompanyingParty(pt, NameSignifierData.Instance.GetPartyNameFromID(pt.StringId),
                                 NameSignifierData.Instance.GetPartyFollowBehaviourFlagFromID(pt.StringId)));
                             Main.customSpeedModel.RegisterPartyExtraSpeed(pt.StringId, NameSignifierData.Instance.GetSpeedModifierFromID(pt.StringId));
+                            Main.customSpeedModel.RegisterPartyBaseSpeed(pt.StringId, NameSignifierData.Instance.GetBaseSpeedModifierOverrideFromID(pt.StringId));
                             if (minSpeed != float.MinValue)
                                 Main.customSpeedModel.RegisterPartyMinimumSpeed(pt.StringId, minSpeed);
                             if (maxSpeed != float.MinValue)
