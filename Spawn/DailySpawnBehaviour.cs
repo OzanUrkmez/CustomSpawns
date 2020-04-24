@@ -9,12 +9,12 @@ using TaleWorlds.Localization;
 
 namespace CustomSpawns.Spawn
 {
-    class DailyBanditSpawnBehaviour : CampaignBehaviorBase
+    class DailySpawnBehaviour : CampaignBehaviorBase
     {
 
         Data.SpawnDataManager dataManager;
 
-        public DailyBanditSpawnBehaviour(Data.SpawnDataManager data_manager)
+        public DailySpawnBehaviour(Data.SpawnDataManager data_manager)
         {
             dataManager = data_manager;
         }

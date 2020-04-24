@@ -96,7 +96,7 @@ namespace CustomSpawns
         {
             if (!removalMode)
             {
-                starter.AddBehavior(new Spawn.DailyBanditSpawnBehaviour(Data.SpawnDataManager.Instance));
+                starter.AddBehavior(new Spawn.DailySpawnBehaviour(Data.SpawnDataManager.Instance));
                 starter.AddBehavior(new AI.HourlyPatrolAroundSpawnBehaviour());
                 starter.AddBehavior(new AI.AttackClosestIfIdleForADayBehaviour());
                 starter.AddBehavior(new AI.PatrolAroundClosestLestInterruptedAndSwitchBehaviour());
