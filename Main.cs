@@ -15,7 +15,7 @@ namespace CustomSpawns
 {
     public class Main : MBSubModuleBase
     {
-        public static readonly string version = "v1.1.6";
+        public static readonly string version = "v1.1.7";
         public static readonly bool isAPIMode = false;
         public static CustomSpawnsCustomSpeedModel customSpeedModel;
 
