@@ -62,13 +62,13 @@ namespace CustomSpawns.PrisonerRecruitment
                 {
                     if (c.IsHero || c.IsPlayerCharacter)
                         continue;
-                    if (c.Culture != null && mb.Party.Culture != null && c.Culture != mb.Party.Culture)
-                    {
-                        recruitChance -= Config.DifferentCultureReverseModifier;
-                        devalueChance -= Config.DifferentCultureReverseModifier;
-                    }
                     float particularRecruitChance = recruitChance - (c.Level * Config.PrisonerLevelReverseModifierPerLevel);
                     float particularDevalueChance = devalueChance + (c.Level * Config.PrisonerLevelDevalueModifierPerLevel);
+                    if (c.Culture != null && mb.Party.Culture != null && c.Culture != mb.Party.Culture)
+                    {
+                        particularRecruitChance -= Config.DifferentCultureReverseModifier;
+                        particularDevalueChance -= Config.DifferentCultureReverseModifier;
+                    }
                     particularRecruitChance = Math.Max(particularRecruitChance, Config.FinalMinimumChance);
                     particularDevalueChance = Math.Max(particularDevalueChance, Config.FinalMinimumChance);
                     int troopCount = mb.PrisonRoster.GetTroopCount(c);
@@ -85,8 +85,8 @@ namespace CustomSpawns.PrisonerRecruitment
                         }
                     }
                 }
-                recruited.ForEach((CharacterObject c) => PartyRecruitAndRemovePrisoner(mb, c));
-                devalued.ForEach((CharacterObject c) => PartyDevaluePrisoner(mb, c));
+                recruited.ForEach((CharacterObject c) => PartyRecruitAndRemovePrisoner(mb.Party, c));
+                devalued.ForEach((CharacterObject c) => PartyDevaluePrisoner(mb.Party, c));
             }
             catch (Exception e)
             {
@@ -117,26 +117,94 @@ namespace CustomSpawns.PrisonerRecruitment
                     capTimes = (int)((float)total / ((float)totalGarrison * Config.PrisonerPartyPercentageCap));
                     recruitChance *= (float)Math.Pow(Config.CapReverseFinalCoefficientPerCap, capTimes);
 
-                    List<CharacterObject> recruited = new List<CharacterObject>();
-                    List<CharacterObject> devalued = new List<CharacterObject>();
-                    
+                    List<PrisonerInfo> recruited = new List<PrisonerInfo>();
+                    List<PrisonerInfo> devalued = new List<PrisonerInfo>();
+                    foreach(var p in prisoners)
+                    {
+                        if (p.prisoner.IsHero || p.prisoner.IsPlayerCharacter)
+                            continue;
+                        float particularRecruitChance = recruitChance - (p.prisoner.Level * Config.PrisonerLevelReverseModifierPerLevel);
+                        float particularDevalueChance = devalueChance + (p.prisoner.Level * Config.PrisonerLevelDevalueModifierPerLevel);
+                        if (p.prisoner.Culture != null && t.Culture != null && p.prisoner.Culture != t.Culture)
+                        {
+                            particularRecruitChance -= Config.DifferentCultureReverseModifier;
+                            particularDevalueChance -= Config.DifferentCultureReverseModifier;
+                        }
+                        particularRecruitChance = Math.Max(particularRecruitChance, Config.FinalMinimumChance);
+                        particularDevalueChance = Math.Max(particularDevalueChance, Config.FinalMinimumChance);
+                        particularRecruitChance *= Config.GarrisonFinalCoefficient;
+                        particularDevalueChance *= Config.GarrisonFinalCoefficient;
+                        int troopCount = p. count;
+
+                        int recruitedCount = 0;
+                        int devaluedCount = 0;
+                        for (int i = 0; i < troopCount; i++)
+                        {
+                            if (rand.NextDouble() <= particularRecruitChance)
+                            {
+                                //recruit!
+                                recruitedCount++;
+                            }
+                            if (rand.NextDouble() <= particularDevalueChance)
+                            {
+                                //recruit!
+                                devaluedCount++;
+                            }
+                        }
+                        if(recruitedCount > 0)
+                        {
+                            recruited.Add(new PrisonerInfo()
+                            {
+                                count = recruitedCount,
+                                prisoner = p.prisoner,
+                                ownerParty = p.ownerParty
+                            });
+                        }
+                        if (devaluedCount > 0)
+                        {
+                            devalued.Add(new PrisonerInfo()
+                            {
+                                count = devaluedCount,
+                                prisoner = p.prisoner,
+                                ownerParty = p.ownerParty
+                            });
+                        }
+                    }
+                    recruited.ForEach((PrisonerInfo p) => PartyRecruitAndRemovePrisoner(p.ownerParty, p.prisoner, p.count));
+                    devalued.ForEach((PrisonerInfo p) => PartyDevaluePrisoner(p.ownerParty, p.prisoner, p.count));
                 }
             }
         }
 
-        private void PartyRecruitAndRemovePrisoner(MobileParty mb, CharacterObject c)
+        private void PartyRecruitAndRemovePrisoner(PartyBase mb, CharacterObject c)
         {
             if (Config.PrisonRecruitmentDebugEnabled)
             {
-                ModDebug.ShowMessage("recruiting " + c.StringId + " from prisoners of party " + mb.StringId);
+                ModDebug.ShowMessage("recruiting " + c.StringId + " from prisoners of party " + mb.Id);
             }
             mb.PrisonRoster.RemoveTroop(c, 1);
             mb.AddElementToMemberRoster(c, 1);
         }
 
-        private void PartyDevaluePrisoner(MobileParty mb, CharacterObject c)
+        private void PartyDevaluePrisoner(PartyBase mb, CharacterObject c)
         {
+            //TODO devalue only if not recruited! there is a possibility it doesnt exist anymore!
+        }
 
+        private void PartyRecruitAndRemovePrisoner(PartyBase mb, CharacterObject c, int times)
+        {
+            for(int  i = 0; i < times; i++)
+            {
+                PartyRecruitAndRemovePrisoner(mb, c);
+            }
+        }
+
+        private void PartyDevaluePrisoner(PartyBase mb, CharacterObject c, int times)
+        {
+            for (int i = 0; i < times; i++)
+            {
+                PartyDevaluePrisoner(mb, c);
+            }
         }
     }
 }
