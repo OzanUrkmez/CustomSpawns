@@ -241,6 +241,19 @@ namespace CustomSpawns
             return list2;
         }
 
+        public static int GetGarrisonCountInSettlement(SettlementComponent sc)
+        {
+            int returned = 0;
+            foreach (MobileParty mobileParty in sc.Owner.Settlement.Parties)
+            {
+                if (mobileParty.IsCommonAreaParty || mobileParty.IsGarrison)
+                {
+                    returned += mobileParty.MemberRoster.Count;
+                }
+            }
+            return returned;
+        }
+
     }
 
     public struct PrisonerInfo

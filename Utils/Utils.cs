@@ -34,5 +34,15 @@ namespace CustomSpawns.Utils
             } while (hasRemainingItems);
         }
 
+        public static int GetTotalPrisonerCounts(List<PrisonerInfo> prisonerInfos)
+        {
+            int returned = 0;
+            foreach(var p in prisonerInfos)
+            {
+                returned += p.count;
+            }
+            return returned;
+        }
+
     }
 }

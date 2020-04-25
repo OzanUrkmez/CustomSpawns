@@ -102,7 +102,24 @@ namespace CustomSpawns.PrisonerRecruitment
                 var prisoners = CampaignUtils.GetPrisonersInSettlement(t);
                 if(prisoners.Count > 0)
                 {
-                   
+                    int total = Utils.Utils.GetTotalPrisonerCounts(prisoners);
+                    int totalGarrison = CampaignUtils.GetGarrisonCountInSettlement(t);
+                    float recruitChance = 0;
+                    float devalueChance = 0;
+                    int capTimes = 0;
+
+                    Random rand = new Random();
+
+                    recruitChance = Config.BaseRecruitChance;
+                    devalueChance = Config.BaseDevalueChance;
+                    recruitChance += Config.MercifulTraitModifier * (s.OwnerClan.Leader == null ? 0 : s.OwnerClan.Leader.GetTraitLevel(DefaultTraits.Mercy));
+                    devalueChance -= Config.MercifulTraitModifier * (s.OwnerClan.Leader == null ? 0 : s.OwnerClan.Leader.GetTraitLevel(DefaultTraits.Mercy));
+                    capTimes = (int)((float)total / ((float)totalGarrison * Config.PrisonerPartyPercentageCap));
+                    recruitChance *= (float)Math.Pow(Config.CapReverseFinalCoefficientPerCap, capTimes);
+
+                    List<CharacterObject> recruited = new List<CharacterObject>();
+                    List<CharacterObject> devalued = new List<CharacterObject>();
+                    
                 }
             }
         }
