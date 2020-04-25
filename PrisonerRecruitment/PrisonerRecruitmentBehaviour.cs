@@ -96,83 +96,89 @@ namespace CustomSpawns.PrisonerRecruitment
 
         private void DailyGarrisonRecruitmentEvent(Settlement s)
         {
-            if (s.IsCastle || s.IsTown)
+            try
             {
-                Town t = s.Town;
-                var prisoners = CampaignUtils.GetPrisonersInSettlement(t);
-                if(prisoners.Count > 0)
+                if (s.IsCastle || s.IsTown)
                 {
-                    int total = Utils.Utils.GetTotalPrisonerCounts(prisoners);
-                    int totalGarrison = CampaignUtils.GetGarrisonCountInSettlement(t);
-                    float recruitChance = 0;
-                    float devalueChance = 0;
-                    int capTimes = 0;
-
-                    Random rand = new Random();
-
-                    recruitChance = Config.BaseRecruitChance;
-                    devalueChance = Config.BaseDevalueChance;
-                    recruitChance += Config.MercifulTraitModifier * (s.OwnerClan.Leader == null ? 0 : s.OwnerClan.Leader.GetTraitLevel(DefaultTraits.Mercy));
-                    devalueChance -= Config.MercifulTraitModifier * (s.OwnerClan.Leader == null ? 0 : s.OwnerClan.Leader.GetTraitLevel(DefaultTraits.Mercy));
-                    capTimes = (int)((float)total / ((float)totalGarrison * Config.PrisonerPartyPercentageCap));
-                    recruitChance *= (float)Math.Pow(Config.CapReverseFinalCoefficientPerCap, capTimes);
-
-                    List<PrisonerInfo> recruited = new List<PrisonerInfo>();
-                    List<PrisonerInfo> devalued = new List<PrisonerInfo>();
-                    foreach(var p in prisoners)
+                    Town t = s.Town;
+                    var prisoners = CampaignUtils.GetPrisonersInSettlement(t);
+                    if (prisoners.Count > 0)
                     {
-                        if (p.prisoner.IsHero || p.prisoner.IsPlayerCharacter)
-                            continue;
-                        float particularRecruitChance = recruitChance - (p.prisoner.Level * Config.PrisonerLevelReverseModifierPerLevel);
-                        float particularDevalueChance = devalueChance + (p.prisoner.Level * Config.PrisonerLevelDevalueModifierPerLevel);
-                        if (p.prisoner.Culture != null && t.Culture != null && p.prisoner.Culture != t.Culture)
-                        {
-                            particularRecruitChance -= Config.DifferentCultureReverseModifier;
-                            particularDevalueChance -= Config.DifferentCultureReverseModifier;
-                        }
-                        particularRecruitChance = Math.Max(particularRecruitChance, Config.FinalMinimumChance);
-                        particularDevalueChance = Math.Max(particularDevalueChance, Config.FinalMinimumChance);
-                        particularRecruitChance *= Config.GarrisonFinalCoefficient;
-                        particularDevalueChance *= Config.GarrisonFinalCoefficient;
-                        int troopCount = p. count;
+                        int total = Utils.Utils.GetTotalPrisonerCounts(prisoners);
+                        int totalGarrison = CampaignUtils.GetGarrisonCountInSettlement(t);
+                        float recruitChance = 0;
+                        float devalueChance = 0;
+                        int capTimes = 0;
 
-                        int recruitedCount = 0;
-                        int devaluedCount = 0;
-                        for (int i = 0; i < troopCount; i++)
+                        Random rand = new Random();
+
+                        recruitChance = Config.BaseRecruitChance;
+                        devalueChance = Config.BaseDevalueChance;
+                        recruitChance += Config.MercifulTraitModifier * (s.OwnerClan.Leader == null ? 0 : s.OwnerClan.Leader.GetTraitLevel(DefaultTraits.Mercy));
+                        devalueChance -= Config.MercifulTraitModifier * (s.OwnerClan.Leader == null ? 0 : s.OwnerClan.Leader.GetTraitLevel(DefaultTraits.Mercy));
+                        capTimes = (int)((float)total / ((float)totalGarrison * Config.PrisonerPartyPercentageCap));
+                        recruitChance *= (float)Math.Pow(Config.CapReverseFinalCoefficientPerCap, capTimes);
+
+                        List<PrisonerInfo> recruited = new List<PrisonerInfo>();
+                        List<PrisonerInfo> devalued = new List<PrisonerInfo>();
+                        foreach (var p in prisoners)
                         {
-                            if (rand.NextDouble() <= particularRecruitChance)
+                            if (p.prisoner.IsHero || p.prisoner.IsPlayerCharacter)
+                                continue;
+                            float particularRecruitChance = recruitChance - (p.prisoner.Level * Config.PrisonerLevelReverseModifierPerLevel);
+                            float particularDevalueChance = devalueChance + (p.prisoner.Level * Config.PrisonerLevelDevalueModifierPerLevel);
+                            if (p.prisoner.Culture != null && t.Culture != null && p.prisoner.Culture != t.Culture)
                             {
-                                //recruit!
-                                recruitedCount++;
+                                particularRecruitChance -= Config.DifferentCultureReverseModifier;
+                                particularDevalueChance -= Config.DifferentCultureReverseModifier;
                             }
-                            if (rand.NextDouble() <= particularDevalueChance)
+                            particularRecruitChance = Math.Max(particularRecruitChance, Config.FinalMinimumChance);
+                            particularDevalueChance = Math.Max(particularDevalueChance, Config.FinalMinimumChance);
+                            particularRecruitChance *= Config.GarrisonFinalCoefficient;
+                            particularDevalueChance *= Config.GarrisonFinalCoefficient;
+                            int troopCount = p.count;
+
+                            int recruitedCount = 0;
+                            int devaluedCount = 0;
+                            for (int i = 0; i < troopCount; i++)
                             {
-                                //recruit!
-                                devaluedCount++;
+                                if (rand.NextDouble() <= particularRecruitChance)
+                                {
+                                    //recruit!
+                                    recruitedCount++;
+                                }
+                                if (rand.NextDouble() <= particularDevalueChance)
+                                {
+                                    //recruit!
+                                    devaluedCount++;
+                                }
+                            }
+                            if (recruitedCount > 0)
+                            {
+                                recruited.Add(new PrisonerInfo()
+                                {
+                                    count = recruitedCount,
+                                    prisoner = p.prisoner,
+                                    ownerParty = p.ownerParty
+                                });
+                            }
+                            if (devaluedCount > 0)
+                            {
+                                devalued.Add(new PrisonerInfo()
+                                {
+                                    count = devaluedCount,
+                                    prisoner = p.prisoner,
+                                    ownerParty = p.ownerParty
+                                });
                             }
                         }
-                        if(recruitedCount > 0)
-                        {
-                            recruited.Add(new PrisonerInfo()
-                            {
-                                count = recruitedCount,
-                                prisoner = p.prisoner,
-                                ownerParty = p.ownerParty
-                            });
-                        }
-                        if (devaluedCount > 0)
-                        {
-                            devalued.Add(new PrisonerInfo()
-                            {
-                                count = devaluedCount,
-                                prisoner = p.prisoner,
-                                ownerParty = p.ownerParty
-                            });
-                        }
+                        recruited.ForEach((PrisonerInfo p) => PartyRecruitAndRemovePrisoner(p.ownerParty, p.prisoner, p.count));
+                        devalued.ForEach((PrisonerInfo p) => PartyDevaluePrisoner(p.ownerParty, p.prisoner, p.count));
                     }
-                    recruited.ForEach((PrisonerInfo p) => PartyRecruitAndRemovePrisoner(p.ownerParty, p.prisoner, p.count));
-                    devalued.ForEach((PrisonerInfo p) => PartyDevaluePrisoner(p.ownerParty, p.prisoner, p.count));
                 }
+            }catch(Exception e)
+            {
+                ErrorHandler.HandleException(e, "daily garrison recruitment event of " + s.StringId);
             }
         }
 
