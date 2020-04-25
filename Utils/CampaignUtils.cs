@@ -248,7 +248,7 @@ namespace CustomSpawns
             {
                 if (mobileParty.IsCommonAreaParty || mobileParty.IsGarrison)
                 {
-                    returned += mobileParty.MemberRoster.Count;
+                    returned += mobileParty.MemberRoster.TotalManCount;
                 }
             }
             return returned;
