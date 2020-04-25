@@ -41,6 +41,8 @@ namespace CustomSpawns.PrisonerRecruitment
                     return;
                 if (mb.Party.MapEvent != null)
                     return;
+                if (mb.IsGarrison)
+                    return;
                 float recruitChance = 0;
                 float devalueChance = 0;
                 int capTimes = 0;
@@ -52,7 +54,7 @@ namespace CustomSpawns.PrisonerRecruitment
                 recruitChance += Config.MercifulTraitModifier * (mb.Leader == null ? 0 : mb.Leader.GetTraitLevel(DefaultTraits.Mercy));
                 devalueChance -= Config.MercifulTraitModifier * (mb.Leader == null ? 0 : mb.Leader.GetTraitLevel(DefaultTraits.Mercy));
                 capTimes = (int)((float)mb.PrisonRoster.Count / ((float)mb.MemberRoster.Count * Config.PrisonerPartyPercentageCap));
-                recruitChance *= (float)Math.Pow(capTimes, Config.CapReverseFinalCoefficientPerCap);
+                recruitChance *= (float)Math.Pow(Config.CapReverseFinalCoefficientPerCap, capTimes);
 
                 List<CharacterObject> recruited = new List<CharacterObject>();
                 List<CharacterObject> devalued = new List<CharacterObject>();
@@ -65,19 +67,22 @@ namespace CustomSpawns.PrisonerRecruitment
                         recruitChance -= Config.DifferentCultureReverseModifier;
                         devalueChance -= Config.DifferentCultureReverseModifier;
                     }
-                    recruitChance -= c.Level * Config.PrisonerLevelReverseModifierPerLevel;
-                    devalueChance += c.Level * Config.PrisonerLevelDevalueModifierPerLevel;
-                    recruitChance = Math.Max(recruitChance, Config.FinalMinimumChance);
-                    devalueChance = Math.Max(devalueChance, Config.FinalMinimumChance);
-                    if (rand.NextDouble() <= recruitChance)
-                    {
-                        //recruit!
-                        recruited.Add(c);
-                    }
-                    if (rand.NextDouble() <= devalueChance)
-                    {
-                        //recruit!
-                        devalued.Add(c);
+                    float particularRecruitChance = recruitChance - (c.Level * Config.PrisonerLevelReverseModifierPerLevel);
+                    float particularDevalueChance = devalueChance + (c.Level * Config.PrisonerLevelDevalueModifierPerLevel);
+                    particularRecruitChance = Math.Max(particularRecruitChance, Config.FinalMinimumChance);
+                    particularDevalueChance = Math.Max(particularDevalueChance, Config.FinalMinimumChance);
+                    int troopCount = mb.PrisonRoster.GetTroopCount(c);
+                    for (int i = 0; i < troopCount; i++) {
+                        if (rand.NextDouble() <= particularRecruitChance)
+                        {
+                            //recruit!
+                            recruited.Add(c);
+                        }
+                        if (rand.NextDouble() <= particularDevalueChance)
+                        {
+                            //recruit!
+                            devalued.Add(c);
+                        }
                     }
                 }
                 recruited.ForEach((CharacterObject c) => PartyRecruitAndRemovePrisoner(mb, c));
