@@ -10,6 +10,7 @@ using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 using TaleWorlds.Core;
+using TaleWorlds.ObjectSystem;
 
 namespace CustomSpawns.Data
 {

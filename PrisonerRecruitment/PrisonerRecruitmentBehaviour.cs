@@ -23,6 +23,7 @@ namespace CustomSpawns.PrisonerRecruitment
         public override void RegisterEvents()
         {
             CampaignEvents.DailyTickPartyEvent.AddNonSerializedListener(this, DailyPrisonerRecruitmentEvent);
+            CampaignEvents.DailyTickSettlementEvent.AddNonSerializedListener(this, DailyGarrisonRecruitmentEvent);
         }
 
         public override void SyncData(IDataStore dataStore)
@@ -48,8 +49,8 @@ namespace CustomSpawns.PrisonerRecruitment
 
                 recruitChance = Config.BaseRecruitChance;
                 devalueChance = Config.BaseDevalueChance;
-                recruitChance += Config.MercifulTraitModifier * (mb.Leader == null? 0 : mb.Leader.GetTraitLevel(DefaultTraits.Mercy));
-                devalueChance -= Config.MercifulTraitModifier * (mb.Leader == null? 0 : mb.Leader.GetTraitLevel(DefaultTraits.Mercy));
+                recruitChance += Config.MercifulTraitModifier * (mb.Leader == null ? 0 : mb.Leader.GetTraitLevel(DefaultTraits.Mercy));
+                devalueChance -= Config.MercifulTraitModifier * (mb.Leader == null ? 0 : mb.Leader.GetTraitLevel(DefaultTraits.Mercy));
                 capTimes = (int)((float)mb.PrisonRoster.Count / ((float)mb.MemberRoster.Count * Config.PrisonerPartyPercentageCap));
                 recruitChance *= (float)Math.Pow(capTimes, Config.CapReverseFinalCoefficientPerCap);
 
@@ -68,7 +69,7 @@ namespace CustomSpawns.PrisonerRecruitment
                     devalueChance += c.Level * Config.PrisonerLevelDevalueModifierPerLevel;
                     recruitChance = Math.Max(recruitChance, Config.FinalMinimumChance);
                     devalueChance = Math.Max(devalueChance, Config.FinalMinimumChance);
-                    if(rand.NextDouble() <= recruitChance)
+                    if (rand.NextDouble() <= recruitChance)
                     {
                         //recruit!
                         recruited.Add(c);
@@ -88,6 +89,16 @@ namespace CustomSpawns.PrisonerRecruitment
             }
         }
 
+        private void DailyGarrisonRecruitmentEvent(Settlement s)
+        {
+            if (s.IsCastle || s.IsTown)
+            {
+                Town t = s.Town;
+                
+
+            }
+        }
+
         private void PartyRecruitAndRemovePrisoner(MobileParty mb, CharacterObject c)
         {
             if (Config.PrisonRecruitmentDebugEnabled)
@@ -100,12 +111,7 @@ namespace CustomSpawns.PrisonerRecruitment
 
         private void PartyDevaluePrisoner(MobileParty mb, CharacterObject c)
         {
-            
-        }
 
-        private void DailyGarrisonEvent()
-        {
-            //TODO deal with garrisons.
         }
     }
 }

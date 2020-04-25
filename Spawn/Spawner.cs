@@ -12,6 +12,7 @@ using TaleWorlds.Localization;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 using Helpers;
+using TaleWorlds.ObjectSystem;
 
 namespace CustomSpawns.Spawn
 {
