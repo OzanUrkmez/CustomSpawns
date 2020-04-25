@@ -31,7 +31,7 @@ namespace CustomSpawns
                 {
                     hideout = TaleWorldsCode.BanditsCampaignBehaviour.SelectARandomHideout(preferredFaction, false, false, false);
                     settlement = ((hideout != null) ? hideout.Owner.Settlement : null);
-                    if(settlement == null && !secondCall) //in case the selected faction is invalid
+                    if (settlement == null && !secondCall) //in case the selected faction is invalid
                     {
                         List<Clan> clans = Clan.BanditFactions.ToList();
                         Random rnd = new Random();
@@ -74,26 +74,26 @@ namespace CustomSpawns
             permissible.Randomize();
             foreach (Settlement s in permissible)
             {
-                    int num2 = TaleWorldsCode.BanditsCampaignBehaviour.CalculateDistanceScore(s.Position2D.DistanceSquared(MobileParty.MainParty.Position2D));
-                    num += num2;
+                int num2 = TaleWorldsCode.BanditsCampaignBehaviour.CalculateDistanceScore(s.Position2D.DistanceSquared(MobileParty.MainParty.Position2D));
+                num += num2;
             }
             int num3 = MBRandom.RandomInt(num);
             foreach (Settlement s in permissible)
             {
-                    int num4 = TaleWorldsCode.BanditsCampaignBehaviour.CalculateDistanceScore(s.Position2D.DistanceSquared(MobileParty.MainParty.Position2D)); //makes it more likely that the spawn will be further to the player.
-                    num3 -= num4;
-                    if (num3 <= 0)
-                    {
-                        return s;
-                    }
+                int num4 = TaleWorldsCode.BanditsCampaignBehaviour.CalculateDistanceScore(s.Position2D.DistanceSquared(MobileParty.MainParty.Position2D)); //makes it more likely that the spawn will be further to the player.
+                num3 -= num4;
+                if (num3 <= 0)
+                {
+                    return s;
+                }
             }
             ModDebug.ShowMessage("Unable to find proper settlement of" + c.ToString() + " for some reason.");
-            return permissible.Count == 0? Settlement.All[0]: permissible[0];
+            return permissible.Count == 0 ? Settlement.All[0] : permissible[0];
         }
 
         public static Clan GetClanWithName(string name)
         {
-            foreach(Clan c in Clan.All)
+            foreach (Clan c in Clan.All)
             {
                 if (c.Name.ToString().ToLower() == name.ToLower())
                     return c;
@@ -103,14 +103,15 @@ namespace CustomSpawns
 
         public static Settlement PickRandomSettlementAmong(List<Settlement> list, List<Data.SpawnSettlementType> preferredTypes = null, Random rand = null)
         {
-            if(rand == null)
+            if (rand == null)
                 rand = new Random();
             var preferred = new List<Settlement>();
             if (preferredTypes != null)
             {
                 foreach (Settlement s in list)
                 {
-                    foreach (var type in preferredTypes) {
+                    foreach (var type in preferredTypes)
+                    {
                         if (SettlementIsOfValidType(s, type))
                         {
                             preferred.Add(s);
@@ -133,7 +134,7 @@ namespace CustomSpawns
         {
             Settlement min = null;
             float minDistance = float.MaxValue;
-            foreach(Settlement s in Settlement.All)
+            foreach (Settlement s in Settlement.All)
             {
                 float dist = mb.Position2D.Distance(s.GatePosition);
                 if (FactionManager.IsAtWarAgainstFaction(mb.MapFaction, s.MapFaction) && dist < minDistance)
@@ -148,9 +149,9 @@ namespace CustomSpawns
         public static Settlement GetClosestNonHostileCityAmong(MobileParty mb, List<Data.SpawnSettlementType> preferredTypes = null, Settlement exception = null)
         {
             List<Settlement> viableSettlements = new List<Settlement>();
-            foreach(Settlement s in Settlement.All)
+            foreach (Settlement s in Settlement.All)
             {
-                foreach(var type in preferredTypes)
+                foreach (var type in preferredTypes)
                 {
                     if (SettlementIsOfValidType(s, type))
                     {
@@ -161,7 +162,7 @@ namespace CustomSpawns
             }
             Settlement min = null;
             float minDistance = float.MaxValue;
-            if(viableSettlements.Count == 0)
+            if (viableSettlements.Count == 0)
             {
                 foreach (Settlement s in Settlement.All)
                 {
@@ -194,7 +195,7 @@ namespace CustomSpawns
 
         public static string IsolateMobilePartyStringID(MobileParty mobileParty)
         {
-            return string.Join("_", Utils.Utils.TakeAllButLast<string>(mobileParty.StringId.Split('_')).ToArray<string>()); 
+            return string.Join("_", Utils.Utils.TakeAllButLast<string>(mobileParty.StringId.Split('_')).ToArray<string>());
         }
 
         public static bool SettlementIsOfValidType(Settlement s, Data.SpawnSettlementType t)
@@ -211,5 +212,41 @@ namespace CustomSpawns
             return false;
         }
 
+        public static List<PrisonerInfo> GetPrisonersInSettlement(SettlementComponent sc)
+        {
+            List<PartyBase> list = new List<PartyBase>
+            {
+                sc.Owner
+            };
+            foreach (MobileParty mobileParty in sc.Owner.Settlement.Parties)
+            {
+                if (mobileParty.IsCommonAreaParty || mobileParty.IsGarrison)
+                {
+                    list.Add(mobileParty.Party);
+                }
+            }
+            List<PrisonerInfo> list2 = new List<PrisonerInfo>();
+            foreach (PartyBase partyBase in list)
+            {
+                for (int i = 0; i < partyBase.PrisonRoster.Count; i++)
+                {
+                    list2.Add(new PrisonerInfo()
+                    {
+                        prisoner = partyBase.PrisonRoster.GetCharacterAtIndex(i),
+                        count = partyBase.PrisonRoster.GetTroopCount(partyBase.PrisonRoster.GetCharacterAtIndex(i)),
+                        ownerParty = partyBase
+                    });
+                }
+            }
+            return list2;
+        }
+
+    }
+
+    public struct PrisonerInfo
+    {
+        public CharacterObject prisoner;
+        public int count;
+        public PartyBase ownerParty;
     }
 }

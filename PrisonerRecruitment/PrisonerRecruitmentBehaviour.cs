@@ -94,8 +94,11 @@ namespace CustomSpawns.PrisonerRecruitment
             if (s.IsCastle || s.IsTown)
             {
                 Town t = s.Town;
-                
-
+                var prisoners = CampaignUtils.GetPrisonersInSettlement(t);
+                if(prisoners.Count > 0)
+                {
+                   
+                }
             }
         }
 
