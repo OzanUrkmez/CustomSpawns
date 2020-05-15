@@ -26,8 +26,6 @@ namespace CustomSpawns.Spawn
             ModDebug.ShowMessage("CustomSpawns: Spawning " + textObject.ToString() + " at " + spawnedSettlement.GatePosition + " in settlement " + spawnedSettlement.Name.ToString());
 
             //create.
-            int numberOfCreated = templateObject.NumberOfCreated;
-            templateObject.IncrementNumberOfCreated();
             MobileParty mobileParty = MBObjectManager.Instance.CreateObject<MobileParty>(templateObject.StringId + "_" + numberOfCreated.ToString());
             mobileParty.InitializeMobileParty(textObject, ConstructTroopRoster(templateObject), new TroopRoster(), spawnedSettlement.GatePosition, 0);
 
