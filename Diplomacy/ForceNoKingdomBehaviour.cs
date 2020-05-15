@@ -28,7 +28,7 @@ namespace CustomSpawns.Diplomacy
 
         private void DailyMakeSureNoKingdom(Clan c)
         {
-            if (c == null || c.IsDeactivated || DiplomacyUtils.GetHardCodedExceptionClans().Contains(c.StringId))
+            if (c == null || DiplomacyUtils.GetHardCodedExceptionClans().Contains(c.StringId))
                 return;
             try
             {
