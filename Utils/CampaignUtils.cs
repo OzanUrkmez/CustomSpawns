@@ -195,7 +195,8 @@ namespace CustomSpawns
 
         public static string IsolateMobilePartyStringID(MobileParty mobileParty)
         {
-            return string.Join("_", Utils.Utils.TakeAllButLast<string>(mobileParty.StringId.Split('_')).ToArray<string>());
+            var str = mobileParty.StringId;
+            return str.Substring(0, str.LastIndexOf('_'));
         }
 
         public static bool SettlementIsOfValidType(Settlement s, Data.SpawnSettlementType t)
