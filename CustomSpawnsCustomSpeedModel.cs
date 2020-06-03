@@ -23,51 +23,58 @@ namespace CustomSpawns
 
         public override float CalculateFinalSpeed(MobileParty mobileParty, float baseSpeed, StatExplainer explanation)
         {
-            PartyBase party = mobileParty.Party;
-            ExplainedNumber explainedNumber = new ExplainedNumber(baseSpeed, explanation, null);
-            explainedNumber.LimitMin(1f);
-            string key = CampaignUtils.IsolateMobilePartyStringID(mobileParty); //TODO if this is non-trivial make it more efficient
-            if (partyIDToBaseSpeed.ContainsKey(key) && partyIDToBaseSpeed[key] != float.MinValue)
-            {
-                float bs = partyIDToBaseSpeed[key];
-                explainedNumber.Add(bs - explainedNumber.ResultNumber, explanationText);
-            }
-            else if (partyIDToExtraSpeed.ContainsKey(key))
-            {
-                float extra = partyIDToExtraSpeed[key];
-                explainedNumber.Add(extra, explanationText);
-            }
-            TerrainType faceTerrainType = Campaign.Current.MapSceneWrapper.GetFaceTerrainType(mobileParty.CurrentNavigationFace);
-            float num = explainedNumber.ResultNumber;
-            if (partyIDToMinimumSpeed.ContainsKey(key))//minimum adjustment
-                 num = Math.Max(num, partyIDToMinimumSpeed[key]);
-            else
+
+                PartyBase party = mobileParty.Party;
+                ExplainedNumber explainedNumber = new ExplainedNumber(baseSpeed, explanation, null);
                 explainedNumber.LimitMin(1f);
-
-            if (partyIDToMaximumSpeed.ContainsKey(key))//maximum adjustment
-                 num = Math.Min(num, partyIDToMaximumSpeed[key]);
-
-            explainedNumber.Add(num - explainedNumber.ResultNumber, new TextObject("Custom Spawns final modification"));
-            if (faceTerrainType == TerrainType.Forest)
+                string key = CampaignUtils.IsolateMobilePartyStringID(mobileParty); //TODO if this is non-trivial make it more efficient
+            try
             {
-                explainedNumber.AddFactor(-0.3f, _movingInForest);
-                PerkHelper.AddFeatBonusForPerson(DefaultFeats.Cultural.BattanianForestAgility, mobileParty.Leader, ref explainedNumber);
-            }
-            else if (faceTerrainType == TerrainType.Water || faceTerrainType == TerrainType.River || faceTerrainType == TerrainType.Bridge || faceTerrainType == TerrainType.ShallowRiver)
-            {
-                explainedNumber.AddFactor(-0.3f, _fordEffect);
-            }
-            if (Campaign.Current.IsNight)
-            {
-                explainedNumber.AddFactor(-0.25f, _night);
-            }
-            if (faceTerrainType == TerrainType.Snow)
-            {
-                explainedNumber.AddFactor(-0.1f, _snow);
-                if (party.Leader != null)
+                if (partyIDToBaseSpeed.ContainsKey(key) && partyIDToBaseSpeed[key] != float.MinValue)
                 {
-                    PerkHelper.AddFeatBonusForPerson(DefaultFeats.Cultural.SturgianSnowAgility, party.Leader, ref explainedNumber);
+                    float bs = partyIDToBaseSpeed[key];
+                    explainedNumber.Add(bs - explainedNumber.ResultNumber, explanationText);
                 }
+                else if (partyIDToExtraSpeed.ContainsKey(key))
+                {
+                    float extra = partyIDToExtraSpeed[key];
+                    explainedNumber.Add(extra, explanationText);
+                }
+                TerrainType faceTerrainType = Campaign.Current.MapSceneWrapper.GetFaceTerrainType(mobileParty.CurrentNavigationFace);
+                float num = explainedNumber.ResultNumber;
+                if (partyIDToMinimumSpeed.ContainsKey(key))//minimum adjustment
+                    num = Math.Max(num, partyIDToMinimumSpeed[key]);
+                else
+                    explainedNumber.LimitMin(1f);
+
+                if (partyIDToMaximumSpeed.ContainsKey(key))//maximum adjustment
+                    num = Math.Min(num, partyIDToMaximumSpeed[key]);
+
+                explainedNumber.Add(num - explainedNumber.ResultNumber, new TextObject("Custom Spawns final modification"));
+                if (faceTerrainType == TerrainType.Forest)
+                {
+                    explainedNumber.AddFactor(-0.3f, _movingInForest);
+                    PerkHelper.AddFeatBonusForPerson(DefaultFeats.Cultural.BattanianForestAgility, mobileParty.Leader, ref explainedNumber);
+                }
+                else if (faceTerrainType == TerrainType.Water || faceTerrainType == TerrainType.River || faceTerrainType == TerrainType.Bridge || faceTerrainType == TerrainType.ShallowRiver)
+                {
+                    explainedNumber.AddFactor(-0.3f, _fordEffect);
+                }
+                if (Campaign.Current.IsNight)
+                {
+                    explainedNumber.AddFactor(-0.25f, _night);
+                }
+                if (faceTerrainType == TerrainType.Snow)
+                {
+                    explainedNumber.AddFactor(-0.1f, _snow);
+                    if (party.Leader != null)
+                    {
+                        PerkHelper.AddFeatBonusForPerson(DefaultFeats.Cultural.SturgianSnowAgility, party.Leader, ref explainedNumber);
+                    }
+                }
+            }catch(Exception e)
+            {
+                ErrorHandler.HandleException(e, " MOBILE PARTY FINAL SPEED CALCULATION ");
             }
 
 
