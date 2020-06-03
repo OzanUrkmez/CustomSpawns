@@ -379,6 +379,7 @@ namespace CustomSpawns.Data
         public string Name { get; set; }
         public int RepeatSpawnRolls { get; set; }
         public InformationMessage spawnMessage { get; set; }
+        public InformationMessage deathMessage { get; set; }
         public bool PatrolAroundSpawn { get; set; }
         private int numberSpawned = 0;
 
