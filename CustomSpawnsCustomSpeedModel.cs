@@ -23,13 +23,12 @@ namespace CustomSpawns
 
         public override float CalculateFinalSpeed(MobileParty mobileParty, float baseSpeed, StatExplainer explanation)
         {
-
+            try
+            {
                 PartyBase party = mobileParty.Party;
                 ExplainedNumber explainedNumber = new ExplainedNumber(baseSpeed, explanation, null);
                 explainedNumber.LimitMin(1f);
                 string key = CampaignUtils.IsolateMobilePartyStringID(mobileParty); //TODO if this is non-trivial make it more efficient
-            try
-            {
                 if (partyIDToBaseSpeed.ContainsKey(key) && partyIDToBaseSpeed[key] != float.MinValue)
                 {
                     float bs = partyIDToBaseSpeed[key];
@@ -72,13 +71,15 @@ namespace CustomSpawns
                         PerkHelper.AddFeatBonusForPerson(DefaultFeats.Cultural.SturgianSnowAgility, party.Leader, ref explainedNumber);
                     }
                 }
-            }catch(Exception e)
+                return explainedNumber.ResultNumber;
+            }
+            catch (Exception e)
             {
                 ErrorHandler.HandleException(e, " MOBILE PARTY FINAL SPEED CALCULATION ");
+                return 1f;
             }
 
 
-            return explainedNumber.ResultNumber;
         }
 
         private Dictionary<string, float> partyIDToExtraSpeed = new Dictionary<string, float>();
