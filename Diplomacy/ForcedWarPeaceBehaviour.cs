@@ -64,7 +64,7 @@ namespace CustomSpawns.Diplomacy
                             }
                             else
                             {
-                                if (!FactionManager.IsAtWarAgainstFaction(c, declared))
+                                if (!FactionManager.IsAtWarAgainstFaction(c, declared) && !declared.IsBanditFaction)
                                 {
                                     DiplomacyUtils.DeclareWar(declared, c);
                                     DiplomacyUtils.ApplyExtremeHatred(declared, c);
