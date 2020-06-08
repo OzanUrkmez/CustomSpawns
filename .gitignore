@@ -1,0 +1,6 @@
+
+*.cache
+*.dll
+*.pdb
+obj/Debug/CustomSpawns.dll
+obj/Debug/CustomSpawns.pdb
