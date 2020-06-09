@@ -38,15 +38,23 @@ namespace CustomSpawns.Spawn
                     }
                 }
             }
-            if (ConfigLoader.Instance.Config.IsDebugMode)
+            foreach (var dat in dataManager.Data)
             {
-                //display necessary debug message.
-                foreach(var dat in dataManager.Data)
+                if (ConfigLoader.Instance.Config.IsDebugMode)
                 {
-                    if(oldValues[dat] != dat.GetNumberSpawned()) //leave a log only if a change has occured. TODO we can also detect death with these and create custom behaviour/spawn schedules accordingly ;)
+                    if (oldValues[dat] != dat.GetNumberSpawned()) //leave a log only if a change has occured. TODO we can also detect death with these and create custom behaviour/spawn schedules accordingly ;)
                         ModDebug.ShowMessage(dat.Name + " count: " + dat.GetNumberSpawned());
                 }
+                if (oldValues[dat] > dat.GetNumberSpawned())
+                {
+                    //A death has occured!
+                    if(dat.deathMessage != null)
+                    {
+                        UX.ShowMessage(dat.deathMessage.Information, dat.deathMessage.Color);
+                    }
+                }
             }
+
         }
 
         public override void RegisterEvents()
