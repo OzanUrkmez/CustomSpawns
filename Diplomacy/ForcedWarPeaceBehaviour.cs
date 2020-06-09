@@ -11,9 +11,14 @@ namespace CustomSpawns.Diplomacy
 {
     class ForcedWarPeaceBehaviour : CampaignBehaviorBase
     {
+
+        private bool initialWarsDeclared = false;
+        private Clan initialClan = null;
+
         public ForcedWarPeaceBehaviour()
         {
-
+            initialWarsDeclared = false;
+            initialClan = null;
         }
 
         private Data.DiplomacyDataManager dataManager;
@@ -34,6 +39,14 @@ namespace CustomSpawns.Diplomacy
                 return;
             try
             {
+                if(initialClan == null) //KEEP TRACK OF WHETHER INITIAL WARS HAVE BEEN DECLARED ON SAVE GAME LOAD.
+                {
+                    initialClan = c;
+                }else if(initialClan == c)
+                {
+                    initialWarsDeclared = true;
+                }
+
                 if (dataManager == null)
                 {
                     GetData();
