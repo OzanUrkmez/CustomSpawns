@@ -16,6 +16,7 @@ namespace CustomSpawns.Spawn
 
         public DailySpawnBehaviour(Data.SpawnDataManager data_manager)
         {
+            GetCurrentData();
             dataManager = data_manager;
         }
 
