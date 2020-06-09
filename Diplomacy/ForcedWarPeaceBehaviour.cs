@@ -53,7 +53,7 @@ namespace CustomSpawns.Diplomacy
                                 continue;
                             if (declared.Kingdom != null)
                             {//we deal with kingdom
-                                if (!forcedWarPeaceInstance.exceptionKingdoms.Contains(declared.Kingdom))
+                                if (!forcedWarPeaceInstance.exceptionKingdoms.Contains(declared.Kingdom) && c.Kingdom != declared.Kingdom)
                                 {
                                     if (!FactionManager.IsAtWarAgainstFaction(c, declared.Kingdom))
                                     {
