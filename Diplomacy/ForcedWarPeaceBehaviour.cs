@@ -58,7 +58,7 @@ namespace CustomSpawns.Diplomacy
                     foreach (Clan declared in Clan.All)
                     {
                         if (declared == null || DiplomacyUtils.GetHardCodedExceptionClans().Contains(declared.StringId) || declared == c ||
-                            (declared.Kingdom == c.Kingdom && c.Kingdom != null))
+                            (declared.Kingdom == c.Kingdom && c.Kingdom != null) || (initialWarsDeclared && declared.IsOutlaw || declared.IsBanditFaction))
                             continue;
                         if (forcedWarPeaceInstance.atWarClans.Contains(declared))
                         {
