@@ -191,6 +191,24 @@ namespace CustomSpawns.Data
                             dat.spawnMessage = new InformationMessage(msg, c);
                         }
                     }
+
+                    //death message
+                    string deathMsg = node["DeathMessage"] == null ? "" : node["DeathMessage"].InnerText;
+                    string deathColor = node["DeathMessage"] == null ? "" : node["DeathMessageColor"].InnerText;
+
+                    if (deathMsg != "")
+                    {
+                        if (deathColor == "")
+                        {
+                            dat.deathMessage = new InformationMessage(deathMsg, Color.Black);
+                        }
+                        else
+                        {
+                            Color c = UX.GetMessageColour(deathColor) == "" ? (deathColor[0] == '#' ? Color.ConvertStringToColor(deathColor) : Color.Black) : Color.ConvertStringToColor(UX.GetMessageColour(deathColor));
+                            dat.deathMessage = new InformationMessage(deathMsg, c);
+                        }
+                    }
+
                     //handle extra linear speed.
                     float extraSpeed = float.MinValue;
                     if (node["ExtraLinearSpeed"] != null)
