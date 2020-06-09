@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CustomSpawns.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,7 @@ namespace CustomSpawns.Spawn
 
         public DailySpawnBehaviour(Data.SpawnDataManager data_manager)
         {
+            DynamicSpawnData.FlushSpawnData();
             GetCurrentData();
             dataManager = data_manager;
         }
