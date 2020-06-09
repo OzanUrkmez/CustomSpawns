@@ -13,6 +13,8 @@ namespace CustomSpawns.Spawn
     class DailySpawnBehaviour : CampaignBehaviorBase
     {
 
+        #region Data Management
+
         Data.SpawnDataManager dataManager;
 
         public DailySpawnBehaviour(Data.SpawnDataManager data_manager)
@@ -24,16 +26,23 @@ namespace CustomSpawns.Spawn
 
         public void GetCurrentData()
         {
+
+
+        }
+
+        public void HourlyCheckData()
+        {
             Dictionary<Data.SpawnData, int> oldValues = new Dictionary<Data.SpawnData, int>();
-            foreach(Data.SpawnData dat in dataManager.Data)
+            foreach (Data.SpawnData dat in dataManager.Data)
             {
                 oldValues.Add(dat, dat.GetNumberSpawned());
                 dat.SetNumberSpawned(0);
             }
 
-            foreach(MobileParty mb in MobileParty.All)
+            foreach (MobileParty mb in MobileParty.All)
             {
-                foreach (var dat in dataManager.Data) {
+                foreach (var dat in dataManager.Data)
+                {
                     if (CampaignUtils.IsolateMobilePartyStringID(mb) == dat.PartyTemplate.StringId)
                     {
                         //increase count
@@ -51,14 +60,15 @@ namespace CustomSpawns.Spawn
                 if (oldValues[dat] > dat.GetNumberSpawned())
                 {
                     //A death has occured!
-                    if(dat.deathMessage != null)
+                    if (dat.deathMessage != null)
                     {
                         UX.ShowMessage(dat.deathMessage.Information, dat.deathMessage.Color);
                     }
                 }
             }
-
         }
+
+        #endregion
 
         public override void RegisterEvents()
         {
@@ -75,7 +85,7 @@ namespace CustomSpawns.Spawn
 
         public void HourlyBehaviour()
         {
-            GetCurrentData();
+            HourlyCheckData();
             if (!spawnedToday && Campaign.Current.IsNight)
             {
                 RegularBanditSpawn();
