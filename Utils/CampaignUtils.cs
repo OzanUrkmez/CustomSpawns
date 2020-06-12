@@ -146,6 +146,22 @@ namespace CustomSpawns
             return min;
         }
 
+        public static Settlement GetClosestSettlement(MobileParty mb)
+        {
+            Settlement min = null;
+            float minDistance = float.MaxValue;
+            foreach (Settlement s in Settlement.All)
+            {
+                float dist = mb.Position2D.Distance(s.GatePosition);
+                if (dist < minDistance)
+                {
+                    minDistance = dist;
+                    min = s;
+                }
+            }
+            return min;
+        }
+
         public static Settlement GetClosestNonHostileCityAmong(MobileParty mb, List<Data.SpawnSettlementType> preferredTypes = null, Settlement exception = null)
         {
             List<Settlement> viableSettlements = new List<Settlement>();

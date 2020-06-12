@@ -15,5 +15,6 @@ namespace CustomSpawns
         public bool ModifyPartySpeeds { get; set; }
         public bool IsRemovalMode { get; set; }
         public bool IsAllSpawnMode { get; set; }
+        public int UpdatePartyRedundantDataPerHour { get; set; }
     }
 }

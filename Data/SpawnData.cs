@@ -205,7 +205,7 @@ namespace CustomSpawns.Data
                         else
                         {
                             Color c = UX.GetMessageColour(deathColor) == "" ? (deathColor[0] == '#' ? Color.ConvertStringToColor(deathColor) : Color.Black) : Color.ConvertStringToColor(UX.GetMessageColour(deathColor));
-                            dat.deathMessage = new InformationMessage(deathMsg, c);
+                            dat.deathMessage = new InformationMessage(msg, c);
                         }
                     }
 

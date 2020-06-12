@@ -17,22 +17,47 @@ namespace CustomSpawns.Spawn
 
         Data.SpawnDataManager dataManager;
 
+        private int lastRedundantDataUpdate = 0;
+
         public DailySpawnBehaviour(Data.SpawnDataManager data_manager)
         {
             DynamicSpawnData.FlushSpawnData();
+            lastRedundantDataUpdate = 0;
             GetCurrentData();
             dataManager = data_manager;
         }
 
         public void GetCurrentData()
         {
-
+            foreach (MobileParty mb in MobileParty.All)
+            {
+                foreach (var dat in dataManager.Data)
+                {
+                    if (CampaignUtils.IsolateMobilePartyStringID(mb) == dat.PartyTemplate.StringId)
+                    {
+                        //this be a custom spawns party :O
+                        DynamicSpawnData.AddDynamicSpawnData(mb, new CSPartyData(dat, null));
+                        UpdateDynamicData(mb);
+                        UpdateRedundantDynamicData(mb);
+                    }
+                }
+            }
 
         }
 
         public void HourlyCheckData()
         {
             Dictionary<Data.SpawnData, int> oldValues = new Dictionary<Data.SpawnData, int>();
+            if (lastRedundantDataUpdate < ConfigLoader.Instance.Config.UpdatePartyRedundantDataPerHour + 1) // + 1 to give leeway and make sure every party gets updated. 
+            {
+                lastRedundantDataUpdate++;
+            }
+            else
+            {
+                lastRedundantDataUpdate = 0;
+            }
+
+            //Now for data checking!
             foreach (Data.SpawnData dat in dataManager.Data)
             {
                 oldValues.Add(dat, dat.GetNumberSpawned());
@@ -68,12 +93,24 @@ namespace CustomSpawns.Spawn
             }
         }
 
+        public void UpdateDynamicData(MobileParty mb)
+        {
+
+        }
+
+        public void UpdateRedundantDynamicData(MobileParty mb)
+        {
+            DynamicSpawnData.GetDynamicSpawnData(mb).latestClosestSettlement = CampaignUtils.GetClosestSettlement(mb);
+        }
+
         #endregion
 
         public override void RegisterEvents()
         {
             CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, DailyBehaviour);
             CampaignEvents.HourlyTickEvent.AddNonSerializedListener(this, HourlyBehaviour);
+            CampaignEvents.HourlyTickPartyEvent.AddNonSerializedListener(this, HourlyPartyBehaviour);
+            CampaignEvents.OnPartyRemovedEvent.AddNonSerializedListener(this, OnPartyRemoved);
         }
 
         public override void SyncData(IDataStore dataStore)
@@ -92,6 +129,28 @@ namespace CustomSpawns.Spawn
                 spawnedToday = true;
             }
 
+        }
+
+        private void OnPartyRemoved(PartyBase p)
+        {
+            if (p.MobileParty == null)
+                return;
+            //deal with our parties being removed! Also this is more efficient ;)
+
+            if (DynamicSpawnData.RemoveDynamicSpawnData(p.MobileParty))
+            {
+                //this is a custom spawns party!!
+
+            }
+        }
+
+        private void HourlyPartyBehaviour(MobileParty mb)
+        {
+            UpdateDynamicData(mb);
+            if (lastRedundantDataUpdate >= ConfigLoader.Instance.Config.UpdatePartyRedundantDataPerHour)
+            {
+                UpdateRedundantDynamicData(mb);
+            }
         }
 
         private void DailyBehaviour()
@@ -122,13 +181,13 @@ namespace CustomSpawns.Spawn
                                 //AI Checks!
                                 Spawner.HandleAIChecks(spawnedParty, data, spawnSettlement);
                                 //accompanying spawns
-                                foreach(var accomp in data.SpawnAlongWith)
+                                foreach (var accomp in data.SpawnAlongWith)
                                 {
                                     MobileParty juniorParty = Spawner.SpawnParty(spawnSettlement, data.SpawnClan, accomp.templateObject, data.PartyType, new TextObject(accomp.name));
                                     Spawner.HandleAIChecks(juniorParty, data, spawnSettlement); //junior party has same AI behaviour as main party. TODO in future add some junior party AI and reconstruction.
                                 }
                                 //message if available
-                                if(data.spawnMessage != null)
+                                if (data.spawnMessage != null)
                                 {
                                     UX.ShowParseSpawnMessage(data.spawnMessage, spawnSettlement.Name.ToString());
                                 }
@@ -142,7 +201,7 @@ namespace CustomSpawns.Spawn
                     data.SetNumberSpawned(data.GetNumberSpawned() - j); //make sure that only the hourly checker really tells number spawned.
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 ErrorHandler.HandleException(e);
             }

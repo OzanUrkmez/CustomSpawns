@@ -234,6 +234,7 @@
     <Compile Include="Config\Config.cs" />
     <Compile Include="Config\ConfigLoader.cs" />
     <Compile Include="Data\DiplomacyData.cs" />
+    <Compile Include="Data\DynamicSpawnData.cs" />
     <Compile Include="Data\NameSignifierData.cs" />
     <Compile Include="Data\SpawnData.cs" />
     <Compile Include="Diplomacy\DiplomacyUtils.cs" />
