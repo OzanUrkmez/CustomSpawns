@@ -42,6 +42,7 @@ namespace CustomSpawns.Spawn
                     {
                         //this be a custom spawns party :O
                         DynamicSpawnData.AddDynamicSpawnData(mb, new CSPartyData(dat, null));
+                        dat.IncrementNumberSpawned();
                         UpdateDynamicData(mb);
                         UpdateRedundantDynamicData(mb);
                     }
