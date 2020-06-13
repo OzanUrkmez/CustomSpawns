@@ -13,7 +13,7 @@ namespace CustomSpawns.Economics
 
         public static void PartyReplenishFood(MobileParty mobileParty)
         {
-            if (!mobileParty.IsBandit && mobileParty.IsPartyTradeActive && mobileParty.Food < mobileParty.FoodChange * 2 && Utils.Utils.IsCustomSpawnsStringID(mobileParty.StringId))
+            if (!mobileParty.IsBandit && mobileParty.IsPartyTradeActive && mobileParty.Food < mobileParty.FoodChange * 2)
             {
                 mobileParty.PartyTradeGold = (int)((double)mobileParty.PartyTradeGold * 0.95 + (double)(50f * (float)mobileParty.Party.MemberRoster.TotalManCount * 0.05f));
                 if (MBRandom.RandomFloat < 0.03f && mobileParty.MapEvent != null)
