@@ -35,7 +35,7 @@ namespace CustomSpawns.Data
         public static CSPartyData GetDynamicSpawnData(MobileParty mb)
         {
             if (!dynamicSpawnData.ContainsKey(mb))
-                ErrorHandler.ShowPureErrorMessage("A mobile party key that does not exist was tried to be accessed! Report to developer and just keep playing, no issues will occur... probably :)");
+                return null;
             return dynamicSpawnData[mb];
         }
 

@@ -47,7 +47,6 @@ namespace CustomSpawns.Spawn
 
         public void HourlyCheckData()
         {
-            Dictionary<Data.SpawnData, int> oldValues = new Dictionary<Data.SpawnData, int>();
             if (lastRedundantDataUpdate < ConfigLoader.Instance.Config.UpdatePartyRedundantDataPerHour + 1) // + 1 to give leeway and make sure every party gets updated. 
             {
                 lastRedundantDataUpdate++;
@@ -58,39 +57,6 @@ namespace CustomSpawns.Spawn
             }
 
             //Now for data checking!
-            foreach (Data.SpawnData dat in dataManager.Data)
-            {
-                oldValues.Add(dat, dat.GetNumberSpawned());
-                dat.SetNumberSpawned(0);
-            }
-
-            foreach (MobileParty mb in MobileParty.All)
-            {
-                foreach (var dat in dataManager.Data)
-                {
-                    if (CampaignUtils.IsolateMobilePartyStringID(mb) == dat.PartyTemplate.StringId)
-                    {
-                        //increase count
-                        dat.IncrementNumberSpawned();
-                    }
-                }
-            }
-            foreach (var dat in dataManager.Data)
-            {
-                if (ConfigLoader.Instance.Config.IsDebugMode)
-                {
-                    if (oldValues[dat] != dat.GetNumberSpawned()) //leave a log only if a change has occured. TODO we can also detect death with these and create custom behaviour/spawn schedules accordingly ;)
-                        ModDebug.ShowMessage(dat.Name + " count: " + dat.GetNumberSpawned());
-                }
-                if (oldValues[dat] > dat.GetNumberSpawned())
-                {
-                    //A death has occured!
-                    if (dat.deathMessage != null)
-                    {
-                        UX.ShowMessage(dat.deathMessage.Information, dat.deathMessage.Color);
-                    }
-                }
-            }
         }
 
         public void UpdateDynamicData(MobileParty mb)
@@ -131,16 +97,19 @@ namespace CustomSpawns.Spawn
 
         }
 
+        //deal with our parties being removed! Also this is more efficient ;)
         private void OnPartyRemoved(PartyBase p)
         {
-            if (p.MobileParty == null)
+            MobileParty mb = p.MobileParty;
+            if (mb == null)
                 return;
-            //deal with our parties being removed! Also this is more efficient ;)
 
-            if (DynamicSpawnData.RemoveDynamicSpawnData(p.MobileParty))
+            CSPartyData partyData = DynamicSpawnData.GetDynamicSpawnData(mb);
+            if (partyData != null)
             {
+                partyData.spawnBaseData.DecrementNumberSpawned();
                 //this is a custom spawns party!!
-
+                DynamicSpawnData.RemoveDynamicSpawnData(mb);
             }
         }
 
