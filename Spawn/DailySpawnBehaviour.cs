@@ -71,6 +71,9 @@ namespace CustomSpawns.Spawn
 
         #endregion
 
+
+        #region MB API-Registered Behaviours
+
         public override void RegisterEvents()
         {
             CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, DailyBehaviour);
@@ -86,7 +89,7 @@ namespace CustomSpawns.Spawn
 
         private bool spawnedToday = false;
 
-        public void HourlyBehaviour()
+        private void HourlyBehaviour()
         {
             HourlyCheckData();
             if (!spawnedToday && Campaign.Current.IsNight)
@@ -109,6 +112,7 @@ namespace CustomSpawns.Spawn
             {
                 partyData.spawnBaseData.DecrementNumberSpawned();
                 //this is a custom spawns party!!
+                OnPartyDeath(mb, partyData);
                 DynamicSpawnData.RemoveDynamicSpawnData(mb);
             }
         }
@@ -126,6 +130,8 @@ namespace CustomSpawns.Spawn
         {
             spawnedToday = false;
         }
+
+        #endregion
 
         private void RegularBanditSpawn()
         {
@@ -174,6 +180,10 @@ namespace CustomSpawns.Spawn
             {
                 ErrorHandler.HandleException(e);
             }
+        }
+        private void OnPartyDeath(MobileParty mb, CSPartyData dynamicData)
+        {
+
         }
     }
 }
