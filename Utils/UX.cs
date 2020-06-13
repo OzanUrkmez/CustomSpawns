@@ -68,7 +68,7 @@ namespace CustomSpawns
         private static Dictionary<string, string> flagToMessageColour = new Dictionary<string, string>()
         {
             { "danger", "#FF2300FF"},
-            {"relief", "#70DB22FF" }
+            {"relief",  "#65BF22FF" }
         };
 
         public static string GetMessageColour(string flag)
