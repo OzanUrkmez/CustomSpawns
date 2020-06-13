@@ -24,7 +24,7 @@ namespace CustomSpawns.Data
         {
             if (dynamicSpawnData.ContainsKey(mb))
             {
-                ErrorHandler.ShowPureErrorMessage("A mobile party key that already was dynamically allocated was tried to be added! Report to developer and just keep playing, no issues will occur... probably :)");
+                ErrorHandler.ShowPureErrorMessage("A mobile party key that already was dynamically allocated was tried to be added! Report to developer, provide context and follow the rules of bug report given on Nexus, and just keep playing. no issues will occur... probably :)");
                 return;
             }
             dynamicSpawnData.Add(mb, data);
