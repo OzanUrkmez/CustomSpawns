@@ -19,12 +19,14 @@ namespace CustomSpawns.Spawn
 
         private int lastRedundantDataUpdate = 0;
 
+        private bool dataGottenAtStart = false;
+
         public SpawnBehaviour(Data.SpawnDataManager data_manager)
         {
             DynamicSpawnData.FlushSpawnData();
             lastRedundantDataUpdate = 0;
-            GetCurrentData();
             dataManager = data_manager;
+            dataGottenAtStart = false;
         }
 
         public void GetCurrentData()
@@ -93,6 +95,11 @@ namespace CustomSpawns.Spawn
 
         private void HourlyBehaviour()
         {
+            if (!dataGottenAtStart)
+            {
+                GetCurrentData();
+                dataGottenAtStart = true;
+            }
             HourlyCheckData();
             if (!spawnedToday && Campaign.Current.IsNight)
             {
