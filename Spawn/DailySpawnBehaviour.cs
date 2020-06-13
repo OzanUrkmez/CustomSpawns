@@ -152,6 +152,9 @@ namespace CustomSpawns.Spawn
                                 //spawn nao!
                                 MobileParty spawnedParty = Spawner.SpawnParty(spawnSettlement, data.SpawnClan, data.PartyTemplate, data.PartyType, new TextObject(data.Name));
                                 data.IncrementNumberSpawned(); //increment for can spawn and chance modifications
+                                //dynamic data registration
+                                DynamicSpawnData.AddDynamicSpawnData(spawnedParty, new CSPartyData(data, spawnSettlement));
+
                                 j++;
                                 //AI Checks!
                                 Spawner.HandleAIChecks(spawnedParty, data, spawnSettlement);
@@ -166,6 +169,7 @@ namespace CustomSpawns.Spawn
                                 {
                                     UX.ShowParseSpawnMessage(data.spawnMessage, spawnSettlement.Name.ToString());
                                 }
+
                             }
                         }
                         else
