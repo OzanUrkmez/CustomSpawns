@@ -22,10 +22,12 @@ namespace CustomSpawns
                 return;
             if (messageType == DebugMessageType.Prisoner && !PrisonerRecruitment.PrisonerRecruitmentConfigLoader.Instance.Config.PrisonRecruitmentDebugEnabled)
                 return;
+            if (messageType == DebugMessageType.DeathTrack && !ConfigLoader.Instance.Config.ShowDeathTrackDebug)
+                return;
             InformationManager.DisplayMessage(new InformationMessage(message, Color.ConvertStringToColor("#FF8F00FF")));
         }
 
     }
 
-    public enum DebugMessageType { Spawn, AI, Prisoner, Diplomacy}
+    public enum DebugMessageType { Spawn, AI, Prisoner, Diplomacy, DeathTrack}
 }

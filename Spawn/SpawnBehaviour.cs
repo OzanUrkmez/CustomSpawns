@@ -123,6 +123,7 @@ namespace CustomSpawns.Spawn
                 partyData.spawnBaseData.DecrementNumberSpawned();
                 //this is a custom spawns party!!
                 OnPartyDeath(mb, partyData);
+                ModDebug.ShowMessage(mb.StringId + " has died at " + partyData.latestClosestSettlement + ", reducing the total number to: " + partyData.spawnBaseData.GetNumberSpawned(), DebugMessageType.DeathTrack);
                 DynamicSpawnData.RemoveDynamicSpawnData(mb);
             }
         }
