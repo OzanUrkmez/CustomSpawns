@@ -26,7 +26,7 @@ namespace CustomSpawns.Data
             if(problematicIDs.Count != 0)
             {
                 var msg = "DO NOT WORRY PLAYER, BUT MODDERS BEWARE! \n Duplicate party template IDs have been detected for different spawns. This will not lead to any crashes, but it might lead to behaviour " + 
-                "that you may not have intended, especially regarding spawn numbers. Also, it is bad practice. The duplicate IDs are: \n";
+                "that you may not have intended, especially regarding spawn numbers. Also, it is bad practice. \n In short, You should have only one party template for one spawn type. The duplicate IDs are: \n";
                 foreach(var pr in problematicIDs)
                 {
                     msg += pr + "\n";

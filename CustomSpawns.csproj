@@ -251,6 +251,7 @@
     <Compile Include="CustomSpawnsCustomSpeedModel.cs" />
     <Compile Include="Config\Config.cs" />
     <Compile Include="Config\ConfigLoader.cs" />
+    <Compile Include="Data\DataUtils.cs" />
     <Compile Include="Data\DiplomacyData.cs" />
     <Compile Include="Data\DynamicSpawnData.cs" />
     <Compile Include="Data\NameSignifierData.cs" />
