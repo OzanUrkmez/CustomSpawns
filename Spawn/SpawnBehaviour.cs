@@ -10,7 +10,7 @@ using TaleWorlds.Localization;
 
 namespace CustomSpawns.Spawn
 {
-    class DailySpawnBehaviour : CampaignBehaviorBase
+    class SpawnBehaviour : CampaignBehaviorBase
     {
 
         #region Data Management
@@ -19,7 +19,7 @@ namespace CustomSpawns.Spawn
 
         private int lastRedundantDataUpdate = 0;
 
-        public DailySpawnBehaviour(Data.SpawnDataManager data_manager)
+        public SpawnBehaviour(Data.SpawnDataManager data_manager)
         {
             DynamicSpawnData.FlushSpawnData();
             lastRedundantDataUpdate = 0;
@@ -56,7 +56,7 @@ namespace CustomSpawns.Spawn
                 lastRedundantDataUpdate = 0;
             }
 
-            //Now for data checking!
+            //Now for data checking?
         }
 
         public void UpdateDynamicData(MobileParty mb)
@@ -189,5 +189,11 @@ namespace CustomSpawns.Spawn
         {
 
         }
+
+        #region Behaviour Handlers
+
+
+
+        #endregion
     }
 }
