@@ -193,7 +193,6 @@ namespace CustomSpawns.Spawn
                             break;
                         }
                     }
-                    data.SetNumberSpawned(data.GetNumberSpawned() - j); //make sure that only the hourly checker really tells number spawned.
                 }
             }
             catch (Exception e)
