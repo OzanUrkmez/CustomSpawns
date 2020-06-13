@@ -31,6 +31,8 @@ namespace CustomSpawns.Spawn
         {
             foreach (MobileParty mb in MobileParty.All)
             {
+                if (mb == null)
+                    return;
                 foreach (var dat in dataManager.Data)
                 {
                     if (CampaignUtils.IsolateMobilePartyStringID(mb) == dat.PartyTemplate.StringId)
@@ -119,6 +121,8 @@ namespace CustomSpawns.Spawn
 
         private void HourlyPartyBehaviour(MobileParty mb)
         {
+            if (DynamicSpawnData.GetDynamicSpawnData(mb) == null) //check if it is a custom spawns party
+                return;
             UpdateDynamicData(mb);
             if (lastRedundantDataUpdate >= ConfigLoader.Instance.Config.UpdatePartyRedundantDataPerHour)
             {

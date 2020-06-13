@@ -7,3 +7,5 @@ C:\Users\arkan\source\repos\CustomSpawns\CustomSpawns\obj\x64\Debug\CustomSpawns
 C:\Users\arkan\source\repos\CustomSpawns\CustomSpawns\obj\x64\Debug\CustomSpawns.csproj.CopyComplete
 C:\Users\arkan\source\repos\CustomSpawns\CustomSpawns\obj\x64\Debug\CustomSpawns.dll
 C:\Users\arkan\source\repos\CustomSpawns\CustomSpawns\obj\x64\Debug\CustomSpawns.pdb
+D:\SteamLibrary\steamapps\common\Mount & Blade II Bannerlord\Modules\CustomSpawns\bin\Win64_Shipping_Client\CustomSpawns.dll
+D:\SteamLibrary\steamapps\common\Mount & Blade II Bannerlord\Modules\CustomSpawns\bin\Win64_Shipping_Client\CustomSpawns.pdb
