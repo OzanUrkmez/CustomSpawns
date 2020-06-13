@@ -37,7 +37,7 @@ namespace CustomSpawns.Spawn
                     return;
                 foreach (var dat in dataManager.Data)
                 {
-                    if (CampaignUtils.IsolateMobilePartyStringID(mb) == dat.PartyTemplate.StringId)
+                    if (CampaignUtils.IsolateMobilePartyStringID(mb) == dat.PartyTemplate.StringId) //TODO must deal with sub parties in the future!
                     {
                         //this be a custom spawns party :O
                         DynamicSpawnData.AddDynamicSpawnData(mb, new CSPartyData(dat, null));
