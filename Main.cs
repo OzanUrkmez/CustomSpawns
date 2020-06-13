@@ -102,7 +102,6 @@ namespace CustomSpawns
                 starter.AddBehavior(new AI.PatrolAroundClosestLestInterruptedAndSwitchBehaviour());
                 starter.AddBehavior(new Diplomacy.ForcedWarPeaceBehaviour());
                 starter.AddBehavior(new Diplomacy.ForceNoKingdomBehaviour());
-                starter.AddBehavior(new Economics.SimpleAllSpawnNotStarveBehaviour()); //TODO for now we shall have to use this.
                 starter.AddBehavior(new PrisonerRecruitment.PrisonerRecruitmentBehaviour());
                 currentOnSaveStartRunBehaviour = new UtilityBehaviours.OnSaveStartRunBehaviour();
                 starter.AddBehavior(currentOnSaveStartRunBehaviour);
