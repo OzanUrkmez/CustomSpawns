@@ -16,7 +16,7 @@ namespace CustomSpawns.Data
             foreach(var d in data)
             {
                 string id = d.PartyTemplate.StringId;
-                if (parsedIDs.Contains(id))
+                if (parsedIDs.Contains(id) && !problematicIDs.Contains(id))
                 {
                     problematicIDs.Add(id);
                 }
