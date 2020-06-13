@@ -26,6 +26,7 @@ namespace CustomSpawns.Spawn
             DynamicSpawnData.FlushSpawnData();
             lastRedundantDataUpdate = 0;
             dataManager = data_manager;
+            Data.DataUtils.EnsureWarnIDQUalities(dataManager.Data);
             dataGottenAtStart = false;
         }
 
@@ -37,7 +38,7 @@ namespace CustomSpawns.Spawn
                     return;
                 foreach (var dat in dataManager.Data)
                 {
-                    if (CampaignUtils.IsolateMobilePartyStringID(mb) == dat.PartyTemplate.StringId) //TODO must deal with sub parties in the future!
+                    if (CampaignUtils.IsolateMobilePartyStringID(mb) == dat.PartyTemplate.StringId) //TODO could deal with sub parties in the future as well!
                     {
                         //this be a custom spawns party :O
                         DynamicSpawnData.AddDynamicSpawnData(mb, new CSPartyData(dat, null));
