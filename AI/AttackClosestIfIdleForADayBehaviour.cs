@@ -59,7 +59,7 @@ namespace CustomSpawns.AI
                     return false;
             }
             registeredParties.Add(mb);
-            ModDebug.ShowMessage(mb.StringId + " is now prevented from idling for 2 days. If it does idle for 2 days it will head to closest hostile settlement.");
+            ModDebug.ShowMessage(mb.StringId + " is now prevented from idling for 2 days. If it does idle for 2 days it will head to closest hostile settlement.", DebugMessageType.AI);
             AIManager.RegisterAIBehaviour(mb, this);
             return true;
         }

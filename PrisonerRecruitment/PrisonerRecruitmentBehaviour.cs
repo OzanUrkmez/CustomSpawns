@@ -184,10 +184,7 @@ namespace CustomSpawns.PrisonerRecruitment
 
         private void PartyRecruitAndRemovePrisoner(PartyBase mb, CharacterObject c)
         {
-            if (Config.PrisonRecruitmentDebugEnabled)
-            {
-                ModDebug.ShowMessage("recruiting " + c.StringId + " from prisoners of party " + mb.Id);
-            }
+            ModDebug.ShowMessage("recruiting " + c.StringId + " from prisoners of party " + mb.Id, DebugMessageType.Prisoner);
             mb.PrisonRoster.RemoveTroop(c, 1);
             mb.AddElementToMemberRoster(c, 1);
         }

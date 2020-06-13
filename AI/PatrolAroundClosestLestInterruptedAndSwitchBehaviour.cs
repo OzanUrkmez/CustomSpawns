@@ -99,7 +99,7 @@ namespace CustomSpawns.AI
             }
             ModDebug.ShowMessage(mb.StringId + " will now patrol around closest settlement, unless interrupted, and, if has not been interrupted, will" +
                 " switch settlements every " + data.minStablePatrolDays.ToString() + " to " + 
-                data.maxStablePatrolDays.ToString() + " days.");
+                data.maxStablePatrolDays.ToString() + " days.", DebugMessageType.AI);
             AIManager.RegisterAIBehaviour(mb, this);
             instances.Add(data);
             return true;

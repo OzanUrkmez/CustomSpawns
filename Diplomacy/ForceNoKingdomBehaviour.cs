@@ -41,7 +41,7 @@ namespace CustomSpawns.Diplomacy
                     if(dataManager.Data[c.StringId].ForceNoKingdom && c.Kingdom != null)
                     {
                         ChangeKingdomAction.ApplyByLeaveKingdom(c, false);
-                        ModDebug.ShowMessage(c.StringId + " has forcefully been removed from parent kingdom");
+                        ModDebug.ShowMessage(c.StringId + " has forcefully been removed from parent kingdom", DebugMessageType.Diplomacy);
                     }
                 }
             }

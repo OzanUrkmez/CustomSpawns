@@ -87,7 +87,7 @@ namespace CustomSpawns
                     return s;
                 }
             }
-            ModDebug.ShowMessage("Unable to find proper settlement of" + c.ToString() + " for some reason.");
+            ModDebug.ShowMessage("Unable to find proper settlement of" + c.ToString() + " for some reason.", DebugMessageType.Spawn);
             return permissible.Count == 0 ? Settlement.All[0] : permissible[0];
         }
 

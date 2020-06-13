@@ -85,7 +85,7 @@ namespace CustomSpawns.AI
                 return false;
             registeredPatrollers.Add(new Patroller(mb, s));
             mb.HomeSettlement = s;
-            ModDebug.ShowMessage(mb.StringId + " is now engaged in patrol behaviour around " + s.Name);
+            ModDebug.ShowMessage(mb.StringId + " is now engaged in patrol behaviour around " + s.Name, DebugMessageType.AI);
             AIManager.RegisterAIBehaviour(mb, this);
             return true;
         }
