@@ -1,0 +1,9 @@
+C:\Users\arkan\source\repos\CustomSpawns\CustomSpawns\bin\x64\Debug\CustomSpawns.dll
+C:\Users\arkan\source\repos\CustomSpawns\CustomSpawns\bin\x64\Debug\CustomSpawns.pdb
+C:\Users\arkan\source\repos\CustomSpawns\CustomSpawns\bin\x64\Debug\QuestryGameGeneral.dll
+C:\Users\arkan\source\repos\CustomSpawns\CustomSpawns\bin\x64\Debug\QuestryGameGeneral.pdb
+C:\Users\arkan\source\repos\CustomSpawns\CustomSpawns\bin\x64\Debug\QuestryGameGeneral.xml
+C:\Users\arkan\source\repos\CustomSpawns\CustomSpawns\obj\x64\Debug\CustomSpawns.csproj.CoreCompileInputs.cache
+C:\Users\arkan\source\repos\CustomSpawns\CustomSpawns\obj\x64\Debug\CustomSpawns.csproj.CopyComplete
+C:\Users\arkan\source\repos\CustomSpawns\CustomSpawns\obj\x64\Debug\CustomSpawns.dll
+C:\Users\arkan\source\repos\CustomSpawns\CustomSpawns\obj\x64\Debug\CustomSpawns.pdb
