@@ -23,7 +23,10 @@ namespace CustomSpawns.Data
         public static void AddDynamicSpawnData(MobileParty mb, CSPartyData data)
         {
             if (dynamicSpawnData.ContainsKey(mb))
+            {
                 ErrorHandler.ShowPureErrorMessage("A mobile party key that already was dynamically allocated was tried to be added! Report to developer and just keep playing, no issues will occur... probably :)");
+                return;
+            }
             dynamicSpawnData.Add(mb, data);
         }
 
