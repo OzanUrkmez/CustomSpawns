@@ -146,6 +146,24 @@ namespace CustomSpawns
             return min;
         }
 
+        public static Settlement GetClosestHabitedSettlement(MobileParty mb)
+        {
+            Settlement min = null;
+            float minDistance = float.MaxValue;
+            foreach (Settlement s in Settlement.All)
+            {
+                if (!(s.IsTown || s.IsCastle || s.IsVillage))
+                    continue;
+                float dist = mb.Position2D.Distance(s.GatePosition);
+                if (dist < minDistance)
+                {
+                    minDistance = dist;
+                    min = s;
+                }
+            }
+            return min;
+        }
+
         public static Settlement GetClosestSettlement(MobileParty mb)
         {
             Settlement min = null;

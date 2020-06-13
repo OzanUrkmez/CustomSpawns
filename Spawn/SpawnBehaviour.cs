@@ -70,7 +70,7 @@ namespace CustomSpawns.Spawn
 
         public void UpdateRedundantDynamicData(MobileParty mb)
         {
-            DynamicSpawnData.GetDynamicSpawnData(mb).latestClosestSettlement = CampaignUtils.GetClosestSettlement(mb);
+            DynamicSpawnData.GetDynamicSpawnData(mb).latestClosestSettlement = CampaignUtils.GetClosestHabitedSettlement(mb);
         }
 
         #endregion
@@ -135,6 +135,8 @@ namespace CustomSpawns.Spawn
             {
                 UpdateRedundantDynamicData(mb);
             }
+            //for now for all
+            Economics.PartyEconomicUtils.PartyReplenishFood(mb);
         }
 
         private void DailyBehaviour()
@@ -198,12 +200,18 @@ namespace CustomSpawns.Spawn
         }
         private void OnPartyDeath(MobileParty mb, CSPartyData dynamicData)
         {
-
+            HandleDeathMessage(mb, dynamicData);
         }
 
         #region Behaviour Handlers
 
-
+        private void HandleDeathMessage(MobileParty mb, CSPartyData dynamicData)
+        {
+            if(dynamicData.spawnBaseData.deathMessage != null)
+            {
+                UX.ShowParseDeathMessage(dynamicData.spawnBaseData.deathMessage, dynamicData.latestClosestSettlement.ToString());
+            }
+        }
 
         #endregion
     }

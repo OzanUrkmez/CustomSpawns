@@ -43,6 +43,28 @@ namespace CustomSpawns
             ShowMessage(msg);
         }
 
+        public static void ShowParseDeathMessage(InformationMessage msg, string deathClosestPlaceName)
+        {
+            string s = msg.Information;
+            string[] codes = s.Split(new string[] { "[", "]" }, StringSplitOptions.None);
+            if (codes.Length == 1)
+            {
+                ShowMessage(msg);
+                return;
+            }
+            for (int i = 0; i < codes.Length; i++)
+            {
+                switch (codes[i].ToLower())
+                {
+                    case "deathplace":
+                        codes[i] = deathClosestPlaceName;
+                        break;
+                }
+            }
+            msg.Information = string.Join("", codes);
+            ShowMessage(msg);
+        }
+
         private static Dictionary<string, string> flagToMessageColour = new Dictionary<string, string>()
         {
             { "danger", "#FF2300FF"},
