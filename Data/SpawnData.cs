@@ -158,6 +158,12 @@ namespace CustomSpawns.Data
                         throw new Exception("the node 'MaximumOnMap' cannot be less than 1!");
                     }
 
+                    dat.MaximumToEverSpawn = node["MaximumToEverSpawn"] == null ? 0 : int.Parse(node["MaximumToEverSpawn"].InnerText);
+                    if (dat.MaximumToEverSpawn < 0)
+                    {
+                        throw new Exception("the node 'MaximumToEverSpawn' cannot be negative!");
+                    }
+
                     dat.PartyType = node["PartyType"] == null ? MobileParty.PartyTypeEnum.Bandit : StringToPartyTypeEnumIfInvalidBandit(node["PartyType"].InnerText);
                     dat.ChanceOfSpawn = node["ChanceOfSpawn"] == null? 1 : float.Parse(node["ChanceOfSpawn"].InnerText);
                     dat.Name = node["Name"] == null ? "Unnamed" : node["Name"].InnerText;
@@ -377,6 +383,7 @@ namespace CustomSpawns.Data
         public List<CultureCode> OverridenSpawnCultures = new List<CultureCode>();
         public List<AccompanyingParty> SpawnAlongWith = new List<AccompanyingParty>();
         public int MaximumOnMap { get; set; }
+        public int MaximumToEverSpawn { get; set; }
         private float chanceOfSpawn;
         public int MinimumNumberOfDaysUntilSpawn { get; set; }
         public bool AttackClosestIfIdleForADay { get; set; }
@@ -400,10 +407,16 @@ namespace CustomSpawns.Data
         public InformationMessage deathMessage { get; set; }
         public bool PatrolAroundSpawn { get; set; }
         private int numberSpawned = 0;
+        private int numberEverSpawned = 0;
 
         public void IncrementNumberSpawned()
         {
             numberSpawned++;
+        }
+
+        public void IncrementNumberEverSpawned()
+        {
+            numberEverSpawned++;
         }
 
         public void DecrementNumberSpawned()
@@ -421,9 +434,21 @@ namespace CustomSpawns.Data
             return numberSpawned;
         }
 
+        public int GetNumberEverSpawned()
+        {
+            return numberEverSpawned;
+        }
+
         public bool CanSpawn()
         {
-            return numberSpawned < MaximumOnMap;
+            if (MaximumToEverSpawn == 0)
+            {
+                return numberSpawned < MaximumOnMap;
+            }
+            else
+            {
+                return numberSpawned < MaximumOnMap && numberEverSpawned < MaximumToEverSpawn;
+            }
         }
 
 

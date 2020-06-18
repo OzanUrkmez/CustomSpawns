@@ -168,6 +168,11 @@ namespace CustomSpawns.Spawn
                                 //spawn nao!
                                 MobileParty spawnedParty = Spawner.SpawnParty(spawnSettlement, data.SpawnClan, data.PartyTemplate, data.PartyType, new TextObject(data.Name));
                                 data.IncrementNumberSpawned(); //increment for can spawn and chance modifications
+
+                                if (data.MaximumToEverSpawn != 0) //default value is 0, specifies this party can spawn infinitely
+                                {
+                                    data.IncrementNumberEverSpawned(); //this value is never decreased, counts the total amount of times this party has been spawned regardless of deaths
+                                }
                                 //dynamic data registration
                                 DynamicSpawnData.AddDynamicSpawnData(spawnedParty, new CSPartyData(data, spawnSettlement));
 
