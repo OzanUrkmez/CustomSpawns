@@ -166,7 +166,7 @@ namespace CustomSpawns.Spawn
                             {
                                 var spawnSettlement = Spawner.GetSpawnSettlement(data, rand);
                                 //spawn nao!
-                                MobileParty spawnedParty = Spawner.SpawnParty(spawnSettlement, data.SpawnClan, data.PartyTemplate, data.PartyType, new TextObject(data.Name));
+                                MobileParty spawnedParty = Spawner.SpawnParty(spawnSettlement, data.SpawnClan, data.PartyTemplate, data.PartyType, new TextObject(data.Name), data.PartyTemplatePrisoner);
                                 data.IncrementNumberSpawned(); //increment for can spawn and chance modifications
                                 //dynamic data registration
                                 DynamicSpawnData.AddDynamicSpawnData(spawnedParty, new CSPartyData(data, spawnSettlement));

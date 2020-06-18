@@ -20,7 +20,7 @@ namespace CustomSpawns.Spawn
     {
 
 
-        public static MobileParty SpawnParty(Settlement spawnedSettlement, Clan clan, PartyTemplateObject templateObject,MobileParty.PartyTypeEnum partyType,  TextObject partyName = null)
+        public static MobileParty SpawnParty(Settlement spawnedSettlement, Clan clan, PartyTemplateObject templateObject, MobileParty.PartyTypeEnum partyType, TextObject partyName = null, PartyTemplateObject prisonerTemplateObject = null)
         {
             //get name and show message.
             TextObject textObject = partyName ?? clan.Name;
@@ -28,7 +28,14 @@ namespace CustomSpawns.Spawn
 
             //create.
             MobileParty mobileParty = MBObjectManager.Instance.CreateObject<MobileParty>(templateObject.StringId + "_" + 1);
-            mobileParty.InitializeMobileParty(textObject, ConstructTroopRoster(templateObject), new TroopRoster(), spawnedSettlement.GatePosition, 0);
+            if (prisonerTemplateObject == null)
+            { 
+                mobileParty.InitializeMobileParty(textObject, ConstructTroopRoster(templateObject), new TroopRoster(), spawnedSettlement.GatePosition, 0);
+            }
+            else
+            {
+                mobileParty.InitializeMobileParty(textObject, ConstructTroopRoster(templateObject), ConstructTroopRoster(prisonerTemplateObject), spawnedSettlement.GatePosition, 0); 
+            }
 
             //initialize
             Spawner.InitParty(mobileParty, textObject, clan, spawnedSettlement);

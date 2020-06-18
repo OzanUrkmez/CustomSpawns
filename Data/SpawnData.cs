@@ -96,7 +96,12 @@ namespace CustomSpawns.Data
                     SpawnData dat = new SpawnData();
 
                     dat.PartyTemplate = (PartyTemplateObject)MBObjectManager.Instance.ReadObjectReferenceFromXml("party_template", typeof(PartyTemplateObject), node);
-                    if(node.Attributes["spawn_clan"] == null)
+                    if (node.Attributes["party_template_prisoners"] != null)
+                    {
+                        dat.PartyTemplatePrisoner = (PartyTemplateObject)MBObjectManager.Instance.ReadObjectReferenceFromXml("party_template_prisoners", typeof(PartyTemplateObject), node);
+                    }
+
+                    if (node.Attributes["spawn_clan"] == null)
                         dat.SpawnClan = (Clan)MBObjectManager.Instance.ReadObjectReferenceFromXml("bandit_clan", typeof(Clan), node);
                     else
                         dat.SpawnClan = (Clan)MBObjectManager.Instance.ReadObjectReferenceFromXml("spawn_clan", typeof(Clan), node);
@@ -394,6 +399,7 @@ namespace CustomSpawns.Data
         }
         public float ChanceInverseConstant { private get; set; }
         public PartyTemplateObject PartyTemplate { get; set; }
+        public PartyTemplateObject PartyTemplatePrisoner { get; set; }
         public string Name { get; set; }
         public int RepeatSpawnRolls { get; set; }
         public InformationMessage spawnMessage { get; set; }
