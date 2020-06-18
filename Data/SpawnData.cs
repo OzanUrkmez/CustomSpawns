@@ -192,6 +192,17 @@ namespace CustomSpawns.Data
                         }
                     }
 
+                    //inquiry message (message box with options)
+                    string inqTitle = node["SpawnMessageBoxTitle"] == null ? "" : node["SpawnMessageBoxTitle"].InnerText;
+                    string inqText = node["SpawnMessageBoxText"] == null ? "" : node["SpawnMessageBoxText"].InnerText;
+                    string inqAffirmativeText = node["SpawnMessageBoxButton"] == null ? "Ok" : node["SpawnMessageBoxButton"].InnerText;
+
+                    if (inqText != "")
+                    {
+                        dat.inquiryMessage = new InquiryData(inqTitle, inqText, true, false, inqAffirmativeText, "", null, null);
+                        dat.inquiryPause = node["SpawnMessageBoxPause"] == null ? false : bool.Parse(node["SpawnMessageBoxPause"].InnerText);
+                    }
+
                     //death message
                     string deathMsg = node["DeathMessage"] == null ? "" : node["DeathMessage"].InnerText;
                     string deathColor = node["DeathMessage"] == null ? "" : node["DeathMessageColor"].InnerText;
@@ -397,6 +408,8 @@ namespace CustomSpawns.Data
         public string Name { get; set; }
         public int RepeatSpawnRolls { get; set; }
         public InformationMessage spawnMessage { get; set; }
+        public InquiryData inquiryMessage { get; set; }
+        public bool inquiryPause { get; set; }
         public InformationMessage deathMessage { get; set; }
         public bool PatrolAroundSpawn { get; set; }
         private int numberSpawned = 0;

@@ -181,11 +181,20 @@ namespace CustomSpawns.Spawn
                                     Spawner.HandleAIChecks(juniorParty, data, spawnSettlement); //junior party has same AI behaviour as main party. TODO in future add some junior party AI and reconstruction.
                                 }
                                 //message if available
-                                if (data.spawnMessage != null)
+                                if (data.spawnMessage != null && data.inquiryMessage == null)
                                 {
                                     UX.ShowParseSpawnMessage(data.spawnMessage, spawnSettlement.Name.ToString());
                                 }
-
+                                //default spawn message type always takes priority over the inquiry type if they're both present
+                                else if (data.spawnMessage != null && data.inquiryMessage != null)
+                                {
+                                    UX.ShowParseSpawnMessage(data.spawnMessage, spawnSettlement.Name.ToString());
+                                }
+                                //only if the spawn message EXPLICITLY doesn't exist does it choose the inquiry message
+                                else if (data.spawnMessage == null && data.inquiryMessage != null)
+                                {
+                                    UX.ShowParseSpawnInquiryMessage(data.inquiryMessage, spawnSettlement.Name.ToString(), data.inquiryPause);
+                                }
                             }
                         }
                         else
