@@ -96,7 +96,7 @@ namespace CustomSpawns.Data
                     SpawnData dat = new SpawnData();
 
                     dat.PartyTemplate = (PartyTemplateObject)MBObjectManager.Instance.ReadObjectReferenceFromXml("party_template", typeof(PartyTemplateObject), node);
-                    if(node.Attributes["spawn_clan"] == null)
+                    if (node.Attributes["spawn_clan"] == null)
                         dat.SpawnClan = (Clan)MBObjectManager.Instance.ReadObjectReferenceFromXml("bandit_clan", typeof(Clan), node);
                     else
                         dat.SpawnClan = (Clan)MBObjectManager.Instance.ReadObjectReferenceFromXml("spawn_clan", typeof(Clan), node);
@@ -158,6 +158,7 @@ namespace CustomSpawns.Data
                         throw new Exception("the node 'MaximumOnMap' cannot be less than 1!");
                     }
 
+                    dat.InheritClanFromSettlement = node["GetClanFromSettlement"] == null ? false : bool.Parse(node["GetClanFromSettlement"].InnerText);
                     dat.PartyType = node["PartyType"] == null ? MobileParty.PartyTypeEnum.Bandit : StringToPartyTypeEnumIfInvalidBandit(node["PartyType"].InnerText);
                     dat.ChanceOfSpawn = node["ChanceOfSpawn"] == null? 1 : float.Parse(node["ChanceOfSpawn"].InnerText);
                     dat.Name = node["Name"] == null ? "Unnamed" : node["Name"].InnerText;
@@ -399,6 +400,7 @@ namespace CustomSpawns.Data
         public InformationMessage spawnMessage { get; set; }
         public InformationMessage deathMessage { get; set; }
         public bool PatrolAroundSpawn { get; set; }
+        public bool InheritClanFromSettlement { get; set; }
         private int numberSpawned = 0;
 
         public void IncrementNumberSpawned()
