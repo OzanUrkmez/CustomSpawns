@@ -96,7 +96,7 @@ namespace CustomSpawns.AI
 
         public bool IsCompatible(IAIBehaviour AIBehaviour, bool secondCall)
         {
-            if (AIBehaviour is PatrolAroundClosestLestInterruptedAndSwitchBehaviour || AIBehaviour is HourlyPatrolAroundSpawnBehaviour)
+            if (AIBehaviour is PatrolAroundClosestLestInterruptedAndSwitchBehaviour || AIBehaviour is HourlyPatrolAroundSpawnBehaviour || AIBehaviour is HourlyGoToSettlementBehaviour)
                 return false;
             return secondCall? true : AIBehaviour.IsCompatible(this, true);
         }

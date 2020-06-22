@@ -12,6 +12,8 @@ namespace CustomSpawns.AI
 
         public static HourlyPatrolAroundSpawnBehaviour HourlyPatrolAroundSpawn { get; set; }
 
+        public static HourlyGoToSettlementBehaviour HourlyGoToSettlement { get; set; }
+
         public static AttackClosestIfIdleForADayBehaviour AttackClosestIfIdleForADayBehaviour { get; set; }
 
         public static PatrolAroundClosestLestInterruptedAndSwitchBehaviour PatrolAroundClosestLestInterruptedAndSwitchBehaviour { get; set; }

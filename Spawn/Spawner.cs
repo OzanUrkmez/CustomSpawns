@@ -13,6 +13,7 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 using Helpers;
 using TaleWorlds.ObjectSystem;
+using CustomSpawns.Data;
 
 namespace CustomSpawns.Spawn
 {
@@ -111,6 +112,16 @@ namespace CustomSpawns.Spawn
                         new AI.PatrolAroundClosestLestInterruptedAndSwitchBehaviour.PatrolAroundClosestLestInterruptedAndSwitchBehaviourData(mb, data.PatrolAroundClosestLestInterruptedAndSwitch));
                     aiRegistrations.Add("Patrol Around Closest Lest Interrupted And Switch Behaviour: ", success);
                     invalid = invalid ? true : !success;
+                }
+                if (data.GoToSettlement)
+                {
+                    bool success = AI.AIManager.HourlyGoToSettlement.RegisterParty(mb, spawnedSettlement);
+                    aiRegistrations.Add("Go to settlement behavior: ", success);
+                    invalid = invalid ? true : !success;
+                }
+                if (data.PartyIsUnaggressive)
+                {
+                    mb.Aggressiveness = 0f;
                 }
                 if (invalid && ConfigLoader.Instance.Config.IsDebugMode)
                 {

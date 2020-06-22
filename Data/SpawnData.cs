@@ -169,6 +169,9 @@ namespace CustomSpawns.Data
 
                     dat.AttackClosestIfIdleForADay = node["AttackClosestIfIdleForADay"] == null ? true : bool.Parse(node["AttackClosestIfIdleForADay"].InnerText);
 
+                    dat.GoToSettlement = node["TravelToRandomTowns"] == null ? true : bool.Parse(node["TravelToRandomTowns"].InnerText);
+                    dat.PartyIsUnaggressive = node["PartyIsUnaggressive"] == null ? false : bool.Parse(node["PartyIsUnaggressive"].InnerText);
+
                     //try spawn at list creation
                     if (node["TrySpawnAt"] != null && node["TrySpawnAt"].InnerText != "")
                     {
@@ -380,6 +383,8 @@ namespace CustomSpawns.Data
         private float chanceOfSpawn;
         public int MinimumNumberOfDaysUntilSpawn { get; set; }
         public bool AttackClosestIfIdleForADay { get; set; }
+        public bool GoToSettlement { get; set; }
+        public bool PartyIsUnaggressive { get; set; }
         public AI.PatrolAroundClosestLestInterruptedAndSwitchBehaviour.PatrolAroundClosestLestInterruptedAndSwitchBehaviourData PatrolAroundClosestLestInterruptedAndSwitch { get; set; }
         public float ChanceOfSpawn
         {

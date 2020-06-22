@@ -99,6 +99,7 @@ namespace CustomSpawns
                 starter.AddBehavior(new Spawn.SpawnBehaviour(Data.SpawnDataManager.Instance));
                 starter.AddBehavior(new AI.HourlyPatrolAroundSpawnBehaviour());
                 starter.AddBehavior(new AI.AttackClosestIfIdleForADayBehaviour());
+                starter.AddBehavior(new AI.HourlyGoToSettlementBehaviour());
                 starter.AddBehavior(new AI.PatrolAroundClosestLestInterruptedAndSwitchBehaviour());
                 starter.AddBehavior(new Diplomacy.ForcedWarPeaceBehaviour());
                 starter.AddBehavior(new Diplomacy.ForceNoKingdomBehaviour());
