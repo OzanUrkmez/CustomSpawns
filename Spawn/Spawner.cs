@@ -39,6 +39,7 @@ namespace CustomSpawns.Spawn
         private static void InitParty(MobileParty banditParty, TextObject name, Clan faction, Settlement homeSettlement)
         {
             banditParty.Name = name;
+            banditParty.ActualClan = faction;
             if (faction.Leader == null)
             {
                 banditParty.Party.Owner = faction.Heroes.ToList().Count == 0? null : faction.Heroes.First();
