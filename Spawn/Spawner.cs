@@ -28,7 +28,7 @@ namespace CustomSpawns.Spawn
 
             //create.
             MobileParty mobileParty = MBObjectManager.Instance.CreateObject<MobileParty>(templateObject.StringId + "_" + 1);
-            mobileParty.InitializeMobileParty(textObject, ConstructTroopRoster(templateObject), new TroopRoster(), spawnedSettlement.GatePosition, 0);
+            mobileParty.InitializeMobileParty(textObject, ConstructTroopRoster(templateObject, mobileParty.Party), new TroopRoster(mobileParty.Party), spawnedSettlement.GatePosition, 0);
 
             //initialize
             Spawner.InitParty(mobileParty, textObject, clan, spawnedSettlement);
@@ -68,9 +68,9 @@ namespace CustomSpawns.Spawn
             }
         }
 
-        private static TroopRoster ConstructTroopRoster(PartyTemplateObject pt, int troopNumberLimit = -1) //TODO implement troop number limit.
+        private static TroopRoster ConstructTroopRoster(PartyTemplateObject pt, PartyBase ownerParty, int troopNumberLimit = -1) //TODO implement troop number limit.
         {
-            TroopRoster returned = new TroopRoster();
+            TroopRoster returned = new TroopRoster(ownerParty);
             float gameProcess = MiscHelper.GetGameProcess();
             float num = 0.25f + 0.75f * gameProcess;
             int num2 = MBRandom.RandomInt(2);
