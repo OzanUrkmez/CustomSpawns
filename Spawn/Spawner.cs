@@ -36,33 +36,34 @@ namespace CustomSpawns.Spawn
             return mobileParty;
         }
 
-        private static void InitParty(MobileParty banditParty, TextObject name, Clan faction, Settlement homeSettlement)
+        private static void InitParty(MobileParty party, TextObject name, Clan faction, Settlement homeSettlement)
         {
-            banditParty.Name = name;
+            party.Name = name;
             if (faction.Leader == null)
             {
-                banditParty.Party.Owner = faction.Heroes.ToList().Count == 0? null : faction.Heroes.First();
+                party.Party.Owner = faction.Heroes.ToList().Count == 0? null : faction.Heroes.First();
             }
             else
             {
-                banditParty.Party.Owner = faction.Leader;
+                party.Party.Owner = faction.Leader;
             }
-            banditParty.Party.Visuals.SetMapIconAsDirty();
+            party.Party.Visuals.SetMapIconAsDirty();
             if (faction.Leader.HomeSettlement == null)
             {
                 faction.UpdateHomeSettlement(homeSettlement);
             }
-            banditParty.HomeSettlement = homeSettlement;
-            TaleWorldsCode.BanditsCampaignBehaviour.CreatePartyTrade(banditParty);
+            party.ActualClan = faction;
+            party.HomeSettlement = homeSettlement;
+            TaleWorldsCode.BanditsCampaignBehaviour.CreatePartyTrade(party);
             foreach (ItemObject itemObject in ItemObject.All)
             {
                 if (itemObject.IsFood)
                 {
-                    int num = TaleWorldsCode.BanditsCampaignBehaviour.IsLooterFaction(banditParty.MapFaction) ? 8 : 16;
-                    int num2 = MBRandom.RoundRandomized((float)banditParty.MemberRoster.TotalManCount * (1f / (float)itemObject.Value) * (float)num * MBRandom.RandomFloat * MBRandom.RandomFloat * MBRandom.RandomFloat * MBRandom.RandomFloat);
+                    int num = TaleWorldsCode.BanditsCampaignBehaviour.IsLooterFaction(party.MapFaction) ? 8 : 16;
+                    int num2 = MBRandom.RoundRandomized((float)party.MemberRoster.TotalManCount * (1f / (float)itemObject.Value) * (float)num * MBRandom.RandomFloat * MBRandom.RandomFloat * MBRandom.RandomFloat * MBRandom.RandomFloat);
                     if (num2 > 0)
                     {
-                        banditParty.ItemRoster.AddToCounts(itemObject, num2, true);
+                        party.ItemRoster.AddToCounts(itemObject, num2, true);
                     }
                 }
             }
