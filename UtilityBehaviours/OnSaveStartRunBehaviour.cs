@@ -11,6 +11,27 @@ namespace CustomSpawns.UtilityBehaviours
 {
     public class OnSaveStartRunBehaviour : CampaignBehaviorBase
     {
+
+        private static OnSaveStartRunBehaviour _singleton;
+
+        public static OnSaveStartRunBehaviour Singleton
+        {
+            get
+            {
+                return _singleton;
+            }
+            private set
+            {
+                _singleton = value;
+            }
+        }
+
+        public static void InitializeSingleton(CampaignGameStarter starter)
+        {
+            _singleton = new OnSaveStartRunBehaviour();
+            starter.AddBehavior(_singleton);
+        }
+
         public override void RegisterEvents()
         {
             CampaignEvents.HourlyTickEvent.AddNonSerializedListener(this, HourlyBehaviour);
@@ -31,7 +52,7 @@ namespace CustomSpawns.UtilityBehaviours
             run();
         }
 
-        public void RegisterFunctionToRun(Action f)
+        public void RegisterFunctionToRunOnSaveStart(Action f)
         {
             run += f;
         }
