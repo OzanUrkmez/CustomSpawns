@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CustomSpawns.UtilityBehaviours;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,7 +37,9 @@ namespace CustomSpawns.CampaignData
 
         public DevestationMetricData()
         {
-            ModDebug.ShowMessage("Yes", DebugMessageType.Development);
+
+            OnSaveStartRunBehaviour.Singleton.RegisterFunctionToRunOnSaveStart(OnGameInitialization);
+
         }
 
         #endregion
@@ -51,8 +54,6 @@ namespace CustomSpawns.CampaignData
             CampaignEvents.VillageLooted.AddNonSerializedListener(this, OnVillageLooted);
             CampaignEvents.MobilePartyDestroyed.AddNonSerializedListener(this, OnMobilePartyDestroyed);
             CampaignEvents.HourlyTickPartyEvent.AddNonSerializedListener(this, OnMobilePartyHourlyTick);
-
-            CampaignEvents.OnGameLoadFinishedEvent.AddNonSerializedListener(this, OnGameLoadFinished);
         }
 
         public override void SyncData(IDataStore dataStore)
@@ -63,36 +64,55 @@ namespace CustomSpawns.CampaignData
 
         #endregion
 
-        #region Event Callbacks
-    
-        private void OnGameLoadFinished()
+        private void OnGameInitialization()
         {
-            ModDebug.ShowMessage("game loaded!", DebugMessageType.Development);
+            foreach(Settlement s in Settlement.All) //assuming no new settlements can be created mid-game.
+            {
+                if (!s.IsVillage)
+                {
+                    continue;
+                }
+                settlementToDevestation.Add(s, 0);
+            }
         }
+
+        #region Event Callbacks
 
         private void OnCommonAreaFightOccured(MobileParty p1, MobileParty p2, Hero h, Settlement s)
         {
+            if (p1 == null || p2 == null || s==null)
+                return;
 
+            ModDebug.ShowMessage("Fight at " + s.Name, DebugMessageType.Development);
         }
 
         private void OnVillageLooted(Village v)
         {
+            if (v == null)
+                return;
         }
 
         private void OnMobilePartyDestroyed(MobileParty mb, PartyBase mbbase)
         {
+            if (mb == null)
+                return;
 
         }
 
         private void OnMobilePartyHourlyTick(MobileParty mb)
         {
-            
+            if (mb == null || mb.IsBandit)
+                return;
         }
 
         #endregion
 
         public float GetDevestation(Settlement s)
         {
+            if (!s.IsVillage)
+            {
+                ModDebug.ShowMessage("Non-village devestation data is not currently supported!", DebugMessageType.Development);
+            }
             if (settlementToDevestation.ContainsKey(s))
                 return settlementToDevestation[s];
 

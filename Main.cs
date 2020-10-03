@@ -99,6 +99,10 @@ namespace CustomSpawns
         {
             if (!removalMode)
             {
+
+                OnSaveStartRunBehaviour.InitializeSingleton(starter);
+                OnSaveStartRunBehaviour.Singleton.RegisterFunctionToRunOnSaveStart(OnSaveStart);
+
                 starter.AddBehavior(new Spawn.SpawnBehaviour(Data.SpawnDataManager.Instance));
                 starter.AddBehavior(new AI.HourlyPatrolAroundSpawnBehaviour());
                 starter.AddBehavior(new AI.AttackClosestIfIdleForADayBehaviour());
@@ -107,8 +111,7 @@ namespace CustomSpawns
                 starter.AddBehavior(new Diplomacy.ForceNoKingdomBehaviour());
                 starter.AddBehavior(new PrisonerRecruitment.PrisonerRecruitmentBehaviour());
 
-                OnSaveStartRunBehaviour.InitializeSingleton(starter);
-                OnSaveStartRunBehaviour.Singleton.RegisterFunctionToRunOnSaveStart(OnSaveStart);
+
 
 
                 starter.AddBehavior(CampaignData.DevestationMetricData.Singleton);
