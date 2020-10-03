@@ -18,5 +18,7 @@ namespace CustomSpawns
         public bool IsRemovalMode { get; set; }
         public bool IsAllSpawnMode { get; set; }
         public int UpdatePartyRedundantDataPerHour { get; set; }
+
+        public int SameErrorShowUntil { get; set; } 
     }
 }
