@@ -26,8 +26,11 @@ namespace CustomSpawns
             try
             {
                 PartyBase party = mobileParty.Party;
-                if (party == null || explanation == null)
+                if (party == null)
                     return 1;
+
+                if (explanation == null)
+                    explanation = new StatExplainer();
 
                 //OUR ADDITION
                 ExplainedNumber explainedNumber = new ExplainedNumber(baseSpeed, explanation, null);
