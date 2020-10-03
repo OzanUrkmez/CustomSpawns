@@ -11,6 +11,7 @@ using TaleWorlds.Library;
 using System.Windows.Forms;
 using StoryMode;
 using CustomSpawns.UtilityBehaviours;
+using HarmonyLib;
 
 namespace CustomSpawns
 {
@@ -26,6 +27,17 @@ namespace CustomSpawns
 
         protected override void OnSubModuleLoad()
         {
+            try
+            {
+                Harmony harmony = new Harmony("com.Questry.CustomSpawns");
+                harmony.PatchAll();
+            }
+            catch (Exception e)
+            {
+                ErrorHandler.HandleException(e, "HARMONY PATCHES");
+            }
+
+
             Config config = ConfigLoader.Instance.Config;
             ModIntegration.SubModManager.LoadAllValidDependentMods();
             if (config.IsRemovalMode)
