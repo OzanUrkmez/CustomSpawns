@@ -49,8 +49,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="0Harmony">
-      <HintPath>..\..\..\..\Downloads\Harmony.2.0.2.0\Release\netcoreapp3.1\0Harmony.dll</HintPath>
+    <Reference Include="0Harmony, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Foo\Tools\Harmony.2.0.2.0\Release\net472\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="QuestryGameGeneral">
       <HintPath>D:\Foo\Questry\QuestryGameGeneral\QuestryGameGeneral\bin\Debug\QuestryGameGeneral.dll</HintPath>
@@ -251,7 +252,9 @@
     <Compile Include="AI\HourlyPatrolAroundSpawnBehaviour.cs" />
     <Compile Include="AI\IAIBehaviour.cs" />
     <Compile Include="AI\PatrolAroundClosestLestInterruptedAndSwitchBehaviour.cs" />
+    <Compile Include="CampaignData\CampaignDataConfigLoader.cs" />
     <Compile Include="CampaignData\DevestationMetricData.cs" />
+    <Compile Include="CampaignData\ICampaignDataConfig.cs" />
     <Compile Include="CustomSpawnsCustomSpeedModel.cs" />
     <Compile Include="Config\Config.cs" />
     <Compile Include="Config\ConfigLoader.cs" />
@@ -264,6 +267,7 @@
     <Compile Include="Diplomacy\ForcedWarPeaceBehaviour.cs" />
     <Compile Include="Diplomacy\ForceNoKingdomBehaviour.cs" />
     <Compile Include="Economics\PartyEconomicUtils.cs" />
+    <Compile Include="HarmonyPatches\SurgeryAppliedBugPatch.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="ModIntegration\SubMod.cs" />
     <Compile Include="ModIntegration\SubModManager.cs" />
