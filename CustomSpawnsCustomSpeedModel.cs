@@ -26,6 +26,10 @@ namespace CustomSpawns
             try
             {
                 PartyBase party = mobileParty.Party;
+                if (party == null || explanation == null)
+                    return 1;
+
+                //OUR ADDITION
                 ExplainedNumber explainedNumber = new ExplainedNumber(baseSpeed, explanation, null);
                 explainedNumber.LimitMin(1f);
                 string key = CampaignUtils.IsolateMobilePartyStringID(mobileParty); //TODO if this is non-trivial make it more efficient
@@ -50,6 +54,10 @@ namespace CustomSpawns
                     num = Math.Min(num, partyIDToMaximumSpeed[key]);
 
                 explainedNumber.Add(num - explainedNumber.ResultNumber, new TextObject("Custom Spawns final modification"));
+
+
+                //TERRAIN IN THE SAME WAY TALEWORLDS DOES IT
+
                 if (faceTerrainType == TerrainType.Forest)
                 {
                     explainedNumber.AddFactor(-0.3f, _movingInForest);
