@@ -191,6 +191,9 @@ namespace CustomSpawns.Data
                             dat.spawnMessage = new InformationMessage(msg, c);
                         }
                     }
+                    
+                    // sound event
+                    dat.SoundEvent = node["SpawnSound"] == null ? null : node["SpawnSound"].InnerText;
 
                     //death message
                     string deathMsg = node["DeathMessage"] == null ? "" : node["DeathMessage"].InnerText;
@@ -398,6 +401,7 @@ namespace CustomSpawns.Data
         public int RepeatSpawnRolls { get; set; }
         public InformationMessage spawnMessage { get; set; }
         public InformationMessage deathMessage { get; set; }
+        public string SoundEvent { get; set; }
         public bool PatrolAroundSpawn { get; set; }
         private int numberSpawned = 0;
 

@@ -6,7 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
+using TaleWorlds.Engine;
 using TaleWorlds.Localization;
+using TaleWorlds.MountAndBlade;
 
 namespace CustomSpawns.Spawn
 {
@@ -155,6 +157,7 @@ namespace CustomSpawns.Spawn
             {
                 var list = dataManager.Data;
                 Random rand = new Random();
+                var isSpawnSoundPlaying = false;
                 foreach (Data.SpawnData data in list)
                 {
                     int j = 0;
@@ -184,6 +187,11 @@ namespace CustomSpawns.Spawn
                                 if (data.spawnMessage != null)
                                 {
                                     UX.ShowParseSpawnMessage(data.spawnMessage, spawnSettlement.Name.ToString());
+                                    if (data.SoundEvent != null && !isSpawnSoundPlaying)
+                                    {
+                                        SoundEvent.PlaySound2D(data.SoundEvent);
+                                        isSpawnSoundPlaying = true;
+                                    }
                                 }
 
                             }
