@@ -159,6 +159,10 @@ namespace CustomSpawns.Spawn
                 //spawn at overriden spawn instead!
                 spawnOverride = CampaignUtils.PickRandomSettlementOfCulture(data.OverridenSpawnCultures, data.TrySpawnAtList);
             }
+            if (spawnOverride == null && data.OverridenSpawnKingdoms.Count != 0)
+            {
+                spawnOverride = CampaignUtils.PickRandomSettlementOfKingdom(data.OverridenSpawnKingdoms, data.TrySpawnAtList);
+            }
             //get settlement
             Settlement spawnSettlement = ConfigLoader.Instance.Config.SpawnAtOneHideout ? firstHideout : (spawnOverride == null ? CampaignUtils.GetPreferableHideout(spawnClan) : spawnOverride);
             return spawnSettlement;
