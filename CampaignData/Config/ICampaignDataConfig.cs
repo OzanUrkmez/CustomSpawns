@@ -9,7 +9,5 @@ namespace CustomSpawns.CampaignData
     interface ICampaignDataConfig
     {
 
-        string ConfigTypeName { get; }
-
     }
 }
