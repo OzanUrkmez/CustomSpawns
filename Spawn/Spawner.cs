@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,7 +30,7 @@ namespace CustomSpawns.Spawn
             MobileParty mobileParty = MBObjectManager.Instance.CreateObject<MobileParty>(templateObject.StringId + "_" + 1);
             if (prisonerTemplateObject == null)
             { 
-                mobileParty.InitializeMobileParty(textObject, ConstructTroopRoster(templateObject), new TroopRoster(), spawnedSettlement.GatePosition, 0);
+                mobileParty.InitializeMobileParty(textObject, ConstructTroopRoster(templateObject), new TroopRoster(mobileParty.Party), spawnedSettlement.GatePosition, 0);
             }
             else
             {
@@ -43,41 +43,42 @@ namespace CustomSpawns.Spawn
             return mobileParty;
         }
 
-        private static void InitParty(MobileParty banditParty, TextObject name, Clan faction, Settlement homeSettlement)
+        private static void InitParty(MobileParty party, TextObject name, Clan faction, Settlement homeSettlement)
         {
-            banditParty.Name = name;
+            party.Name = name;
             if (faction.Leader == null)
             {
-                banditParty.Party.Owner = faction.Heroes.ToList().Count == 0? null : faction.Heroes.First();
+                party.Party.Owner = faction.Heroes.ToList().Count == 0? null : faction.Heroes.First();
             }
             else
             {
-                banditParty.Party.Owner = faction.Leader;
+                party.Party.Owner = faction.Leader;
             }
-            banditParty.Party.Visuals.SetMapIconAsDirty();
+            party.Party.Visuals.SetMapIconAsDirty();
             if (faction.Leader.HomeSettlement == null)
             {
                 faction.UpdateHomeSettlement(homeSettlement);
             }
-            banditParty.HomeSettlement = homeSettlement;
-            TaleWorldsCode.BanditsCampaignBehaviour.CreatePartyTrade(banditParty);
+            party.ActualClan = faction;
+            party.HomeSettlement = homeSettlement;
+            TaleWorldsCode.BanditsCampaignBehaviour.CreatePartyTrade(party);
             foreach (ItemObject itemObject in ItemObject.All)
             {
                 if (itemObject.IsFood)
                 {
-                    int num = TaleWorldsCode.BanditsCampaignBehaviour.IsLooterFaction(banditParty.MapFaction) ? 8 : 16;
-                    int num2 = MBRandom.RoundRandomized((float)banditParty.MemberRoster.TotalManCount * (1f / (float)itemObject.Value) * (float)num * MBRandom.RandomFloat * MBRandom.RandomFloat * MBRandom.RandomFloat * MBRandom.RandomFloat);
+                    int num = TaleWorldsCode.BanditsCampaignBehaviour.IsLooterFaction(party.MapFaction) ? 8 : 16;
+                    int num2 = MBRandom.RoundRandomized((float)party.MemberRoster.TotalManCount * (1f / (float)itemObject.Value) * (float)num * MBRandom.RandomFloat * MBRandom.RandomFloat * MBRandom.RandomFloat * MBRandom.RandomFloat);
                     if (num2 > 0)
                     {
-                        banditParty.ItemRoster.AddToCounts(itemObject, num2, true);
+                        party.ItemRoster.AddToCounts(itemObject, num2, true);
                     }
                 }
             }
         }
 
-        private static TroopRoster ConstructTroopRoster(PartyTemplateObject pt, int troopNumberLimit = -1) //TODO implement troop number limit.
+        private static TroopRoster ConstructTroopRoster(PartyTemplateObject pt, PartyBase ownerParty, int troopNumberLimit = -1) //TODO implement troop number limit.
         {
-            TroopRoster returned = new TroopRoster();
+            TroopRoster returned = new TroopRoster(ownerParty);
             float gameProcess = MiscHelper.GetGameProcess();
             float num = 0.25f + 0.75f * gameProcess;
             int num2 = MBRandom.RandomInt(2);

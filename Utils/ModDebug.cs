@@ -29,5 +29,5 @@ namespace CustomSpawns
 
     }
 
-    public enum DebugMessageType { Spawn, AI, Prisoner, Diplomacy, DeathTrack}
+    public enum DebugMessageType { Spawn, AI, Prisoner, Diplomacy, DeathTrack, Development}
 }

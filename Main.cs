@@ -10,19 +10,34 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
 using System.Windows.Forms;
 using StoryMode;
+using CustomSpawns.UtilityBehaviours;
+using HarmonyLib;
 
 namespace CustomSpawns
 {
     public class Main : MBSubModuleBase
     {
-        public static readonly string version = "v1.2.7";
+        public static readonly string version = "v1.3.1";
         public static readonly bool isAPIMode = false;
         public static CustomSpawnsCustomSpeedModel customSpeedModel;
 
         private static bool removalMode = false;
 
+        #region Taleworlds Sub Mod Callbacks
+
         protected override void OnSubModuleLoad()
         {
+            try
+            {
+                Harmony harmony = new Harmony("com.Questry.CustomSpawns");
+                harmony.PatchAll();
+            }
+            catch (Exception e)
+            {
+                ErrorHandler.HandleException(e, "HARMONY PATCHES");
+            }
+
+
             Config config = ConfigLoader.Instance.Config;
             ModIntegration.SubModManager.LoadAllValidDependentMods();
             if (config.IsRemovalMode)
@@ -67,6 +82,8 @@ namespace CustomSpawns
             }
         }
 
+        #endregion
+
         private void InitializeGame(Game game, IGameStarter gameStarterObject)
         {
             try
@@ -83,8 +100,6 @@ namespace CustomSpawns
             }
         }
 
-        public static UtilityBehaviours.OnSaveStartRunBehaviour currentOnSaveStartRunBehaviour;
-
         private void ClearLastInstances()
         {
             Data.DiplomacyDataManager.ClearInstance(this);
@@ -96,6 +111,10 @@ namespace CustomSpawns
         {
             if (!removalMode)
             {
+
+                OnSaveStartRunBehaviour.InitializeSingleton(starter);
+                OnSaveStartRunBehaviour.Singleton.RegisterFunctionToRunOnSaveStart(OnSaveStart);
+
                 starter.AddBehavior(new Spawn.SpawnBehaviour(Data.SpawnDataManager.Instance));
                 starter.AddBehavior(new AI.HourlyPatrolAroundSpawnBehaviour());
                 starter.AddBehavior(new AI.AttackClosestIfIdleForADayBehaviour());
@@ -103,9 +122,11 @@ namespace CustomSpawns
                 starter.AddBehavior(new Diplomacy.ForcedWarPeaceBehaviour());
                 starter.AddBehavior(new Diplomacy.ForceNoKingdomBehaviour());
                 starter.AddBehavior(new PrisonerRecruitment.PrisonerRecruitmentBehaviour());
-                currentOnSaveStartRunBehaviour = new UtilityBehaviours.OnSaveStartRunBehaviour();
-                starter.AddBehavior(currentOnSaveStartRunBehaviour);
-                currentOnSaveStartRunBehaviour.RegisterFunctionToRun(OnSaveStart);
+
+
+
+
+                starter.AddBehavior(CampaignData.DevestationMetricData.Singleton);
             }
             else
             {
