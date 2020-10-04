@@ -116,7 +116,7 @@ namespace CustomSpawns.Spawn
                 if (invalid && ConfigLoader.Instance.Config.IsDebugMode)
                 {
                     ErrorHandler.ShowPureErrorMessage("Custom Spawns AI XML registration error has occured. The party being registered was: " + mb.StringId +
-                        "\n Here is more info about the behaviours being registered: \n" + aiRegistrations.ToString());
+                        "\n Here is more info about the behaviours being registered: \n" + String.Join("\n", aiRegistrations.Keys));
                 }
             }
             catch (Exception e)
