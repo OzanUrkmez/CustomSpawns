@@ -13,6 +13,8 @@ namespace CustomSpawns.CampaignData
 
         private Dictionary<Settlement, float> settlementToDevestation = new Dictionary<Settlement, float>();
 
+        private DevestationMetricConfig campaignConfig;
+
         #region Singleton and Initialization
 
         private static DevestationMetricData _singleton;
@@ -39,7 +41,7 @@ namespace CustomSpawns.CampaignData
         {
 
             OnSaveStartRunBehaviour.Singleton.RegisterFunctionToRunOnSaveStart(OnGameInitialization);
-
+            campaignConfig = CampaignDataConfigLoader.Instance.GetConfig<DevestationMetricConfig>();
         }
 
         #endregion

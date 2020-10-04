@@ -252,9 +252,10 @@
     <Compile Include="AI\HourlyPatrolAroundSpawnBehaviour.cs" />
     <Compile Include="AI\IAIBehaviour.cs" />
     <Compile Include="AI\PatrolAroundClosestLestInterruptedAndSwitchBehaviour.cs" />
-    <Compile Include="CampaignData\CampaignDataConfigLoader.cs" />
+    <Compile Include="CampaignData\Config\CampaignDataConfigLoader.cs" />
+    <Compile Include="CampaignData\Config\DevestationMetricConfig.cs" />
     <Compile Include="CampaignData\DevestationMetricData.cs" />
-    <Compile Include="CampaignData\ICampaignDataConfig.cs" />
+    <Compile Include="CampaignData\Config\ICampaignDataConfig.cs" />
     <Compile Include="CustomSpawnsCustomSpeedModel.cs" />
     <Compile Include="Config\Config.cs" />
     <Compile Include="Config\ConfigLoader.cs" />
