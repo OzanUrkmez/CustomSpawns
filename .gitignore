@@ -6,3 +6,5 @@ obj/Debug/CustomSpawns.dll
 obj/Debug/CustomSpawns.pdb
 obj/Debug/CustomSpawns.dll
 obj/Debug/CustomSpawns.pdb
+.idea
+*.user
