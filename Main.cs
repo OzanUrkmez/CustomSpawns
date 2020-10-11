@@ -125,8 +125,11 @@ namespace CustomSpawns
 
 
 
-
+                //campaign behaviours
                 starter.AddBehavior(CampaignData.DevestationMetricData.Singleton);
+
+                //these come last! assuming those that are added last are also run last.
+                starter.AddBehavior(MobilePartyTrackingBehaviour.Singleton);
             }
             else
             {
