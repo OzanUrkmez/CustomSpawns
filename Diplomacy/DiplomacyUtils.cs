@@ -34,7 +34,7 @@ namespace CustomSpawns.Diplomacy
         {
             return new string[]
             {
-                "test_clan"
+                "test_clan", "neutral"
             };
         }
     }
