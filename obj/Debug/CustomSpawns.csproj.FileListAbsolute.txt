@@ -9,3 +9,10 @@ C:\Users\arkan\source\repos\CustomSpawns\CustomSpawns\obj\Debug\CustomSpawns.pdb
 D:\SteamLibrary\steamapps\common\Mount & Blade II Bannerlord\Modules\CustomSpawnsCleanAPI\bin\Win64_Shipping_Client\CustomSpawns.dll
 D:\SteamLibrary\steamapps\common\Mount & Blade II Bannerlord\Modules\CustomSpawnsCleanAPI\bin\Win64_Shipping_Client\CustomSpawns.pdb
 C:\Users\arkan\source\repos\CustomSpawns\CustomSpawns\obj\Debug\CustomSpawns.csproj.CopyComplete
+C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\CustomSpawns\bin\Win64_Shipping_Client\CustomSpawns.dll
+C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\CustomSpawns\bin\Win64_Shipping_Client\CustomSpawns.pdb
+C:\Users\matte\OneDrive\Desktop\Bannerlord Mod\CustomSpawns\obj\Debug\CustomSpawns.csprojAssemblyReference.cache
+C:\Users\matte\OneDrive\Desktop\Bannerlord Mod\CustomSpawns\obj\Debug\CustomSpawns.csproj.CoreCompileInputs.cache
+C:\Users\matte\OneDrive\Desktop\Bannerlord Mod\CustomSpawns\obj\Debug\CustomSpawns.csproj.CopyComplete
+C:\Users\matte\OneDrive\Desktop\Bannerlord Mod\CustomSpawns\obj\Debug\CustomSpawns.dll
+C:\Users\matte\OneDrive\Desktop\Bannerlord Mod\CustomSpawns\obj\Debug\CustomSpawns.pdb

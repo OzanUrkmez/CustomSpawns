@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CustomSpawns.MCMv3;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 using TaleWorlds.Engine;
@@ -187,7 +188,7 @@ namespace CustomSpawns.Spawn
                                 if (data.spawnMessage != null)
                                 {
                                     UX.ShowParseSpawnMessage(data.spawnMessage, spawnSettlement.Name.ToString());
-                                    if (data.SoundEvent != null && !isSpawnSoundPlaying)
+                                    if (data.SoundEvent != null && !isSpawnSoundPlaying && CsSettings.SpawnSoundEnabled)
                                     {
                                         SoundEvent.PlaySound2D(data.SoundEvent);
                                         isSpawnSoundPlaying = true;

@@ -9,6 +9,7 @@ using TaleWorlds.MountAndBlade;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
 using System.Windows.Forms;
+using CustomSpawns.MCMv3;
 using StoryMode;
 using CustomSpawns.UtilityBehaviours;
 using HarmonyLib;
@@ -80,6 +81,7 @@ namespace CustomSpawns
             {
                 UX.ShowMessage( subMod.SubModuleName + " is now integrated into the CustomSpawns API.", Color.ConvertStringToColor("#001FFFFF"));
             }
+            CsSettings.GetInstance();
         }
 
         #endregion
