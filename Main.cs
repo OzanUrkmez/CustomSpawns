@@ -18,7 +18,7 @@ namespace CustomSpawns
     public class Main : MBSubModuleBase
     {
         public static readonly string version = "v1.3.3";
-        public static readonly bool isAPIMode = false;
+        public static readonly bool isAPIMode = true;
         public static CustomSpawnsCustomSpeedModel customSpeedModel;
 
         private static bool removalMode = false;
@@ -119,6 +119,7 @@ namespace CustomSpawns
                 starter.AddBehavior(new AI.HourlyPatrolAroundSpawnBehaviour());
                 starter.AddBehavior(new AI.AttackClosestIfIdleForADayBehaviour());
                 starter.AddBehavior(new AI.PatrolAroundClosestLestInterruptedAndSwitchBehaviour());
+                starter.AddBehavior(new AI.HourlyGoToRandSettlementBehavior());
                 starter.AddBehavior(new Diplomacy.ForcedWarPeaceBehaviour());
                 starter.AddBehavior(new Diplomacy.ForceNoKingdomBehaviour());
                 starter.AddBehavior(new PrisonerRecruitment.PrisonerRecruitmentBehaviour());
@@ -129,7 +130,7 @@ namespace CustomSpawns
                 starter.AddBehavior(CampaignData.DevestationMetricData.Singleton);
 
                 //these come last! assuming those that are added last are also run last.
-                starter.AddBehavior(MobilePartyTrackingBehaviour.Singleton);
+                // starter.AddBehavior(MobilePartyTrackingBehaviour.Singleton); had to comment this out because it was causing problems. unfinished?
             }
             else
             {

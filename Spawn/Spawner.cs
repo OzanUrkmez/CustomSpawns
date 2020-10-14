@@ -113,6 +113,17 @@ namespace CustomSpawns.Spawn
                     aiRegistrations.Add("Patrol Around Closest Lest Interrupted And Switch Behaviour: ", success);
                     invalid = invalid ? true : !success;
                 }
+                if (data.RandSettlementBehaviorData.isValidData)
+                {
+                    bool success = AI.AIManager.HourlyGoToRandSettlementBehavior.RegisterParty(mb,
+                        new AI.HourlyGoToRandSettlementBehavior.RandSettlementBehaviorData(mb, data.RandSettlementBehaviorData));
+                    aiRegistrations.Add("Go to random settlement behavior: ", success);
+                    invalid = invalid ? true : !success;
+                }
+                if (data.PartyIsUnaggressive)
+                {
+                    mb.Aggressiveness = 0f;
+                }
                 if (invalid && ConfigLoader.Instance.Config.IsDebugMode)
                 {
                     ErrorHandler.ShowPureErrorMessage("Custom Spawns AI XML registration error has occured. The party being registered was: " + mb.StringId +

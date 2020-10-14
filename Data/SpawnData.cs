@@ -158,7 +158,7 @@ namespace CustomSpawns.Data
                         throw new Exception("the node 'MaximumOnMap' cannot be less than 1!");
                     }
 
-                    dat.PartyType = node["PartyType"] == null ? MobileParty.PartyTypeEnum.Bandit : StringToPartyTypeEnumIfInvalidBandit(node["PartyType"].InnerText);
+                    dat.PartyType = node["PartyType"] == null ? MobileParty.PartyTypeEnum.Default : StringToPartyTypeEnumIfInvalidBandit(node["PartyType"].InnerText);
                     dat.ChanceOfSpawn = node["ChanceOfSpawn"] == null? 1 : float.Parse(node["ChanceOfSpawn"].InnerText);
                     dat.Name = node["Name"] == null ? "Unnamed" : node["Name"].InnerText;
                     dat.ChanceInverseConstant = node["ChanceInverseConstant"] == null? 0 : float.Parse(node["ChanceInverseConstant"].InnerText);
@@ -168,6 +168,8 @@ namespace CustomSpawns.Data
                     dat.MinimumNumberOfDaysUntilSpawn = node["MinimumNumberOfDaysUntilSpawn"] == null ? -1 : int.Parse(node["MinimumNumberOfDaysUntilSpawn"].InnerText);
 
                     dat.AttackClosestIfIdleForADay = node["AttackClosestIfIdleForADay"] == null ? true : bool.Parse(node["AttackClosestIfIdleForADay"].InnerText);
+
+                    dat.PartyIsUnaggressive = node["PartyIsUnaggressive"] == null ? false : bool.Parse(node["PartyIsUnaggressive"].InnerText);
 
                     //try spawn at list creation
                     if (node["TrySpawnAt"] != null && node["TrySpawnAt"].InnerText != "")
@@ -266,6 +268,37 @@ namespace CustomSpawns.Data
                             new AI.PatrolAroundClosestLestInterruptedAndSwitchBehaviour.PatrolAroundClosestLestInterruptedAndSwitchBehaviourData(null, minDays, maxDays, TryPatrolAround);
                     }
 
+                    // go to random settlement of culture
+                    if (node["GoToRandomSettlement"] != null)
+                    {
+                        bool val = false;
+                        if (!bool.TryParse(node["GoToRandomSettlement"].InnerText, out val))
+                        {
+                            break;
+                        }
+                        if (!val)
+                            break;
+                        XmlNode innerNode = node["GoToRandomSettlement"];
+                        List<CultureCode> cultures = new List<CultureCode>();
+                        List<SpawnSettlementType> preferredTypes = new List<SpawnSettlementType>();
+                        try
+                        {
+                            if (innerNode.Attributes["culture_0"] != null && innerNode.Attributes["culture_0"].InnerText != "")
+                            {
+                                cultures = ConstructInteriorCultureList(innerNode);
+                            }
+                            if (innerNode.Attributes["preferred_settlement_types"] != null && innerNode.Attributes["preferred_settlement_types"].InnerText != "")
+                            {
+                                preferredTypes = ConstructTrySettlementList(innerNode.Attributes["preferred_settlement_types"].InnerText);
+                            }
+                        }
+                        catch
+                        {
+                            throw new Exception("Not all attributes of GoToRandomSettlement AI behavior are filled in correctly!");
+                        }
+                        dat.RandSettlementBehaviorData = new AI.HourlyGoToRandSettlementBehavior.RandSettlementBehaviorData(null, cultures, preferredTypes);
+                    }
+
                     //min max party speed modifiers
                     float minSpeed = float.MinValue;
                     if (node["MinimumFinalSpeed"] != null)
@@ -344,6 +377,28 @@ namespace CustomSpawns.Data
             }
         }
 
+        public static List<CultureCode> ConstructInteriorCultureList(XmlNode node)
+        {
+
+            List<CultureCode> returnList = new List<CultureCode>();
+            int i = 0;
+            string st = "culture";
+            while (true)
+            {
+                string s1 = st + "_" + i.ToString();
+                if (node.Attributes[s1] == null || node.Attributes[s1].InnerText == "")
+                {
+                    break;
+                }
+                else
+                {
+                    returnList.Add(((CultureObject)MBObjectManager.Instance.ReadObjectReferenceFromXml(s1, typeof(CultureObject), node)).GetCultureCode());
+                }
+                i++;
+            }
+            return returnList;
+        }
+
         public static List<SpawnSettlementType> ConstructTrySettlementList(string input)
         {
             string[] trySpawnAtArray = input.Split('|');
@@ -380,7 +435,9 @@ namespace CustomSpawns.Data
         private float chanceOfSpawn;
         public int MinimumNumberOfDaysUntilSpawn { get; set; }
         public bool AttackClosestIfIdleForADay { get; set; }
+        public bool PartyIsUnaggressive { get; set; }
         public AI.PatrolAroundClosestLestInterruptedAndSwitchBehaviour.PatrolAroundClosestLestInterruptedAndSwitchBehaviourData PatrolAroundClosestLestInterruptedAndSwitch { get; set; }
+        public AI.HourlyGoToRandSettlementBehavior.RandSettlementBehaviorData RandSettlementBehaviorData { get; set; }
         public float ChanceOfSpawn
         {
             get
