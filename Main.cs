@@ -39,9 +39,8 @@ namespace CustomSpawns
             }
 
 
-            Config config = ConfigLoader.Instance.Config;
             ModIntegration.SubModManager.LoadAllValidDependentMods();
-            if (config.IsRemovalMode)
+            if (CsSettings.IsRemovalMode)
             {
                 removalMode = true;
                 return;
@@ -93,7 +92,7 @@ namespace CustomSpawns
                 ClearLastInstances();
                 AddBehaviours(gameStarterObject as CampaignGameStarter);
                 //do overrides
-                if (ConfigLoader.Instance.Config.ModifyPartySpeeds && !removalMode)
+                if (CsSettings.ModifyPartySpeeds && !removalMode)
                     gameStarterObject.AddModel(customSpeedModel);
             }
             catch (Exception e)

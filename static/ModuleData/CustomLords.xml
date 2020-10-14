@@ -1,0 +1,677 @@
+<NPCCharacters>
+  <!-- Desert Cult -->
+  <NPCCharacter id="cs_lord_desert_cult_1" default_group="Cavalry" age="28" voice="earnest" is_hero="true" battleTemplate="NPCCharacter.ase_bat_template_medium" civilianTemplate="NPCCharacter.ase_civ_template_default" culture="Culture.aserai" occupation="Lord" name="{=3Y4jnu5i}Vlyna">
+    <face>
+      <BodyProperties version="4" key="001CF00CC07C22447C7B80B46C63852C59A789A794986646595C3172725361A5000438840488A9880000387A00000AEB00000033000000000000000000509000" />
+    </face>
+    <skills></skills>
+    <Traits>
+      <Trait id="BalancedFightingSkills" value="5" />
+      <Trait id="Commander" value="9" />
+      <Trait id="Politician" value="9" />
+      <Trait id="Manager" value="10" />
+      <Trait id="Calculating" value="1" />
+      <Trait id="Valor" value="1" />
+      <Trait id="Honor" value="-1" />
+      <Trait id="Generosity" value="1" />
+    </Traits>
+  </NPCCharacter>
+  <NPCCharacter id="cs_lord_desert_cult_2" default_group="Cavalry" age="35" voice="softspoken" is_hero="true" battleTemplate="NPCCharacter.ase_bat_template_medium" civilianTemplate="NPCCharacter.ase_civ_template_default" culture="Culture.aserai" occupation="Lord" name="{=3Y4jnu5i}Kruma">
+    <face>
+      <BodyProperties version="4" key="001C900FC0FC180886899931423946DB88E588765AA3947958825CAD467C7D4701E006890E57A12A000000000000000000000000000000000000000000843044" />
+    </face>
+    <skills></skills>
+    <Traits>
+      <Trait id="BalancedFightingSkills" value="5" />
+      <Trait id="Commander" value="6" />
+      <Trait id="Politician" value="6" />
+      <Trait id="Manager" value="6" />
+      <Trait id="Valor" value="1" />
+      <Trait id="Honor" value="-1" />
+    </Traits>
+  </NPCCharacter>
+  <NPCCharacter id="cs_lord_desert_cult_3" default_group="Cavalry" age="41" voice="earnest" is_hero="true" battleTemplate="NPCCharacter.ase_bat_template_medium" civilianTemplate="NPCCharacter.ase_civ_template_default" culture="Culture.aserai" occupation="Lord" name="{=3Y4jnu5i}Ragnaros">
+    <face>
+      <BodyProperties version="4" key="001CA00CC07C2006877B80B46C63852C588D8B373A9A4D765978CD7569967BA401E008840E4D343A0000387A00000AEB00000033000000000000000000488000" />
+    </face>
+    <skills></skills>
+    <Traits>
+      <Trait id="BalancedFightingSkills" value="5" />
+      <Trait id="Commander" value="5" />
+      <Trait id="Politician" value="6" />
+      <Trait id="Manager" value="4" />
+      <Trait id="Valor" value="1" />
+      <Trait id="Honor" value="-1" />
+      <Trait id="Generosity" value="1" />
+    </Traits>
+  </NPCCharacter>
+
+  <!-- Redemptive Order -->
+  <NPCCharacter id="cs_lord_redemptive_order_1" name="{=acp2IcMs}Ryagos" default_group="HorseArcher" age="51" voice="earnest" battleTemplate="NPCCharacter.emp_bat_template_stoic" civilianTemplate="NPCCharacter.emp_civ_template_stoic" is_hero="true" culture="Culture.empire" occupation="Lord">
+    <face>
+      <BodyProperties version="4" key="000BD0058000100D785AA72917C606A54D469CDC9A3683A59A15AF927269E22C00070478065D7806000000000000000000000000000000000000000000001184" />
+    </face>
+    <skills></skills>
+    <Traits>
+      <Trait id="HorseArcherFightingSkills" value="8" />
+      <Trait id="BalancedFightingSkills" value="5" />
+      <Trait id="Commander" value="8" />
+      <Trait id="Politician" value="5" />
+      <Trait id="Manager" value="8" />
+      <Trait id="Valor" value="2" />
+      <Trait id="Honor" value="3" />
+    </Traits>
+    <equipmentSet></equipmentSet>
+  </NPCCharacter>
+  <NPCCharacter id="cs_lord_redemptive_order_2" name="{=7ayj6WAw}Ashlay" age="30" voice="curt" default_group="Cavalry" is_hero="true" is_female="true" battleTemplate="NPCCharacter.emp_bat_template_lady" civilianTemplate="NPCCharacter.emp_noncom_template_stoic" culture="Culture.empire" occupation="Lord">
+    <face>
+      <BodyProperties version="4" key="00002C0B40FC0403F498A8D188A5E77F56F0735F70008EFF42E67468A4378677000550060C589593000000000000000000000000000000000000000000780100" />
+    </face>
+    <skills></skills>
+    <Traits>
+      <Trait id="BalancedFightingSkills" value="9" />
+      <Trait id="Commander" value="3" />
+      <Trait id="Politician" value="5" />
+      <Trait id="Manager" value="4" />
+      <Trait id="Valor" value="2" />
+      <Trait id="Honor" value="1" />
+    </Traits>
+  </NPCCharacter>
+  <NPCCharacter id="cs_lord_redemptive_order_3" default_group="Cavalry" age="40" voice="earnest" battleTemplate="NPCCharacter.emp_bat_template_stoic" civilianTemplate="NPCCharacter.emp_civ_template_stoic" is_hero="true" is_female="true" culture="Culture.empire" occupation="Lord" name="{=dwFZFQ6V}Lamos">
+    <face>
+      <BodyProperties version="4" key="000CA00E40BC2005478D688968868296A6779BB376D6A724D866C7B9A9A97B7D0007077C0D629B660000000000000FFE00000000000000000000000000001080" />
+    </face>
+    <skills></skills>
+    <Traits>
+      <Trait id="HorseArcherFightingSkills" value="2" />
+      <Trait id="BalancedFightingSkills" value="3" />
+      <Trait id="Commander" value="8" />
+      <Trait id="Politician" value="10" />
+      <Trait id="Manager" value="6" />
+      <Trait id="Valor" value="2" />
+      <Trait id="Honor" value="1" />
+    </Traits>
+    <equipmentSet></equipmentSet>
+  </NPCCharacter>
+
+<!-- Harbingers of Wrath -->
+  <NPCCharacter id="cs_lord_harbingers_of_wrath_1" name="{=vEsKYrFR}Lucus" age="35" voice="ironic" default_group="Infantry" is_hero="true" battleTemplate="NPCCharacter.vla_bat_template_medium" civilianTemplate="NPCCharacter.vla_civ_template_default" culture="Culture.vlandia" occupation="Lord">
+    <face>
+      <BodyProperties version="4" weight="0.8019" build="0.6096"  key="00040804C000100225623C58425470B50956873973717A626A844C28812366410479C04607757DB2000000000000000000000000000000000000000046F82043"  />
+    </face>
+    <skills></skills>
+    <Traits>
+      <Trait id="BalancedFightingSkills" value="9" />
+      <Trait id="Commander" value="7" />
+      <Trait id="Politician" value="7" />
+      <Trait id="Manager" value="6" />
+      <Trait id="Valor" value="4" />
+      <Trait id="Honor" value="-3" />
+      <Trait id="Mercy" value="-3" />
+    </Traits>
+    <equipmentSet></equipmentSet>
+  </NPCCharacter>
+  <NPCCharacter id="cs_lord_harbingers_of_wrath_2" name="{=KsBoNHW5}Cathreyn" age="25" voice="ironic" default_group="Cavalry" is_hero="true" is_female="true" battleTemplate="NPCCharacter.vla_bat_template_lady" civilianTemplate="NPCCharacter.vla_civ_template_default" culture="Culture.vlandia" occupation="Lord">
+    <face>
+      <BodyProperties version="4" weight="0.3517" build="0.5988"  key="0004640700CC000A937028572492B2C7877F875AA7536C989859FD27797983B304995646096E3949000000000000000000000000000000000000000071243043"  />
+    </face>
+    <Traits>
+      <Trait id="BalancedFightingSkills" value="6" />
+      <Trait id="Commander" value="6" />
+      <Trait id="Politician" value="5" />
+      <Trait id="Manager" value="2" />
+      <Trait id="Valor" value="5" />
+      <Trait id="Honor" value="-3" />
+      <Trait id="Mercy" value="-3" />
+    </Traits>
+  </NPCCharacter>
+
+<!-- Manhunters -->
+  <NPCCharacter id="cs_lord_manhunters_1" name="{=48bvCvb2}Vrumann" age="62" voice="curt" battleTemplate="NPCCharacter.emp_bat_template_stoic" civilianTemplate="NPCCharacter.emp_civ_template_stoic" default_group="Cavalry" is_hero="true" culture="Culture.empire" occupation="Lord">
+    <face>
+      <BodyProperties version="4" key="0016CC0CC000034D640B69B8656667865969A5977D6878675667688679664368000000080769896600001105000030A30000001F000000000000000000A40000" />
+      <hair_tags>
+        <hair_tag name="Short" />
+      </hair_tags>
+      <beard_tags>
+        <beard_tag name="LightShortBeard" />
+      </beard_tags>
+    </face>
+    <Traits>
+      <Trait id="KnightFightingSkills" value="5" />
+      <Trait id="Commander" value="6" />
+      <Trait id="Politician" value="4" />
+      <Trait id="Manager" value="6" />
+      <Trait id="Generosity" value="1" />
+      <Trait id="Honor" value="1" />
+      <Trait id="Authoritarian" value="1" />
+    </Traits>
+    <equipmentSet></equipmentSet>
+    <equipmentSet civilian="true"></equipmentSet>
+  </NPCCharacter>
+
+ <!-- Southern Enslavers -->
+  <NPCCharacter id="cs_lord_southern_enslavers_1" name="{=saaeExBg}Razes" age="24" voice="ironic" default_group="Infantry" is_hero="true" battleTemplate="NPCCharacter.ase_bat_template_medium" civilianTemplate="NPCCharacter.ase_civ_template_default" culture="Culture.aserai" occupation="Lord">
+    <face>
+      <BodyProperties version="4" weight="0.5959" build="0.39"  key="002DD008800017569A8325164C717EB41DB68247C1766706898A77398C1C655704469045046695710000000000000000000000000000000000000000308850C5"  />
+    </face>
+    <skills></skills>
+    <Traits>
+      <Trait id="BalancedFightingSkills" value="8" />
+      <Trait id="Commander" value="4" />
+      <Trait id="Politician" value="7" />
+      <Trait id="Manager" value="6" />
+      <Trait id="Valor" value="2" />
+      <Trait id="Honor" value="-1" />
+      <Trait id="Calculating" value="1" />
+    </Traits>
+    <equipmentSet></equipmentSet>
+  </NPCCharacter>
+
+  <!-- Northern Liberators -->
+  <NPCCharacter id="cs_lord_northern_liberators_1" name="{=KBq7aQRa}Björn" default_group="Cavalry" age="25" voice="ironic" is_hero="true" battleTemplate="NPCCharacter.stu_bat_template_medium" civilianTemplate="NPCCharacter.stu_civ_template_default" culture="Culture.sturgia" occupation="Lord">
+    <face>
+     <BodyProperties version="4" weight="0.7176" build="0.8336"  key="0000180200001344B77048192583DDE37888747472408A5897A86A068116060506EDB0670E7AC393000000000000000000000000000000000000000053E01102"  />
+    </face>
+    <skills></skills>
+    <Traits>
+      <Trait id="PeltastFightingSkills" value="5" />
+      <Trait id="BalancedFightingSkills" value="8" />
+      <Trait id="Commander" value="4" />
+      <Trait id="Politician" value="6" />
+      <Trait id="Manager" value="8" />
+      <Trait id="Valor" value="1" />
+      <Trait id="Generosity" value="1" />
+      <Trait id="Calculating" value="1" />
+    </Traits>
+    <equipmentSet></equipmentSet>
+  </NPCCharacter>
+
+  <!-- Peasant Revolters -->
+  <NPCCharacter id="cs_lord_peasant_revolutionaries_1" name="{=voimockT}Karlinn" age="34" voice="earnest" civilianTemplate="NPCCharacter.vla_civ_template_default" culture="Culture.vlandia" is_hero="true" default_group="Infantry" occupation="Lord">
+    <face>
+      <BodyProperties version="4" weight="0.6517" build="0.5949"  key="000B60014000234665734C57613665A5354588837351AC1455E8373672131432037980350768BB63000000000000000000000000000000000000000026E01082"  />
+    </face>
+    <Traits>
+      <Trait id="BalancedFightingSkills" value="8" />
+      <Trait id="Commander" value="7" />
+      <Trait id="Politician" value="10" />
+      <Trait id="Manager" value="9" />
+      <Trait id="Valor" value="1" />
+      <Trait id="Generosity" value="1" />
+      <Trait id="Calculating" value="-1" />
+    </Traits>
+    <equipmentSet>
+      <equipment slot="Item0" id="Item.western_spear_3_t3" />
+      <equipment slot="Item1" id="Item.jousting_shield" />
+      <equipment slot="Item2" id="Item.star_falchion_sword_t3" />
+      <equipment slot="Body" id="Item.imperial_mail_over_leather" />
+      <equipment slot="Leg" id="Item.ragged_boots" />
+      <equipment slot="Head" id="Item.cervelliere_over_padded_cap" />
+      <equipment slot="Gloves" id="Item.guarded_armwraps" />
+      <equipment slot="Cape" id="Item.hood" />
+    </equipmentSet>
+  </NPCCharacter>
+
+  <NPCCharacter id="cs_lord_peasant_absolutists_1" name="{=4MwHbMFs}Hiltminn" age="38" voice="curt" default_group="Infantry" is_hero="true" civilianTemplate="NPCCharacter.bat_civ_template_default" culture="Culture.battania" occupation="Lord">
+    <face>
+      	<BodyProperties version="4" age="38" weight="0.5" build="0.8"  key="00005C07150024CAB77216196072AAE6728B78827641ED973887AC168234162501F770140F99E955000000000000000000000000000000000000000005F05082"  />
+    </face>
+    <skills></skills>
+    <Traits>
+      <Trait id="BalancedFightingSkills" value="8" />
+      <Trait id="Commander" value="7" />
+      <Trait id="Politician" value="10" />
+      <Trait id="Manager" value="9" />
+      <Trait id="Honor" value="1" />
+      <Trait id="Generosity" value="-1" />
+    </Traits>
+    <equipmentSet>
+      <equipment slot="Item0" id="Item.sturgia_axe_5_t5" />
+      <equipment slot="Item1" id="Item.leather_round_shield" />
+      <equipment slot="Item2" id="Item.generic_javelin_1_t3" />
+      <equipment slot="Body" id="Item.rough_fur_armor" />
+      <equipment slot="Leg" id="Item.battania_fur_boots" />
+    </equipmentSet>
+  </NPCCharacter>
+
+  <NPCCharacter id="cs_lord_peasant_revolters_1" default_group="Cavalry" age="35" voice="curt" is_hero="true" culture="Culture.khuzait" occupation="Lord" name="{=EHHVVfgW}Chungis">
+    <face>
+		<BodyProperties version="4" age="35" weight="0.8" build="0.5"  key="0016F80E5C000891888EA81FFEED47BAD0697E0ABDCE8942D22D40B5680988F801A776140A96C5FB0000000000000000000000000000000000000000254C30C5"  />
+    </face>
+    <skills></skills>
+    <Traits>
+      <Trait id="BalancedFightingSkills" value="5" />
+      <Trait id="Commander" value="9" />
+      <Trait id="Politician" value="6" />
+      <Trait id="Manager" value="3" />
+      <Trait id="Valor" value="-1" />
+      <Trait id="Honor" value="-1" />
+      <Trait id="Generosity" value="-1" />
+    </Traits>
+    <equipmentSet civilian="true">
+      <equipment slot="Item0" id="Item.morningstar_mace_t3" />
+      <equipment slot="Body" id="Item.desert_lamellar" />
+      <equipment slot="Gloves" id="Item.eastern_plated_leather_vambraces" />
+      <equipment slot="Cape" id="Item.wolf_shoulder" />
+      <equipment slot="Leg" id="Item.plated_strip_boots" />
+    </equipmentSet>
+    <equipmentSet>
+      <equipment slot="Item0" id="Item.khuzait_lance_2_t4" />
+      <equipment slot="Item1" id="Item.noyans_shield" />
+      <equipment slot="Item2" id="Item.morningstar_mace_t3" />
+      <equipment slot="Body" id="Item.desert_lamellar" />
+      <equipment slot="Gloves" id="Item.eastern_plated_leather_vambraces" />
+      <equipment slot="Head" id="Item.feathered_spangenhelm_over_imperial_coif" />
+      <equipment slot="Cape" id="Item.wolf_shoulder" />
+      <equipment slot="Leg" id="Item.plated_strip_boots" />
+      <equipment slot="Horse" id="Item.storm_charger" />
+      <equipment slot="HorseHarness" id="Item.steppe_half_barding" />
+    </equipmentSet>
+  </NPCCharacter>
+
+  <!-- Barbarians -->
+  
+  <NPCCharacter id="cs_lord_barbarians_1" name="{=hy7mIh48}Bubla" age="45" voice="earnest" default_group="Infantry" is_hero="true" civilianTemplate="NPCCharacter.stu_civ_template_default" culture="Culture.sturgia" occupation="Lord">
+    <face>
+      <BodyProperties version="4" weight="0.7276" build="0.7776"  key="00002C00000013C1A47148063594C9A658577825B120FD37967899398D130615048CB046087C5E910000000000000000000000000000000000000000111030C5"  />
+    </face>
+    <skills></skills>
+    <Traits>
+      <Trait id="BalancedFightingSkills" value="7" />
+      <Trait id="Commander" value="5" />
+      <Trait id="Politician" value="3" />
+      <Trait id="Manager" value="6" />
+      <Trait id="Valor" value="1" />
+      <Trait id="Generosity" value="1" />
+    </Traits>
+    <equipmentSet>
+      <equipment slot="Item0" id="Item.execution_axe" />
+      <equipment slot="Body" id="Item.battania_mercenary_armor" />
+      <equipment slot="Leg" id="Item.strapped_mail_chausses" />
+      <equipment slot="Cape" id="Item.rough_bearskin" />
+    </equipmentSet>
+  </NPCCharacter>
+  <NPCCharacter id="cs_lord_barbarians_2" name="{=ZkaaXxeB}Rogo" voice="earnest" age="32" default_group="Infantry" is_hero="true" civilianTemplate="NPCCharacter.stu_civ_template_default" culture="Culture.sturgia" occupation="Lord">
+    <face>
+      <BodyProperties version="4" weight="0.8956" build="0.7734"  key="0000040140000344757114192672EBD26C957321B480E14675AC892680041406028CD0240856DAA10000000000000000000000000000000000000000390840C4"  />
+    </face>
+    <skills></skills>
+    <Traits>
+      <Trait id="BalancedFightingSkills" value="8" />
+      <Trait id="Commander" value="8" />
+      <Trait id="Politician" value="1" />
+      <Trait id="Manager" value="3" />
+      <Trait id="Valor" value="1" />
+      <Trait id="Mercy" value="-1" />
+      <Trait id="Calculating" value="-1" />
+    </Traits>
+    <equipmentSet>
+      <equipment slot="Item0" id="Item.execution_axe" />
+      <equipment slot="Body" id="Item.battania_mercenary_armor" />
+      <equipment slot="Leg" id="Item.strapped_mail_chausses" />
+      <equipment slot="Cape" id="Item.battania_civil_cape" />
+    </equipmentSet>
+  </NPCCharacter>
+  <NPCCharacter id="cs_lord_barbarians_3" name="{=6WWJpv88}Ama" age="61" voice="softspoken" default_group="Infantry" is_hero="true" is_female="true" civilianTemplate="NPCCharacter.stu_civ_template_default" culture="Culture.sturgia" occupation="Lord">
+    <face>
+  <BodyProperties version="4" age="61" key="000500000FFC200F17C47044B4A7D66966AB0362409096127C956ADAB8DBB85A874786140D9D65590001D7770BEB8A7500000000000000000000000031B41083"  />
+    </face>
+    <skills>
+    </skills>
+    <Traits>
+      <Trait id="Politician" value="5" />
+      <Trait id="Manager" value="6" />
+      <Trait id="Honor" value="1" />
+      <Trait id="Generosity" value="1" />
+      <Trait id="Calculating" value="1" />
+    </Traits>
+    <equipmentSet>
+      <equipment slot="Item0" id="Item.execution_axe" />
+      <equipment slot="Body" id="Item.battania_mercenary_armor" />
+      <equipment slot="Leg" id="Item.strapped_mail_chausses" />
+      <equipment slot="Cape" id="Item.rough_bearskin" />
+    </equipmentSet>
+  </NPCCharacter>
+
+  <!-- Order of the Phoenix -->
+  <NPCCharacter id="cs_lord_ko_phoenix_1" name="{=abCBBVaU}Bertholdt" age="43" voice="earnest" default_group="Cavalry" is_hero="true" battleTemplate="NPCCharacter.vla_bat_template_medium" civilianTemplate="NPCCharacter.vla_civ_template_default" culture="Culture.vlandia" occupation="Lord">
+    <face>
+      <BodyProperties version="4" weight="0.6404" build="0.6682"  key="0005B008800039CD48802D04476A22F69E19714BC2BB1B05FF6F00777B853103027AA0240759705000000000000000000000000000000000000000007CE82001"  />
+    </face>
+    <skills></skills>
+    <Traits>
+      <Trait id="KnightFightingSkills" value="10" />
+      <Trait id="Commander" value="7" />
+      <Trait id="Politician" value="2" />
+      <Trait id="Manager" value="5" />
+      <Trait id="Valor" value="2" />
+      <Trait id="Honor" value="5" />
+    </Traits>
+    <equipmentSet></equipmentSet>
+  </NPCCharacter>
+
+  <!-- Makko -->
+  <NPCCharacter id="cs_lord_makko_1" name="{=2OqAomZy}Momumbus" age="38" voice="curt" default_group="Cavalry" is_hero="true" battleTemplate="NPCCharacter.khu_bat_template_heavy" civilianTemplate="NPCCharacter.khu_civ_template_default" culture="Culture.khuzait" occupation="Lord">
+    <face>
+      <BodyProperties version="4" weight="0.9087" build="0.8402"  key="0013F40CC0001550857042184BB725983516771EC6CE3A17798D571388226925068DE067084577C700000000000000000000000000000000000000004F0040C1"  />
+    </face>
+    <skills></skills>
+    <Traits>
+      <Trait id="BalancedFightingSkills" value="8" />
+      <Trait id="Commander" value="9" />
+      <Trait id="Politician" value="5" />
+      <Trait id="Manager" value="8" />
+      <Trait id="Mercy" value="-1" />
+      <Trait id="Generosity" value="-1" />
+      <Trait id="Honor" value="1" />
+    </Traits>
+    <equipmentSet></equipmentSet>
+  </NPCCharacter>
+
+  <!-- Humar -->
+  <NPCCharacter id="cs_lord_humar_1" name="{=DVtqrS0T}Cengiz" age="44" voice="earnest" default_group="Cavalry" is_hero="true" battleTemplate="NPCCharacter.khu_bat_template_heavy" civilianTemplate="NPCCharacter.khu_civ_template_default" culture="Culture.khuzait" occupation="Lord">
+    <face>
+      <BodyProperties version="4" weight="0.8543" build="0.714"  key="0015B8088000084AB37043164CC705582586776DF7CE17557B7B4A03851B7804026BD02406457607000000000000000000000000000000000000000050C84080"  />
+    </face>
+    <skills></skills>
+    <Traits>
+      <Trait id="BalancedFightingSkills" value="8" />
+      <Trait id="HorseArcherFightingSkills" value="8" />
+      <Trait id="Commander" value="6" />
+      <Trait id="Politician" value="6" />
+      <Trait id="Manager" value="4" />
+      <Trait id="Calculating" value="1" />
+      <Trait id="Generosity" value="1" />
+      <Trait id="Valor" value="-1" />
+    </Traits>
+    <equipmentSet></equipmentSet>
+  </NPCCharacter>
+
+  <!-- Madmen -->
+
+  <NPCCharacter id="cs_lord_madmen_1" default_group="Ranged" age="25" voice="curt" is_hero="true" culture="Culture.mountain_bandits" occupation="Bandit" name="{=aRCzXkiD}Madmen Hero">
+    <face>
+      <!--face_key value="0032952c800012865897773981684655d9d8c798581b5696684c587363987795000484947cc7c49a00001105000030a30000001f000000000000000000007000" /-->
+      <BodyProperties version="4" key="0033940CC00012865897773981684655D9D8C798581B5696684C587363987795000404950CC7C49A00001105000030A30000001F000000000000000000007000" />
+    </face>
+    <skills></skills>
+    <Traits>
+      <!-- USED TO DERIVE SKILLS-->
+      <Trait id="BalancedFightingSkills" value="5" />
+      <Trait id="Commander" value="6" />
+      <Trait id="Politician" value="6" />
+      <Trait id="Manager" value="7" />
+      <Trait id="Valor" value="1" />
+      <Trait id="Honor" value="1" />
+      <Trait id="Generosity" value="-1" />
+    </Traits>
+    <equipmentSet>
+      <!--<equipment slot="Item0" id="Item.vlandia_sword_3_t4" />-->
+      <equipment slot="Item0" id="Item.falchion_sword_t2" />
+      <equipment slot="Item1" id="Item.worn_kite_shield" />
+      <equipment slot="Item2" id="Item.mountain_hunting_bow" />
+      <equipment slot="Item3" id="Item.range_arrows" />
+      <equipment slot="Body" id="Item.fur_armor_with_strap" />
+      <equipment slot="Leg" id="Item.strapped_shoes" />
+      <equipment slot="Gloves" id="Item.armwraps" />
+    </equipmentSet>
+    <equipmentSet civilian="true">
+      <!--<equipment slot="Item0" id="Item.vlandia_sword_3_t4" />-->
+      <equipment slot="Item0" id="Item.falchion_sword_t2" />
+      <equipment slot="Item1" id="Item.worn_kite_shield" />
+      <equipment slot="Item2" id="Item.mountain_hunting_bow" />
+      <equipment slot="Item3" id="Item.range_arrows" />
+      <equipment slot="Body" id="Item.fur_armor_with_strap" />
+      <equipment slot="Leg" id="Item.strapped_shoes" />
+      <equipment slot="Gloves" id="Item.armwraps" />
+    </equipmentSet>
+  </NPCCharacter>
+
+  <!-- Deserters -->
+
+  <NPCCharacter id="cs_lord_battania_deserters_1" default_group="Ranged" age="25" voice="curt" is_hero="true" culture="Culture.battania" occupation="Bandit" name="{=aRCzXkiD}Battanian Deserters Hero">
+    <face>
+      <!--face_key value="0032952c800012865897773981684655d9d8c798581b5696684c587363987795000484947cc7c49a00001105000030a30000001f000000000000000000007000" /-->
+      <BodyProperties version="4" key="0033940CC00012865897773981684655D9D8C798581B5696684C587363987795000404950CC7C49A00001105000030A30000001F000000000000000000007000" />
+    </face>
+    <skills></skills>
+    <Traits>
+      <!-- USED TO DERIVE SKILLS-->
+      <Trait id="BalancedFightingSkills" value="5" />
+      <Trait id="Commander" value="3" />
+      <Trait id="Politician" value="6" />
+      <Trait id="Manager" value="7" />
+      <Trait id="Valor" value="1" />
+      <Trait id="Honor" value="1" />
+      <Trait id="Generosity" value="-1" />
+    </Traits>
+    <equipmentSet>
+      <!--<equipment slot="Item0" id="Item.vlandia_sword_3_t4" />-->
+      <equipment slot="Item0" id="Item.falchion_sword_t2" />
+      <equipment slot="Item1" id="Item.worn_kite_shield" />
+      <equipment slot="Item2" id="Item.mountain_hunting_bow" />
+      <equipment slot="Item3" id="Item.range_arrows" />
+      <equipment slot="Body" id="Item.fur_armor_with_strap" />
+      <equipment slot="Leg" id="Item.strapped_shoes" />
+      <equipment slot="Gloves" id="Item.armwraps" />
+    </equipmentSet>
+    <equipmentSet civilian="true">
+      <!--<equipment slot="Item0" id="Item.vlandia_sword_3_t4" />-->
+      <equipment slot="Item0" id="Item.falchion_sword_t2" />
+      <equipment slot="Item1" id="Item.worn_kite_shield" />
+      <equipment slot="Item2" id="Item.mountain_hunting_bow" />
+      <equipment slot="Item3" id="Item.range_arrows" />
+      <equipment slot="Body" id="Item.fur_armor_with_strap" />
+      <equipment slot="Leg" id="Item.strapped_shoes" />
+      <equipment slot="Gloves" id="Item.armwraps" />
+    </equipmentSet>
+  </NPCCharacter>
+
+
+  <NPCCharacter id="cs_lord_vlandia_deserters_1" default_group="Ranged" age="25" voice="curt" is_hero="true" culture="Culture.vlandia" occupation="Bandit" name="{=aRCzXkiD}Vlandian Deserters Hero">
+    <face>
+      <!--face_key value="0032952c800012865897773981684655d9d8c798581b5696684c587363987795000484947cc7c49a00001105000030a30000001f000000000000000000007000" /-->
+      <BodyProperties version="4" key="0033940CC00012865897773981684655D9D8C798581B5696684C587363987795000404950CC7C49A00001105000030A30000001F000000000000000000007000" />
+    </face>
+    <skills></skills>
+    <Traits>
+      <!-- USED TO DERIVE SKILLS-->
+      <Trait id="BalancedFightingSkills" value="5" />
+      <Trait id="Commander" value="3" />
+      <Trait id="Politician" value="6" />
+      <Trait id="Manager" value="7" />
+      <Trait id="Valor" value="1" />
+      <Trait id="Honor" value="1" />
+      <Trait id="Generosity" value="-1" />
+    </Traits>
+    <equipmentSet>
+      <!--<equipment slot="Item0" id="Item.vlandia_sword_3_t4" />-->
+      <equipment slot="Item0" id="Item.falchion_sword_t2" />
+      <equipment slot="Item1" id="Item.worn_kite_shield" />
+      <equipment slot="Item2" id="Item.mountain_hunting_bow" />
+      <equipment slot="Item3" id="Item.range_arrows" />
+      <equipment slot="Body" id="Item.fur_armor_with_strap" />
+      <equipment slot="Leg" id="Item.strapped_shoes" />
+      <equipment slot="Gloves" id="Item.armwraps" />
+    </equipmentSet>
+    <equipmentSet civilian="true">
+      <!--<equipment slot="Item0" id="Item.vlandia_sword_3_t4" />-->
+      <equipment slot="Item0" id="Item.falchion_sword_t2" />
+      <equipment slot="Item1" id="Item.worn_kite_shield" />
+      <equipment slot="Item2" id="Item.mountain_hunting_bow" />
+      <equipment slot="Item3" id="Item.range_arrows" />
+      <equipment slot="Body" id="Item.fur_armor_with_strap" />
+      <equipment slot="Leg" id="Item.strapped_shoes" />
+      <equipment slot="Gloves" id="Item.armwraps" />
+    </equipmentSet>
+  </NPCCharacter>
+
+  <NPCCharacter id="cs_lord_sturgia_deserters_1" default_group="Ranged" age="25" voice="curt" is_hero="true" culture="Culture.sturgia" occupation="Bandit" name="{=aRCzXkiD}Sturgian Deserters Hero">
+    <face>
+      <!--face_key value="0032952c800012865897773981684655d9d8c798581b5696684c587363987795000484947cc7c49a00001105000030a30000001f000000000000000000007000" /-->
+      <BodyProperties version="4" key="0033940CC00012865897773981684655D9D8C798581B5696684C587363987795000404950CC7C49A00001105000030A30000001F000000000000000000007000" />
+    </face>
+    <skills></skills>
+    <Traits>
+      <!-- USED TO DERIVE SKILLS-->
+      <Trait id="BalancedFightingSkills" value="5" />
+      <Trait id="Commander" value="3" />
+      <Trait id="Politician" value="6" />
+      <Trait id="Manager" value="7" />
+      <Trait id="Valor" value="1" />
+      <Trait id="Honor" value="1" />
+      <Trait id="Generosity" value="-1" />
+    </Traits>
+    <equipmentSet>
+      <!--<equipment slot="Item0" id="Item.vlandia_sword_3_t4" />-->
+      <equipment slot="Item0" id="Item.falchion_sword_t2" />
+      <equipment slot="Item1" id="Item.worn_kite_shield" />
+      <equipment slot="Item2" id="Item.mountain_hunting_bow" />
+      <equipment slot="Item3" id="Item.range_arrows" />
+      <equipment slot="Body" id="Item.fur_armor_with_strap" />
+      <equipment slot="Leg" id="Item.strapped_shoes" />
+      <equipment slot="Gloves" id="Item.armwraps" />
+    </equipmentSet>
+    <equipmentSet civilian="true">
+      <!--<equipment slot="Item0" id="Item.vlandia_sword_3_t4" />-->
+      <equipment slot="Item0" id="Item.falchion_sword_t2" />
+      <equipment slot="Item1" id="Item.worn_kite_shield" />
+      <equipment slot="Item2" id="Item.mountain_hunting_bow" />
+      <equipment slot="Item3" id="Item.range_arrows" />
+      <equipment slot="Body" id="Item.fur_armor_with_strap" />
+      <equipment slot="Leg" id="Item.strapped_shoes" />
+      <equipment slot="Gloves" id="Item.armwraps" />
+    </equipmentSet>
+  </NPCCharacter>
+
+  <NPCCharacter id="cs_lord_empire_deserters_1" default_group="Ranged" age="25" voice="curt" is_hero="true" culture="Culture.empire" occupation="Bandit" name="{=aRCzXkiD}Imperial Deserters Hero">
+    <face>
+      <!--face_key value="0032952c800012865897773981684655d9d8c798581b5696684c587363987795000484947cc7c49a00001105000030a30000001f000000000000000000007000" /-->
+      <BodyProperties version="4" key="0033940CC00012865897773981684655D9D8C798581B5696684C587363987795000404950CC7C49A00001105000030A30000001F000000000000000000007000" />
+    </face>
+    <skills></skills>
+    <Traits>
+      <!-- USED TO DERIVE SKILLS-->
+      <Trait id="BalancedFightingSkills" value="5" />
+      <Trait id="Commander" value="3" />
+      <Trait id="Politician" value="6" />
+      <Trait id="Manager" value="7" />
+      <Trait id="Valor" value="1" />
+      <Trait id="Honor" value="1" />
+      <Trait id="Generosity" value="-1" />
+    </Traits>
+    <equipmentSet>
+      <!--<equipment slot="Item0" id="Item.vlandia_sword_3_t4" />-->
+      <equipment slot="Item0" id="Item.falchion_sword_t2" />
+      <equipment slot="Item1" id="Item.worn_kite_shield" />
+      <equipment slot="Item2" id="Item.mountain_hunting_bow" />
+      <equipment slot="Item3" id="Item.range_arrows" />
+      <equipment slot="Body" id="Item.fur_armor_with_strap" />
+      <equipment slot="Leg" id="Item.strapped_shoes" />
+      <equipment slot="Gloves" id="Item.armwraps" />
+    </equipmentSet>
+    <equipmentSet civilian="true">
+      <!--<equipment slot="Item0" id="Item.vlandia_sword_3_t4" />-->
+      <equipment slot="Item0" id="Item.falchion_sword_t2" />
+      <equipment slot="Item1" id="Item.worn_kite_shield" />
+      <equipment slot="Item2" id="Item.mountain_hunting_bow" />
+      <equipment slot="Item3" id="Item.range_arrows" />
+      <equipment slot="Body" id="Item.fur_armor_with_strap" />
+      <equipment slot="Leg" id="Item.strapped_shoes" />
+      <equipment slot="Gloves" id="Item.armwraps" />
+    </equipmentSet>
+  </NPCCharacter>
+
+  <NPCCharacter id="cs_lord_khuzait_deserters_1" default_group="Ranged" age="25" voice="curt" is_hero="true" culture="Culture.khuzait" occupation="Bandit" name="{=aRCzXkiD}Khuzait Deserters Hero">
+    <face>
+      <!--face_key value="0032952c800012865897773981684655d9d8c798581b5696684c587363987795000484947cc7c49a00001105000030a30000001f000000000000000000007000" /-->
+      <BodyProperties version="4" key="0033940CC00012865897773981684655D9D8C798581B5696684C587363987795000404950CC7C49A00001105000030A30000001F000000000000000000007000" />
+    </face>
+    <skills></skills>
+    <Traits>
+      <!-- USED TO DERIVE SKILLS-->
+      <Trait id="BalancedFightingSkills" value="5" />
+      <Trait id="Commander" value="3" />
+      <Trait id="Politician" value="6" />
+      <Trait id="Manager" value="7" />
+      <Trait id="Valor" value="1" />
+      <Trait id="Honor" value="1" />
+      <Trait id="Generosity" value="-1" />
+    </Traits>
+    <equipmentSet>
+      <!--<equipment slot="Item0" id="Item.vlandia_sword_3_t4" />-->
+      <equipment slot="Item0" id="Item.falchion_sword_t2" />
+      <equipment slot="Item1" id="Item.worn_kite_shield" />
+      <equipment slot="Item2" id="Item.mountain_hunting_bow" />
+      <equipment slot="Item3" id="Item.range_arrows" />
+      <equipment slot="Body" id="Item.fur_armor_with_strap" />
+      <equipment slot="Leg" id="Item.strapped_shoes" />
+      <equipment slot="Gloves" id="Item.armwraps" />
+    </equipmentSet>
+    <equipmentSet civilian="true">
+      <!--<equipment slot="Item0" id="Item.vlandia_sword_3_t4" />-->
+      <equipment slot="Item0" id="Item.falchion_sword_t2" />
+      <equipment slot="Item1" id="Item.worn_kite_shield" />
+      <equipment slot="Item2" id="Item.mountain_hunting_bow" />
+      <equipment slot="Item3" id="Item.range_arrows" />
+      <equipment slot="Body" id="Item.fur_armor_with_strap" />
+      <equipment slot="Leg" id="Item.strapped_shoes" />
+      <equipment slot="Gloves" id="Item.armwraps" />
+    </equipmentSet>
+  </NPCCharacter>
+
+  <NPCCharacter id="cs_lord_aserai_deserters_1" default_group="Ranged" age="25" voice="curt" is_hero="true" culture="Culture.aserai" occupation="Bandit" name="{=aRCzXkiD}Aserai Deserters Hero">
+    <face>
+      <!--face_key value="0032952c800012865897773981684655d9d8c798581b5696684c587363987795000484947cc7c49a00001105000030a30000001f000000000000000000007000" /-->
+      <BodyProperties version="4" key="0033940CC00012865897773981684655D9D8C798581B5696684C587363987795000404950CC7C49A00001105000030A30000001F000000000000000000007000" />
+    </face>
+    <skills></skills>
+    <Traits>
+      <!-- USED TO DERIVE SKILLS-->
+      <Trait id="BalancedFightingSkills" value="5" />
+      <Trait id="Commander" value="3" />
+      <Trait id="Politician" value="6" />
+      <Trait id="Manager" value="7" />
+      <Trait id="Valor" value="1" />
+      <Trait id="Honor" value="1" />
+      <Trait id="Generosity" value="-1" />
+    </Traits>
+    <equipmentSet>
+      <!--<equipment slot="Item0" id="Item.vlandia_sword_3_t4" />-->
+      <equipment slot="Item0" id="Item.falchion_sword_t2" />
+      <equipment slot="Item1" id="Item.worn_kite_shield" />
+      <equipment slot="Item2" id="Item.mountain_hunting_bow" />
+      <equipment slot="Item3" id="Item.range_arrows" />
+      <equipment slot="Body" id="Item.fur_armor_with_strap" />
+      <equipment slot="Leg" id="Item.strapped_shoes" />
+      <equipment slot="Gloves" id="Item.armwraps" />
+    </equipmentSet>
+    <equipmentSet civilian="true">
+      <!--<equipment slot="Item0" id="Item.vlandia_sword_3_t4" />-->
+      <equipment slot="Item0" id="Item.falchion_sword_t2" />
+      <equipment slot="Item1" id="Item.worn_kite_shield" />
+      <equipment slot="Item2" id="Item.mountain_hunting_bow" />
+      <equipment slot="Item3" id="Item.range_arrows" />
+      <equipment slot="Body" id="Item.fur_armor_with_strap" />
+      <equipment slot="Leg" id="Item.strapped_shoes" />
+      <equipment slot="Gloves" id="Item.armwraps" />
+    </equipmentSet>
+  </NPCCharacter>
+
+ <NPCCharacter id="cs_lord_united_deserters_1" name="{=LiAefNmE}Marcus" default_group="Cavalry" age="20" voice="earnest" battleTemplate="NPCCharacter.emp_bat_template_stoic" civilianTemplate="NPCCharacter.emp_civ_template_stoic" is_hero="true" culture="Culture.empire" occupation="Lord">
+    <face>
+      <BodyProperties version="4" age="20" weight="0" build="0" key="0011700FC0FC030896938148227587B669B586898A943687321998859647875401F0065A0F9DB435000000000000000000000000000000000000000000B48042" />
+    </face>
+    <skills></skills>
+    <Traits>
+      <Trait id="KnightFightingSkills" value="6" />
+      <Trait id="Commander" value="7" />
+      <Trait id="Politician" value="7" />
+      <Trait id="Manager" value="5" />
+      <Trait id="Mercy" value="-1" />
+      <Trait id="Calculating" value="1" />
+    </Traits>
+    <equipmentSet></equipmentSet>
+  </NPCCharacter>
+</NPCCharacters>

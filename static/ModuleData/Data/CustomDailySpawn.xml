@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+
+	<!-- Bandits -->
+
+	<RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_mountain_raider_squad_template"
+	 spawn_clan = "Faction.mountain_bandits"
+	 overriden_spawn_clan_0 = "">
+	 	<MaximumOnMap>6</MaximumOnMap>
+	 	<ChanceOfSpawn>0.0225</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.0675</ChanceInverseConstant>
+	 	<Name>Mountain Raiders</Name>
+	 	<RepeatSpawnRolls>2</RepeatSpawnRolls>
+	 	<BaseSpeedOverride>5.2</BaseSpeedOverride>
+	 	<MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_mountain_raider_boss_squad_template"
+	 spawn_clan = "Faction.mountain_bandits"
+	 overriden_spawn_culture_0 = "Culture.empire"
+	 overriden_spawn_culture_1 = "Culture.vlandia"
+	 overriden_spawn_culture_2 = "Culture.battania"
+	 >
+	 	<MaximumOnMap>2</MaximumOnMap>
+	 	<ChanceOfSpawn>0.004</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.015</ChanceInverseConstant>
+	 	<Name>Mountain Invaders</Name>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+		<SpawnSound>customspawn/notification/sound</SpawnSound>
+	 	<SpawnMessage>Groups of Mountain Bandits have sacked an entire village, and united under their newly found wealth!</SpawnMessage>
+	 	<SpawnMessageColor>danger</SpawnMessageColor>
+	 	<DeathMessage>The Mountain Invaders have been brought to justice at [deathPlace]!</DeathMessage>
+	 	<DeathMessageColor>relief</DeathMessageColor>
+	 	<BaseSpeedOverride>4.9</BaseSpeedOverride>
+	 	<MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_forest_trainer_group"
+	 spawn_clan = "Faction.forest_bandits"
+	 overriden_spawn_clan_0 = ""
+	 >
+	 	<MaximumOnMap>6</MaximumOnMap>
+	 	<ChanceOfSpawn>0.0175</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.03775</ChanceInverseConstant>
+	 	<Name>Training Group</Name>
+	 	<RepeatSpawnRolls>2</RepeatSpawnRolls>
+	 	<MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_forest_ambushers"
+	 spawn_clan = "Faction.forest_bandits"
+	 overriden_spawn_clan_0 = ""
+	 >
+	 	<MaximumOnMap>6</MaximumOnMap>
+	 	<ChanceOfSpawn>0.0275</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.04775</ChanceInverseConstant>
+	 	<Name>Ambushers</Name>
+	 	<RepeatSpawnRolls>2</RepeatSpawnRolls>
+	 	<MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<BaseSpeedOverride>4.7</BaseSpeedOverride>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_forest_giant_trainer_group"
+	 spawn_clan = "Faction.forest_bandits"
+	 overriden_spawn_clan_0 = "">
+	 	<MaximumOnMap>2</MaximumOnMap>
+	 	<ChanceOfSpawn>0.004</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.0095</ChanceInverseConstant>
+	 	<Name>Expeditioners</Name>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+		<SpawnSound>customspawn/notification/sound</SpawnSound>
+	 	<SpawnMessage>Constant war has resulted in more and more people turning to banditry in the forests, and the chiefs have gathered the new recruits into a giant expedition!</SpawnMessage>
+	 	<SpawnMessageColor>danger</SpawnMessageColor>
+	 	<DeathMessage>The Forest Expeditioners have been brought to justice [deathPlace]!</DeathMessage>
+	 	<DeathMessageColor>relief</DeathMessageColor>
+	 	<BaseSpeedOverride>4.3</BaseSpeedOverride>
+	 	<MinimumFinalSpeed>3.5</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+
+	 <!-- Deserters -->
+
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_battania_deserters"
+	 spawn_clan = "Faction.cs_battania_deserters"
+	 overriden_spawn_clan_0 = "Faction.mountain_bandits"
+	 overriden_spawn_clan_1 = "Faction.forest_bandits"
+	 overriden_spawn_clan_2 = "Faction.sea_raiders"
+	 >
+	 	<MaximumOnMap>4</MaximumOnMap>
+	 	<ChanceOfSpawn>0.01</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.03</ChanceInverseConstant>
+	 	<Name>Battanian Deserters</Name>
+	 	<RepeatSpawnRolls>2</RepeatSpawnRolls>
+	    <BaseSpeedOverride>4.7</BaseSpeedOverride>
+	    <MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_aserai_deserters"
+	 spawn_clan = "Faction.cs_aserai_deserters"
+	 overriden_spawn_clan_0 = ""
+	 >
+	 	<MaximumOnMap>4</MaximumOnMap>
+	 	<ChanceOfSpawn>0.01</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.03</ChanceInverseConstant>
+	 	<Name>Aserai Deserters</Name>
+	 	<RepeatSpawnRolls>2</RepeatSpawnRolls>
+	    <BaseSpeedOverride>4.7</BaseSpeedOverride>
+	    <MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_imperial_deserters"
+	 spawn_clan = "Faction.cs_empire_deserters"
+	 overriden_spawn_clan_0 = "Faction.mountain_bandits"
+	 overriden_spawn_clan_1 = "Faction.forest_bandits"
+	 overriden_spawn_clan_2 = "Faction.sea_raiders"
+	 >
+	 	<MaximumOnMap>4</MaximumOnMap>
+	 	<ChanceOfSpawn>0.018</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.05</ChanceInverseConstant>
+	 	<Name>Imperial Deserters</Name>
+	 	<RepeatSpawnRolls>2</RepeatSpawnRolls>
+	    <BaseSpeedOverride>4.7</BaseSpeedOverride>
+	    <MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_khuzait_deserters"
+	 spawn_clan = "Faction.cs_khuzait_deserters"
+	 overriden_spawn_clan_0 = ""
+	 >
+	 	<MaximumOnMap>4</MaximumOnMap>
+	 	<ChanceOfSpawn>0.01</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.03</ChanceInverseConstant>
+	 	<Name>Khuzait Deserters</Name>
+	 	<RepeatSpawnRolls>2</RepeatSpawnRolls>
+	 	<BaseSpeedOverride>4.7</BaseSpeedOverride>
+	 	<MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_vlandia_deserters"
+	 spawn_clan = "Faction.cs_vlandia_deserters"
+	 overriden_spawn_clan_0 = "Faction.forest_bandits"
+	 overriden_spawn_clan_1 = "Faction.sea_raiders"
+	 >
+	 	<MaximumOnMap>4</MaximumOnMap>
+	 	<ChanceOfSpawn>0.01</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.03</ChanceInverseConstant>
+	 	<Name>Vlandian Deserters</Name>
+	 	<RepeatSpawnRolls>2</RepeatSpawnRolls>
+	    <BaseSpeedOverride>4.7</BaseSpeedOverride>
+	    <MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_sturgia_deserters"
+	 spawn_clan = "Faction.cs_sturgia_deserters"
+	 overriden_spawn_clan_0 = "Faction.mountain_bandits"
+	 overriden_spawn_clan_1 = "Faction.sea_raiders"
+	 >
+	 	<MaximumOnMap>4</MaximumOnMap>
+	 	<ChanceOfSpawn>0.01</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.03</ChanceInverseConstant>
+	 	<Name>Sturgian Deserters</Name>
+	 	<RepeatSpawnRolls>2</RepeatSpawnRolls>
+	    <BaseSpeedOverride>4.7</BaseSpeedOverride>
+	    <MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_united_deserters"
+	 spawn_clan = "Faction.cs_united_deserters"
+	 overriden_spawn_clan_0 = ""
+	 overriden_spawn_culture_0 = "Culture.empire"
+	 overriden_spawn_culture_1 = "Culture.aserai"
+	 overriden_spawn_culture_2 = "Culture.vlandia"
+	 overriden_spawn_culture_3 = "Culture.battania"
+	 overriden_spawn_culture_4 = "Culture.khuzait"
+	 overriden_spawn_culture_5 = "Culture.sturgia"
+	 >
+	 	<MaximumOnMap>2</MaximumOnMap>
+	 	<ChanceOfSpawn>0.02</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.01</ChanceInverseConstant>
+	 	<Name>United Deserters</Name>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+	    <BaseSpeedOverride>4.6</BaseSpeedOverride>
+		<SpawnSound>customspawn/notification/sound</SpawnSound>
+	 	<SpawnMessage>Groups of Deserters from all factions have united under fear of persecution, sharing their wealth and forming a formidable threat at [spawnPlace]!</SpawnMessage>
+	 	<SpawnMessageColor>danger</SpawnMessageColor>
+	 	<DeathMessage>The United Deserters and their dishonourable ways have been brought to swift justice at [deathPlace]!</DeathMessage>
+	 	<DeathMessageColor>relief</DeathMessageColor>
+	 	<MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+
+	<!-- Mad Men -->
+	<RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_madmen"
+	 spawn_clan = "Faction.cs_madmen"
+	 overriden_spawn_clan_0 = ""
+	 overriden_spawn_culture_0 = "Culture.empire"
+	 overriden_spawn_culture_1 = "Culture.aserai"
+	 overriden_spawn_culture_2 = "Culture.vlandia"
+	 overriden_spawn_culture_3 = "Culture.battania"
+	 overriden_spawn_culture_4 = "Culture.khuzait"
+	 overriden_spawn_culture_5 = "Culture.sturgia"
+	 >
+	 	<MaximumOnMap>3</MaximumOnMap>
+	 	<ChanceOfSpawn>0.01</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.99</ChanceInverseConstant>
+	 	<Name>Madmen</Name>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+	    <BaseSpeedOverride>5</BaseSpeedOverride>
+	    <MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>6.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_mad_uprising"
+	 spawn_clan = "Faction.cs_madmen"
+	 overriden_spawn_clan_0 = ""
+	 overriden_spawn_culture_0 = "Culture.empire"
+	 overriden_spawn_culture_1 = "Culture.aserai"
+	 overriden_spawn_culture_2 = "Culture.vlandia"
+	 overriden_spawn_culture_3 = "Culture.battania"
+	 overriden_spawn_culture_4 = "Culture.khuzait"
+	 overriden_spawn_culture_5 = "Culture.sturgia"
+	 >
+	 	<MaximumOnMap>1</MaximumOnMap>
+	 	<ChanceOfSpawn>0.005</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0</ChanceInverseConstant>
+	 	<Name>Mad Uprising</Name>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+	    <BaseSpeedOverride>4.5</BaseSpeedOverride>
+		<SpawnSound>customspawn/notification/sound</SpawnSound>
+	 	<SpawnMessage>[spawnPlace] has been overtaken by madness after being worn down by rapine and loot!</SpawnMessage>
+	 	<SpawnMessageColor>danger</SpawnMessageColor>
+	 	<DeathMessage>The mad have been put down at [deathPlace]!</DeathMessage>
+	 	<DeathMessageColor>relief</DeathMessageColor>
+	 	<MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_jester"
+	 spawn_clan = "Faction.cs_madmen"
+	 overriden_spawn_clan_0 = ""
+	 overriden_spawn_culture_0 = "Culture.empire"
+	 overriden_spawn_culture_1 = "Culture.aserai"
+	 overriden_spawn_culture_2 = "Culture.vlandia"
+	 overriden_spawn_culture_3 = "Culture.battania"
+	 overriden_spawn_culture_4 = "Culture.khuzait"
+	 overriden_spawn_culture_5 = "Culture.sturgia"
+	 >
+	 	<MaximumOnMap>1</MaximumOnMap>
+	 	<ChanceOfSpawn>0.02</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0</ChanceInverseConstant>
+	 	<Name>Revolting Jesters</Name>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+	    <BaseSpeedOverride>6.2</BaseSpeedOverride>
+	    <MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>6.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+
+	 <!-- Southern Enslavers -->
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_southern_enslavers"
+	 spawn_clan = "Faction.cs_southern_enslavers"
+	 overriden_spawn_clan_0 = ""
+	 overriden_spawn_culture_0 = "Culture.vlandia"
+	 overriden_spawn_culture_1 = "Culture.battania"
+	 overriden_spawn_culture_2 = "Culture.sturgia"
+	 >
+	 	<MaximumOnMap>10</MaximumOnMap>
+	 	<ChanceOfSpawn>0.1</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.4</ChanceInverseConstant>
+	 	<Name>Enslavers</Name>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+	    <ExtraLinearSpeed>0</ExtraLinearSpeed>
+	    <MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.4</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_southern_recruit_enslavers"
+	 spawn_clan = "Faction.cs_southern_enslavers"
+	 overriden_spawn_clan_0 = ""
+	 overriden_spawn_culture_0 = "Culture.vlandia"
+	 overriden_spawn_culture_1 = "Culture.battania"
+	 overriden_spawn_culture_2 = "Culture.sturgia"
+	 >
+	 	<MaximumOnMap>3</MaximumOnMap>
+	 	<ChanceOfSpawn>0.01</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.02</ChanceInverseConstant>
+	 	<Name>Minor Slave Stack</Name>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+	    <BaseSpeedOverride>4.4</BaseSpeedOverride>
+	    <MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_southern_giant_recruit_enslavers"
+	 spawn_clan = "Faction.cs_southern_enslavers"
+	 overriden_spawn_clan_0 = ""
+	 overriden_spawn_culture_0 = "Culture.vlandia"
+	 overriden_spawn_culture_1 = "Culture.battania"
+	 overriden_spawn_culture_2 = "Culture.sturgia"
+	 >
+	 	<MaximumOnMap>1</MaximumOnMap>
+	 	<ChanceOfSpawn>0.008</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0</ChanceInverseConstant>
+	 	<Name>Giant Slave Stack</Name>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+	    <BaseSpeedOverride>4.2</BaseSpeedOverride>
+		<SpawnSound>customspawn/notification/sound</SpawnSound>
+	 	<SpawnMessage>Southern Enslavers have united into one giant pack at [spawnPlace], goading their merchandise as they travel all corners of the land!</SpawnMessage>
+	 	<SpawnMessageColor>danger</SpawnMessageColor>
+	 	<DeathMessage>The Southern Enslavers shall no longer spread anguish to the hearts of Northern children. Their forces have been crushed at [deathPlace]!</DeathMessage>
+	 	<DeathMessageColor>relief</DeathMessageColor>
+	 	<MinimumFinalSpeed>3.8</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+
+	 <!-- Northern Liberators -->
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_northern_enslavers"
+	 spawn_clan = "Faction.cs_northern_liberators"
+	 overriden_spawn_clan_0 = ""
+	 overriden_spawn_culture_0 = "Culture.aserai"
+	 overriden_spawn_culture_1 = "Culture.khuzait"
+	 overriden_spawn_culture_2 = "Culture.empire"
+	 >
+	 	<MaximumOnMap>10</MaximumOnMap>
+	 	<ChanceOfSpawn>0.1</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.4</ChanceInverseConstant>
+	 	<Name>Enslavers</Name>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+	    <ExtraLinearSpeed>0</ExtraLinearSpeed>
+	    <MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.4</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_northern_recruit_enslavers"
+	 spawn_clan = "Faction.cs_northern_liberators"
+	 overriden_spawn_clan_0 = ""
+	 overriden_spawn_culture_0 = "Culture.aserai"
+	 overriden_spawn_culture_1 = "Culture.khuzait"
+	 overriden_spawn_culture_2 = "Culture.empire"
+	 >
+	 	<MaximumOnMap>3</MaximumOnMap>
+	 	<ChanceOfSpawn>0.01</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.02</ChanceInverseConstant>
+	 	<Name>Minor Slave Stack</Name>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+	    <BaseSpeedOverride>4.4</BaseSpeedOverride>
+	    <MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_northern_giant_recruit_enslavers"
+	 spawn_clan = "Faction.cs_northern_liberators"
+	 overriden_spawn_clan_0 = ""
+	 overriden_spawn_culture_0 = "Culture.aserai"
+	 overriden_spawn_culture_1 = "Culture.khuzait"
+	 overriden_spawn_culture_2 = "Culture.empire"
+	 >
+	 	<MaximumOnMap>1</MaximumOnMap>
+	 	<ChanceOfSpawn>0.008</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0</ChanceInverseConstant>
+	 	<Name>Giant Slave Stack</Name>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+	    <BaseSpeedOverride>4.2</BaseSpeedOverride>
+		<SpawnSound>customspawn/notification/sound</SpawnSound>
+	 	<SpawnMessage>Northern Liberators have united into one giant pack at [spawnPlace], goading their merchandise as they travel all corners of the land!</SpawnMessage>
+	 	<SpawnMessageColor>danger</SpawnMessageColor>
+	 	<DeathMessage>The Northern Liberators shall no longer enslave the innocent of the South. Their forces have been crushed at [deathPlace]!</DeathMessage>
+	 	<DeathMessageColor>relief</DeathMessageColor>
+	 	<MinimumFinalSpeed>3.8</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+
+	 <!-- Peasant Revolts -->
+
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_mass_peasant_revolutionary_revolt"
+	 spawn_clan = "Faction.cs_peasant_revolutionaries"
+	 overriden_spawn_clan_0 = ""
+	 overriden_spawn_culture_0 = "Culture.empire"
+	 overriden_spawn_culture_1 = "Culture.aserai"
+	 overriden_spawn_culture_2 = "Culture.vlandia"
+	 overriden_spawn_culture_3 = "Culture.battania"
+	 overriden_spawn_culture_4 = "Culture.khuzait"
+	 overriden_spawn_culture_5 = "Culture.sturgia"
+	 spawn_along_with_0 = "PartyTemplate.cs_peasant_revolutionary_revolt"
+	 spawn_along_with_1 = "PartyTemplate.cs_peasant_revolutionary_revolt"
+	 spawn_along_with_2 = "PartyTemplate.cs_peasant_revolutionary_revolt"
+	 spawn_along_with_3 = "PartyTemplate.cs_peasant_revolutionary_revolt">
+	 	<MaximumOnMap>3</MaximumOnMap>
+	 	<ChanceOfSpawn>0.005</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0</ChanceInverseConstant>
+	 	<Name>Peasant Revolt</Name>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+		<SpawnSound>customspawn/notification/sound</SpawnSound>
+	 	<SpawnMessage>Injustice, rapine, and high taxes have lead to a massive peasant revolt at [spawnPlace]!</SpawnMessage>
+	 	<SpawnMessageColor>danger</SpawnMessageColor>
+	 	<DeathMessage>The awful possiblity of filthy peasants being equal to the nobles is no more. The revolutionaries have been crushed at [deathPlace]!</DeathMessage>
+	 	<DeathMessageColor>relief</DeathMessageColor>
+	 	<BaseSpeedOverride>4</BaseSpeedOverride>
+	 	<PatrolAroundSpawn>true</PatrolAroundSpawn>
+	 	<MinimumNumberOfDaysUntilSpawn>3</MinimumNumberOfDaysUntilSpawn>
+	 	<MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 	<TrySpawnAt>Village</TrySpawnAt>
+	 </RegularBanditDailySpawnData>
+
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_mass_peasant_absolutist_revolt"
+	 spawn_clan = "Faction.cs_peasant_absolutists"
+	 overriden_spawn_clan_0 = ""
+	 overriden_spawn_culture_0 = "Culture.empire"
+	 overriden_spawn_culture_1 = "Culture.aserai"
+	 overriden_spawn_culture_2 = "Culture.vlandia"
+	 overriden_spawn_culture_3 = "Culture.battania"
+	 overriden_spawn_culture_4 = "Culture.khuzait"
+	 overriden_spawn_culture_5 = "Culture.sturgia"
+	 spawn_along_with_0 = "PartyTemplate.cs_peasant_absolutist_revolt"
+	 spawn_along_with_1 = "PartyTemplate.cs_peasant_absolutist_revolt"
+	 spawn_along_with_2 = "PartyTemplate.cs_peasant_absolutist_revolt"
+	 spawn_along_with_3 = "PartyTemplate.cs_peasant_absolutist_revolt">
+	 	<MaximumOnMap>3</MaximumOnMap>
+	 	<ChanceOfSpawn>0.005</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0</ChanceInverseConstant>
+	 	<Name>Free Folk Uprising</Name>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+		<SpawnSound>customspawn/notification/sound</SpawnSound>
+	 	<SpawnMessage>Famine, unrest, and suppression have lead to a massive uprising of tribal outcasts at [spawnPlace]!</SpawnMessage>
+	 	<SpawnMessageColor>danger</SpawnMessageColor>
+	 	<DeathMessage>The outcast tribespeople and their dreams of a free Calradia have been crushed at [deathPlace]! The lords and their divine rights shall stay protected.</DeathMessage>
+	 	<DeathMessageColor>relief</DeathMessageColor>
+	 	<BaseSpeedOverride>4.2</BaseSpeedOverride>
+	 	<PatrolAroundSpawn>true</PatrolAroundSpawn>
+	 	<MinimumNumberOfDaysUntilSpawn>3</MinimumNumberOfDaysUntilSpawn>
+	 	<MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 	<TrySpawnAt>Village</TrySpawnAt>
+	 </RegularBanditDailySpawnData>
+
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_mass_peasant_revolt"
+	 spawn_clan = "Faction.cs_peasant_revolters"
+	 overriden_spawn_clan_0 = ""
+	 overriden_spawn_culture_0 = "Culture.empire"
+	 overriden_spawn_culture_1 = "Culture.aserai"
+	 overriden_spawn_culture_2 = "Culture.vlandia"
+	 overriden_spawn_culture_3 = "Culture.battania"
+	 overriden_spawn_culture_4 = "Culture.khuzait"
+	 overriden_spawn_culture_5 = "Culture.sturgia"
+	 spawn_along_with_0 = "PartyTemplate.cs_peasant_revolt"
+	 spawn_along_with_1 = "PartyTemplate.cs_peasant_revolt"
+	 spawn_along_with_2 = "PartyTemplate.cs_peasant_revolt"
+	 spawn_along_with_3 = "PartyTemplate.cs_peasant_revolt">
+	 	<MaximumOnMap>3</MaximumOnMap>
+	 	<ChanceOfSpawn>0.005</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0</ChanceInverseConstant>
+	 	<Name>Ravenous Roaming Horde</Name>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+		<SpawnSound>customspawn/notification/sound</SpawnSound>
+	 	<SpawnMessage>Greed, terror, and instability have lead to a massive gathering of rogues at [spawnPlace]!</SpawnMessage>
+	 	<SpawnMessageColor>danger</SpawnMessageColor>
+	 	<DeathMessage>The roaming horde has been quenched at [deathPlace] and the survivors have returned to their docile servitude.</DeathMessage>
+	 	<DeathMessageColor>relief</DeathMessageColor>
+	 	<BaseSpeedOverride>4.2</BaseSpeedOverride>
+	 	<PatrolAroundSpawn>true</PatrolAroundSpawn>
+	 	<MinimumNumberOfDaysUntilSpawn>3</MinimumNumberOfDaysUntilSpawn>
+	 	<MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 	<TrySpawnAt>Village</TrySpawnAt>
+	 </RegularBanditDailySpawnData>
+
+	 <!-- Desert Cult -->
+
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_desert_brainwasher"
+	 spawn_clan = "Faction.cs_desert_cult"
+	 overriden_spawn_clan_0 = ""
+	 >
+	 	<PartyType>Default</PartyType>
+	 	<MaximumOnMap>3</MaximumOnMap>
+	 	<ChanceOfSpawn>0.0175</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.09</ChanceInverseConstant>
+	 	<Name>Brainwasher</Name>
+	 	<RepeatSpawnRolls>2</RepeatSpawnRolls>
+		<MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_desert_cult_militia"
+	 spawn_clan = "Faction.cs_desert_cult"
+	 overriden_spawn_culture_0 = "Culture.empire"
+	 overriden_spawn_culture_1 = "Culture.aserai"
+	 overriden_spawn_culture_2 = "Culture.vlandia"
+	 overriden_spawn_culture_3 = "Culture.battania"
+	 overriden_spawn_culture_4 = "Culture.khuzait"
+	 overriden_spawn_culture_5 = "Culture.sturgia"
+	 >
+	 	<PartyType>Default</PartyType>
+	 	<MaximumOnMap>6</MaximumOnMap>
+	 	<ChanceOfSpawn>0.0075</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.03775</ChanceInverseConstant>
+	 	<Name>Cult Militia</Name>
+	 	<BaseSpeedOverride>4.6</BaseSpeedOverride>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+	 	<MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_desert_cult_group"
+	 spawn_clan = "Faction.cs_desert_cult"
+	 overriden_spawn_clan_0 = ""
+	 overriden_spawn_culture_0 = "Culture.empire"
+	 overriden_spawn_culture_1 = "Culture.aserai"
+	 overriden_spawn_culture_2 = "Culture.vlandia"
+	 overriden_spawn_culture_3 = "Culture.battania"
+	 overriden_spawn_culture_4 = "Culture.khuzait"
+	 overriden_spawn_culture_5 = "Culture.sturgia"
+	 >
+	 	<PartyType>Default</PartyType>
+	 	<MaximumOnMap>1</MaximumOnMap>
+	 	<ChanceOfSpawn>0.02</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0</ChanceInverseConstant>
+	 	<Name>Cult Group</Name>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+		<SpawnSound>customspawn/notification/sound</SpawnSound>
+	 	<SpawnMessage>The desert cult has gathered its forces, terrorizing the people of [spawnPlace]!</SpawnMessage>
+	 	<SpawnMessageColor>danger</SpawnMessageColor>
+	 	<DeathMessage>The Desert heathens have been stopped at [deathPlace]!</DeathMessage>
+	 	<DeathMessageColor>relief</DeathMessageColor>
+	 	<BaseSpeedOverride>4.4</BaseSpeedOverride>
+	 	<MinimumFinalSpeed>3</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+
+	 <!-- Barbarians -->
+
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_barbarian_foragers"
+	 spawn_clan = "Faction.cs_barbarians"
+	 overriden_spawn_clan_0 = ""
+	 overriden_spawn_culture_0 = "Culture.sturgia"
+	 overriden_spawn_culture_1 = "Culture.battania"
+	 overriden_spawn_culture_2 = "Culture.vlandia"
+	 >
+	 	<MaximumOnMap>3</MaximumOnMap>
+	 	<ChanceOfSpawn>0.02</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.08</ChanceInverseConstant>
+	 	<Name>Barbarian Foragers</Name>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+	 	<BaseSpeedOverride>5.1</BaseSpeedOverride>
+	 	<MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_barbarian_troop"
+	 spawn_clan = "Faction.cs_barbarians"
+	 overriden_spawn_clan_0 = ""
+	 overriden_spawn_culture_0 = "Culture.sturgia"
+	 overriden_spawn_culture_1 = "Culture.battania"
+	 overriden_spawn_culture_2 = "Culture.vlandia"
+	 >
+	 	<MaximumOnMap>3</MaximumOnMap>
+	 	<ChanceOfSpawn>0.02</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.08</ChanceInverseConstant>
+	 	<Name>Barbarian Troop</Name>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+	 	<BaseSpeedOverride>5.1</BaseSpeedOverride>
+	 	<MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_barbarian_raiders"
+	 spawn_clan = "Faction.cs_barbarians"
+	 overriden_spawn_clan_0 = ""
+	 overriden_spawn_culture_0 = "Culture.sturgia"
+	 overriden_spawn_culture_1 = "Culture.battania"
+	 overriden_spawn_culture_2 = "Culture.vlandia"
+	 >
+	 	<MaximumOnMap>5</MaximumOnMap>
+	 	<ChanceOfSpawn>0.01</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.04</ChanceInverseConstant>
+	 	<Name>Barbarian Raiders</Name>
+	 	<RepeatSpawnRolls>2</RepeatSpawnRolls>
+	 	<BaseSpeedOverride>4.7</BaseSpeedOverride>
+	 	<MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_barbarian_exodus"
+	 spawn_clan = "Faction.cs_barbarians"
+	 overriden_spawn_clan_0 = ""
+	 overriden_spawn_culture_0 = "Culture.sturgia"
+	 overriden_spawn_culture_1 = "Culture.battania"
+	 overriden_spawn_culture_2 = "Culture.vlandia"
+	 spawn_along_with_0 = "PartyTemplate.cs_barbarian_refugees"
+	 spawn_along_with_1 = "PartyTemplate.cs_barbarian_refugees"
+	 spawn_along_with_2 = "PartyTemplate.cs_barbarian_refugees"
+	 spawn_along_with_3 = "PartyTemplate.cs_barbarian_refugees"
+	 >
+	 	<MaximumOnMap>1</MaximumOnMap>
+	 	<ChanceOfSpawn>0.005</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0</ChanceInverseConstant>
+	 	<Name>Barbarian Exodus</Name>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+		<SpawnSound>customspawn/notification/sound</SpawnSound>
+	 	<SpawnMessage>The barbarians have once again been evicted from their homes, this time fighting for their lives near [spawnPlace]!</SpawnMessage>
+	 	<SpawnMessageColor>danger</SpawnMessageColor>
+	 	<DeathMessage>The Barbarians shall no longer threaten the prosperity of Calradia. A mass of their heathen race have been cleansed at [deathPlace]!</DeathMessage>
+	 	<DeathMessageColor>relief</DeathMessageColor>
+	 	<BaseSpeedOverride>4.1</BaseSpeedOverride>
+	 	<MinimumFinalSpeed>3</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.2</MaximumFinalSpeed>
+	 </RegularBanditDailySpawnData>
+
+	 <!-- Manhunters -->
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_village_watch"
+	 spawn_clan = "Faction.cs_manhunters"
+	 overriden_spawn_culture_0 = "Culture.empire"
+	 overriden_spawn_culture_1 = "Culture.aserai"
+	 overriden_spawn_culture_2 = "Culture.vlandia"
+	 overriden_spawn_culture_3 = "Culture.battania"
+	 overriden_spawn_culture_4 = "Culture.khuzait"
+	 overriden_spawn_culture_5 = "Culture.sturgia"
+	 >
+	 	<PartyType>Default</PartyType>
+	 	<MaximumOnMap>4</MaximumOnMap>
+	 	<ChanceOfSpawn>0.05</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.4</ChanceInverseConstant>
+	 	<Name>Village Watch</Name>
+	 	<BaseSpeedOverride>4.8</BaseSpeedOverride>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+	 	<MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.3</MaximumFinalSpeed>
+	 	<TrySpawnAt>Village</TrySpawnAt>
+	 	<PatrolAroundClosestLestInterruptedAndSwitch min_stable_days = "3" max_stable_days = "6" try_patrol_around = "Village|Castle">
+	 		true
+	 	</PatrolAroundClosestLestInterruptedAndSwitch>
+	 </RegularBanditDailySpawnData>
+
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_town_watch"
+	 spawn_clan = "Faction.cs_manhunters"
+	 overriden_spawn_culture_0 = "Culture.empire"
+	 overriden_spawn_culture_1 = "Culture.aserai"
+	 overriden_spawn_culture_2 = "Culture.vlandia"
+	 overriden_spawn_culture_3 = "Culture.battania"
+	 overriden_spawn_culture_4 = "Culture.khuzait"
+	 overriden_spawn_culture_5 = "Culture.sturgia"
+	 >
+	 	<PartyType>Default</PartyType>
+	 	<MaximumOnMap>4</MaximumOnMap>
+	 	<ChanceOfSpawn>0.05</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.4</ChanceInverseConstant>
+	 	<Name>Town Watch</Name>
+	 	<BaseSpeedOverride>4.8</BaseSpeedOverride>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+	 	<MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.3</MaximumFinalSpeed>
+	 	<TrySpawnAt>Town</TrySpawnAt>
+	 	<PatrolAroundClosestLestInterruptedAndSwitch min_stable_days = "3" max_stable_days = "6" try_patrol_around = "Town">
+	 		true
+	 	</PatrolAroundClosestLestInterruptedAndSwitch>
+	 </RegularBanditDailySpawnData>
+
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_manhunters"
+	 spawn_clan = "Faction.cs_manhunters"
+	 overriden_spawn_culture_0 = "Culture.empire"
+	 overriden_spawn_culture_1 = "Culture.aserai"
+	 overriden_spawn_culture_2 = "Culture.vlandia"
+	 overriden_spawn_culture_3 = "Culture.battania"
+	 overriden_spawn_culture_4 = "Culture.khuzait"
+	 overriden_spawn_culture_5 = "Culture.sturgia"
+	 >
+	 	<PartyType>Default</PartyType>
+	 	<MaximumOnMap>4</MaximumOnMap>
+	 	<ChanceOfSpawn>0.05</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.4</ChanceInverseConstant>
+	 	<Name>Manhunters</Name>
+	 	<BaseSpeedOverride>5.2</BaseSpeedOverride>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+	 	<MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.3</MaximumFinalSpeed>
+	 	<PatrolAroundClosestLestInterruptedAndSwitch min_stable_days = "1" max_stable_days = "4" try_patrol_around = "">
+	 		true
+	 	</PatrolAroundClosestLestInterruptedAndSwitch>
+	 </RegularBanditDailySpawnData>
+
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_zealous_conscripts"
+	 spawn_clan = "Faction.cs_manhunters"
+	 overriden_spawn_culture_0 = "Culture.empire"
+	 overriden_spawn_culture_1 = "Culture.aserai"
+	 overriden_spawn_culture_2 = "Culture.vlandia"
+	 overriden_spawn_culture_3 = "Culture.battania"
+	 overriden_spawn_culture_4 = "Culture.khuzait"
+	 overriden_spawn_culture_5 = "Culture.sturgia"
+	 >
+	 	<PartyType>Default</PartyType>
+	 	<MaximumOnMap>2</MaximumOnMap>
+	 	<ChanceOfSpawn>0.05</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.15</ChanceInverseConstant>
+	 	<Name>Zealous Conscripts</Name>
+	 	<BaseSpeedOverride>4.5</BaseSpeedOverride>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+	 	<MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.3</MaximumFinalSpeed>
+	 	<PatrolAroundClosestLestInterruptedAndSwitch min_stable_days = "3" max_stable_days = "6" try_patrol_around = "">
+	 		true
+	 	</PatrolAroundClosestLestInterruptedAndSwitch>
+	 </RegularBanditDailySpawnData>
+
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_idealistic_citizens"
+	 spawn_clan = "Faction.cs_manhunters"
+	 overriden_spawn_culture_0 = "Culture.empire"
+	 overriden_spawn_culture_1 = "Culture.aserai"
+	 overriden_spawn_culture_2 = "Culture.vlandia"
+	 overriden_spawn_culture_3 = "Culture.battania"
+	 overriden_spawn_culture_4 = "Culture.khuzait"
+	 overriden_spawn_culture_5 = "Culture.sturgia"
+	 >
+	 	<PartyType>Default</PartyType>
+	 	<MaximumOnMap>2</MaximumOnMap>
+	 	<ChanceOfSpawn>0</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0.9</ChanceInverseConstant>
+	 	<Name>Idealistic Citizens</Name>
+	 	<BaseSpeedOverride>4.5</BaseSpeedOverride>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+	 	<MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.3</MaximumFinalSpeed>
+	 	<PatrolAroundClosestLestInterruptedAndSwitch min_stable_days = "3" max_stable_days = "6" try_patrol_around = "">
+	 		true
+	 	</PatrolAroundClosestLestInterruptedAndSwitch>
+	 </RegularBanditDailySpawnData>
+
+	 <RegularBanditDailySpawnData
+	 party_template ="PartyTemplate.cs_cleansing_group"
+	 spawn_clan = "Faction.cs_manhunters"
+	 overriden_spawn_culture_0 = "Culture.empire"
+	 overriden_spawn_culture_1 = "Culture.aserai"
+	 overriden_spawn_culture_2 = "Culture.vlandia"
+	 overriden_spawn_culture_3 = "Culture.battania"
+	 overriden_spawn_culture_4 = "Culture.khuzait"
+	 overriden_spawn_culture_5 = "Culture.sturgia"
+	 >
+	 	<PartyType>Default</PartyType>
+	 	<MaximumOnMap>1</MaximumOnMap>
+	 	<ChanceOfSpawn>0.004</ChanceOfSpawn>
+	 	<ChanceInverseConstant>0</ChanceInverseConstant>
+	 	<Name>Cleansing Group</Name>
+		<SpawnSound>customspawn/notification/sound</SpawnSound>
+	    <SpawnMessage>The manhunters have made a large investment given the current chaos of Calradia, buying equipment and supplies for a giant cleansing party starting its journey at [spawnPlace]!</SpawnMessage>
+	 	<SpawnMessageColor>#35d627ff</SpawnMessageColor>
+	 	<DeathMessage>The Manhunters' Cleansing Group has been defeated at [deathPlace]!</DeathMessage>
+	 	<DeathMessageColor>danger</DeathMessageColor>
+	 	<BaseSpeedOverride>4.8</BaseSpeedOverride>
+	 	<RepeatSpawnRolls>1</RepeatSpawnRolls>
+	 	<MinimumFinalSpeed>4</MinimumFinalSpeed>
+	 	<MaximumFinalSpeed>5.3</MaximumFinalSpeed>
+	 	<PatrolAroundClosestLestInterruptedAndSwitch min_stable_days = "1" max_stable_days = "2" try_patrol_around = "">
+	 		true
+	 	</PatrolAroundClosestLestInterruptedAndSwitch>
+	 </RegularBanditDailySpawnData>
+</root>

@@ -1,0 +1,15 @@
+<CampaignDataConfig>
+	<DevestationMetricConfig>
+		<MaxDevestationPerSettlement> 250 </MaxDevestationPerSettlement>
+		<MinDevestationPerSettlement> 0 </MinDevestationPerSettlement>
+
+		<DailyDevestationDecay> 2.5 </DailyDevestationDecay>
+
+		<DevestationPerTimeLooted> 35 </DevestationPerTimeLooted>
+		<HostilePresencePerPowerDaily> 1 </HostilePresencePerPowerDaily>
+		<FightOccuredDevestationPerPower> 1 </FightOccuredDevestationPerPower>
+
+		<FriendlyPresenceDecayPerPowerDaily> 0.25 </FriendlyPresenceDecayPerPowerDaily>
+		<TradePerGoldValueDevestationDecay> 0.001 </TradePerGoldValueDevestationDecay>
+	</DevestationMetricConfig>
+</CampaignDataConfig>
