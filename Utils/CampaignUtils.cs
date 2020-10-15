@@ -91,7 +91,7 @@ namespace CustomSpawns
             return permissible.Count == 0 ? Settlement.All[0] : permissible[0];
         }
 
-        public static Settlement PickRandomSettlementOfKingdom(List<Kingdom> f, List<Data.SpawnSettlementType> preferredTypes = null)
+        public static Settlement PickRandomSettlementOfKingdom(List<Kingdom> f, List<Data.SpawnSettlementType> preferredTypes = null) //instead of PicKRandomSettlementOfCulture, does not prioritize types over kingdom
         {
             int num = 0;
             List<Settlement> permissible = new List<Settlement>();
@@ -99,18 +99,25 @@ namespace CustomSpawns
             {
                 foreach (Settlement s in Settlement.All)
                 {
-                    foreach (var type in preferredTypes)
+                    if (f.Contains(s.MapFaction))
                     {
-                        if (SettlementIsOfValidType(s, type))
+                        foreach (var type in preferredTypes)
                         {
-                            permissible.Add(s);
-                            break;
+                            if (SettlementIsOfValidType(s, type))
+                            {
+                                permissible.Add(s);
+                                break;
+                            }
                         }
                     }
                 }
             }
             if (permissible.Count == 0)
             {
+                if (preferredTypes != null)
+                {
+                    ModDebug.ShowMessage("Spawn type checking for kingdom spawn did not find any valid settlements. Falling back to kingdom.", DebugMessageType.Spawn);
+                }
                 foreach (Settlement s in Settlement.All)
                 {
                     if ((s.IsTown || s.IsVillage) && f.Contains(s.MapFaction))
