@@ -119,6 +119,21 @@ namespace CustomSpawns.Data
                         i++;
                     }
 
+                    string sc = "overriden_spawn_kingdom";
+                    while (true)
+                    {
+                        string s1 = sc + "_" + i.ToString();
+                        if (node.Attributes[s1] == null || node.Attributes[s1].InnerText == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            dat.OverridenSpawnKingdoms.Add((Kingdom)MBObjectManager.Instance.ReadObjectReferenceFromXml(s1, typeof(Kingdom), node));
+                        }
+                        i++;
+                    }
+
                     int j = 0;
                     string st = "overriden_spawn_culture";
                     while (true)
@@ -373,6 +388,7 @@ namespace CustomSpawns.Data
         public Clan SpawnClan { get; set; }
         public List<SpawnSettlementType> TrySpawnAtList = new List<SpawnSettlementType>();
         public List<Clan> OverridenSpawnClan = new List<Clan>();
+        public List<Kingdom> OverridenSpawnKingdoms = new List<Kingdom>();
         public List<Settlement> OverridenSpawnSettlements = new List<Settlement>();
         public List<CultureCode> OverridenSpawnCultures = new List<CultureCode>();
         public List<AccompanyingParty> SpawnAlongWith = new List<AccompanyingParty>();
