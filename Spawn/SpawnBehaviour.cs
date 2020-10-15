@@ -166,7 +166,7 @@ namespace CustomSpawns.Spawn
                             {
                                 var spawnSettlement = Spawner.GetSpawnSettlement(data, rand);
                                 //spawn nao!
-                                MobileParty spawnedParty = Spawner.SpawnParty(spawnSettlement, data.SpawnClan, data.PartyTemplate, data.PartyType, new TextObject(data.Name));
+                                MobileParty spawnedParty = Spawner.SpawnParty(spawnSettlement, data.SpawnClan, data.PartyTemplate, data.PartyType, new TextObject(data.Name), data.InheritClanFromSettlement);
                                 data.IncrementNumberSpawned(); //increment for can spawn and chance modifications
                                 //dynamic data registration
                                 DynamicSpawnData.AddDynamicSpawnData(spawnedParty, new CSPartyData(data, spawnSettlement));
@@ -177,7 +177,7 @@ namespace CustomSpawns.Spawn
                                 //accompanying spawns
                                 foreach (var accomp in data.SpawnAlongWith)
                                 {
-                                    MobileParty juniorParty = Spawner.SpawnParty(spawnSettlement, data.SpawnClan, accomp.templateObject, data.PartyType, new TextObject(accomp.name));
+                                    MobileParty juniorParty = Spawner.SpawnParty(spawnSettlement, data.SpawnClan, accomp.templateObject, data.PartyType, new TextObject(accomp.name), data.InheritClanFromSettlement);
                                     Spawner.HandleAIChecks(juniorParty, data, spawnSettlement); //junior party has same AI behaviour as main party. TODO in future add some junior party AI and reconstruction.
                                 }
                                 //message if available
