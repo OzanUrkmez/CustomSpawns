@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
+using TaleWorlds.TwoDimension;
 
 namespace CustomSpawns.Economics
 {
@@ -13,7 +14,7 @@ namespace CustomSpawns.Economics
 
         public static void PartyReplenishFood(MobileParty mobileParty)
         {
-            if (!mobileParty.IsBandit && mobileParty.IsPartyTradeActive && mobileParty.Food < mobileParty.FoodChange * 2)
+            if (mobileParty.IsPartyTradeActive && mobileParty.Food < Mathf.Abs(mobileParty.FoodChange * 2))
             {
                 mobileParty.PartyTradeGold = (int)((double)mobileParty.PartyTradeGold * 0.95 + (double)(50f * (float)mobileParty.Party.MemberRoster.TotalManCount * 0.05f));
                 if (MBRandom.RandomFloat < 0.03f && mobileParty.MapEvent != null)
