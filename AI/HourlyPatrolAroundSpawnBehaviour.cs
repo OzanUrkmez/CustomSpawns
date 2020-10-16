@@ -20,7 +20,7 @@ namespace CustomSpawns.AI
 
         }
 
-        private void HourlyPatrolTick()
+        private void HourlyPatrolTick() //TODO use hourly tick for patrol
         {
             List<Patroller> toRemove = new List<Patroller>();
             foreach(var patroller in registeredPatrollers)

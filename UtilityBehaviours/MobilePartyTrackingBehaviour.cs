@@ -66,6 +66,7 @@ namespace CustomSpawns.UtilityBehaviours
             {
                 settlementDailyPresences.Add(s, new List<MobileParty>());
             }
+
         }
 
         private void OnMobilePartyHourlyTick(MobileParty mb)
