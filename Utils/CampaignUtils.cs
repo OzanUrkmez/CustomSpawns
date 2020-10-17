@@ -43,11 +43,31 @@ namespace CustomSpawns
             return settlement;
         }
 
-        public static Settlement PickRandomSettlementOfCulture(List<CultureCode> c, List<Data.SpawnSettlementType> preferredTypes = null)
+        public static Settlement PickRandomSettlementOfCulture(List<CultureCode> c, List<Data.SpawnSettlementType> preferredTypes = null, bool typeOnly = true)
         {
             int num = 0;
             List<Settlement> permissible = new List<Settlement>();
-            if (preferredTypes != null)
+            if (typeOnly == false)
+            {
+                if (preferredTypes != null)
+                {
+                    foreach (Settlement s in Settlement.All)
+                    {
+                        if (c.Contains(s.Culture.GetCultureCode()))
+                        {
+                            foreach (var type in preferredTypes)
+                            {
+                                if (SettlementIsOfValidType(s, type))
+                                {
+                                    permissible.Add(s);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if (typeOnly == true && preferredTypes != null)
             {
                 foreach (Settlement s in Settlement.All)
                 {
@@ -61,7 +81,7 @@ namespace CustomSpawns
                     }
                 }
             }
-            if (permissible.Count == 0)
+            if (typeOnly == true && permissible.Count == 0)
             {
                 foreach (Settlement s in Settlement.All)
                 {
