@@ -95,7 +95,7 @@ namespace CustomSpawns
         {
             int num = 0;
             List<Settlement> permissible = new List<Settlement>();
-            if (preferredTypes != null)
+            if (preferredTypes.Count != 0)
             {
                 foreach (Settlement s in Settlement.All)
                 {
@@ -114,7 +114,7 @@ namespace CustomSpawns
             }
             if (permissible.Count == 0)
             {
-                if (preferredTypes != null)
+                if (preferredTypes.Count != 0)
                 {
                     ModDebug.ShowMessage("Spawn type checking for kingdom spawn did not find any valid settlements. Falling back to kingdom.", DebugMessageType.Spawn);
                 }

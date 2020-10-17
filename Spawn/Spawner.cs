@@ -20,7 +20,7 @@ namespace CustomSpawns.Spawn
     {
 
 
-        public static MobileParty SpawnParty(Settlement spawnedSettlement, Clan clan, PartyTemplateObject templateObject,MobileParty.PartyTypeEnum partyType, TextObject partyName = null, bool IsInheritClan = false)
+        public static MobileParty SpawnParty(Settlement spawnedSettlement, Clan clan, PartyTemplateObject templateObject,MobileParty.PartyTypeEnum partyType, TextObject partyName = null, PartyTemplateObject templatePrisoners = null, bool IsInheritClan = false)
         {
             //get name and show message.
             TextObject textObject = partyName ?? clan.Name;
@@ -28,18 +28,17 @@ namespace CustomSpawns.Spawn
 
             //create.
             MobileParty mobileParty = MBObjectManager.Instance.CreateObject<MobileParty>(templateObject.StringId + "_" + 1);
-            mobileParty.InitializeMobileParty(textObject, ConstructTroopRoster(templateObject, mobileParty.Party), new TroopRoster(mobileParty.Party), spawnedSettlement.GatePosition, 0);
+            if (templatePrisoners != null)
+                mobileParty.InitializeMobileParty(textObject, ConstructTroopRoster(templateObject, mobileParty.Party), ConstructTroopRoster(templatePrisoners, mobileParty.Party), spawnedSettlement.GatePosition, 0);
+            else
+                mobileParty.InitializeMobileParty(textObject, ConstructTroopRoster(templateObject, mobileParty.Party), new TroopRoster(mobileParty.Party), spawnedSettlement.GatePosition, 0);
 
             //initialize
             Clan settlementClan = spawnedSettlement.OwnerClan;
             if (IsInheritClan == true)
-            {
                 Spawner.InitParty(mobileParty, textObject, settlementClan, spawnedSettlement);
-            }
             else
-            {
                 Spawner.InitParty(mobileParty, textObject, clan, spawnedSettlement);
-            }
 
             return mobileParty;
         }
