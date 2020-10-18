@@ -7,6 +7,7 @@ using TaleWorlds.Core;
 using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.Library;
+using CustomSpawns.Data;
 
 namespace CustomSpawns
 {
@@ -20,6 +21,11 @@ namespace CustomSpawns
         public static void ShowMessage(InformationMessage msg)
         {
             InformationManager.DisplayMessage(msg);
+        }
+
+        public static void DisplayInquiry(InquiryData inqDat, bool pause)
+        {
+            InformationManager.ShowInquiry(inqDat, pause);
         }
 
         public static void ShowParseSpawnMessage(InformationMessage msg, string spawnPlaceName)
@@ -41,6 +47,40 @@ namespace CustomSpawns
             }
             msg.Information = string.Join("", codes);
             ShowMessage(msg);
+        }
+
+        public static void ShowParseSpawnInquiryMessage(InquiryData inqData, string spawnPlaceName, bool pauseInquiry)
+        {
+            string title = inqData.TitleText;
+            string body = inqData.Text;
+            string[] codesTitle = title.Split(new string[] { "[", "]" }, StringSplitOptions.None);
+            string[] codesBody = body.Split(new string[] { "[", "]" }, StringSplitOptions.None);
+            if (codesTitle.Length == 1 && codesBody.Length == 1)
+            {
+                DisplayInquiry(inqData, pauseInquiry);
+                return;
+            }
+            for (int i = 0; i < codesTitle.Length; i++)
+            {
+                switch (codesTitle[i].ToLower())
+                {
+                    case "spawnplace":
+                        codesTitle[i] = spawnPlaceName;
+                        break;
+                }
+            }
+            for (int i = 0; i < codesBody.Length; i++)
+            {
+                switch (codesBody[i].ToLower())
+                {
+                    case "spawnplace":
+                        codesBody[i] = spawnPlaceName;
+                        break;
+                }
+            }
+            inqData.TitleText = string.Join("", codesTitle);
+            inqData.Text = string.Join("", codesBody);
+            DisplayInquiry(inqData, pauseInquiry);
         }
 
         public static void ShowParseDeathMessage(InformationMessage msg, string deathClosestPlaceName)

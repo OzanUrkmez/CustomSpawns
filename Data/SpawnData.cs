@@ -98,7 +98,11 @@ namespace CustomSpawns.Data
                     SpawnData dat = new SpawnData();
 
                     dat.PartyTemplate = (PartyTemplateObject)MBObjectManager.Instance.ReadObjectReferenceFromXml("party_template", typeof(PartyTemplateObject), node);
-                    if(node.Attributes["spawn_clan"] == null)
+
+                    if (node.Attributes["party_template_prisoners"] != null)
+                        dat.PartyTemplatePrisoner = (PartyTemplateObject)MBObjectManager.Instance.ReadObjectReferenceFromXml("party_template_prisoners", typeof(PartyTemplateObject), node); 
+
+                    if (node.Attributes["spawn_clan"] == null)
                         dat.SpawnClan = (Clan)MBObjectManager.Instance.ReadObjectReferenceFromXml("bandit_clan", typeof(Clan), node);
                     else
                         dat.SpawnClan = (Clan)MBObjectManager.Instance.ReadObjectReferenceFromXml("spawn_clan", typeof(Clan), node);
@@ -117,6 +121,21 @@ namespace CustomSpawns.Data
                         else
                         {
                             dat.OverridenSpawnClan.Add((Clan)MBObjectManager.Instance.ReadObjectReferenceFromXml(s1, typeof(Clan), node));
+                        }
+                        i++;
+                    }
+
+                    string sc = "overriden_spawn_kingdom";
+                    while (true)
+                    {
+                        string s1 = sc + "_" + i.ToString();
+                        if (node.Attributes[s1] == null || node.Attributes[s1].InnerText == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            dat.OverridenSpawnKingdoms.Add((Kingdom)MBObjectManager.Instance.ReadObjectReferenceFromXml(s1, typeof(Kingdom), node));
                         }
                         i++;
                     }
@@ -160,6 +179,7 @@ namespace CustomSpawns.Data
                         throw new Exception("the node 'MaximumOnMap' cannot be less than 1!");
                     }
 
+                    dat.InheritClanFromSettlement = node["GetClanFromSettlement"] == null ? false : bool.Parse(node["GetClanFromSettlement"].InnerText);
                     dat.PartyType = node["PartyType"] == null ? MobileParty.PartyTypeEnum.Bandit : StringToPartyTypeEnumIfInvalidBandit(node["PartyType"].InnerText);
                     dat.ChanceOfSpawn = node["ChanceOfSpawn"] == null? 1 : float.Parse(node["ChanceOfSpawn"].InnerText);
                     dat.Name = node["Name"] == null ? "Unnamed" : node["Name"].InnerText;
@@ -196,6 +216,17 @@ namespace CustomSpawns.Data
                     
                     // sound event
                     dat.SoundEvent = node["SpawnSound"] == null ? -1 : SoundEvent.GetEventIdFromString(node["SpawnSound"].InnerText);
+
+                    //inquiry message (message box with options)
+                    string inqTitle = node["SpawnMessageBoxTitle"] == null ? "" : node["SpawnMessageBoxTitle"].InnerText;
+                    string inqText = node["SpawnMessageBoxText"] == null ? "" : node["SpawnMessageBoxText"].InnerText;
+                    string inqAffirmativeText = node["SpawnMessageBoxButton"] == null ? "Ok" : node["SpawnMessageBoxButton"].InnerText;
+
+                    if (inqText != "")
+                    {
+                        dat.inquiryMessage = new InquiryData(inqTitle, inqText, true, false, inqAffirmativeText, "", null, null);
+                        dat.inquiryPause = node["SpawnMessageBoxPause"] == null ? false : bool.Parse(node["SpawnMessageBoxPause"].InnerText);
+                    }
 
                     //death message
                     string deathMsg = node["DeathMessage"] == null ? "" : node["DeathMessage"].InnerText;
@@ -378,6 +409,7 @@ namespace CustomSpawns.Data
         public Clan SpawnClan { get; set; }
         public List<SpawnSettlementType> TrySpawnAtList = new List<SpawnSettlementType>();
         public List<Clan> OverridenSpawnClan = new List<Clan>();
+        public List<Kingdom> OverridenSpawnKingdoms = new List<Kingdom>();
         public List<Settlement> OverridenSpawnSettlements = new List<Settlement>();
         public List<CultureCode> OverridenSpawnCultures = new List<CultureCode>();
         public List<AccompanyingParty> SpawnAlongWith = new List<AccompanyingParty>();
@@ -399,12 +431,16 @@ namespace CustomSpawns.Data
         }
         public float ChanceInverseConstant { private get; set; }
         public PartyTemplateObject PartyTemplate { get; set; }
+        public PartyTemplateObject PartyTemplatePrisoner { get; set; }
         public string Name { get; set; }
         public int RepeatSpawnRolls { get; set; }
         public InformationMessage spawnMessage { get; set; }
+        public InquiryData inquiryMessage { get; set; }
+        public bool inquiryPause { get; set; }
         public InformationMessage deathMessage { get; set; }
         public int SoundEvent { get; set; }
         public bool PatrolAroundSpawn { get; set; }
+        public bool InheritClanFromSettlement { get; set; }
         private int numberSpawned = 0;
 
         public void IncrementNumberSpawned()

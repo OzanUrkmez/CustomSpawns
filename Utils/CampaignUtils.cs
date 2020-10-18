@@ -91,6 +91,61 @@ namespace CustomSpawns
             return permissible.Count == 0 ? Settlement.All[0] : permissible[0];
         }
 
+        public static Settlement PickRandomSettlementOfKingdom(List<Kingdom> f, List<Data.SpawnSettlementType> preferredTypes = null) //instead of PicKRandomSettlementOfCulture, does not prioritize types over kingdom
+        {
+            int num = 0;
+            List<Settlement> permissible = new List<Settlement>();
+            if (preferredTypes.Count != 0)
+            {
+                foreach (Settlement s in Settlement.All)
+                {
+                    if (f.Contains(s.MapFaction))
+                    {
+                        foreach (var type in preferredTypes)
+                        {
+                            if (SettlementIsOfValidType(s, type))
+                            {
+                                permissible.Add(s);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            if (permissible.Count == 0)
+            {
+                if (preferredTypes.Count != 0)
+                {
+                    ModDebug.ShowMessage("Spawn type checking for kingdom spawn did not find any valid settlements. Falling back to kingdom.", DebugMessageType.Spawn);
+                }
+                foreach (Settlement s in Settlement.All)
+                {
+                    if ((s.IsTown || s.IsVillage) && f.Contains(s.MapFaction))
+                    {
+                        permissible.Add(s);
+                    }
+                }
+            }
+            permissible.Randomize();
+            foreach (Settlement s in permissible)
+            {
+                int num2 = TaleWorldsCode.BanditsCampaignBehaviour.CalculateDistanceScore(s.Position2D.DistanceSquared(MobileParty.MainParty.Position2D));
+                num += num2;
+            }
+            int num3 = MBRandom.RandomInt(num);
+            foreach (Settlement s in permissible)
+            {
+                int num4 = TaleWorldsCode.BanditsCampaignBehaviour.CalculateDistanceScore(s.Position2D.DistanceSquared(MobileParty.MainParty.Position2D)); //makes it more likely that the spawn will be further to the player.
+                num3 -= num4;
+                if (num3 <= 0)
+                {
+                    return s;
+                }
+            }
+            ModDebug.ShowMessage("Unable to find proper faction settlement of" + f.ToString() + " for some reason.", DebugMessageType.Spawn);
+            return permissible.Count == 0 ? Settlement.All[0] : permissible[0];
+        }
+
         public static Clan GetClanWithName(string name)
         {
             foreach (Clan c in Clan.All)
