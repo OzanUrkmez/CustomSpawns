@@ -180,6 +180,22 @@ namespace CustomSpawns
             return min;
         }
 
+        public static Settlement GetClosestSettlement(Vec2 pos)
+        {
+            Settlement min = null;
+            float minDistance = float.MaxValue;
+            foreach (Settlement s in Settlement.All)
+            {
+                float dist = pos.Distance(s.GatePosition);
+                if (dist < minDistance)
+                {
+                    minDistance = dist;
+                    min = s;
+                }
+            }
+            return min;
+        }
+
         public static Settlement GetClosestVillage(MobileParty mb)
         {
             Settlement min = null;
@@ -187,6 +203,22 @@ namespace CustomSpawns
             foreach (Settlement s in Settlement.All.Where<Settlement>(x => x.IsVillage))
             {
                 float dist = mb.Position2D.Distance(s.GatePosition);
+                if (dist < minDistance)
+                {
+                    minDistance = dist;
+                    min = s;
+                }
+            }
+            return min;
+        }
+
+        public static Settlement GetClosestVillage(Vec2 pos)
+        {
+            Settlement min = null;
+            float minDistance = float.MaxValue;
+            foreach (Settlement s in Settlement.All.Where<Settlement>(x => x.IsVillage))
+            {
+                float dist = pos.Distance(s.GatePosition);
                 if (dist < minDistance)
                 {
                     minDistance = dist;

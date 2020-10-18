@@ -108,7 +108,7 @@ namespace CustomSpawns.Spawn
             HourlyCheckData();
             if (!spawnedToday && Campaign.Current.IsNight)
             {
-                RegularBanditSpawn();
+                RegularSpawn();
                 spawnedToday = true;
             }
 
@@ -152,7 +152,7 @@ namespace CustomSpawns.Spawn
 
         #endregion
 
-        private void RegularBanditSpawn()
+        private void RegularSpawn()
         {
             try
             {

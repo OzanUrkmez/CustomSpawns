@@ -27,6 +27,16 @@ namespace CustomSpawns
             InformationManager.DisplayMessage(new InformationMessage(message, Color.ConvertStringToColor("#FF8F00FF")));
         }
 
+        public static void ShowMessage(string message, CampaignData.ICampaignDataConfig config)
+        {
+            if (!config.ShowConfigDebug)
+            {
+                return;
+            }
+
+            InformationManager.DisplayMessage(new InformationMessage(message, Color.ConvertStringToColor("#FF8F00FF")));
+        }
+
     }
 
     public enum DebugMessageType { Spawn, AI, Prisoner, Diplomacy, DeathTrack, Development}

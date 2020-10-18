@@ -18,7 +18,7 @@ namespace CustomSpawns
 {
     public class Main : MBSubModuleBase
     {
-        public static readonly string version = "v1.3.1";
+        public static readonly string version = "v1.3.3";
         public static readonly bool isAPIMode = false;
         public static CustomSpawnsCustomSpeedModel customSpeedModel;
 
@@ -127,8 +127,11 @@ namespace CustomSpawns
 
 
 
-
+                //campaign behaviours
                 starter.AddBehavior(CampaignData.DevestationMetricData.Singleton);
+
+                //these come last! assuming those that are added last are also run last.
+                starter.AddBehavior(MobilePartyTrackingBehaviour.Singleton);
             }
             else
             {

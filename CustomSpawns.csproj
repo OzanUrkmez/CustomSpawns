@@ -275,6 +275,7 @@
     <Compile Include="Spawn\SpawnBehaviour.cs" />
     <Compile Include="Spawn\Spawner.cs" />
     <Compile Include="TaleWorldsCode\BanditsCampaignBehaviour.cs" />
+    <Compile Include="UtilityBehaviours\MobilePartyTrackingBehaviour.cs" />
     <Compile Include="UtilityBehaviours\OnSaveStartRunBehaviour.cs" />
     <Compile Include="Utils\ErrorHandler.cs" />
     <Compile Include="Utils\CampaignUtils.cs" />

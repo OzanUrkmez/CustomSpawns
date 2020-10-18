@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.TwoDimension;
 
 namespace CustomSpawns.CampaignData
 {
@@ -52,10 +53,10 @@ namespace CustomSpawns.CampaignData
 
         public override void RegisterEvents()
         {
-            CampaignEvents.CommonAreaFightOccured.AddNonSerializedListener(this, OnCommonAreaFightOccured);
+            CampaignEvents.MapEventEnded.AddNonSerializedListener(this, OnMapEventEnded);
             CampaignEvents.VillageLooted.AddNonSerializedListener(this, OnVillageLooted);
-            CampaignEvents.MobilePartyDestroyed.AddNonSerializedListener(this, OnMobilePartyDestroyed);
-            CampaignEvents.HourlyTickPartyEvent.AddNonSerializedListener(this, OnMobilePartyHourlyTick);
+
+            CampaignEvents.DailyTickSettlementEvent.AddNonSerializedListener(this, OnSettlementDaily);
         }
 
         public override void SyncData(IDataStore dataStore)
@@ -80,40 +81,70 @@ namespace CustomSpawns.CampaignData
 
         #region Event Callbacks
 
-        private void OnCommonAreaFightOccured(MobileParty p1, MobileParty p2, Hero h, Settlement s)
+       private void OnMapEventEnded(MapEvent e)
         {
-            if (p1 == null || p2 == null || s==null)
+            if (e == null)
                 return;
 
-            ModDebug.ShowMessage("Fight at " + s.Name, DebugMessageType.Development);
+            float increase = (e.AttackerSide.CasualtyStrength + e.DefenderSide.CasualtyStrength) * campaignConfig.FightOccuredDevestationPerPower;
+
+            Settlement closestSettlement = CampaignUtils.GetClosestVillage(e.Position);
+
+            ChangeDevestation(closestSettlement, increase);
+
+            ModDebug.ShowMessage("Fight at " + closestSettlement.Name + ". Increasing devestation by " + increase + ". New devestation is: " + settlementToDevestation[closestSettlement], campaignConfig);
         }
 
         private void OnVillageLooted(Village v)
         {
             if (v == null)
                 return;
+
+            ChangeDevestation(v.Settlement, campaignConfig.DevestationPerTimeLooted);
+
+            ModDebug.ShowMessage("Successful Looting at " + v.Name + ". Increasing devestation by " + campaignConfig.DevestationPerTimeLooted, campaignConfig);
         }
 
-        private void OnMobilePartyDestroyed(MobileParty mb, PartyBase mbbase)
+        private void OnSettlementDaily(Settlement s)
         {
-            if (mb == null)
+            if (s == null || !s.IsVillage)
                 return;
 
-        }
+            var presentInDay = MobilePartyTrackingBehaviour.Singleton.GetSettlementDailyMobilePartyPresences(s);
 
-        private void OnMobilePartyHourlyTick(MobileParty mb)
-        {
-            if (mb == null || mb.IsBandit)
-                return;
+            foreach(var mb in presentInDay)
+            {
+                if (mb.IsBandit)
+                {
+                     //TODO left here.
+                }else if (s.OwnerClan.MapFaction.IsAtWarWith(mb.Party.MapFaction))
+                {
+                    
+                }else if(s.OwnerClan.MapFaction == mb.Party.MapFaction)
+                {
+
+                }
+            }
+
+            ChangeDevestation(s, -campaignConfig.DailyDevestationDecay);
         }
 
         #endregion
+
+
+
+        private void ChangeDevestation(Settlement s, float change)
+        {
+            settlementToDevestation[s] += change;
+
+            settlementToDevestation[s] = Mathf.Clamp(settlementToDevestation[s], campaignConfig.MinDevestationPerSettlement, campaignConfig.MaxDevestationPerSettlement);
+        }
 
         public float GetDevestation(Settlement s)
         {
             if (!s.IsVillage)
             {
-                ModDebug.ShowMessage("Non-village devestation data is not currently supported!", DebugMessageType.Development);
+                ModDebug.ShowMessage("Non-village devestation data is not currently supported!", campaignConfig);
             }
             if (settlementToDevestation.ContainsKey(s))
                 return settlementToDevestation[s];
