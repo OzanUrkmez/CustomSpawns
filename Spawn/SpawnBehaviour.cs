@@ -4,9 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CustomSpawns.MCMv3;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
+using TaleWorlds.Engine;
 using TaleWorlds.Localization;
+using TaleWorlds.MountAndBlade;
 
 namespace CustomSpawns.Spawn
 {
@@ -53,7 +56,7 @@ namespace CustomSpawns.Spawn
 
         public void HourlyCheckData()
         {
-            if (lastRedundantDataUpdate < ConfigLoader.Instance.Config.UpdatePartyRedundantDataPerHour + 1) // + 1 to give leeway and make sure every party gets updated. 
+            if (lastRedundantDataUpdate < CsSettings.UpdatePartyRedundantDataPerHour + 1) // + 1 to give leeway and make sure every party gets updated. 
             {
                 lastRedundantDataUpdate++;
             }
@@ -134,7 +137,7 @@ namespace CustomSpawns.Spawn
             if (DynamicSpawnData.GetDynamicSpawnData(mb) == null) //check if it is a custom spawns party
                 return;
             UpdateDynamicData(mb);
-            if (lastRedundantDataUpdate >= ConfigLoader.Instance.Config.UpdatePartyRedundantDataPerHour)
+            if (lastRedundantDataUpdate >= CsSettings.UpdatePartyRedundantDataPerHour)
             {
                 UpdateRedundantDynamicData(mb);
             }
@@ -155,6 +158,7 @@ namespace CustomSpawns.Spawn
             {
                 var list = dataManager.Data;
                 Random rand = new Random();
+                var isSpawnSoundPlaying = false;
                 foreach (Data.SpawnData data in list)
                 {
                     int j = 0;
@@ -162,7 +166,7 @@ namespace CustomSpawns.Spawn
                     {
                         if (data.CanSpawn() && (data.MinimumNumberOfDaysUntilSpawn < (int)Math.Ceiling(Campaign.Current.CampaignStartTime.ElapsedDaysUntilNow)))
                         {
-                            if (ConfigLoader.Instance.Config.IsAllSpawnMode || (float)rand.NextDouble() < data.ChanceOfSpawn)
+                            if (CsSettings.IsAllSpawnMode || (float)rand.NextDouble() < data.ChanceOfSpawn)
                             {
                                 var spawnSettlement = Spawner.GetSpawnSettlement(data, rand);
                                 //spawn nao!
@@ -184,6 +188,13 @@ namespace CustomSpawns.Spawn
                                 if (data.spawnMessage != null)
                                 {
                                     UX.ShowParseSpawnMessage(data.spawnMessage, spawnSettlement.Name.ToString());
+                                    if (data.SoundEvent != -1 && !isSpawnSoundPlaying && CsSettings.SpawnSoundEnabled)
+                                    {
+                                        var sceneEmpty = Scene.CreateNewScene(false);
+                                        SoundEvent sound = SoundEvent.CreateEvent(data.SoundEvent, sceneEmpty);
+                                        sound.Play();
+                                        isSpawnSoundPlaying = true;
+                                    }
                                 }
 
                             }

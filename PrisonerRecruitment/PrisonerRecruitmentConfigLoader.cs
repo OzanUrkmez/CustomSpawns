@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using CustomSpawns.MCMv3;
 using TaleWorlds.Library;
 
 namespace CustomSpawns.PrisonerRecruitment
@@ -64,7 +65,7 @@ namespace CustomSpawns.PrisonerRecruitment
 
         private void HandleConfig(PrisonerRecruitmentConfig config)
         {
-            if (config.PrisonRecruitmentDebugEnabled && !ConfigLoader.Instance.Config.IsDebugMode)
+            if (config.PrisonRecruitmentDebugEnabled && !CsSettings.IsDebugMode)
                 config.PrisonRecruitmentDebugEnabled = false;
         }
     }

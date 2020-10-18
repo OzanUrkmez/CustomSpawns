@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CustomSpawns.MCMv3;
 using TaleWorlds.Core;
 using TaleWorlds.Localization;
 using TaleWorlds.CampaignSystem;
@@ -100,28 +101,28 @@ namespace CustomSpawns
 
         public void RegisterPartyExtraSpeed(string partyBaseID, float extraSpeed)
         {
-            if (partyIDToExtraSpeed.ContainsKey(partyBaseID) || !ConfigLoader.Instance.Config.ModifyPartySpeeds)
+            if (partyIDToExtraSpeed.ContainsKey(partyBaseID) || !CsSettings.ModifyPartySpeeds)
                 return;
             partyIDToExtraSpeed.Add(partyBaseID, extraSpeed);
         }
 
         public void RegisterPartyMinimumSpeed(string partyBaseID, float minimumSpeed)
         {
-            if (partyIDToMinimumSpeed.ContainsKey(partyBaseID) || !ConfigLoader.Instance.Config.ModifyPartySpeeds)
+            if (partyIDToMinimumSpeed.ContainsKey(partyBaseID) || !CsSettings.ModifyPartySpeeds)
                 return;
             partyIDToMinimumSpeed.Add(partyBaseID, minimumSpeed);
         }
 
         public void RegisterPartyMaximumSpeed(string partyBaseID, float maximumSpeed)
         {
-            if (partyIDToMaximumSpeed.ContainsKey(partyBaseID) || !ConfigLoader.Instance.Config.ModifyPartySpeeds)
+            if (partyIDToMaximumSpeed.ContainsKey(partyBaseID) || !CsSettings.ModifyPartySpeeds)
                 return;
             partyIDToMaximumSpeed.Add(partyBaseID, maximumSpeed);
         }
 
         public void RegisterPartyBaseSpeed(string partyBaseID, float maximumSpeed)
         {
-            if (partyIDToBaseSpeed.ContainsKey(partyBaseID) || !ConfigLoader.Instance.Config.ModifyPartySpeeds)
+            if (partyIDToBaseSpeed.ContainsKey(partyBaseID) || !CsSettings.ModifyPartySpeeds)
                 return;
             partyIDToBaseSpeed.Add(partyBaseID, maximumSpeed);
         }

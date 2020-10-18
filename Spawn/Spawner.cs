@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CustomSpawns.MCMv3;
 using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.Barterables;
 using TaleWorlds.CampaignSystem.CharacterDevelopment.Managers;
@@ -113,7 +114,7 @@ namespace CustomSpawns.Spawn
                     aiRegistrations.Add("Patrol Around Closest Lest Interrupted And Switch Behaviour: ", success);
                     invalid = invalid ? true : !success;
                 }
-                if (invalid && ConfigLoader.Instance.Config.IsDebugMode)
+                if (invalid && CsSettings.IsDebugMode)
                 {
                     ErrorHandler.ShowPureErrorMessage("Custom Spawns AI XML registration error has occured. The party being registered was: " + mb.StringId +
                         "\n Here is more info about the behaviours being registered: \n" + String.Join("\n", aiRegistrations.Keys));
@@ -137,7 +138,7 @@ namespace CustomSpawns.Spawn
             }
             //check for one hideout
             Settlement firstHideout = null;
-            if (ConfigLoader.Instance.Config.SpawnAtOneHideout)
+            if (CsSettings.SpawnAtOneHideout)
             {
                 foreach (Settlement s in Settlement.All)
                 {
@@ -160,7 +161,7 @@ namespace CustomSpawns.Spawn
                 spawnOverride = CampaignUtils.PickRandomSettlementOfCulture(data.OverridenSpawnCultures, data.TrySpawnAtList);
             }
             //get settlement
-            Settlement spawnSettlement = ConfigLoader.Instance.Config.SpawnAtOneHideout ? firstHideout : (spawnOverride == null ? CampaignUtils.GetPreferableHideout(spawnClan) : spawnOverride);
+            Settlement spawnSettlement = CsSettings.SpawnAtOneHideout ? firstHideout : (spawnOverride == null ? CampaignUtils.GetPreferableHideout(spawnClan) : spawnOverride);
             return spawnSettlement;
         }
 

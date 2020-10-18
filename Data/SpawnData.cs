@@ -10,7 +10,9 @@ using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
 using TaleWorlds.Core;
+using TaleWorlds.Engine;
 using TaleWorlds.ObjectSystem;
+using Path = System.IO.Path;
 
 
 namespace CustomSpawns.Data
@@ -191,6 +193,9 @@ namespace CustomSpawns.Data
                             dat.spawnMessage = new InformationMessage(msg, c);
                         }
                     }
+                    
+                    // sound event
+                    dat.SoundEvent = node["SpawnSound"] == null ? -1 : SoundEvent.GetEventIdFromString(node["SpawnSound"].InnerText);
 
                     //death message
                     string deathMsg = node["DeathMessage"] == null ? "" : node["DeathMessage"].InnerText;
@@ -398,6 +403,7 @@ namespace CustomSpawns.Data
         public int RepeatSpawnRolls { get; set; }
         public InformationMessage spawnMessage { get; set; }
         public InformationMessage deathMessage { get; set; }
+        public int SoundEvent { get; set; }
         public bool PatrolAroundSpawn { get; set; }
         private int numberSpawned = 0;
 
