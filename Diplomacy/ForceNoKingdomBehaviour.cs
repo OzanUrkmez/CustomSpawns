@@ -16,7 +16,7 @@ namespace CustomSpawns.Diplomacy
     {
         public override void RegisterEvents()
         {
-            CampaignEvents.DailyTickClanEvent.AddNonSerializedListener(this, DailyMakeSureNoKingdom);
+            CampaignEvents.MercenaryClanChangedKingdom.AddNonSerializedListener(this, new Action<Clan, Kingdom, Kingdom>(this.DailyMakeSureNoKingdom));
         }
 
         private Data.DiplomacyDataManager dataManager;
@@ -26,7 +26,7 @@ namespace CustomSpawns.Diplomacy
 
         }
 
-        private void DailyMakeSureNoKingdom(Clan c)
+        private void DailyMakeSureNoKingdom(Clan c, Kingdom k1, Kingdom k2)
         {
             if (c == null || DiplomacyUtils.GetHardCodedExceptionClans().Contains(c.StringId))
                 return;
