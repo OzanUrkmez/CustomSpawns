@@ -9,3 +9,4 @@ obj/Debug/CustomSpawns.pdb
 .idea
 *.user
 CustomSpawns.csproj
+*.csproj
