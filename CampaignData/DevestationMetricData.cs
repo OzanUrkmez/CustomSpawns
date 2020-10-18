@@ -57,6 +57,7 @@ namespace CustomSpawns.CampaignData
             CampaignEvents.VillageLooted.AddNonSerializedListener(this, OnVillageLooted);
 
             CampaignEvents.DailyTickSettlementEvent.AddNonSerializedListener(this, OnSettlementDaily);
+
         }
 
         public override void SyncData(IDataStore dataStore)
@@ -112,21 +113,38 @@ namespace CustomSpawns.CampaignData
 
             var presentInDay = MobilePartyTrackingBehaviour.Singleton.GetSettlementDailyMobilePartyPresences(s);
 
-            foreach(var mb in presentInDay)
+            float hostileDecay = 0;
+
+            float friendlyGain = 0;
+
+            foreach (var mb in presentInDay)
             {
                 if (mb.IsBandit)
                 {
-                     //TODO left here.
-                }else if (s.OwnerClan.MapFaction.IsAtWarWith(mb.Party.MapFaction))
+                    hostileDecay += campaignConfig.HostilePresencePerPowerDaily * mb.Party.TotalStrength;
+                }
+                else if (s.OwnerClan.MapFaction.IsAtWarWith(mb.Party.MapFaction))
                 {
-                    
-                }else if(s.OwnerClan.MapFaction == mb.Party.MapFaction)
+                    hostileDecay += campaignConfig.HostilePresencePerPowerDaily * mb.Party.TotalStrength;
+                }
+                else if (s.OwnerClan.MapFaction == mb.Party.MapFaction)
                 {
-
+                    friendlyGain += campaignConfig.FriendlyPresenceDecayPerPowerDaily * mb.Party.TotalStrength;
                 }
             }
 
+            ModDebug.ShowMessage("Calculating friendly presence devestation decay in " + s.Name + ". Decreasing devestation by " + friendlyGain, campaignConfig);
+
+            ChangeDevestation(s, friendlyGain);
+
+            ModDebug.ShowMessage("Calculating hostile presence devestation gain in " + s.Name + ". Increasing devestation by " + hostileDecay, campaignConfig);
+
+            ChangeDevestation(s, -hostileDecay);
+
+            ModDebug.ShowMessage("Calculating daily Devestation Decay in " + s.Name + ". Decreasing devestation by " + campaignConfig.DailyDevestationDecay, campaignConfig);
             ChangeDevestation(s, -campaignConfig.DailyDevestationDecay);
+
+            ModDebug.ShowMessage("Current Devestation at " + s.Name + " is now " + settlementToDevestation[s], campaignConfig);
         }
 
         #endregion
