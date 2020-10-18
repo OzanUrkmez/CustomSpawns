@@ -25,6 +25,6 @@ namespace CustomSpawns.CampaignData
 
         public float TradePerGoldValueDevestationDecay { get; set; }
 
-
+        public bool ShowConfigDebug { get; set; }
     }
 }

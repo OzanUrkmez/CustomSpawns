@@ -1,6 +1,0 @@
-C:\Users\arkan\source\repos\Banditlord\Banditlord\obj\Debug\Banditlord.csprojAssemblyReference.cache
-C:\Users\arkan\source\repos\Banditlord\Banditlord\obj\Debug\Banditlord.csproj.CoreCompileInputs.cache
-D:\SteamLibrary\steamapps\common\Mount & Blade II Bannerlord\Modules\Banditlord\bin\Win64_Shipping_Client\Banditlord.dll
-D:\SteamLibrary\steamapps\common\Mount & Blade II Bannerlord\Modules\Banditlord\bin\Win64_Shipping_Client\Banditlord.pdb
-C:\Users\arkan\source\repos\Banditlord\Banditlord\obj\Debug\Banditlord.dll
-C:\Users\arkan\source\repos\Banditlord\Banditlord\obj\Debug\Banditlord.pdb

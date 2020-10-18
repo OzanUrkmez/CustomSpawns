@@ -34,7 +34,7 @@ namespace CustomSpawns.UtilityBehaviours
 
         public override void RegisterEvents()
         {
-            CampaignEvents.HourlyTickEvent.AddNonSerializedListener(this, HourlyBehaviour);
+            CampaignEvents.TickEvent.AddNonSerializedListener(this, TickBehaviour);
         }
 
         public override void SyncData(IDataStore dataStore)
@@ -44,7 +44,7 @@ namespace CustomSpawns.UtilityBehaviours
 
         private Action run;
         private bool alreadyRun = false;
-        private void HourlyBehaviour()
+        private void TickBehaviour(float dt)
         {
             if (alreadyRun)
                 return;

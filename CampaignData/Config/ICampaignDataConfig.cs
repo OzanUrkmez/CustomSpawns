@@ -8,6 +8,8 @@ namespace CustomSpawns.CampaignData
 {
     interface ICampaignDataConfig
     {
+        
+        bool ShowConfigDebug { get; set; }
 
     }
 }
