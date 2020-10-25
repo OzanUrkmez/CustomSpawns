@@ -62,7 +62,7 @@ namespace CustomSpawns.CampaignData
 
         public override void SyncData(IDataStore dataStore)
         {
-           
+            dataStore.SyncData("settlementToDevestation", ref settlementToDevestation);
         }
 
 
@@ -135,11 +135,11 @@ namespace CustomSpawns.CampaignData
 
             ModDebug.ShowMessage("Calculating friendly presence devestation decay in " + s.Name + ". Decreasing devestation by " + friendlyGain, campaignConfig);
 
-            ChangeDevestation(s, friendlyGain);
+            ChangeDevestation(s, -friendlyGain);
 
             ModDebug.ShowMessage("Calculating hostile presence devestation gain in " + s.Name + ". Increasing devestation by " + hostileDecay, campaignConfig);
 
-            ChangeDevestation(s, -hostileDecay);
+            ChangeDevestation(s, hostileDecay);
 
             ModDebug.ShowMessage("Calculating daily Devestation Decay in " + s.Name + ". Decreasing devestation by " + campaignConfig.DailyDevestationDecay, campaignConfig);
             ChangeDevestation(s, -campaignConfig.DailyDevestationDecay);
