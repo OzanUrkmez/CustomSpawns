@@ -138,21 +138,41 @@ namespace CustomSpawns.Data
 
         public string GetPartyNameFromID(string id)
         {
+            if (!IDToName.ContainsKey(id))
+            {
+                ErrorHandler.ShowPureErrorMessage(id + " name signifier could not be found! This is potentially lethal!");
+                return "";
+            }
             return IDToName[id];
         }
 
         public float GetSpeedModifierFromID(string id)
         {
+            if (!IDToSpeedModifier.ContainsKey(id))
+            {
+                ErrorHandler.ShowPureErrorMessage(id + " name signifier speed modifier could not be found! This is potentially lethal!");
+                return 0;
+            }
             return IDToSpeedModifier[id];
         }
 
         public float GetBaseSpeedModifierOverrideFromID(string id)
         {
+            if (!IDToBaseSpeedOverride.ContainsKey(id))
+            {
+                ErrorHandler.ShowPureErrorMessage(id + " name signifier base speed modifier override could not be found! This is potentially lethal!");
+                return 0;
+            }
             return IDToBaseSpeedOverride[id];
         }
 
         public bool GetPartyFollowBehaviourFlagFromID(string id)
         {
+            if (!IDToFollowMainParty.ContainsKey(id))
+            {
+                ErrorHandler.ShowPureErrorMessage(id + "name signifier follow main party could not be found! This is potentially lethal!");
+                return false;
+            }
             return IDToFollowMainParty[id];
         }
     }
