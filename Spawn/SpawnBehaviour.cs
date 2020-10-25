@@ -10,6 +10,7 @@ using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 using TaleWorlds.Engine;
 using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
+using CustomSpawns.CampaignData;
 
 namespace CustomSpawns.Spawn
 {
@@ -166,10 +167,20 @@ namespace CustomSpawns.Spawn
                     {
                         if (data.CanSpawn() && (data.MinimumNumberOfDaysUntilSpawn < (int)Math.Ceiling(Campaign.Current.CampaignStartTime.ElapsedDaysUntilNow)))
                         {
-                            if (CsSettings.IsAllSpawnMode || (float)rand.NextDouble() < data.ChanceOfSpawn)
-                            {
-                                var spawnSettlement = Spawner.GetSpawnSettlement(data, rand);
+                            if (!CsSettings.IsAllSpawnMode &&
+                                (float)rand.NextDouble() >= data.ChanceOfSpawn + data.DevestationLinearMultiplier * DevestationMetricData.Singleton.GetDevestationLerp())
+                                continue;
+                            
+                                var spawnSettlement = Spawner.GetSpawnSettlement(data, (s => data.MinimumDevestationToSpawn > DevestationMetricData.Singleton.GetDevestation(s)) , rand);
                                 //spawn nao!
+
+                                if(spawnSettlement == null)
+                                {
+                                    //no valid spawn settlement
+
+                                    break;
+                                }
+
                                 MobileParty spawnedParty = Spawner.SpawnParty(spawnSettlement, data.SpawnClan, data.PartyTemplate, data.PartyType, new TextObject(data.Name));
                                 data.IncrementNumberSpawned(); //increment for can spawn and chance modifications
                                 //dynamic data registration
@@ -197,7 +208,7 @@ namespace CustomSpawns.Spawn
                                     }
                                 }
 
-                            }
+                            
                         }
                         else
                         {
@@ -211,6 +222,7 @@ namespace CustomSpawns.Spawn
                 ErrorHandler.HandleException(e);
             }
         }
+
         private void OnPartyDeath(MobileParty mb, CSPartyData dynamicData)
         {
             HandleDeathMessage(mb, dynamicData);

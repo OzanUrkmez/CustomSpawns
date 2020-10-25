@@ -126,10 +126,14 @@ namespace CustomSpawns.Spawn
             }
         }
 
-        public static Settlement GetSpawnSettlement(Data.SpawnData data, Random rand = null)
+        public static Settlement GetSpawnSettlement(Data.SpawnData data, Random rand = null, List<Settlement> exceptions = null)
         {
             if(rand == null)
                 rand = new Random();
+
+            if (exceptions == null)
+                exceptions = new List<Settlement>();
+
             Clan spawnClan = data.SpawnClan;
             //deal with override of spawn clan.
             if (data.OverridenSpawnClan.Count != 0)
@@ -149,21 +153,75 @@ namespace CustomSpawns.Spawn
                     }
                 }
             }
+
             //deal with town spawn
             Settlement spawnOverride = null;
             if (data.OverridenSpawnSettlements.Count != 0)
             {
-                spawnOverride = CampaignUtils.PickRandomSettlementAmong(data.OverridenSpawnSettlements, data.TrySpawnAtList, rand);
+                spawnOverride = CampaignUtils.PickRandomSettlementAmong(new List<Settlement>(data.OverridenSpawnSettlements.Where(s => !exceptions.Contains(s))), 
+                    data.TrySpawnAtList, rand);
             }
+
             if (spawnOverride == null && data.OverridenSpawnCultures.Count != 0)
             {
                 //spawn at overriden spawn instead!
-                spawnOverride = CampaignUtils.PickRandomSettlementOfCulture(data.OverridenSpawnCultures, data.TrySpawnAtList);
+                spawnOverride = CampaignUtils.PickRandomSettlementOfCulture(data.OverridenSpawnCultures, data.TrySpawnAtList, exceptions);
             }
+
+            if (spawnOverride != null)
+                return spawnOverride;
+
             //get settlement
-            Settlement spawnSettlement = CsSettings.SpawnAtOneHideout ? firstHideout : (spawnOverride == null ? CampaignUtils.GetPreferableHideout(spawnClan) : spawnOverride);
+            Settlement spawnSettlement = CsSettings.SpawnAtOneHideout ? firstHideout : (data.TrySpawnAtList.Count == 0 ? CampaignUtils.GetPreferableHideout(spawnClan) : null);
             return spawnSettlement;
         }
 
+        public static Settlement GetSpawnSettlement(Data.SpawnData data, Func<Settlement , bool> exceptionPredicate, Random rand = null)
+        {
+            if (rand == null)
+                rand = new Random();
+
+
+            Clan spawnClan = data.SpawnClan;
+            //deal with override of spawn clan.
+            if (data.OverridenSpawnClan.Count != 0)
+            {
+                spawnClan = data.OverridenSpawnClan[rand.Next(0, data.OverridenSpawnClan.Count)];
+            }
+            //check for one hideout
+            Settlement firstHideout = null;
+            if (CsSettings.SpawnAtOneHideout)
+            {
+                foreach (Settlement s in Settlement.All)
+                {
+                    if (s.IsHideout())
+                    {
+                        firstHideout = s;
+                        break;
+                    }
+                }
+            }
+
+            //deal with town spawn
+            Settlement spawnOverride = null;
+            if (data.OverridenSpawnSettlements.Count != 0)
+            {
+                spawnOverride = CampaignUtils.PickRandomSettlementAmong(new List<Settlement>(data.OverridenSpawnSettlements.Where(s => !exceptionPredicate(s))),
+                    data.TrySpawnAtList, rand);
+            }
+
+            if (spawnOverride == null && data.OverridenSpawnCultures.Count != 0)
+            {
+                //spawn at overriden spawn instead!
+                spawnOverride = CampaignUtils.PickRandomSettlementOfCulture(data.OverridenSpawnCultures, exceptionPredicate, data.TrySpawnAtList);
+            }
+
+            if (spawnOverride != null)
+                return spawnOverride;
+
+            //get settlement
+            Settlement spawnSettlement = CsSettings.SpawnAtOneHideout ? firstHideout : (data.TrySpawnAtList.Count == 0 ? CampaignUtils.GetPreferableHideout(spawnClan) : null);
+            return spawnSettlement;
+        }
     }
 }

@@ -14,3 +14,5 @@ D:\SteamLibrary\steamapps\common\Mount & Blade II Bannerlord\Modules\CustomSpawn
 D:\SteamLibrary\steamapps\common\Mount & Blade II Bannerlord\Modules\CustomSpawnsCleanAPI\bin\Win64_Shipping_Client\CustomSpawns.pdb
 D:\SteamLibrary\steamapps\common\Mount & Blade II Bannerlord\ModulesCustomSpawns\bin\Win64_Shipping_Client\CustomSpawns.dll
 D:\SteamLibrary\steamapps\common\Mount & Blade II Bannerlord\ModulesCustomSpawns\bin\Win64_Shipping_Client\CustomSpawns.pdb
+C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\CustomSpawns\bin\Win64_Shipping_Client\CustomSpawns.dll
+C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\CustomSpawns\bin\Win64_Shipping_Client\CustomSpawns.pdb

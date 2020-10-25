@@ -13,7 +13,7 @@ using TaleWorlds.Core;
 using TaleWorlds.Engine;
 using TaleWorlds.ObjectSystem;
 using Path = System.IO.Path;
-
+using MCM.Abstractions.Attributes.v2;
 
 namespace CustomSpawns.Data
 {
@@ -239,6 +239,27 @@ namespace CustomSpawns.Data
                         Main.customSpeedModel.RegisterPartyBaseSpeed(dat.PartyTemplate.StringId, float.MinValue);
                     }
 
+                    //minimum devestation override
+                    float minimumDevestationToSpawnOverride = 0;
+                    if (node["MinimumDevestationToSpawn"] != null)
+                    {
+                        if(!float.TryParse(node["MinimumDevestationToSpawn"].InnerText, out minimumDevestationToSpawnOverride)){
+                            throw new Exception("MinimumDevestationToSpawn must be a float value!");
+                        }
+                        dat.MinimumDevestationToSpawn = minimumDevestationToSpawnOverride;
+                    }
+
+                    //devestation linear multiplier
+                    float devestationLinearMultiplierOverride = 0;
+                    if (node["MinimumDevestationToSpawn"] != null)
+                    {
+                        if (!float.TryParse(node["DevestationLinearMultiplier"].InnerText, out devestationLinearMultiplierOverride))
+                        {
+                            throw new Exception("DevestationLinearMultiplier must be a float value!");
+                        }
+                        dat.DevestationLinearMultiplier = devestationLinearMultiplierOverride;
+                    }
+
                     //patrol around closest lest interrupted and switch 
                     if (node["PatrolAroundClosestLestInterruptedAndSwitch"] != null)
                     {
@@ -385,6 +406,12 @@ namespace CustomSpawns.Data
         private float chanceOfSpawn;
         public int MinimumNumberOfDaysUntilSpawn { get; set; }
         public bool AttackClosestIfIdleForADay { get; set; }
+
+
+        public float MinimumDevestationToSpawn { get; set; }
+
+        public float DevestationLinearMultiplier { get; set; }
+
         public AI.PatrolAroundClosestLestInterruptedAndSwitchBehaviour.PatrolAroundClosestLestInterruptedAndSwitchBehaviourData PatrolAroundClosestLestInterruptedAndSwitch { get; set; }
         public float ChanceOfSpawn
         {

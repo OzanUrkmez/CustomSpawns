@@ -133,18 +133,29 @@ namespace CustomSpawns.CampaignData
                 }
             }
 
-            ModDebug.ShowMessage("Calculating friendly presence devestation decay in " + s.Name + ". Decreasing devestation by " + friendlyGain, campaignConfig);
+            if(friendlyGain > 0)
+            {
+                //ModDebug.ShowMessage("Calculating friendly presence devestation decay in " + s.Name + ". Decreasing devestation by " + friendlyGain, campaignConfig);
 
-            ChangeDevestation(s, -friendlyGain);
+                ChangeDevestation(s, -friendlyGain);
+            }
 
-            ModDebug.ShowMessage("Calculating hostile presence devestation gain in " + s.Name + ". Increasing devestation by " + hostileDecay, campaignConfig);
 
-            ChangeDevestation(s, hostileDecay);
+            if(hostileDecay > 0)
+            {
+                ModDebug.ShowMessage("Calculating hostile presence devestation gain in " + s.Name + ". Increasing devestation by " + hostileDecay, campaignConfig);
 
-            ModDebug.ShowMessage("Calculating daily Devestation Decay in " + s.Name + ". Decreasing devestation by " + campaignConfig.DailyDevestationDecay, campaignConfig);
-            ChangeDevestation(s, -campaignConfig.DailyDevestationDecay);
+                ChangeDevestation(s, hostileDecay);
+            }
 
-            ModDebug.ShowMessage("Current Devestation at " + s.Name + " is now " + settlementToDevestation[s], campaignConfig);
+            if(GetDevestation(s) > 0)
+            {
+                ModDebug.ShowMessage("Calculating daily Devestation Decay in " + s.Name + ". Decreasing devestation by " + campaignConfig.DailyDevestationDecay, campaignConfig);
+                ChangeDevestation(s, -campaignConfig.DailyDevestationDecay);
+            }
+
+            if(GetDevestation(s) != 0)
+                ModDebug.ShowMessage("Current Devestation at " + s.Name + " is now " + settlementToDevestation[s], campaignConfig);
         }
 
         #endregion
@@ -162,6 +173,7 @@ namespace CustomSpawns.CampaignData
         {
             if (!s.IsVillage)
             {
+                return 0;
                 ModDebug.ShowMessage("Non-village devestation data is not currently supported!", campaignConfig);
             }
             if (settlementToDevestation.ContainsKey(s))
@@ -169,6 +181,27 @@ namespace CustomSpawns.CampaignData
 
             ErrorHandler.HandleException(new Exception("Devestation value for settlement could not be found!"));
             return 0;
+        }
+
+        public float GetMinimumDevestation()
+        {
+            return campaignConfig.MinDevestationPerSettlement;
+        }
+
+        public float GetMaximumDevestation()
+        {
+            return campaignConfig.MaxDevestationPerSettlement;
+        }
+
+
+        public float GetAverageDevestation()
+        {
+            return settlementToDevestation.Values.Aggregate((c,d) => c+d) / settlementToDevestation.Count; //TODO make more efficient
+        }
+
+        public float GetDevestationLerp()
+        {
+            return GetAverageDevestation() / GetMaximumDevestation();
         }
 
     }
