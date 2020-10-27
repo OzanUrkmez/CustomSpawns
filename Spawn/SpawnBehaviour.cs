@@ -174,6 +174,8 @@ namespace CustomSpawns.Spawn
                                 data.IncrementNumberSpawned(); //increment for can spawn and chance modifications
                                 //dynamic data registration
                                 DynamicSpawnData.AddDynamicSpawnData(spawnedParty, new CSPartyData(data, spawnSettlement));
+                                //register the party for dialogue
+                                Dialogues.DialogueManager.CustomSpawnsDialogueBehavior.RegisterParty(spawnedParty, data.PartyTemplate.StringId);
 
                                 j++;
                                 //AI Checks!

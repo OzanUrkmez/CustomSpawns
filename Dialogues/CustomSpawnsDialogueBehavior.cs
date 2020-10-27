@@ -12,6 +12,7 @@ namespace CustomSpawns.Dialogues
         public override void RegisterEvents()
         {
             CampaignEvents.OnSessionLaunchedEvent.AddNonSerializedListener(this, new Action<CampaignGameStarter>(this.AddCustomDialogues));
+            DialogueManager.CustomSpawnsDialogueBehavior = this;
         }
 
         private Data.DialogueDataManager dataManager;
