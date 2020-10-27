@@ -14,40 +14,32 @@ namespace CustomSpawns.Dialogues
             CampaignEvents.OnSessionLaunchedEvent.AddNonSerializedListener(this, new Action<CampaignGameStarter>(this.AddCustomDialogues));
         }
 
+        private Data.DialogueDataManager dataManager;
+
         public override void SyncData(IDataStore dataStore)
         {
 
         }
 
-        List<CustomSpawnsDialogueData> datas = new List<CustomSpawnsDialogueData>();
+        Dictionary<MobileParty, string> dict = new Dictionary<MobileParty, string>();
 
-        List<CustomSpawnsDialogueInstance> freeDialogues = new List<CustomSpawnsDialogueInstance>();
+        List<CustomSpawnsDialogueInstance> dialogues = new List<CustomSpawnsDialogueInstance>();
 
         public void AddCustomDialogues(CampaignGameStarter starter)
         {
-            foreach (CustomSpawnsDialogueData d in datas) // handle starting lines
+            if(dataManager == null)
             {
-                foreach (CustomSpawnsDialogueInstance inst in d.dialogues) // no checking for player line since afaik it's impossible to start dialogue with a player choice
-                {
-                    starter.AddDialogLine(inst.key, inst.tokenIn, inst.tokenOut, inst.text, // we are delegating these in the loop so they can have parameters passed without interfering with reciever
-                    delegate // needs to return bool anonymously, the reciever handles the rest
-                    {
-                        return this.EvaluateStartCondition(d, inst);
-                    },
-                    delegate // doesn't need return since it's void
-                    {
-                        this.EvaluateDialogueConsequence(inst);
-                    } );
-                }
+                GetData();
             }
-            foreach (CustomSpawnsDialogueInstance d in freeDialogues) // handle the dialogues that don't start conversations
+            dialogues = (List<CustomSpawnsDialogueInstance>)dataManager.Data;
+            foreach (CustomSpawnsDialogueInstance d in dialogues) // handle the dialogues that don't start conversations
             {
                 if(d.isPlayer)
                 {
-                    starter.AddPlayerLine(d.key, d.tokenIn, d.tokenOut, d.text, // again, delegating in the loop
+                    starter.AddPlayerLine(d.id, d.tokenIn, d.tokenOut, d.text, // delegating in the loop so we don't interfere with the asynchronous magic
                     delegate
                     {
-                        return true; // TODO implement conditions
+                        return this.EvaluateDialogueCondition(d);
                     },
                     delegate
                     {
@@ -56,10 +48,10 @@ namespace CustomSpawns.Dialogues
                 }
                 else
                 {
-                    starter.AddDialogLine(d.key, d.tokenIn, d.tokenOut, d.text, // etc etc, reusing code is bad but what can I do ¯\_(ツ)_/¯
+                    starter.AddDialogLine(d.id, d.tokenIn, d.tokenOut, d.text, // etc etc, reusing code is bad but what can I do ¯\_(ツ)_/¯
                     delegate
                     {
-                        return true; // TODO implement conditions
+                        return this.EvaluateDialogueCondition(d);
                     },
                     delegate
                     {
@@ -69,16 +61,18 @@ namespace CustomSpawns.Dialogues
             }
         }
 
-        private bool EvaluateStartCondition(CustomSpawnsDialogueData d, CustomSpawnsDialogueInstance inst)
+        private bool EvaluateDialogueCondition(CustomSpawnsDialogueInstance inst)
         {
             switch (inst.conditionType)
             {
+                case CSDialogueCondition.None:
+                    return true;
                 case CSDialogueCondition.PartyTemplate:
-                    return this.party_template_condition_delegate(d.templateName);
+                    return this.party_template_condition_delegate(inst.parameters.c_partyTemplate);
                 case CSDialogueCondition.PartyTemplateAndAttackerHostile:
-                    return this.party_template_and_attacker_condition_delegate(d.templateName);
+                    return this.party_template_and_attacker_condition_delegate(inst.parameters.c_partyTemplate);
                 case CSDialogueCondition.PartyTemplateAndDefenderHostile:
-                    return this.party_template_and_defender_condition_delegate(d.templateName);
+                    return this.party_template_and_defender_condition_delegate(inst.parameters.c_partyTemplate);
                 default:
                     return false;
             }
@@ -108,38 +102,29 @@ namespace CustomSpawns.Dialogues
         private bool party_template_condition_delegate(string t) // generic party checking delegate, for starting lines
         {
             PartyBase encounteredParty = PlayerEncounter.EncounteredParty;
-            foreach (CustomSpawnsDialogueData d in datas)
+            if(dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t))
             {
-                if((encounteredParty.MobileParty == d.mb) && d.templateName == t)
-                {
-                    return true;
-                }
+                return true;
             }
             return false;
         }
 
-        private bool party_template_and_defender_condition_delegate(string t) // checks both for template and if the party is defending (being engaged)
+        private bool party_template_and_defender_condition_delegate(string t) // checks both for template and if the hostile party is defending (being engaged)
         {
             PartyBase encounteredParty = PlayerEncounter.EncounteredParty;
-            foreach (CustomSpawnsDialogueData d in datas)
+            if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && PlayerEncounter.PlayerIsAttacker)
             {
-                if ((encounteredParty.MobileParty == d.mb) && (d.templateName == t) && PlayerEncounter.PlayerIsAttacker)
-                {
-                    return true;
-                }
+                return true;
             }
             return false;
         }
 
-        private bool party_template_and_attacker_condition_delegate(string t) // checks both for template and if the party is attacking (engaging the player)
+        private bool party_template_and_attacker_condition_delegate(string t) // checks both for template and if the hostile party is attacking (engaging the player)
         {
             PartyBase encounteredParty = PlayerEncounter.EncounteredParty;
-            foreach (CustomSpawnsDialogueData d in datas)
+            if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && PlayerEncounter.PlayerIsDefender)
             {
-                if ((encounteredParty.MobileParty == d.mb) && (d.templateName == t) && PlayerEncounter.PlayerIsDefender)
-                {
-                    return true;
-                }
+                return true;
             }
             return false;
         }
@@ -174,47 +159,39 @@ namespace CustomSpawns.Dialogues
 
         #endregion Consequence Delegates
 
-        public void RegisterDialogues(CustomSpawnsDialogueData dat, List<CustomSpawnsDialogueInstance> list)
+        public void RegisterParty(MobileParty mb, string template)
         {
-            ModDebug.ShowMessage("party template of [" + dat.templateName + "] has registered starting dialogue", DebugMessageType.Dialogue);
-            datas.Add(dat);
-            freeDialogues = list;
+            ModDebug.ShowMessage("party of " + mb.StringId + " has registered for dialogue detection", DebugMessageType.Dialogue);
+            dict.Add(mb, template);
         }
 
-        public struct CustomSpawnsDialogueData
+        private void GetData()
         {
-            public MobileParty mb;
-            public string templateName;
-            public List<CustomSpawnsDialogueInstance> dialogues;
-
-            public CustomSpawnsDialogueData(MobileParty p, string temp, List<CustomSpawnsDialogueInstance> list)
-            {
-                mb = p;
-                templateName = temp;
-                dialogues = list;
-            }
+            dataManager = Data.DialogueDataManager.Instance;
         }
 
         public struct CustomSpawnsDialogueInstance
         {
             public bool isPlayer;
-            public string key;
+            public string id;
             public string tokenIn;
             public string tokenOut;
             public string text;
             public CSDialogueCondition conditionType;
             public CSDialogueConsequence consequenceType;
+            public CustomSpawnsDialogueParams parameters;
             public int priority;
 
-            public CustomSpawnsDialogueInstance(bool playerLine, string k, string inS, string outS, string body, CSDialogueCondition cond, CSDialogueConsequence cons, int pri)
+            public CustomSpawnsDialogueInstance(bool playerLine, string k, string inS, string outS, string body, CSDialogueCondition cond, CSDialogueConsequence cons, CustomSpawnsDialogueParams settings, int pri)
             {
                 isPlayer = playerLine;
-                key = k;
+                id = k;
                 tokenIn = inS;
                 tokenOut = outS;
                 text = body;
                 conditionType = cond;
                 consequenceType = cons;
+                parameters = settings;
                 priority = pri;
             }
         }
@@ -242,6 +219,6 @@ namespace CustomSpawns.Dialogues
             None,
             Friendly,
             Hostile
-        } might have to use this at some point as well */
+        } might have to use this at some point */
     }
 }

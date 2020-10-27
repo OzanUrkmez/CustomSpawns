@@ -123,6 +123,7 @@ namespace CustomSpawns
                 starter.AddBehavior(new Diplomacy.ForcedWarPeaceBehaviour());
                 starter.AddBehavior(new Diplomacy.ForceNoKingdomBehaviour());
                 starter.AddBehavior(new PrisonerRecruitment.PrisonerRecruitmentBehaviour());
+                starter.AddBehavior(new Dialogues.CustomSpawnsDialogueBehavior());
 
 
 
