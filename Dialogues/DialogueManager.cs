@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomSpawns.Dialogues
 {
-    class DialogueManager
+    public static class DialogueManager
     {
         public static CustomSpawnsDialogueBehavior CustomSpawnsDialogueBehavior { get; set; }
     }
