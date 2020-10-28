@@ -9,68 +9,36 @@ using TaleWorlds.TwoDimension;
 
 namespace CustomSpawns.CampaignData
 {
-    class DevestationMetricData : CampaignBehaviorBase
+    class DevestationMetricData : CustomCampaignDataBehaviour<DevestationMetricData, DevestationMetricConfig>
     {
 
         private Dictionary<Settlement, float> settlementToDevestation = new Dictionary<Settlement, float>();
 
-        private DevestationMetricConfig campaignConfig;
 
-        #region Singleton and Initialization
-
-        private static DevestationMetricData _singleton;
-
-        public static DevestationMetricData Singleton
-        {
-            get
-            {
-                if (_singleton == null)
-                {
-                    _singleton = new DevestationMetricData();
-                }
-
-                return _singleton;
-
-            }
-            private set
-            {
-                _singleton = value;
-            }
-        }
-
-        public DevestationMetricData()
-        {
-
-            OnSaveStartRunBehaviour.Singleton.RegisterFunctionToRunOnSaveStart(OnGameInitialization);
-            campaignConfig = CampaignDataConfigLoader.Instance.GetConfig<DevestationMetricConfig>();
-        }
-
-        #endregion
-
-        #region Campaign Behavior Base Abstract Implementation
+        #region Custom Campaign Data Implementation
 
 
-
-        public override void RegisterEvents()
+        protected override void OnRegisterEvents()
         {
             CampaignEvents.MapEventEnded.AddNonSerializedListener(this, OnMapEventEnded);
             CampaignEvents.VillageLooted.AddNonSerializedListener(this, OnVillageLooted);
 
             CampaignEvents.DailyTickSettlementEvent.AddNonSerializedListener(this, OnSettlementDaily);
-
         }
 
-        public override void SyncData(IDataStore dataStore)
+        protected override void OnSyncData(IDataStore dataStore)
         {
             dataStore.SyncData("settlementToDevestation", ref settlementToDevestation);
         }
 
-
-        #endregion
-
-        private void OnGameInitialization()
+        protected override void OnSaveStart()
         {
-            foreach(Settlement s in Settlement.All) //assuming no new settlements can be created mid-game.
+            if (settlementToDevestation.Count != 0) //If you include non-village etc. or add new settlements this approach will break old saves.
+            {
+                return;
+            }
+
+            foreach (Settlement s in Settlement.All) //assuming no new settlements can be created mid-game.
             {
                 if (!s.IsVillage)
                 {
@@ -79,6 +47,9 @@ namespace CustomSpawns.CampaignData
                 settlementToDevestation.Add(s, 0);
             }
         }
+
+
+        #endregion
 
         #region Event Callbacks
 
@@ -203,6 +174,7 @@ namespace CustomSpawns.CampaignData
         {
             return GetAverageDevestation() / GetMaximumDevestation();
         }
+
 
     }
 }

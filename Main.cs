@@ -113,7 +113,7 @@ namespace CustomSpawns
             if (!removalMode)
             {
 
-                OnSaveStartRunBehaviour.InitializeSingleton(starter);
+                OnSaveStartRunBehaviour.InitializeSave(starter);
                 OnSaveStartRunBehaviour.Singleton.RegisterFunctionToRunOnSaveStart(OnSaveStart);
 
                 starter.AddBehavior(new Spawn.SpawnBehaviour(Data.SpawnDataManager.Instance));
