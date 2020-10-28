@@ -52,7 +52,7 @@ namespace CustomSpawns.Data
         {
             if (!Main.isAPIMode)
             {
-                string path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data", "CustomDialogue.xml");
+                string path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data", "CustomDialogue.xml"); // the usual path deal, located in the CustomSpawns or Data folder
                 ConstructListFromXML(path);
             }
             foreach (var subMod in ModIntegration.SubModManager.dependentModsArray)
@@ -74,16 +74,22 @@ namespace CustomSpawns.Data
 
                 DialogueData dat = new DialogueData();
 
+                string c_template = "";
+                bool c_friendly = true; // declaring these here so we can access them later
+
+                bool cs_playerSurrender = false;
+
                 foreach (XmlNode childNode in node)
                 {
                     if (childNode.NodeType == XmlNodeType.Comment)
                         continue;
 
-                    dat.IsPlayer = childNode["IsPlayerLine"] == null ? false : bool.Parse(childNode["IsPlayerLine"].InnerText);
+                    if (childNode.Name == "IsPlayerLine")
+                    {
+                        dat.IsPlayer = childNode == null ? false : bool.Parse(childNode.InnerText);
+                    }
 
-                    string template = "";
-
-                    if (childNode.Name == "DialogueLine")
+                    if (childNode.Name == "DialogueLine") // checking for the four types of node: DialogueLine, IsPlayerLine, DialogueCondition and DialogueConsequence. they all need to be present
                     {
                         dat.Id = childNode.Attributes["id"].InnerText;
                         dat.InToken = childNode.Attributes["in_token"].InnerText;
@@ -96,47 +102,43 @@ namespace CustomSpawns.Data
                     {
                         dat.Condition = ParseCondition(childNode.Attributes["type"].InnerText);
 
-                        template = childNode.Attributes["template"].InnerText;
-                    }
-                    else
-                    {
-                        throw new Exception("DialogueCondition node must exist for every dialogue!");
+                        c_template = childNode.Attributes["template"] == null ? "" : childNode.Attributes["template"].InnerText;
+                        c_friendly = childNode.Attributes["is_friendly"] == null ? true : bool.Parse(childNode.Attributes["is_friendly"].InnerText); // setting the condition parameters here (they can be reused depending on the delegate)
                     }
 
                     if (childNode.Name == "DialogueConsequence")
                     {
                         dat.Consequence = ParseConsequence(childNode.Attributes["type"].InnerText);
-                    }
-                    else
-                    {
-                        throw new Exception("DialogueConsequence node must exist for every dialogue!");
-                    }
 
-                    dat.Parameters = new CustomSpawnsDialogueParams(template);
-
-                    data.Add(dat);
+                        cs_playerSurrender = childNode.Attributes["player_surrender"] == null ? false : bool.Parse(childNode.Attributes["player_surrender"].InnerText); // now setting the consequence parameters
+                    }
                 }
+                dat.Parameters = new CustomSpawnsDialogueParams(c_template, c_friendly, cs_playerSurrender); // now we init a new DialogueParameters class to be used later, read comments there as to why it's a class and not a struct
+
+                data.Add(dat);
             }
         }
 
-        private CustomSpawnsDialogueBehavior.CSDialogueCondition ParseCondition(string text)
+        private CustomSpawnsDialogueBehavior.CSDialogueCondition ParseCondition(string text) // just a little enum switch- more can be added easily
         {
             switch(text)
             {
                 case "none":
                     return CustomSpawnsDialogueBehavior.CSDialogueCondition.None;
-                case "PartyTemplate":
-                    return CustomSpawnsDialogueBehavior.CSDialogueCondition.PartyTemplate;
-                case "PartyTemplateAndDefenderHostile":
-                    return CustomSpawnsDialogueBehavior.CSDialogueCondition.PartyTemplateAndDefenderHostile;
-                case "PartyTemplateAndAttackerHostile":
-                    return CustomSpawnsDialogueBehavior.CSDialogueCondition.PartyTemplateAndAttackerHostile;
+                case "PartyTemplateAndStance":
+                    return CustomSpawnsDialogueBehavior.CSDialogueCondition.PartyTemplateAndStance;
+                case "PartyTemplateDefenderAndStance":
+                    return CustomSpawnsDialogueBehavior.CSDialogueCondition.PartyTemplateDefenderAndStance;
+                case "PartyTemplateAttackerAndStance":
+                    return CustomSpawnsDialogueBehavior.CSDialogueCondition.PartyTemplateAttackerAndStance;
+                case "WarCheck":
+                    return CustomSpawnsDialogueBehavior.CSDialogueCondition.GenericWar;
                 default:
-                    throw new Exception("A dialogue condition type wasn't explicity defined! If it is supposed to be always true, use 'none' please!");
+                    throw new Exception("A dialogue condition type wasn't explicity defined! If it is supposed to be always true, use 'none' please!"); // making sure the modder isn't passing nonsense
             }
         }
 
-        private CustomSpawnsDialogueBehavior.CSDialogueConsequence ParseConsequence(string text)
+        private CustomSpawnsDialogueBehavior.CSDialogueConsequence ParseConsequence(string text) // same with the conditions, easy ability to add new ones
         {
             switch (text)
             {
@@ -150,8 +152,10 @@ namespace CustomSpawns.Data
                     return CustomSpawnsDialogueBehavior.CSDialogueConsequence.DeclareWar;
                 case "DeclarePeace":
                     return CustomSpawnsDialogueBehavior.CSDialogueConsequence.DeclarePeace;
+                case "EndConversationSurrender":
+                    return CustomSpawnsDialogueBehavior.CSDialogueConsequence.EndConversationSurrender;
                 default:
-                    throw new Exception("A dialogue consequence type wasn't explicity defined! If it is supposed to be always true, use 'none' please!");
+                    throw new Exception("A dialogue consequence type wasn't explicity defined! If it is supposed to be always true, use 'none' please!"); // ditto
             }
         }
     }
@@ -162,7 +166,7 @@ namespace CustomSpawns.Data
         public string Id { get; set; }
         public string InToken { get; set; }
         public string OutToken { get; set; }
-        public string DialogueText { get; set; }
+        public string DialogueText { get; set; } // all of these are properties just in case to prevent fuckery
         public int Priority { get; set; }
         public CustomSpawnsDialogueBehavior.CSDialogueCondition Condition { get; set; }
         public CustomSpawnsDialogueBehavior.CSDialogueConsequence Consequence { get; set; }

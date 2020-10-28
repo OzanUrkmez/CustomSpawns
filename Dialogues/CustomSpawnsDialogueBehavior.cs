@@ -17,14 +17,21 @@ namespace CustomSpawns.Dialogues
 
         private Data.DialogueDataManager dataManager;
 
+        // no method for saving data right now- it works on campaign launch but probably not once the save is reloaded
+
         public override void SyncData(IDataStore dataStore)
         {
 
         }
 
-        Dictionary<MobileParty, string> dict = new Dictionary<MobileParty, string>();
+        // basic dialogue overview: 
+        // ids are used to differentiate similar dialogues (must be unique)
+        // tokens are like impulses, so an out token leads into an in token. 'magic tokens' are tokens which have special functions, they are start (in token) and close_window (out token)
+        // conditions are delegates that must anonymously return a bool, which will be wheteher or not the line is displayed
+        // consequences are void delegates, basically just pieces of code run after a line has been selected
+        // i think? priority determines which line is shown if multiple lines meet the requirements, and also maybe what order player lines are displayed in (speculation)
 
-        List<CustomSpawnsDialogueInstance> dialogues = new List<CustomSpawnsDialogueInstance>();
+        Dictionary<MobileParty, string> dict = new Dictionary<MobileParty, string>();
 
         public void AddCustomDialogues(CampaignGameStarter starter)
         {
@@ -32,12 +39,11 @@ namespace CustomSpawns.Dialogues
             {
                 GetData();
             }
-            dialogues = (List<CustomSpawnsDialogueInstance>)dataManager.Data;
-            foreach (CustomSpawnsDialogueInstance d in dialogues) // handle the dialogues that don't start conversations
+            foreach (Data.DialogueData d in dataManager.Data) // handle the dialogues
             {
-                if(d.isPlayer)
+                if(d.IsPlayer)
                 {
-                    starter.AddPlayerLine(d.id, d.tokenIn, d.tokenOut, d.text, // delegating in the loop so we don't interfere with the asynchronous magic
+                    starter.AddPlayerLine(d.Id, d.InToken, d.OutToken, d.DialogueText, // delegating in the loop so we don't interfere with the asynchronous magic
                     delegate
                     {
                         return this.EvaluateDialogueCondition(d);
@@ -49,7 +55,7 @@ namespace CustomSpawns.Dialogues
                 }
                 else
                 {
-                    starter.AddDialogLine(d.id, d.tokenIn, d.tokenOut, d.text, // etc etc, reusing code is bad but what can I do ¯\_(ツ)_/¯
+                    starter.AddDialogLine(d.Id, d.InToken, d.OutToken, d.DialogueText, // etc etc, reusing code is bad but there's no other way ¯\_(ツ)_/¯
                     delegate
                     {
                         return this.EvaluateDialogueCondition(d);
@@ -62,26 +68,28 @@ namespace CustomSpawns.Dialogues
             }
         }
 
-        private bool EvaluateDialogueCondition(CustomSpawnsDialogueInstance inst)
+        private bool EvaluateDialogueCondition(Data.DialogueData d)
         {
-            switch (inst.conditionType)
+            switch (d.Condition)
             {
                 case CSDialogueCondition.None:
                     return true;
-                case CSDialogueCondition.PartyTemplate:
-                    return this.party_template_condition_delegate(inst.parameters.c_partyTemplate);
-                case CSDialogueCondition.PartyTemplateAndAttackerHostile:
-                    return this.party_template_and_attacker_condition_delegate(inst.parameters.c_partyTemplate);
-                case CSDialogueCondition.PartyTemplateAndDefenderHostile:
-                    return this.party_template_and_defender_condition_delegate(inst.parameters.c_partyTemplate);
+                case CSDialogueCondition.PartyTemplateAndStance:
+                    return this.party_template_condition_delegate(d.Parameters.c_partyTemplate, d.Parameters.c_isFriendly);
+                case CSDialogueCondition.PartyTemplateAttackerAndStance:
+                    return this.party_template_and_attacker_hostile_condition_delegate(d.Parameters.c_partyTemplate, d.Parameters.c_isFriendly);
+                case CSDialogueCondition.PartyTemplateDefenderAndStance:
+                    return this.party_template_and_defender_hostile_condition_delegate(d.Parameters.c_partyTemplate, d.Parameters.c_isFriendly);
+                case CSDialogueCondition.GenericWar:
+                    return this.generic_war_condition_delegate(d.Parameters.c_isFriendly);
                 default:
                     return false;
             }
         }
 
-        private void EvaluateDialogueConsequence(CustomSpawnsDialogueInstance d)
+        private void EvaluateDialogueConsequence(Data.DialogueData d)
         {
-            switch (d.consequenceType)
+            switch (d.Consequence)
             {
                 case CSDialogueConsequence.EndConversation:
                     this.end_conversation_consequence_delegate();
@@ -95,38 +103,83 @@ namespace CustomSpawns.Dialogues
                 case CSDialogueConsequence.DeclarePeace:
                     this.declare_peace_consequence_delegate();
                     break;
+                case CSDialogueConsequence.EndConversationSurrender: // dont use this pls, it doesn't work
+                    this.surrender_consequence_delegate(d.Parameters.cs_isPlayerSurrender);
+                    break;
             }
         }
 
         #region Condition Delegates
 
-        private bool party_template_condition_delegate(string t) // generic party checking delegate, for starting lines
+        private bool party_template_condition_delegate(string t, bool isFriendly) // generic party checking delegate
         {
             PartyBase encounteredParty = PlayerEncounter.EncounteredParty;
-            if(dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t))
+            if(isFriendly)
             {
-                return true;
+                if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && !Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                {
+                    return true;
+                }
+
+            }
+            else if(!isFriendly)
+            {
+                if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                {
+                    return true;
+                }
             }
             return false;
         }
 
-        private bool party_template_and_defender_condition_delegate(string t) // checks both for template and if the hostile party is defending (being engaged)
+        private bool party_template_and_defender_hostile_condition_delegate(string t, bool isFriendly) // checks for template, attitude and if the hostile party is defending (being engaged)
         {
             PartyBase encounteredParty = PlayerEncounter.EncounteredParty;
-            if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && PlayerEncounter.PlayerIsAttacker)
+            if (isFriendly)
             {
-                return true;
+                if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && PlayerEncounter.PlayerIsAttacker && !Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                {
+                    return true;
+                }
+
+            }
+            else if (!isFriendly)
+            {
+                if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && PlayerEncounter.PlayerIsAttacker && Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                {
+                    return true;
+                }
             }
             return false;
         }
 
-        private bool party_template_and_attacker_condition_delegate(string t) // checks both for template and if the hostile party is attacking (engaging the player)
+        private bool party_template_and_attacker_hostile_condition_delegate(string t, bool isFriendly) // checks for template, attitude and if the party is attacking (engaging the player)
         {
             PartyBase encounteredParty = PlayerEncounter.EncounteredParty;
-            if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && PlayerEncounter.PlayerIsDefender)
+            if (isFriendly)
             {
-                return true;
+                if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && !PlayerEncounter.PlayerIsAttacker && !Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                {
+                    return true;
+                }
+
             }
+            else if (!isFriendly)
+            {
+                if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && !PlayerEncounter.PlayerIsAttacker && Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool generic_war_condition_delegate(bool isFriendly) // generic delegate to check if at war or not at war
+        {
+            if (isFriendly)
+                return !PlayerEncounter.EncounteredParty.MapFaction.IsAtWarWith(Hero.MainHero.MapFaction);
+            else if(!isFriendly)
+                return PlayerEncounter.EncounteredParty.MapFaction.IsAtWarWith(Hero.MainHero.MapFaction);
             return false;
         }
 
@@ -156,6 +209,15 @@ namespace CustomSpawns.Dialogues
             Diplomacy.DiplomacyUtils.MakePeace(Hero.MainHero.MapFaction, encounteredParty.MapFaction);
         }
 
+        private void surrender_consequence_delegate(bool isPlayer) // doesn't work for some reason, no idea how it's supposed to work tbh
+        {
+            if(isPlayer)
+                PlayerEncounter.PlayerSurrender = true;
+            else if(!isPlayer)
+                PlayerEncounter.EnemySurrender = true;
+            PlayerEncounter.LeaveEncounter = true;
+        }
+
         // TODO implement barter screen
 
         #endregion Consequence Delegates
@@ -166,12 +228,14 @@ namespace CustomSpawns.Dialogues
             dict.Add(mb, template);
         }
 
-        private void GetData()
+        private void GetData() // the classic
         {
             dataManager = Data.DialogueDataManager.Instance;
         }
 
-        public struct CustomSpawnsDialogueInstance
+        // final version uses no structs, yay!!! no more lazy copouts  (well, at least a reduced amount of them)
+
+        /* public struct CustomSpawnsDialogueInstance
         {
             public bool isPlayer;
             public string id;
@@ -195,14 +259,15 @@ namespace CustomSpawns.Dialogues
                 parameters = settings;
                 priority = pri;
             }
-        }
+        }   keeping this in case I need to rollback (most likely not) */
 
         public enum CSDialogueCondition
         {
             None,
-            PartyTemplate,
-            PartyTemplateAndDefenderHostile,
-            PartyTemplateAndAttackerHostile,
+            PartyTemplateAndStance,
+            PartyTemplateDefenderAndStance,
+            PartyTemplateAttackerAndStance,
+            GenericWar
         }
 
         public enum CSDialogueConsequence
@@ -210,6 +275,7 @@ namespace CustomSpawns.Dialogues
             None,
             EndConversation,
             EndConversationInBattle,
+            EndConversationSurrender,
             DeclareWar,
             DeclarePeace,
             BarterScreen,
@@ -217,9 +283,8 @@ namespace CustomSpawns.Dialogues
 
         /* private enum PlayerInteraction
         {
-            None,
             Friendly,
             Hostile
-        } might have to use this at some point */
+        } was gonna used this but decided aginst it, maybe it'll find a use in the future */
     }
 }
