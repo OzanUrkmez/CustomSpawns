@@ -100,7 +100,7 @@ namespace CustomSpawns
             int num = 0;
             List<Settlement> permissible = new List<Settlement>();
 
-            if (preferredTypes != null)
+            if (preferredTypes != null && preferredTypes.Count != 0)
             {
                 foreach (Settlement s in Settlement.All)
                 {
