@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CustomSpawns.MCMv3;
+//using CustomSpawns.MCMv3;
 using TaleWorlds.Core;
 using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
@@ -17,13 +17,13 @@ namespace CustomSpawns
 
         public static void ShowMessage(string message, DebugMessageType messageType)
         {
-            if (!CsSettings.IsDebugMode)
+            if (!ConfigLoader.Instance.Config.IsDebugMode)
                 return;
-            if (messageType == DebugMessageType.AI && !CsSettings.ShowAIDebug)
+            if (messageType == DebugMessageType.AI && !ConfigLoader.Instance.Config.ShowAIDebug)
                 return;
             if (messageType == DebugMessageType.Prisoner && !PrisonerRecruitment.PrisonerRecruitmentConfigLoader.Instance.Config.PrisonRecruitmentDebugEnabled)
                 return;
-            if (messageType == DebugMessageType.DeathTrack && !CsSettings.ShowDeathTrackDebug)
+            if (messageType == DebugMessageType.DeathTrack && !ConfigLoader.Instance.Config.ShowDeathTrackDebug)
                 return;
             InformationManager.DisplayMessage(new InformationMessage(message, Color.ConvertStringToColor("#FF8F00FF")));
         }

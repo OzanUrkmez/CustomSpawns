@@ -13,7 +13,6 @@ using TaleWorlds.Core;
 using TaleWorlds.Engine;
 using TaleWorlds.ObjectSystem;
 using Path = System.IO.Path;
-using MCM.Abstractions.Attributes.v2;
 using CustomSpawns.CampaignData;
 
 namespace CustomSpawns.Data

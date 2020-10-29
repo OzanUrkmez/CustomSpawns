@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CustomSpawns.MCMv3;
+//using CustomSpawns.MCMv3;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 using TaleWorlds.Engine;
@@ -57,7 +57,7 @@ namespace CustomSpawns.Spawn
 
         public void HourlyCheckData()
         {
-            if (lastRedundantDataUpdate < CsSettings.UpdatePartyRedundantDataPerHour + 1) // + 1 to give leeway and make sure every party gets updated. 
+            if (lastRedundantDataUpdate < ConfigLoader.Instance.Config.UpdatePartyRedundantDataPerHour + 1) // + 1 to give leeway and make sure every party gets updated. 
             {
                 lastRedundantDataUpdate++;
             }
@@ -138,7 +138,7 @@ namespace CustomSpawns.Spawn
             if (DynamicSpawnData.GetDynamicSpawnData(mb) == null) //check if it is a custom spawns party
                 return;
             UpdateDynamicData(mb);
-            if (lastRedundantDataUpdate >= CsSettings.UpdatePartyRedundantDataPerHour)
+            if (lastRedundantDataUpdate >= ConfigLoader.Instance.Config.UpdatePartyRedundantDataPerHour)
             {
                 UpdateRedundantDynamicData(mb);
             }
@@ -167,7 +167,7 @@ namespace CustomSpawns.Spawn
                     {
                         if (data.CanSpawn() && (data.MinimumNumberOfDaysUntilSpawn < (int)Math.Ceiling(Campaign.Current.CampaignStartTime.ElapsedDaysUntilNow)))
                         {
-                            if (!CsSettings.IsAllSpawnMode && (float)rand.NextDouble() >= data.ChanceOfSpawn)
+                            if (!ConfigLoader.Instance.Config.IsAllSpawnMode && (float)rand.NextDouble() >= data.ChanceOfSpawn)
                                 continue;
                             
                                 var spawnSettlement = Spawner.GetSpawnSettlement(data, (s => data.MinimumDevestationToSpawn > DevestationMetricData.Singleton.GetDevestation(s)) , rand);
@@ -198,13 +198,13 @@ namespace CustomSpawns.Spawn
                                 if (data.spawnMessage != null)
                                 {
                                     UX.ShowParseSpawnMessage(data.spawnMessage, spawnSettlement.Name.ToString());
-                                    if (data.SoundEvent != -1 && !isSpawnSoundPlaying && CsSettings.SpawnSoundEnabled)
-                                    {
-                                        var sceneEmpty = Scene.CreateNewScene(false);
-                                        SoundEvent sound = SoundEvent.CreateEvent(data.SoundEvent, sceneEmpty);
-                                        sound.Play();
-                                        isSpawnSoundPlaying = true;
-                                    }
+                                    //if (data.SoundEvent != -1 && !isSpawnSoundPlaying && ConfigLoader.Instance.Config.SpawnSoundEnabled)
+                                    //{
+                                    //    var sceneEmpty = Scene.CreateNewScene(false);
+                                    //    SoundEvent sound = SoundEvent.CreateEvent(data.SoundEvent, sceneEmpty);
+                                    //    sound.Play();
+                                    //    isSpawnSoundPlaying = true;
+                                    //}
                                 }
 
                             

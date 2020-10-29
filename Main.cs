@@ -9,7 +9,7 @@ using TaleWorlds.MountAndBlade;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
 using System.Windows.Forms;
-using CustomSpawns.MCMv3;
+//using CustomSpawns.MCMv3;
 using StoryMode;
 using CustomSpawns.UtilityBehaviours;
 using HarmonyLib;
@@ -40,7 +40,7 @@ namespace CustomSpawns
 
 
             ModIntegration.SubModManager.LoadAllValidDependentMods();
-            if (CsSettings.IsRemovalMode)
+            if (ConfigLoader.Instance.Config.IsRemovalMode)
             {
                 removalMode = true;
                 return;
@@ -80,7 +80,7 @@ namespace CustomSpawns
             {
                 UX.ShowMessage( subMod.SubModuleName + " is now integrated into the CustomSpawns API.", Color.ConvertStringToColor("#001FFFFF"));
             }
-            CsSettings.GetInstance();
+            //ConfigLoader.Instance.Config.GetInstance();
         }
 
         #endregion
@@ -92,7 +92,7 @@ namespace CustomSpawns
                 ClearLastInstances();
                 AddBehaviours(gameStarterObject as CampaignGameStarter);
                 //do overrides
-                if (CsSettings.ModifyPartySpeeds && !removalMode)
+                if (ConfigLoader.Instance.Config.ModifyPartySpeeds && !removalMode)
                     gameStarterObject.AddModel(customSpeedModel);
             }
             catch (Exception e)
