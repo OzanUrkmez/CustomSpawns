@@ -75,7 +75,13 @@ namespace CustomSpawns.Data
                 DialogueData dat = new DialogueData();
 
                 string c_template = "";
+                string c_trait = "";
                 bool c_friendly = true; // declaring these here so we can access them later
+                bool c_playerTrait = true;
+                int c_value = 0;
+                bool c_barterSuccess = true;
+                string c_lordName = "";
+                string c_faction = "";
 
                 bool cs_playerSurrender = false;
 
@@ -103,7 +109,13 @@ namespace CustomSpawns.Data
                         dat.Condition = ParseCondition(childNode.Attributes["type"].InnerText);
 
                         c_template = childNode.Attributes["template"] == null ? "" : childNode.Attributes["template"].InnerText;
-                        c_friendly = childNode.Attributes["is_friendly"] == null ? true : bool.Parse(childNode.Attributes["is_friendly"].InnerText); // setting the condition parameters here (they can be reused depending on the delegate)
+                        c_friendly = childNode.Attributes["is_friendly"] == null ? true : bool.Parse(childNode.Attributes["is_friendly"].InnerText);
+                        c_playerTrait = childNode.Attributes["player_trait"] == null ? true : bool.Parse(childNode.Attributes["player_trait"].InnerText); // setting the condition parameters here (they can be reused depending on the delegate)
+                        c_trait = childNode.Attributes["trait"] == null ? "" : childNode.Attributes["trait"].InnerText;
+                        c_value = childNode.Attributes["value"] == null ? 0 : int.Parse(childNode.Attributes["value"].InnerText);
+                        c_barterSuccess = childNode.Attributes["successful_barter"] == null ? true : bool.Parse(childNode.Attributes["successful_barter"].InnerText);
+                        c_lordName = childNode.Attributes["lord_name"] == null ? "" : childNode.Attributes["lord_name"].InnerText;
+                        c_faction = childNode.Attributes["faction"] == null ? "" : childNode.Attributes["faction"].InnerText;
                     }
 
                     if (childNode.Name == "DialogueConsequence")
@@ -113,7 +125,7 @@ namespace CustomSpawns.Data
                         cs_playerSurrender = childNode.Attributes["player_surrender"] == null ? false : bool.Parse(childNode.Attributes["player_surrender"].InnerText); // now setting the consequence parameters
                     }
                 }
-                dat.Parameters = new CustomSpawnsDialogueParams(c_template, c_friendly, cs_playerSurrender); // now we init a new DialogueParameters class to be used later, read comments there as to why it's a class and not a struct
+                dat.Parameters = new CustomSpawnsDialogueParams(c_template, c_friendly, cs_playerSurrender, c_playerTrait, c_trait, c_value, c_barterSuccess, c_lordName, c_faction); // now we init a new DialogueParameters class to be used later, read comments there as to why it's a class and not a struct
 
                 data.Add(dat);
             }
@@ -133,6 +145,14 @@ namespace CustomSpawns.Data
                     return CustomSpawnsDialogueBehavior.CSDialogueCondition.PartyTemplateAttackerAndStance;
                 case "WarCheck":
                     return CustomSpawnsDialogueBehavior.CSDialogueCondition.GenericWar;
+                case "CharacterTrait":
+                    return CustomSpawnsDialogueBehavior.CSDialogueCondition.CharacterTrait;
+                case "CheckLastBarter":
+                    return CustomSpawnsDialogueBehavior.CSDialogueCondition.LastBarter;
+                case "FirstConversationLordName":
+                    return CustomSpawnsDialogueBehavior.CSDialogueCondition.FirstConversationLordName;
+                case "FirstConversationFaction":
+                    return CustomSpawnsDialogueBehavior.CSDialogueCondition.FirstConversationFaction;
                 default:
                     throw new Exception("A dialogue condition type wasn't explicity defined! If it is supposed to be always true, use 'none' please!"); // making sure the modder isn't passing nonsense
             }
@@ -154,6 +174,8 @@ namespace CustomSpawns.Data
                     return CustomSpawnsDialogueBehavior.CSDialogueConsequence.DeclarePeace;
                 case "EndConversationSurrender":
                     return CustomSpawnsDialogueBehavior.CSDialogueConsequence.EndConversationSurrender;
+                case "BarterForPeace":
+                    return CustomSpawnsDialogueBehavior.CSDialogueConsequence.BarterForPeace;
                 default:
                     throw new Exception("A dialogue consequence type wasn't explicity defined! If it is supposed to be always true, use 'none' please!"); // ditto
             }
