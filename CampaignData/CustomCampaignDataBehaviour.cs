@@ -50,6 +50,7 @@ namespace CustomSpawns.CampaignData
                 return;
             campaignConfig = CampaignDataConfigLoader.Instance.GetConfig<C>();
             _initialized = true;
+            OnSaveStartRunBehaviour.Singleton.RegisterFunctionToRunOnSaveStart(FlushSavedData); //It is uncertain whether this function gets called before sync data, but the tests indicate so.
             OnSaveStartRunBehaviour.Singleton.RegisterFunctionToRunOnSaveStart(OnSaveStart);
         }
 
@@ -69,6 +70,8 @@ namespace CustomSpawns.CampaignData
         protected abstract void OnSyncData(IDataStore dataStore);
 
         protected abstract void OnSaveStart();
+
+        public abstract void FlushSavedData();
 
     }
 }

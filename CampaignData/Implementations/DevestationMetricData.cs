@@ -28,7 +28,6 @@ namespace CustomSpawns.CampaignData
 
         protected override void OnSyncData(IDataStore dataStore)
         {
-            settlementToDevestation.Clear();
             dataStore.SyncData("settlementToDevestation", ref settlementToDevestation);
         }
 
@@ -49,12 +48,17 @@ namespace CustomSpawns.CampaignData
             }
         }
 
+        public override void FlushSavedData()
+        {
+            settlementToDevestation.Clear();
+        }
+
 
         #endregion
 
         #region Event Callbacks
 
-       private void OnMapEventEnded(MapEvent e)
+        private void OnMapEventEnded(MapEvent e)
         {
             if (e == null)
                 return;
