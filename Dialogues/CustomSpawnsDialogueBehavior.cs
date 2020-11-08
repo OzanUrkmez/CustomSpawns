@@ -19,11 +19,11 @@ namespace CustomSpawns.Dialogues
 
         private Data.DialogueDataManager dataManager;
 
-        // no method for saving data right now- it works on campaign launch but probably not once the save is reloaded
+        Dictionary<MobileParty, string> dialoguePartyRef = new Dictionary<MobileParty, string>();
 
         public override void SyncData(IDataStore dataStore)
         {
-            dataStore.SyncData("csDialoguePartyRef", ref dict);
+            dataStore.SyncData<Dictionary<MobileParty, string>>("dialoguePartyRef", ref dialoguePartyRef);
         }
 
         // basic dialogue overview: 
@@ -32,8 +32,6 @@ namespace CustomSpawns.Dialogues
         // conditions are delegates that must anonymously return a bool, which will be wheteher or not the line is displayed
         // consequences are void delegates, just pieces of code run after a line has been selected
         // i think? priority determines which line is shown if multiple lines meet the requirements, and also maybe what order player lines are displayed in (speculation)
-
-        Dictionary<MobileParty, string> dict = new Dictionary<MobileParty, string>();
 
         public void AddCustomDialogues(CampaignGameStarter starter)
         {
@@ -132,11 +130,11 @@ namespace CustomSpawns.Dialogues
         private bool party_template_condition_delegate(string t, bool isFriendly) // generic party checking delegate
         {
             PartyBase encounteredParty = PlayerEncounter.EncounteredParty;
-            if (encounteredParty != null)
+            if (encounteredParty.MobileParty != null)
             {
                 if (isFriendly)
                 {
-                    if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && !Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                    if (dialoguePartyRef.ContainsKey(encounteredParty.MobileParty) && (dialoguePartyRef[encounteredParty.MobileParty] == t) && !Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
                     {
                         return true;
                     }
@@ -144,7 +142,7 @@ namespace CustomSpawns.Dialogues
                 }
                 else if (!isFriendly)
                 {
-                    if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                    if (dialoguePartyRef.ContainsKey(encounteredParty.MobileParty) && (dialoguePartyRef[encounteredParty.MobileParty] == t) && Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
                     {
                         return true;
                     }
@@ -156,11 +154,11 @@ namespace CustomSpawns.Dialogues
         private bool party_template_and_defender_hostile_condition_delegate(string t, bool isFriendly) // checks for template, attitude and if the party is defending (being engaged)
         {
             PartyBase encounteredParty = PlayerEncounter.EncounteredParty;
-            if (encounteredParty != null)
+            if (encounteredParty.MobileParty != null)
             {
                 if (isFriendly)
                 {
-                    if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && PlayerEncounter.PlayerIsAttacker && !Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                    if (dialoguePartyRef.ContainsKey(encounteredParty.MobileParty) && (dialoguePartyRef[encounteredParty.MobileParty] == t) && PlayerEncounter.PlayerIsAttacker && !Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
                     {
                         return true;
                     }
@@ -168,7 +166,7 @@ namespace CustomSpawns.Dialogues
                 }
                 else if (!isFriendly)
                 {
-                    if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && PlayerEncounter.PlayerIsAttacker && Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                    if (dialoguePartyRef.ContainsKey(encounteredParty.MobileParty) && (dialoguePartyRef[encounteredParty.MobileParty] == t) && PlayerEncounter.PlayerIsAttacker && Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
                     {
                         return true;
                     }
@@ -180,11 +178,11 @@ namespace CustomSpawns.Dialogues
         private bool party_template_and_attacker_hostile_condition_delegate(string t, bool isFriendly) // checks for template, attitude and if the party is attacking (engaging the player)
         {
             PartyBase encounteredParty = PlayerEncounter.EncounteredParty;
-            if (encounteredParty != null)
+            if (encounteredParty.MobileParty != null)
             {
                 if (isFriendly)
                 {
-                    if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && !PlayerEncounter.PlayerIsAttacker && !Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                    if (dialoguePartyRef.ContainsKey(encounteredParty.MobileParty) && (dialoguePartyRef[encounteredParty.MobileParty] == t) && !PlayerEncounter.PlayerIsAttacker && !Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
                     {
                         return true;
                     }
@@ -192,7 +190,7 @@ namespace CustomSpawns.Dialogues
                 }
                 else if (!isFriendly)
                 {
-                    if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && !PlayerEncounter.PlayerIsAttacker && Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                    if (dialoguePartyRef.ContainsKey(encounteredParty.MobileParty) && (dialoguePartyRef[encounteredParty.MobileParty] == t) && !PlayerEncounter.PlayerIsAttacker && Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
                     {
                         return true;
                     }
@@ -203,7 +201,7 @@ namespace CustomSpawns.Dialogues
 
         private bool first_and_lord_name_condition_delegate(string name)
         {
-            if ((Hero.OneToOneConversationHero != null) && Campaign.Current.ConversationManager.CurrentConversationIsFirst)
+            if ((Hero.OneToOneConversationHero != null) && !Hero.OneToOneConversationHero.HasMet)
             {
                 return Hero.OneToOneConversationHero.Name.ToString() == name;
             }
@@ -212,8 +210,8 @@ namespace CustomSpawns.Dialogues
 
         private bool first_and_faction_condition_delegate(string faction)
         {
-            if(PlayerEncounter.EncounteredParty != null)
-                if ((PlayerEncounter.EncounteredParty.MapFaction.StringId == faction) && Campaign.Current.ConversationManager.CurrentConversationIsFirst)
+            if(PlayerEncounter.EncounteredParty.MobileParty != null)
+                if ((PlayerEncounter.EncounteredParty.MobileParty.MapFaction.StringId == faction) && !Hero.OneToOneConversationHero.HasMet)
                     return true;
 
             return false;
@@ -321,7 +319,7 @@ namespace CustomSpawns.Dialogues
         public void RegisterParty(MobileParty mb, string template)
         {
             ModDebug.ShowMessage("party of " + mb.StringId + " has registered for dialogue detection", DebugMessageType.Dialogue);
-            dict.Add(mb, template);
+            dialoguePartyRef.Add(mb, template);
         }
 
         private void GetData() // the classic
@@ -393,6 +391,18 @@ namespace CustomSpawns.Dialogues
                 base.AddClassDefinition(typeof())
             }
         } */
+
+        public class CustomSpawnsDialogueBehaviorTypeDefiner : CampaignBehaviorBase.SaveableCampaignBehaviorTypeDefiner
+        {
+            public CustomSpawnsDialogueBehaviorTypeDefiner() : base(51255)
+            {
+            }
+
+            protected override void DefineContainerDefinitions()
+            {
+                base.ConstructContainerDefinition(typeof(Dictionary<MobileParty, string>));
+            }
+        }
 
         /* private enum PlayerInteraction
         {
