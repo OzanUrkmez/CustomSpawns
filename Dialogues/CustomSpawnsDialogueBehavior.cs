@@ -23,7 +23,7 @@ namespace CustomSpawns.Dialogues
 
         public override void SyncData(IDataStore dataStore)
         {
-
+            dataStore.SyncData("csDialoguePartyRef", ref dict);
         }
 
         // basic dialogue overview: 
@@ -37,17 +37,21 @@ namespace CustomSpawns.Dialogues
 
         public void AddCustomDialogues(CampaignGameStarter starter)
         {
-            if(dataManager == null)
+            if (dataManager == null)
             {
                 GetData();
             }
             foreach (Data.DialogueData d in dataManager.Data) // handle the dialogues
             {
-                if(d.IsPlayer)
+                if (d.IsPlayer)
                 {
                     starter.AddPlayerLine(d.Id, d.InToken, d.OutToken, d.DialogueText, // delegating in the loop so we don't interfere with the asynchronous magic
                     delegate
                     {
+                        if(PlayerEncounter.InsideSettlement)
+                        {
+
+                        }
                         return this.EvaluateDialogueCondition(d);
                     },
                     delegate
@@ -128,19 +132,22 @@ namespace CustomSpawns.Dialogues
         private bool party_template_condition_delegate(string t, bool isFriendly) // generic party checking delegate
         {
             PartyBase encounteredParty = PlayerEncounter.EncounteredParty;
-            if(isFriendly)
+            if (encounteredParty != null)
             {
-                if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && !Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                if (isFriendly)
                 {
-                    return true;
-                }
+                    if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && !Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                    {
+                        return true;
+                    }
 
-            }
-            else if(!isFriendly)
-            {
-                if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                }
+                else if (!isFriendly)
                 {
-                    return true;
+                    if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                    {
+                        return true;
+                    }
                 }
             }
             return false;
@@ -149,19 +156,22 @@ namespace CustomSpawns.Dialogues
         private bool party_template_and_defender_hostile_condition_delegate(string t, bool isFriendly) // checks for template, attitude and if the party is defending (being engaged)
         {
             PartyBase encounteredParty = PlayerEncounter.EncounteredParty;
-            if (isFriendly)
+            if (encounteredParty != null)
             {
-                if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && PlayerEncounter.PlayerIsAttacker && !Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                if (isFriendly)
                 {
-                    return true;
-                }
+                    if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && PlayerEncounter.PlayerIsAttacker && !Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                    {
+                        return true;
+                    }
 
-            }
-            else if (!isFriendly)
-            {
-                if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && PlayerEncounter.PlayerIsAttacker && Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                }
+                else if (!isFriendly)
                 {
-                    return true;
+                    if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && PlayerEncounter.PlayerIsAttacker && Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                    {
+                        return true;
+                    }
                 }
             }
             return false;
@@ -170,19 +180,22 @@ namespace CustomSpawns.Dialogues
         private bool party_template_and_attacker_hostile_condition_delegate(string t, bool isFriendly) // checks for template, attitude and if the party is attacking (engaging the player)
         {
             PartyBase encounteredParty = PlayerEncounter.EncounteredParty;
-            if (isFriendly)
+            if (encounteredParty != null)
             {
-                if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && !PlayerEncounter.PlayerIsAttacker && !Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                if (isFriendly)
                 {
-                    return true;
-                }
+                    if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && !PlayerEncounter.PlayerIsAttacker && !Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                    {
+                        return true;
+                    }
 
-            }
-            else if (!isFriendly)
-            {
-                if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && !PlayerEncounter.PlayerIsAttacker && Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                }
+                else if (!isFriendly)
                 {
-                    return true;
+                    if (dict.ContainsKey(encounteredParty.MobileParty) && (dict[encounteredParty.MobileParty] == t) && !PlayerEncounter.PlayerIsAttacker && Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                    {
+                        return true;
+                    }
                 }
             }
             return false;
@@ -190,7 +203,7 @@ namespace CustomSpawns.Dialogues
 
         private bool first_and_lord_name_condition_delegate(string name)
         {
-            if((Hero.OneToOneConversationHero != null) && Campaign.Current.ConversationManager.CurrentConversationIsFirst)
+            if ((Hero.OneToOneConversationHero != null) && Campaign.Current.ConversationManager.CurrentConversationIsFirst)
             {
                 return Hero.OneToOneConversationHero.Name.ToString() == name;
             }
@@ -199,8 +212,9 @@ namespace CustomSpawns.Dialogues
 
         private bool first_and_faction_condition_delegate(string faction)
         {
-            if ((PlayerEncounter.EncounteredParty.MobileParty.MapFaction.StringId == faction) && Campaign.Current.ConversationManager.CurrentConversationIsFirst)
-                return true;
+            if(PlayerEncounter.EncounteredParty != null)
+                if ((PlayerEncounter.EncounteredParty.MapFaction.StringId == faction) && Campaign.Current.ConversationManager.CurrentConversationIsFirst)
+                    return true;
 
             return false;
         }
@@ -209,7 +223,7 @@ namespace CustomSpawns.Dialogues
         {
             if (isFriendly)
                 return !PlayerEncounter.EncounteredParty.MapFaction.IsAtWarWith(Hero.MainHero.MapFaction);
-            else if(!isFriendly)
+            else if (!isFriendly)
                 return PlayerEncounter.EncounteredParty.MapFaction.IsAtWarWith(Hero.MainHero.MapFaction);
             return false;
         }
@@ -217,12 +231,12 @@ namespace CustomSpawns.Dialogues
         private bool hero_trait_condition_delegate(bool isPlayer, string trait, int value) // for traits, not really a good idea to use since it only checks for a single value rather than inequality
         {
             Hero checker;
-            if(isPlayer)
+            if (isPlayer)
                 checker = Hero.MainHero;
             else
                 checker = Hero.OneToOneConversationHero;
 
-            switch(trait)
+            switch (trait)
             {
                 case "valor":
                     return ((checker.GetTraitLevel(DefaultTraits.Valor)) == value);
@@ -250,7 +264,7 @@ namespace CustomSpawns.Dialogues
 
         #region Consequence Delegates
 
-        private void  end_conversation_consequence_delegate()
+        private void end_conversation_consequence_delegate()
         {
             PlayerEncounter.LeaveEncounter = true;
         }
@@ -274,9 +288,9 @@ namespace CustomSpawns.Dialogues
 
         private void surrender_consequence_delegate(bool isPlayer) // for surrenders you need to update the player encounter- not sure if this closes the window or not
         {
-            if(isPlayer)
+            if (isPlayer)
                 PlayerEncounter.PlayerSurrender = true;
-            else if(!isPlayer)
+            else if (!isPlayer)
                 PlayerEncounter.EnemySurrender = true;
             PlayerEncounter.Update();
         }
@@ -367,6 +381,18 @@ namespace CustomSpawns.Dialogues
             BarterForPeace,
             StandardBarter
         }
+
+        /* public class CustomSpawnsDialogueBehaviorTypeDefiner : CampaignBehaviorBase.SaveableCampaignBehaviorTypeDefiner
+        {
+            public CustomSpawnsDialogueBehaviorTypeDefiner() : base(61223)
+            {
+            }
+            
+            protected override void DefineClassTypes()
+            {
+                base.AddClassDefinition(typeof())
+            }
+        } */
 
         /* private enum PlayerInteraction
         {

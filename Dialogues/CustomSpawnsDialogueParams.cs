@@ -17,9 +17,9 @@ namespace CustomSpawns.Dialogues
             this.c_value = value;
             this.c_lordName = lordName;
             this.c_faction = faction;
+            this.c_barterSuccessful = successfulBarter;
 
             this.cs_isPlayerSurrender = isPlayerSurrender;
-            this.c_barterSuccessful = successfulBarter;
         }
 
         // condition params
