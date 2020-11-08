@@ -28,6 +28,7 @@ namespace CustomSpawns.CampaignData
 
         protected override void OnSyncData(IDataStore dataStore)
         {
+            settlementToDevestation.Clear();
             dataStore.SyncData("settlementToDevestation", ref settlementToDevestation);
         }
 
