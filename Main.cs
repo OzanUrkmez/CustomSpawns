@@ -129,7 +129,7 @@ namespace CustomSpawns
                 //campaign behaviours
                 starter.AddBehavior(CampaignData.DevestationMetricData.Singleton);
                 starter.AddBehavior(CampaignData.DailyLogger.Singleton);
-
+                starter.AddBehavior(CampaignData.CampaignTest.Singleton);
 
                 //these come last! assuming those that are added last are also run last.
                 starter.AddBehavior(MobilePartyTrackingBehaviour.Singleton);

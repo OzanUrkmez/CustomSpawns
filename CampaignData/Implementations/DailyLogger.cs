@@ -77,12 +77,12 @@ namespace CustomSpawns.CampaignData {
 
         private void OnWarDeclared(IFaction fac1, IFaction fac2)
         {
-            WriteString(fac1.Name + " and " + fac2.Name + " have declared war!");
+            WriteString(fac1.Name + " and " + fac2.Name + " have declared war!\n");
         }
 
         private void OnPeaceMade(IFaction fac1, IFaction fac2)
         {
-            WriteString(fac1.Name + " and " + fac2.Name + " have made peace!");
+            WriteString(fac1.Name + " and " + fac2.Name + " have made peace!\n");
         }
 
 
