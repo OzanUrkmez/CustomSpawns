@@ -24,7 +24,11 @@ namespace CustomSpawns.CampaignData {
 
         protected override void OnSaveStart()
         {
-
+            if (!Directory.Exists(logDir))
+            {
+                Directory.CreateDirectory(logDir);
+            }
+            logStream = File.Create(Path.Combine(logDir, "RudimentaryLastSessionLog.txt"));
         }
 
         protected override void SyncSaveData(IDataStore dataStore)
@@ -45,19 +49,6 @@ namespace CustomSpawns.CampaignData {
         {
             logDir = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "Logs");
         }
-
-
-
-        public void OnGameStart()
-        {
-
-            if (!Directory.Exists(logDir))
-            {
-                Directory.CreateDirectory(logDir);
-            }
-            logStream = File.Create(Path.Combine(logDir, "RudimentaryLastSessionLog.txt"));
-        }
-
 
         private void OnAfterDailyTick()
         {
