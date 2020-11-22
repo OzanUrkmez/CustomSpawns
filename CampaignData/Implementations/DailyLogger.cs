@@ -30,6 +30,8 @@ namespace CustomSpawns.CampaignData {
             {
                 Directory.CreateDirectory(logDir);
             }
+            if (logStream != null && logStream.CanWrite)
+                logStream.Close();
             logStream = File.Create(Path.Combine(logDir, "RudimentaryLastSessionLog.txt"));
         }
 

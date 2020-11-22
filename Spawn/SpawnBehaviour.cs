@@ -208,8 +208,6 @@ namespace CustomSpawns.Spawn
                                     //}
                                 }
 
-
-
                             DailyLogger.ReportSpawn(spawnedParty, currentChanceOfSpawn);
                         }
                         else
