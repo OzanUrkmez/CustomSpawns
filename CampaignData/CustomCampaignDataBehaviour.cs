@@ -62,12 +62,12 @@ namespace CustomSpawns.CampaignData
 
         public sealed override void SyncData(IDataStore dataStore)
         {
-            OnSyncData(dataStore);
+            SyncSaveData(dataStore);
         }
 
         protected abstract void OnRegisterEvents();
 
-        protected abstract void OnSyncData(IDataStore dataStore);
+        protected abstract void SyncSaveData(IDataStore dataStore);
 
         protected abstract void OnSaveStart();
 

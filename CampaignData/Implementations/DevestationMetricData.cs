@@ -26,7 +26,7 @@ namespace CustomSpawns.CampaignData
             CampaignEvents.DailyTickSettlementEvent.AddNonSerializedListener(this, OnSettlementDaily);
         }
 
-        protected override void OnSyncData(IDataStore dataStore)
+        protected override void SyncSaveData(IDataStore dataStore)
         {
             dataStore.SyncData("settlementToDevestation", ref settlementToDevestation);
         }
@@ -67,6 +67,9 @@ namespace CustomSpawns.CampaignData
 
             Settlement closestSettlement = CampaignUtils.GetClosestVillage(e.Position);
 
+            if (!settlementToDevestation.ContainsKey(closestSettlement))
+                ErrorHandler.HandleException(new Exception("Devestation value for settlement could not be found!"));
+
             ChangeDevestation(closestSettlement, increase);
 
             ModDebug.ShowMessage("Fight at " + closestSettlement.Name + ". Increasing devestation by " + increase + ". New devestation is: " + settlementToDevestation[closestSettlement], campaignConfig);
@@ -86,6 +89,9 @@ namespace CustomSpawns.CampaignData
         {
             if (s == null || !s.IsVillage)
                 return;
+
+            if (!settlementToDevestation.ContainsKey(s))
+                ErrorHandler.HandleException(new Exception("Devestation value for settlement could not be found!"));
 
             var presentInDay = MobilePartyTrackingBehaviour.Singleton.GetSettlementDailyMobilePartyPresences(s);
 
@@ -140,6 +146,9 @@ namespace CustomSpawns.CampaignData
 
         private void ChangeDevestation(Settlement s, float change)
         {
+            if (!settlementToDevestation.ContainsKey(s))
+                ErrorHandler.HandleException(new Exception("Devestation value for settlement could not be found!"));
+
             settlementToDevestation[s] += change;
 
             settlementToDevestation[s] = Mathf.Clamp(settlementToDevestation[s], campaignConfig.MinDevestationPerSettlement, campaignConfig.MaxDevestationPerSettlement);
