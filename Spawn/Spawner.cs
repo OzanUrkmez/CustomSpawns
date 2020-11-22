@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CustomSpawns.MCMv3;
+//using CustomSpawns.MCMv3;
 using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.CampaignSystem.Barterables;
 using TaleWorlds.CampaignSystem.CharacterDevelopment.Managers;
@@ -21,7 +21,7 @@ namespace CustomSpawns.Spawn
     {
 
 
-        public static MobileParty SpawnParty(Settlement spawnedSettlement, Clan clan, PartyTemplateObject templateObject,MobileParty.PartyTypeEnum partyType, TextObject partyName = null, PartyTemplateObject templatePrisoners = null, bool IsInheritClan = false)
+        public static MobileParty SpawnParty(Settlement spawnedSettlement, Clan clan, PartyTemplateObject templateObject,MobileParty.PartyTypeEnum partyType,  TextObject partyName = null)
         {
             //get name and show message.
             TextObject textObject = partyName ?? clan.Name;
@@ -29,17 +29,10 @@ namespace CustomSpawns.Spawn
 
             //create.
             MobileParty mobileParty = MBObjectManager.Instance.CreateObject<MobileParty>(templateObject.StringId + "_" + 1);
-            if (templatePrisoners != null)
-                mobileParty.InitializeMobileParty(textObject, ConstructTroopRoster(templateObject, mobileParty.Party), ConstructTroopRoster(templatePrisoners, mobileParty.Party), spawnedSettlement.GatePosition, 0);
-            else
-                mobileParty.InitializeMobileParty(textObject, ConstructTroopRoster(templateObject, mobileParty.Party), new TroopRoster(mobileParty.Party), spawnedSettlement.GatePosition, 0);
+            mobileParty.InitializeMobileParty(textObject, ConstructTroopRoster(templateObject, mobileParty.Party), new TroopRoster(mobileParty.Party), spawnedSettlement.GatePosition, 0);
 
             //initialize
-            Clan settlementClan = spawnedSettlement.OwnerClan;
-            if (IsInheritClan == true)
-                Spawner.InitParty(mobileParty, textObject, settlementClan, spawnedSettlement);
-            else
-                Spawner.InitParty(mobileParty, textObject, clan, spawnedSettlement);
+            Spawner.InitParty(mobileParty, textObject, clan, spawnedSettlement);
 
             return mobileParty;
         }
@@ -121,7 +114,7 @@ namespace CustomSpawns.Spawn
                     aiRegistrations.Add("Patrol Around Closest Lest Interrupted And Switch Behaviour: ", success);
                     invalid = invalid ? true : !success;
                 }
-                if (invalid && CsSettings.IsDebugMode)
+                if (invalid && ConfigLoader.Instance.Config.IsDebugMode)
                 {
                     ErrorHandler.ShowPureErrorMessage("Custom Spawns AI XML registration error has occured. The party being registered was: " + mb.StringId +
                         "\n Here is more info about the behaviours being registered: \n" + String.Join("\n", aiRegistrations.Keys));
@@ -133,10 +126,14 @@ namespace CustomSpawns.Spawn
             }
         }
 
-        public static Settlement GetSpawnSettlement(Data.SpawnData data, Random rand = null)
+        public static Settlement GetSpawnSettlement(Data.SpawnData data, Random rand = null, List<Settlement> exceptions = null)
         {
             if(rand == null)
                 rand = new Random();
+
+            if (exceptions == null)
+                exceptions = new List<Settlement>();
+
             Clan spawnClan = data.SpawnClan;
             //deal with override of spawn clan.
             if (data.OverridenSpawnClan.Count != 0)
@@ -145,7 +142,7 @@ namespace CustomSpawns.Spawn
             }
             //check for one hideout
             Settlement firstHideout = null;
-            if (CsSettings.SpawnAtOneHideout)
+            if (ConfigLoader.Instance.Config.SpawnAtOneHideout)
             {
                 foreach (Settlement s in Settlement.All)
                 {
@@ -156,25 +153,75 @@ namespace CustomSpawns.Spawn
                     }
                 }
             }
+
             //deal with town spawn
             Settlement spawnOverride = null;
             if (data.OverridenSpawnSettlements.Count != 0)
             {
-                spawnOverride = CampaignUtils.PickRandomSettlementAmong(data.OverridenSpawnSettlements, data.TrySpawnAtList, rand);
+                spawnOverride = CampaignUtils.PickRandomSettlementAmong(new List<Settlement>(data.OverridenSpawnSettlements.Where(s => !exceptions.Contains(s))), 
+                    data.TrySpawnAtList, rand);
             }
+
             if (spawnOverride == null && data.OverridenSpawnCultures.Count != 0)
             {
                 //spawn at overriden spawn instead!
-                spawnOverride = CampaignUtils.PickRandomSettlementOfCulture(data.OverridenSpawnCultures, data.TrySpawnAtList);
+                spawnOverride = CampaignUtils.PickRandomSettlementOfCulture(data.OverridenSpawnCultures, data.TrySpawnAtList, exceptions);
             }
-            if (spawnOverride == null && data.OverridenSpawnKingdoms.Count != 0)
-            {
-                spawnOverride = CampaignUtils.PickRandomSettlementOfKingdom(data.OverridenSpawnKingdoms, data.TrySpawnAtList);
-            }
+
+            if (spawnOverride != null)
+                return spawnOverride;
+
             //get settlement
-            Settlement spawnSettlement = CsSettings.SpawnAtOneHideout ? firstHideout : (spawnOverride == null ? CampaignUtils.GetPreferableHideout(spawnClan) : spawnOverride);
+            Settlement spawnSettlement = ConfigLoader.Instance.Config.SpawnAtOneHideout ? firstHideout : (data.TrySpawnAtList.Count == 0 ? CampaignUtils.GetPreferableHideout(spawnClan) : null);
             return spawnSettlement;
         }
 
+        public static Settlement GetSpawnSettlement(Data.SpawnData data, Func<Settlement , bool> exceptionPredicate, Random rand = null)
+        {
+            if (rand == null)
+                rand = new Random();
+
+
+            Clan spawnClan = data.SpawnClan;
+            //deal with override of spawn clan.
+            if (data.OverridenSpawnClan.Count != 0)
+            {
+                spawnClan = data.OverridenSpawnClan[rand.Next(0, data.OverridenSpawnClan.Count)];
+            }
+            //check for one hideout
+            Settlement firstHideout = null;
+            if (ConfigLoader.Instance.Config.SpawnAtOneHideout)
+            {
+                foreach (Settlement s in Settlement.All)
+                {
+                    if (s.IsHideout())
+                    {
+                        firstHideout = s;
+                        break;
+                    }
+                }
+            }
+
+            //deal with town spawn
+            Settlement spawnOverride = null;
+            if (data.OverridenSpawnSettlements.Count != 0)
+            {
+                spawnOverride = CampaignUtils.PickRandomSettlementAmong(new List<Settlement>(data.OverridenSpawnSettlements.Where(s => !exceptionPredicate(s))),
+                    data.TrySpawnAtList, rand);
+            }
+
+            if (spawnOverride == null && data.OverridenSpawnCultures.Count != 0)
+            {
+                //spawn at overriden spawn instead!
+                spawnOverride = CampaignUtils.PickRandomSettlementOfCulture(data.OverridenSpawnCultures, exceptionPredicate, data.TrySpawnAtList);
+            }
+
+            if (spawnOverride != null)
+                return spawnOverride;
+
+            //get settlement
+            Settlement spawnSettlement = ConfigLoader.Instance.Config.SpawnAtOneHideout ? firstHideout : (data.TrySpawnAtList.Count == 0 ? CampaignUtils.GetPreferableHideout(spawnClan) : null);
+            return spawnSettlement;
+        }
     }
 }

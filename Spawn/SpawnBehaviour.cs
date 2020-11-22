@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CustomSpawns.MCMv3;
+//using CustomSpawns.MCMv3;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 using TaleWorlds.Engine;
 using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
+using CustomSpawns.CampaignData;
 
 namespace CustomSpawns.Spawn
 {
@@ -56,7 +57,7 @@ namespace CustomSpawns.Spawn
 
         public void HourlyCheckData()
         {
-            if (lastRedundantDataUpdate < CsSettings.UpdatePartyRedundantDataPerHour + 1) // + 1 to give leeway and make sure every party gets updated. 
+            if (lastRedundantDataUpdate < ConfigLoader.Instance.Config.UpdatePartyRedundantDataPerHour + 1) // + 1 to give leeway and make sure every party gets updated. 
             {
                 lastRedundantDataUpdate++;
             }
@@ -137,7 +138,7 @@ namespace CustomSpawns.Spawn
             if (DynamicSpawnData.GetDynamicSpawnData(mb) == null) //check if it is a custom spawns party
                 return;
             UpdateDynamicData(mb);
-            if (lastRedundantDataUpdate >= CsSettings.UpdatePartyRedundantDataPerHour)
+            if (lastRedundantDataUpdate >= ConfigLoader.Instance.Config.UpdatePartyRedundantDataPerHour)
             {
                 UpdateRedundantDynamicData(mb);
             }
@@ -166,11 +167,20 @@ namespace CustomSpawns.Spawn
                     {
                         if (data.CanSpawn() && (data.MinimumNumberOfDaysUntilSpawn < (int)Math.Ceiling(Campaign.Current.CampaignStartTime.ElapsedDaysUntilNow)))
                         {
-                            if (CsSettings.IsAllSpawnMode || (float)rand.NextDouble() < data.ChanceOfSpawn)
-                            {
-                                var spawnSettlement = Spawner.GetSpawnSettlement(data, rand);
+                            if (!ConfigLoader.Instance.Config.IsAllSpawnMode && (float)rand.NextDouble() >= data.ChanceOfSpawn)
+                                continue;
+                            
+                                var spawnSettlement = Spawner.GetSpawnSettlement(data, (s => data.MinimumDevestationToSpawn > DevestationMetricData.Singleton.GetDevestation(s)) , rand);
                                 //spawn nao!
-                                MobileParty spawnedParty = Spawner.SpawnParty(spawnSettlement, data.SpawnClan, data.PartyTemplate, data.PartyType, new TextObject(data.Name), data.PartyTemplatePrisoner, data.InheritClanFromSettlement);
+
+                                if(spawnSettlement == null)
+                                {
+                                    //no valid spawn settlement
+
+                                    break;
+                                }
+
+                                MobileParty spawnedParty = Spawner.SpawnParty(spawnSettlement, data.SpawnClan, data.PartyTemplate, data.PartyType, new TextObject(data.Name));
                                 data.IncrementNumberSpawned(); //increment for can spawn and chance modifications
                                 //dynamic data registration
                                 DynamicSpawnData.AddDynamicSpawnData(spawnedParty, new CSPartyData(data, spawnSettlement));
@@ -181,32 +191,23 @@ namespace CustomSpawns.Spawn
                                 //accompanying spawns
                                 foreach (var accomp in data.SpawnAlongWith)
                                 {
-                                    MobileParty juniorParty = Spawner.SpawnParty(spawnSettlement, data.SpawnClan, accomp.templateObject, data.PartyType, new TextObject(accomp.name), data.PartyTemplatePrisoner, data.InheritClanFromSettlement);
+                                    MobileParty juniorParty = Spawner.SpawnParty(spawnSettlement, data.SpawnClan, accomp.templateObject, data.PartyType, new TextObject(accomp.name));
                                     Spawner.HandleAIChecks(juniorParty, data, spawnSettlement); //junior party has same AI behaviour as main party. TODO in future add some junior party AI and reconstruction.
                                 }
                                 //message if available
-                                if (data.spawnMessage != null && data.inquiryMessage == null)
+                                if (data.spawnMessage != null)
                                 {
                                     UX.ShowParseSpawnMessage(data.spawnMessage, spawnSettlement.Name.ToString());
-                                    if (data.SoundEvent != -1 && !isSpawnSoundPlaying && CsSettings.SpawnSoundEnabled)
-                                    {
-                                        var sceneEmpty = Scene.CreateNewScene(false);
-                                        SoundEvent sound = SoundEvent.CreateEvent(data.SoundEvent, sceneEmpty);
-                                        sound.Play();
-                                        isSpawnSoundPlaying = true;
-                                    }
+                                    //if (data.SoundEvent != -1 && !isSpawnSoundPlaying && ConfigLoader.Instance.Config.SpawnSoundEnabled)
+                                    //{
+                                    //    var sceneEmpty = Scene.CreateNewScene(false);
+                                    //    SoundEvent sound = SoundEvent.CreateEvent(data.SoundEvent, sceneEmpty);
+                                    //    sound.Play();
+                                    //    isSpawnSoundPlaying = true;
+                                    //}
                                 }
-                                //default spawn message type always takes priority over the inquiry type if they're both present
-                                else if (data.spawnMessage != null && data.inquiryMessage != null)
-                                {
-                                    UX.ShowParseSpawnMessage(data.spawnMessage, spawnSettlement.Name.ToString());
-                                }
-                                //only if the spawn message EXPLICITLY doesn't exist does it choose the inquiry message
-                                else if (data.spawnMessage == null && data.inquiryMessage != null)
-                                {
-                                    UX.ShowParseSpawnInquiryMessage(data.inquiryMessage, spawnSettlement.Name.ToString(), data.inquiryPause);
-                                }
-                            }
+
+                            
                         }
                         else
                         {
@@ -220,6 +221,7 @@ namespace CustomSpawns.Spawn
                 ErrorHandler.HandleException(e);
             }
         }
+
         private void OnPartyDeath(MobileParty mb, CSPartyData dynamicData)
         {
             HandleDeathMessage(mb, dynamicData);

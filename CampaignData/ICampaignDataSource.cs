@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomSpawns.CampaignData
 {
-    public interface ICampaignDataConfig
+    interface ICampaignDataSource
     {
-        
-        bool ShowConfigDebug { get; set; }
-
     }
 }

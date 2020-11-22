@@ -9,68 +9,36 @@ using TaleWorlds.TwoDimension;
 
 namespace CustomSpawns.CampaignData
 {
-    class DevestationMetricData : CampaignBehaviorBase
+    class DevestationMetricData : CustomCampaignDataBehaviour<DevestationMetricData, DevestationMetricConfig>
     {
 
         private Dictionary<Settlement, float> settlementToDevestation = new Dictionary<Settlement, float>();
 
-        private DevestationMetricConfig campaignConfig;
 
-        #region Singleton and Initialization
-
-        private static DevestationMetricData _singleton;
-
-        public static DevestationMetricData Singleton
-        {
-            get
-            {
-                if (_singleton == null)
-                {
-                    _singleton = new DevestationMetricData();
-                }
-
-                return _singleton;
-
-            }
-            private set
-            {
-                _singleton = value;
-            }
-        }
-
-        public DevestationMetricData()
-        {
-
-            OnSaveStartRunBehaviour.Singleton.RegisterFunctionToRunOnSaveStart(OnGameInitialization);
-            campaignConfig = CampaignDataConfigLoader.Instance.GetConfig<DevestationMetricConfig>();
-        }
-
-        #endregion
-
-        #region Campaign Behavior Base Abstract Implementation
+        #region Custom Campaign Data Implementation
 
 
-
-        public override void RegisterEvents()
+        protected override void OnRegisterEvents()
         {
             CampaignEvents.MapEventEnded.AddNonSerializedListener(this, OnMapEventEnded);
             CampaignEvents.VillageLooted.AddNonSerializedListener(this, OnVillageLooted);
 
             CampaignEvents.DailyTickSettlementEvent.AddNonSerializedListener(this, OnSettlementDaily);
-
         }
 
-        public override void SyncData(IDataStore dataStore)
+        protected override void OnSyncData(IDataStore dataStore)
         {
-           
+            dataStore.SyncData("settlementToDevestation", ref settlementToDevestation);
         }
 
-
-        #endregion
-
-        private void OnGameInitialization()
+        protected override void OnSaveStart()
         {
-            foreach(Settlement s in Settlement.All) //assuming no new settlements can be created mid-game.
+            if (settlementToDevestation.Count != 0) //If you include non-village etc. or add new settlements this approach will break old saves.
+            {
+                return;
+            }
+
+            foreach (Settlement s in Settlement.All) //assuming no new settlements can be created mid-game.
             {
                 if (!s.IsVillage)
                 {
@@ -80,9 +48,17 @@ namespace CustomSpawns.CampaignData
             }
         }
 
+        public override void FlushSavedData()
+        {
+            settlementToDevestation.Clear();
+        }
+
+
+        #endregion
+
         #region Event Callbacks
 
-       private void OnMapEventEnded(MapEvent e)
+        private void OnMapEventEnded(MapEvent e)
         {
             if (e == null)
                 return;
@@ -133,18 +109,29 @@ namespace CustomSpawns.CampaignData
                 }
             }
 
-            ModDebug.ShowMessage("Calculating friendly presence devestation decay in " + s.Name + ". Decreasing devestation by " + friendlyGain, campaignConfig);
+            if(friendlyGain > 0)
+            {
+                //ModDebug.ShowMessage("Calculating friendly presence devestation decay in " + s.Name + ". Decreasing devestation by " + friendlyGain, campaignConfig);
 
-            ChangeDevestation(s, friendlyGain);
+                ChangeDevestation(s, -friendlyGain);
+            }
 
-            ModDebug.ShowMessage("Calculating hostile presence devestation gain in " + s.Name + ". Increasing devestation by " + hostileDecay, campaignConfig);
 
-            ChangeDevestation(s, -hostileDecay);
+            if(hostileDecay > 0)
+            {
+                ModDebug.ShowMessage("Calculating hostile presence devestation gain in " + s.Name + ". Increasing devestation by " + hostileDecay, campaignConfig);
 
-            ModDebug.ShowMessage("Calculating daily Devestation Decay in " + s.Name + ". Decreasing devestation by " + campaignConfig.DailyDevestationDecay, campaignConfig);
-            ChangeDevestation(s, -campaignConfig.DailyDevestationDecay);
+                ChangeDevestation(s, hostileDecay);
+            }
 
-            ModDebug.ShowMessage("Current Devestation at " + s.Name + " is now " + settlementToDevestation[s], campaignConfig);
+            if(GetDevestation(s) > 0)
+            {
+                ModDebug.ShowMessage("Calculating daily Devestation Decay in " + s.Name + ". Decreasing devestation by " + campaignConfig.DailyDevestationDecay, campaignConfig);
+                ChangeDevestation(s, -campaignConfig.DailyDevestationDecay);
+            }
+
+            if(GetDevestation(s) != 0)
+                ModDebug.ShowMessage("Current Devestation at " + s.Name + " is now " + settlementToDevestation[s], campaignConfig);
         }
 
         #endregion
@@ -162,6 +149,7 @@ namespace CustomSpawns.CampaignData
         {
             if (!s.IsVillage)
             {
+                return 0;
                 ModDebug.ShowMessage("Non-village devestation data is not currently supported!", campaignConfig);
             }
             if (settlementToDevestation.ContainsKey(s))
@@ -170,6 +158,28 @@ namespace CustomSpawns.CampaignData
             ErrorHandler.HandleException(new Exception("Devestation value for settlement could not be found!"));
             return 0;
         }
+
+        public float GetMinimumDevestation()
+        {
+            return campaignConfig.MinDevestationPerSettlement;
+        }
+
+        public float GetMaximumDevestation()
+        {
+            return campaignConfig.MaxDevestationPerSettlement;
+        }
+
+
+        public float GetAverageDevestation()
+        {
+            return settlementToDevestation.Values.Aggregate((c,d) => c+d) / settlementToDevestation.Count; //TODO make more efficient
+        }
+
+        public float GetDevestationLerp()
+        {
+            return GetAverageDevestation() / GetMaximumDevestation();
+        }
+
 
     }
 }
