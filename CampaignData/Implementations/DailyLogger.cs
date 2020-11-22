@@ -1,4 +1,5 @@
-﻿using CustomSpawns.UtilityBehaviours;
+﻿using CustomSpawns.Data;
+using CustomSpawns.UtilityBehaviours;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -50,17 +51,26 @@ namespace CustomSpawns.CampaignData {
             logDir = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "Logs");
         }
 
+        private bool DataWrittenToday = false;
+        private int dayCount;
         private void OnAfterDailyTick()
         {
-            int dayCount = (int)Campaign.Current.CampaignStartTime.ElapsedDaysUntilNow;
+            dayCount = (int)Campaign.Current.CampaignStartTime.ElapsedDaysUntilNow;
 
-            WriteString("Day " + dayCount.ToString() + ":\n");
+            DataWrittenToday = false;
         }
 
         private void WriteString(string s)
         {
             if (logStream != null && logStream.CanWrite)
+            {
+                if (!DataWrittenToday)
+                {
+                    DataWrittenToday = true;
+                    WriteString("Day " + dayCount.ToString() + ":\n");
+                }
                 logStream.Write(Encoding.UTF8.GetBytes(s), 0, s.Length);
+            }
             else
                 ModDebug.ShowMessage("Unable to write daily log!", DebugMessageType.Development);
         }
@@ -76,9 +86,9 @@ namespace CustomSpawns.CampaignData {
         }
 
 
-        public static void ReportSpawn(MobileParty spawned)
+        public static void ReportSpawn(MobileParty spawned, float chanceOfSpawnBeforeSpawn)
         {
-            if (Singleton == null || spawned.Party.TotalStrength < Singleton.campaignConfig.MinimumSpawnLogValue)
+            if (Singleton == null || spawned.Party.TotalStrength < Singleton.campaignConfig.MinimumSpawnLogValue || chanceOfSpawnBeforeSpawn > Singleton.campaignConfig.MinimumRarityToLog)
                 return;
 
             Singleton.WriteString("New Spawn: " + spawned.StringId + "\n    Total Strength:" + spawned.Party.TotalStrength.ToString() + "!\n");

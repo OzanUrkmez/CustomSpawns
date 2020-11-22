@@ -167,7 +167,8 @@ namespace CustomSpawns.Spawn
                     {
                         if (data.CanSpawn() && (data.MinimumNumberOfDaysUntilSpawn < (int)Math.Ceiling(Campaign.Current.CampaignStartTime.ElapsedDaysUntilNow)))
                         {
-                            if (!ConfigLoader.Instance.Config.IsAllSpawnMode && (float)rand.NextDouble() >= data.ChanceOfSpawn)
+                            float currentChanceOfSpawn = data.ChanceOfSpawn;
+                            if (!ConfigLoader.Instance.Config.IsAllSpawnMode && (float)rand.NextDouble() >= currentChanceOfSpawn)
                                 continue;
                                 
                                 var spawnSettlement = Spawner.GetSpawnSettlement(data, (s => data.MinimumDevestationToSpawn > DevestationMetricData.Singleton.GetDevestation(s)) , rand);
@@ -209,7 +210,7 @@ namespace CustomSpawns.Spawn
 
 
 
-                            DailyLogger.ReportSpawn(spawnedParty);
+                            DailyLogger.ReportSpawn(spawnedParty, currentChanceOfSpawn);
                         }
                         else
                         {

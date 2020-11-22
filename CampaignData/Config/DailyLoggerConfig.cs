@@ -13,5 +13,7 @@ namespace CustomSpawns.CampaignData
         public bool ShowConfigDebug { get; set; }
 
         public float MinimumSpawnLogValue { get; set; }
+
+        public float MinimumRarityToLog { get; set; }
     }
 }
