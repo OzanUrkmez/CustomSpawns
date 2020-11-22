@@ -169,7 +169,7 @@ namespace CustomSpawns.Spawn
                         {
                             if (!ConfigLoader.Instance.Config.IsAllSpawnMode && (float)rand.NextDouble() >= data.ChanceOfSpawn)
                                 continue;
-                            
+                                
                                 var spawnSettlement = Spawner.GetSpawnSettlement(data, (s => data.MinimumDevestationToSpawn > DevestationMetricData.Singleton.GetDevestation(s)) , rand);
                                 //spawn nao!
 
@@ -207,7 +207,9 @@ namespace CustomSpawns.Spawn
                                     //}
                                 }
 
-                            
+
+
+                            DailyLogger.ReportSpawn(spawnedParty);
                         }
                         else
                         {
