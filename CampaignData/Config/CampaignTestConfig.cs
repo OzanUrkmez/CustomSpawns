@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomSpawns.CampaignData
 {
-    class CampaignTestConfig : ICampaignDataConfig
+    public class CampaignTestConfig : ICampaignDataConfig
     {
 
         public bool OverrideGameSpeed { get; set; }
