@@ -66,17 +66,23 @@ namespace CustomSpawns.CampaignData {
 
         private void WriteString(string s)
         {
-            if (logStream != null && logStream.CanWrite)
+            try
             {
-                if (!DataWrittenToday)
+                if (logStream != null && logStream.CanWrite)
                 {
-                    DataWrittenToday = true;
-                    WriteString("Day " + dayCount.ToString() + ":\n");
+                    if (!DataWrittenToday)
+                    {
+                        DataWrittenToday = true;
+                        WriteString("Day " + dayCount.ToString() + ":\n");
+                    }
+                    logStream.Write(Encoding.UTF8.GetBytes(s), 0, s.Length);
                 }
-                logStream.Write(Encoding.UTF8.GetBytes(s), 0, s.Length);
+                else
+                    ModDebug.ShowMessage("Unable to write daily log!", DebugMessageType.Development);
+            }catch(Exception e)
+            {
+                ModDebug.ShowMessage(e.Message, DebugMessageType.Development);
             }
-            else
-                ModDebug.ShowMessage("Unable to write daily log!", DebugMessageType.Development);
         }
 
         private void OnWarDeclared(IFaction fac1, IFaction fac2)
@@ -91,9 +97,14 @@ namespace CustomSpawns.CampaignData {
 
         private void OnSettlementChange(Settlement s, bool b, Hero newOwner, Hero oldOwner, Hero h3, ChangeOwnerOfSettlementAction.ChangeOwnerOfSettlementDetail details)
         {
+
+
             if(details == ChangeOwnerOfSettlementAction.ChangeOwnerOfSettlementDetail.BySiege)
             {
-                WriteString(s.Name + " has been captured succesfully through siege, changing hands from " + oldOwner.Clan.Kingdom.Name + " to " + newOwner.Clan.Kingdom.Name + "\n");
+                if (s == null || oldOwner == null || newOwner == null || oldOwner.Clan == null || newOwner.Clan == null || oldOwner.Clan.Kingdom == null || newOwner.Clan.Kingdom == null) //absolutely disgusting.
+                    WriteString("There has been a siege. \n");
+                else
+                    WriteString(s.Name + " has been captured succesfully through siege, changing hands from " + oldOwner.Clan.Kingdom.Name + " to " + newOwner.Clan.Kingdom.Name + "\n");
             }
         }
 
