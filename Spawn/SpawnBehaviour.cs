@@ -170,43 +170,47 @@ namespace CustomSpawns.Spawn
                             float currentChanceOfSpawn = data.ChanceOfSpawn;
                             if (!ConfigLoader.Instance.Config.IsAllSpawnMode && (float)rand.NextDouble() >= currentChanceOfSpawn)
                                 continue;
-                                
-                                var spawnSettlement = Spawner.GetSpawnSettlement(data, (s => data.MinimumDevestationToSpawn > DevestationMetricData.Singleton.GetDevestation(s)) , rand);
-                                //spawn nao!
 
-                                if(spawnSettlement == null)
-                                {
-                                    //no valid spawn settlement
+                            var spawnSettlement = Spawner.GetSpawnSettlement(data, (s => data.MinimumDevestationToSpawn > DevestationMetricData.Singleton.GetDevestation(s)), rand);
+                            //spawn nao!
 
-                                    break;
-                                }
+                            if (spawnSettlement == null)
+                            {
+                                //no valid spawn settlement
 
-                                MobileParty spawnedParty = Spawner.SpawnParty(spawnSettlement, data.SpawnClan, data.PartyTemplate, data.PartyType, new TextObject(data.Name));
-                                data.IncrementNumberSpawned(); //increment for can spawn and chance modifications
-                                //dynamic data registration
-                                DynamicSpawnData.AddDynamicSpawnData(spawnedParty, new CSPartyData(data, spawnSettlement));
+                                break;
+                            }
 
-                                j++;
-                                //AI Checks!
-                                Spawner.HandleAIChecks(spawnedParty, data, spawnSettlement);
-                                //accompanying spawns
-                                foreach (var accomp in data.SpawnAlongWith)
-                                {
-                                    MobileParty juniorParty = Spawner.SpawnParty(spawnSettlement, data.SpawnClan, accomp.templateObject, data.PartyType, new TextObject(accomp.name));
-                                    Spawner.HandleAIChecks(juniorParty, data, spawnSettlement); //junior party has same AI behaviour as main party. TODO in future add some junior party AI and reconstruction.
-                                }
-                                //message if available
-                                if (data.spawnMessage != null)
-                                {
-                                    UX.ShowParseSpawnMessage(data.spawnMessage, spawnSettlement.Name.ToString());
-                                    //if (data.SoundEvent != -1 && !isSpawnSoundPlaying && ConfigLoader.Instance.Config.SpawnSoundEnabled)
-                                    //{
-                                    //    var sceneEmpty = Scene.CreateNewScene(false);
-                                    //    SoundEvent sound = SoundEvent.CreateEvent(data.SoundEvent, sceneEmpty);
-                                    //    sound.Play();
-                                    //    isSpawnSoundPlaying = true;
-                                    //}
-                                }
+                            MobileParty spawnedParty = Spawner.SpawnParty(spawnSettlement, data.SpawnClan, data.PartyTemplate, data.PartyType, new TextObject(data.Name));
+                            if (spawnedParty == null)
+                                return;
+                            data.IncrementNumberSpawned(); //increment for can spawn and chance modifications
+                                                           //dynamic data registration
+                            DynamicSpawnData.AddDynamicSpawnData(spawnedParty, new CSPartyData(data, spawnSettlement));
+
+                            j++;
+                            //AI Checks!
+                            Spawner.HandleAIChecks(spawnedParty, data, spawnSettlement);
+                            //accompanying spawns
+                            foreach (var accomp in data.SpawnAlongWith)
+                            {
+                                MobileParty juniorParty = Spawner.SpawnParty(spawnSettlement, data.SpawnClan, accomp.templateObject, data.PartyType, new TextObject(accomp.name));
+                                if (juniorParty == null)
+                                    continue;
+                                Spawner.HandleAIChecks(juniorParty, data, spawnSettlement); //junior party has same AI behaviour as main party. TODO in future add some junior party AI and reconstruction.
+                            }
+                            //message if available
+                            if (data.spawnMessage != null)
+                            {
+                                UX.ShowParseSpawnMessage(data.spawnMessage, spawnSettlement.Name.ToString());
+                                //if (data.SoundEvent != -1 && !isSpawnSoundPlaying && ConfigLoader.Instance.Config.SpawnSoundEnabled)
+                                //{
+                                //    var sceneEmpty = Scene.CreateNewScene(false);
+                                //    SoundEvent sound = SoundEvent.CreateEvent(data.SoundEvent, sceneEmpty);
+                                //    sound.Play();
+                                //    isSpawnSoundPlaying = true;
+                                //}
+                            }
 
                             DailyLogger.ReportSpawn(spawnedParty, currentChanceOfSpawn);
                         }
@@ -232,7 +236,7 @@ namespace CustomSpawns.Spawn
 
         private void HandleDeathMessage(MobileParty mb, CSPartyData dynamicData)
         {
-            if(dynamicData.spawnBaseData.deathMessage != null)
+            if (dynamicData.spawnBaseData.deathMessage != null)
             {
                 UX.ShowParseDeathMessage(dynamicData.spawnBaseData.deathMessage, dynamicData.latestClosestSettlement.ToString());
             }

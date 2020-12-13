@@ -23,18 +23,27 @@ namespace CustomSpawns.Spawn
 
         public static MobileParty SpawnParty(Settlement spawnedSettlement, Clan clan, PartyTemplateObject templateObject,MobileParty.PartyTypeEnum partyType,  TextObject partyName = null)
         {
-            //get name and show message.
-            TextObject textObject = partyName ?? clan.Name;
-            ModDebug.ShowMessage("CustomSpawns: Spawning " + textObject.ToString() + " at " + spawnedSettlement.GatePosition + " in settlement " + spawnedSettlement.Name.ToString(), DebugMessageType.Spawn);
+            try
+            {
+                //get name and show message.
+                TextObject textObject = partyName ?? clan.Name;
+                ModDebug.ShowMessage("CustomSpawns: Spawning " + textObject.ToString() + " at " + spawnedSettlement.GatePosition + " in settlement " + spawnedSettlement.Name.ToString(), DebugMessageType.Spawn);
 
-            //create.
-            MobileParty mobileParty = MBObjectManager.Instance.CreateObject<MobileParty>(templateObject.StringId + "_" + 1);
-            mobileParty.InitializeMobileParty(textObject, ConstructTroopRoster(templateObject, mobileParty.Party), new TroopRoster(mobileParty.Party), spawnedSettlement.GatePosition, 0);
+                //create.
+                MobileParty mobileParty = MBObjectManager.Instance.CreateObject<MobileParty>(templateObject.StringId + "_" + 1);
+                mobileParty.InitializeMobileParty(textObject, ConstructTroopRoster(templateObject, mobileParty.Party), new TroopRoster(mobileParty.Party), spawnedSettlement.GatePosition, 0);
 
-            //initialize
-            Spawner.InitParty(mobileParty, textObject, clan, spawnedSettlement);
+                //initialize
+                Spawner.InitParty(mobileParty, textObject, clan, spawnedSettlement);
 
-            return mobileParty;
+                return mobileParty;
+            }
+            catch (Exception e) {
+                ErrorHandler.ShowPureErrorMessage("Possible invalid spawn data. Spawning of party terminated.");
+                ErrorHandler.HandleException(e, "party spawning");
+                return null;
+            }
+
         }
 
         private static void InitParty(MobileParty party, TextObject name, Clan faction, Settlement homeSettlement)
