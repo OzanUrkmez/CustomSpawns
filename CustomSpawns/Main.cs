@@ -9,6 +9,7 @@ using TaleWorlds.MountAndBlade;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
 using System.Windows.Forms;
+using CustomSpawns.RewardSystem;
 //using CustomSpawns.MCMv3;
 using StoryMode;
 using CustomSpawns.UtilityBehaviours;
@@ -124,6 +125,7 @@ namespace CustomSpawns
                 starter.AddBehavior(new Diplomacy.ForceNoKingdomBehaviour());
                 starter.AddBehavior(new PrisonerRecruitment.PrisonerRecruitmentBehaviour());
                 starter.AddBehavior(new Dialogues.CustomSpawnsDialogueBehavior());
+                starter.AddBehavior(new SpawnRewardBehavior());
 
 
 

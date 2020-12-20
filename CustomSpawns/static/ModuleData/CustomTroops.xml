@@ -1488,6 +1488,39 @@
       <equipment slot="Cape" id="Item.bolted_leather_strips" />
       <equipment slot="Gloves" id="Item.guarded_padded_vambrace" />
       <equipment slot="Body" id="Item.empire_short_dress" />
+      <equipment slot="Leg" id="Item.turndown_leather_boots" />
+    </equipmentSet>
+    <equipmentSet>
+      <equipment slot="Item0" id="Item.empire_mace_2_t4" />
+      <equipment slot="Item1" id="Item.large_adarga" />
+      <equipment slot="Item2" id="Item.cs_slinger_stone" />
+      <equipment slot="Item3" id="Item.cs_slinger_stone" />
+      <equipment slot="Head" id="Item.arming_coif" />
+      <equipment slot="Cape" id="Item.bolted_leather_strips" />
+      <equipment slot="Gloves" id="Item.padded_vambrace" />
+      <equipment slot="Body" id="Item.empire_short_dress" />
+      <equipment slot="Leg" id="Item.leather_shoes" />
+    </equipmentSet>
+    <equipmentSet>
+      <equipment slot="Item0" id="Item.empire_mace_2_t4" />
+      <equipment slot="Item1" id="Item.large_adarga" />
+      <equipment slot="Item2" id="Item.cs_slinger_stone" />
+      <equipment slot="Item3" id="Item.cs_slinger_stone" />
+      <equipment slot="Head" id="Item.arming_coif" />
+      <equipment slot="Cape" id="Item.bolted_leather_strips" />
+      <equipment slot="Gloves" id="Item.padded_vambrace" />
+      <equipment slot="Body" id="Item.empire_short_dress" />
+      <equipment slot="Leg" id="Item.empire_horseman_boots" />
+    </equipmentSet>
+    <equipmentSet>
+      <equipment slot="Item0" id="Item.empire_mace_2_t4" />
+      <equipment slot="Item1" id="Item.ornate_adarga" />
+      <equipment slot="Item2" id="Item.cs_slinger_stone" />
+      <equipment slot="Item3" id="Item.cs_slinger_stone" />
+      <equipment slot="Head" id="Item.arming_coif" />
+      <equipment slot="Cape" id="Item.bolted_leather_strips" />
+      <equipment slot="Gloves" id="Item.guarded_padded_vambrace" />
+      <equipment slot="Body" id="Item.empire_short_dress" />
       <equipment slot="Leg" id="Item.leather_shoes" />
     </equipmentSet>
     <equipmentSet>
@@ -1596,6 +1629,18 @@
       <equipment slot="Gloves" id="Item.guarded_armwraps" />
       <equipment slot="Leg" id="Item.strapped_shoes" />
     </equipmentSet>
+      <upgrade_targets>
+        <upgrade_target id="NPCCharacter.cs_bloodsworn_warrior" />
+      </upgrade_targets>
+  </NPCCharacter>
+<NPCCharacter id="cs_bloodsworn_warrior" default_group="Infantry" name="{=P6Md9DpR}Bloodsworn Warrior" level="16" occupation="Soldier" culture="Culture.battania">
+      <face>
+        <face_key_template value="NPCCharacter.villager_battania" />
+      </face>
+    <skills>
+      <skill id="Athletics" value="85" />
+      <skill id="OneHanded" value="115" />
+    </skills>
     <equipmentSet>
       <equipment slot="Item0" id="Item.small_spurred_axe_t2" />
       <equipment slot="Item1" id="Item.battania_large_shield_c" />
@@ -1671,6 +1716,19 @@
       <equipment slot="Cape" id="Item.highland_cloth" />
       <equipment slot="Leg" id="Item.battania_woodland_boots" />
     </equipmentSet>
+      <upgrade_targets>
+        <upgrade_target id="NPCCharacter.cs_bloodsworn_chosen_warrior" />
+      </upgrade_targets>
+  </NPCCharacter>
+<NPCCharacter id="cs_bloodsworn_chosen_warrior" default_group="Infantry" name="{=P6Md9DpR}Bloodsworn Chosen Warrior" level="26" occupation="Soldier" culture="Culture.battania">
+      <face>
+        <face_key_template value="NPCCharacter.villager_battania" />
+      </face>
+    <skills>
+      <skill id="Athletics" value="145" />
+      <skill id="OneHanded" value="225" />
+      <skill id="Throwing" value="140" />
+    </skills>
     <equipmentSet>
       <equipment slot="Item0" id="Item.battania_axe_2_t4" />
       <equipment slot="Item1" id="Item.battania_large_shield_a" />
@@ -1898,6 +1956,18 @@
       <equipment slot="Gloves" id="Item.leather_gloves" />
       <equipment slot="Leg" id="Item.mail_chausses" />
     </equipmentSet>
+      <upgrade_targets>
+        <upgrade_target id="NPCCharacter.cs_sellsword" />
+      </upgrade_targets>
+  </NPCCharacter>
+<NPCCharacter id="cs_sellsword" default_group="Infantry" name="{=P6Md9DpR}Sellsword" level="16" occupation="Soldier" culture="Culture.vlandia">
+      <face>
+        <face_key_template value="NPCCharacter.villager_sturgia" />
+      </face>
+    <skills>
+      <skill id="Athletics" value="80" />
+      <skill id="TwoHanded" value="100" />
+    </skills>
     <equipmentSet>
       <equipment slot="Item0" id="Item.cs_mercenary_claymore" />
       <equipment slot="Head" id="Item.imperial_open_mail_coif" />
@@ -2281,6 +2351,7 @@
   </NPCCharacter>
 
 
+  <!-- Revolutionaries / 17 troops -->
 
   <!-- Revolutionaries / 17 troops -->
 
@@ -2673,6 +2744,8 @@
       <equipment slot="Leg" id="Item.fine_town_boots" />
     </equipmentSet>
     <upgrade_targets>
+        <upgrade_target id="NPCCharacter.cs_western_furious_cook" />
+        <upgrade_target id="NPCCharacter.cs_rebel_tavernkeeper" />
     </upgrade_targets>
 </NPCCharacter>
 <NPCCharacter id="cs_rebel_tavernkeeper" default_group="Ranged" name="{=P6Md9DpR}Angry Tavern Keeper" level="16" occupation="Bandit" culture="Culture.empire">
@@ -2935,6 +3008,7 @@
       <equipment slot="Leg" id="Item.mail_chausses" />
     </equipmentSet>
     <upgrade_targets>
+        <upgrade_target id="NPCCharacter.cs_rebel_armored_militia" />
     </upgrade_targets>
 </NPCCharacter>
 <NPCCharacter id="cs_rebel_pikeman" default_group="Infantry" name="{=ZxmBdWTu}Rebel Pikeman" level="16" occupation="Bandit" culture="Culture.empire">
@@ -3053,6 +3127,19 @@
       <equipment slot="Body" id="Item.tattered_rags" />
       <equipment slot="Leg" id="Item.strapped_shoes" />
     </equipmentSet>
+    <upgrade_targets>
+        <upgrade_target id="NPCCharacter.cs_rebel_manatarms" />
+    </upgrade_targets>
+</NPCCharacter>
+<NPCCharacter id="cs_rebel_manatarms" default_group="Infantry" name="{=ZxmBdWTu}Rebel Man-at-arms" level="21" occupation="Bandit" culture="Culture.empire">
+    <face>
+      <face_key_template value="NPCCharacter.villager_empire" />
+    </face>
+    <skills>
+      <skill id="Athletics" value="80" />
+      <skill id="OneHanded" value="100" />
+      <skill id="Throwing" value="60" />
+    </skills>
     <equipmentSet>
       <equipment slot="Item0" id="Item.cs_simple_club" />
       <equipment slot="Body" id="Item.tattered_rags" />
@@ -3088,6 +3175,19 @@
       <equipment slot="Head" id="Item.thinhide_coif" />
       <equipment slot="Leg" id="Item.strapped_shoes" />
     </equipmentSet>
+    <upgrade_targets>
+    </upgrade_targets>
+</NPCCharacter>
+<NPCCharacter id="cs_rebel_pikeman" default_group="Infantry" name="{=ZxmBdWTu}Rebel Pikeman" level="16" occupation="Bandit" culture="Culture.empire">
+    <face>
+      <face_key_template value="NPCCharacter.villager_vlandia" />
+    </face>
+    <skills>
+      <skill id="Athletics" value="90" />
+      <skill id="OneHanded" value="30" />
+      <skill id="Polearm" value="70" />
+      <skill id="TwoHanded" value="70" />
+    </skills>
     <equipmentSet>
       <equipment slot="Item0" id="Item.peasant_sickle_1_t1" />
       <equipment slot="Body" id="Item.tied_cloth_tunic" />
@@ -3106,6 +3206,20 @@
       <equipment slot="Body" id="Item.highland_cloth" />
       <equipment slot="Leg" id="Item.strapped_shoes" />
     </equipmentSet>
+    <upgrade_targets>
+        <upgrade_target id="NPCCharacter.cs_rebel_halberdier" />
+    </upgrade_targets>
+</NPCCharacter>
+<NPCCharacter id="cs_rebel_halberdier" default_group="Infantry" name="{=ZxmBdWTu}Rebel Halberdier" level="21" occupation="Bandit" culture="Culture.empire">
+    <face>
+      <face_key_template value="NPCCharacter.villager_vlandia" />
+    </face>
+    <skills>
+      <skill id="Athletics" value="120" />
+      <skill id="OneHanded" value="40" />
+      <skill id="Polearm" value="110" />
+      <skill id="TwoHanded" value="90" />
+    </skills>
     <equipmentSet>
       <equipment slot="Item0" id="Item.peasant_pitchfork_2_t1" />
       <equipment slot="Body" id="Item.tattered_rags" />
@@ -3882,6 +3996,20 @@
       <equipment slot="Head" id="Item.aserai_villager_female_headdress" />
       <equipment slot="Leg" id="Item.strapped_shoes" />
     </equipmentSet>
+    <upgrade_targets>
+    </upgrade_targets>
+</NPCCharacter>
+<NPCCharacter id="cs_outcast_savage" default_group="Infantry" name="{=ZxmBdWTu}Exiled Savage" level="16" occupation="Bandit" culture="Culture.battania">
+    <face>
+      <BodyProperties version="4" age="36.88" weight="0.05" build="0.9"  key="00001C0000CC3452000BA10767500939A175003968000000244443439049A0570187701408BA992900000000000000000000000000000000000000001D081045"  />
+	  <BodyPropertiesMax version="4" age="46.88" weight="0.99" build="0.99"  key="00006C0000CC34D4AEEBFDBAA79BF939ABBFF89978F7BE89F44F49F39549A9EA01F770140FEFAEF9000000000000000000000000000000000000000001F87105"  />
+    </face>
+    <skills>
+      <skill id="Athletics" value="190" />
+      <skill id="OneHanded" value="190" />
+      <skill id="Throwing" value="80" />
+      <skill id="TwoHanded" value="190" />
+    </skills>
     <equipmentSet>
       <equipment slot="Item0" id="Item.khuzait_sword_1_t2" />
       <equipment slot="Body" id="Item.khuzait_civil_coat_b" />
