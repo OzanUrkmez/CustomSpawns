@@ -168,7 +168,8 @@ namespace CustomSpawns.Spawn
                         if (data.CanSpawn() && (data.MinimumNumberOfDaysUntilSpawn < (int)Math.Ceiling(Campaign.Current.CampaignStartTime.ElapsedDaysUntilNow)))
                         {
                             float currentChanceOfSpawn = data.ChanceOfSpawn;
-                            if (!ConfigLoader.Instance.Config.IsAllSpawnMode && (float)rand.NextDouble() >= currentChanceOfSpawn)
+                            if (!ConfigLoader.Instance.Config.IsAllSpawnMode && 
+                                (float)rand.NextDouble() >= currentChanceOfSpawn * ConfigLoader.Instance.Config.SpawnChanceFlatMultiplier)
                                 continue;
 
                             var spawnSettlement = Spawner.GetSpawnSettlement(data, (s => data.MinimumDevestationToSpawn > DevestationMetricData.Singleton.GetDevestation(s)), rand);
