@@ -113,7 +113,30 @@ namespace CustomSpawns.CampaignData {
             if (Singleton == null || spawned.Party.TotalStrength < Singleton.campaignConfig.MinimumSpawnLogValue || chanceOfSpawnBeforeSpawn > Singleton.campaignConfig.MinimumRarityToLog)
                 return;
 
-            Singleton.WriteString("New Spawn: " + spawned.StringId + "\n    Total Strength:" + spawned.Party.TotalStrength.ToString() + "\nChance of Spawn: " + chanceOfSpawnBeforeSpawn.ToString() +  "\n");
+            string msg = "New Spawn: " + spawned.StringId +
+                "\nTotal Strength:" + spawned.Party.TotalStrength.ToString() +
+                "\nChance of Spawn: " + chanceOfSpawnBeforeSpawn.ToString();
+
+            var spawnData = DynamicSpawnData.GetDynamicSpawnData(spawned).spawnBaseData;
+
+            if (spawnData.DynamicSpawnChanceEffect > 0)
+            {
+                msg += "\nDynamic Spawn Chance Effect: " + spawnData.DynamicSpawnChanceEffect;
+                msg += "\nDynamic Spawn Chance Base Value During Spawn: " + DataUtils.GetCurrentDynamicSpawnCoeff(spawnData.DynamicSpawnChancePeriod);
+            }
+
+            var spawnSettlement = DynamicSpawnData.GetDynamicSpawnData(spawned).latestClosestSettlement;
+
+            if (spawnSettlement.IsVillage)
+            {
+                msg += "\nDevestation at spawn settlement: " +
+                    DevestationMetricData.Singleton.GetDevestation(spawnSettlement);
+            }
+
+
+            msg += "\n";
+
+            Singleton.WriteString(msg);
         }
 
         
