@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.TwoDimension;
 
 namespace CustomSpawns.Data
 {
@@ -33,6 +35,14 @@ namespace CustomSpawns.Data
                 }
                 ErrorHandler.ShowPureErrorMessage(msg);
             }
+        }
+
+        public static float GetCurrentDynamicSpawnCoeff(float period)
+        { 
+
+            float cur = (Campaign.Current.CampaignStartTime.ElapsedDaysUntilNow % period) * (2.9f / period);
+
+            return Math.Max((cur * cur * cur) - 2 * (cur * cur) - (1 / 2) * cur + 1, 0);
         }
 
     }

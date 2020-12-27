@@ -191,6 +191,12 @@ namespace CustomSpawns.Data
 
                     dat.AttackClosestIfIdleForADay = node["AttackClosestIfIdleForADay"] == null ? true : bool.Parse(node["AttackClosestIfIdleForADay"].InnerText);
 
+                    dat.DynamicSpawnChancePeriod = node["DynamicSpawnChancePeriod"] == null ? 0 : 
+                        (float.Parse(node["DynamicSpawnChancePeriod"].InnerText) > 1? float.Parse(node["DynamicSpawnChancePeriod"].InnerText) : 0);
+
+                    dat.DynamicSpawnChanceEffect = node["DynamicSpawnChanceEffect"] == null ? 0 :
+                        (MathF.Clamp(float.Parse(node["DynamicSpawnChanceEffect"].InnerText), 0, 1));
+
                     //try spawn at list creation
                     if (node["TrySpawnAt"] != null && node["TrySpawnAt"].InnerText != "")
                     {
@@ -439,6 +445,9 @@ namespace CustomSpawns.Data
         public int MinimumNumberOfDaysUntilSpawn { get; set; }
         public bool AttackClosestIfIdleForADay { get; set; }
 
+        public float DynamicSpawnChancePeriod { get; set; }
+
+        public float DynamicSpawnChanceEffect { get; set; }
 
         public float MinimumDevestationToSpawn { get; set; }
 
@@ -451,7 +460,18 @@ namespace CustomSpawns.Data
             {
                 float devestationLerp = DevestationMetricData.Singleton.GetDevestationLerp();
 
-                return chanceOfSpawn + ChanceInverseConstant * (float)(MaximumOnMap - numberSpawned) / (float)(MaximumOnMap) + DevestationLinearMultiplier * devestationLerp;
+                float baseChance = 
+                    chanceOfSpawn + ChanceInverseConstant * (float)(MaximumOnMap - numberSpawned) / (float)(MaximumOnMap) + DevestationLinearMultiplier * devestationLerp;
+
+                float dynamicCoeff = 1;
+
+                if(DynamicSpawnChanceEffect > 0)
+                {
+                    dynamicCoeff = DataUtils.GetCurrentDynamicSpawnCoeff(DynamicSpawnChancePeriod);
+                }
+
+                return (1 - DynamicSpawnChanceEffect) * baseChance + DynamicSpawnChanceEffect * dynamicCoeff * baseChance;
+                    
             }
             set
             {
