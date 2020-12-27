@@ -332,6 +332,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="RewardSystem\Models\PartyReward.cs" />
+    <Compile Include="RewardSystem\Models\Reward.cs" />
+    <Compile Include="RewardSystem\Models\RewardType.cs" />
+    <Compile Include="RewardSystem\SpawnRewardBehavior.cs" />
+    <Compile Include="RewardSystem\XmlRewardData.cs" />
     <Compile Include="Spawn\SpawnBehaviour.cs" />
     <Compile Include="Spawn\Spawner.cs" />
     <Compile Include="TaleWorldsCode\BanditsCampaignBehaviour.cs" />

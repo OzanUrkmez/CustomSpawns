@@ -108,63 +108,46 @@ namespace CustomSpawns.RewardSystem
             foreach (XmlNode rewards in node)
             {
                 var reward = new Reward();
-                if (rewards.FirstChild.Name == "Type")
+                foreach (XmlNode rewardNode in rewards.ChildNodes)
                 {
-                    switch (rewards.FirstChild.InnerText)
+                    switch (rewardNode.Name)
                     {
-                        case "Money":
-                            reward.Type = RewardType.Money;
-                            reward.RenownInfluenceMoneyAmount = Convert.ToInt32(rewards.LastChild.InnerText);
-                            reward.ItemId = null;
+                        case "Type":
+                            reward.Type = this.getRewardType(rewardNode.InnerText) ?? RewardType.Money;
                             break;
-                        case "Renown":
-                            reward.Type = RewardType.Renown;
-                            reward.RenownInfluenceMoneyAmount = Convert.ToInt32(rewards.LastChild.InnerText);
-                            reward.ItemId = null;
+                        case "RenownInfluenceMoneyAmount":
+                            reward.RenownInfluenceMoneyAmount = Convert.ToInt32(rewardNode.InnerText);
                             break;
-                        case "Influence":
-                            reward.Type = RewardType.Influence;
-                            reward.RenownInfluenceMoneyAmount = Convert.ToInt32(rewards.LastChild.InnerText);
-                            reward.ItemId = null;
+                        case "Chance":
+                            reward.Chance = Convert.ToDecimal(rewardNode.InnerText);
                             break;
-                        case "Item":
-                            reward.Type = RewardType.Item;
-                            reward.RenownInfluenceMoneyAmount = null;
-                            reward.ItemId = rewards.LastChild.InnerText;
+                        case "ItemId":
+                            reward.ItemId = rewardNode.InnerText;
                             break;
                     }
                 }
-                else
-                {
-                    switch (rewards.LastChild.InnerText)
-                    {
-                        case "Money":
-                            reward.Type = RewardType.Money;
-                            reward.RenownInfluenceMoneyAmount = Convert.ToInt32(rewards.FirstChild.InnerText);
-                            reward.ItemId = null;
-                            break;
-                        case "Renown":
-                            reward.Type = RewardType.Renown;
-                            reward.RenownInfluenceMoneyAmount = Convert.ToInt32(rewards.FirstChild.InnerText);
-                            reward.ItemId = null;
-                            break;
-                        case "Influence":
-                            reward.Type = RewardType.Influence;
-                            reward.RenownInfluenceMoneyAmount = Convert.ToInt32(rewards.FirstChild.InnerText);
-                            reward.ItemId = null;
-                            break;
-                        case "Item":
-                            reward.Type = RewardType.Item;
-                            reward.RenownInfluenceMoneyAmount = null;
-                            reward.ItemId = rewards.FirstChild.InnerText;
-                            break;
-                    }
-                }
-
                 rewardsList.Add(reward);
             }
 
             return rewardsList;
+        }
+
+        private RewardType? getRewardType(string type)
+        {
+            switch (type)
+            {
+                case "Money":
+                    return RewardType.Money;
+                case "Renown":
+                    return RewardType.Renown;
+                    break;
+                case "Influence":
+                    return RewardType.Influence;
+                case "Item":
+                    return RewardType.Item;
+            }
+
+            return null;
         }
     }
 }

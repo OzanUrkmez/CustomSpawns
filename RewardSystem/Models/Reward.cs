@@ -6,6 +6,7 @@ namespace CustomSpawns.RewardSystem.Models
     {
         public RewardType Type { get; set; }
         public string ItemId { get; set; }
-        public Nullable<int> RenownInfluenceMoneyAmount { get; set; }
+        public int? RenownInfluenceMoneyAmount { get; set; }
+        public decimal? Chance { get; set; }
     }
 }
