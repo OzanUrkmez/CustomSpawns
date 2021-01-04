@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30330.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomSpawns", "CustomSpawns.csproj", "{7F4B1517-F146-4234-9B41-FABBE0D2F886}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F4B1517-F146-4234-9B41-FABBE0D2F886}.Debug|x64.ActiveCfg = Debug|x64
+		{7F4B1517-F146-4234-9B41-FABBE0D2F886}.Debug|x64.Build.0 = Debug|x64
+		{7F4B1517-F146-4234-9B41-FABBE0D2F886}.Release|x64.ActiveCfg = Release|x64
+		{7F4B1517-F146-4234-9B41-FABBE0D2F886}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3210A5F5-D498-4931-8F1F-495655D841EC}
+	EndGlobalSection
+EndGlobal
