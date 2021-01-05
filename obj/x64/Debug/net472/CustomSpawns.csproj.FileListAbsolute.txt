@@ -9,3 +9,4 @@ C:\Users\Shmoove\source\repos\Jirow13\CustomSpawns\bin\x64\Debug\net472\Newtonso
 C:\Users\Shmoove\source\repos\Jirow13\CustomSpawns\obj\x64\Debug\net472\CustomSpawns.csproj.CopyComplete
 C:\Users\Shmoove\source\repos\Jirow13\CustomSpawns\obj\x64\Debug\net472\CustomSpawns.dll
 C:\Users\Shmoove\source\repos\Jirow13\CustomSpawns\obj\x64\Debug\net472\CustomSpawns.pdb
+C:\Users\Shmoove\source\repos\Jirow13\CustomSpawns\obj\x64\Debug\net472\CustomSpawns.csprojAssemblyReference.cache
