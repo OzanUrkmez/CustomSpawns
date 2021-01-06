@@ -33,7 +33,6 @@ namespace CustomSpawns.PrisonerRecruitment
 
         private void DailyPrisonerRecruitmentEvent(MobileParty mb)
         {
-            return;
             try
             {
                 if (Config.Enabled == false || mb.IsMainParty)
@@ -97,7 +96,6 @@ namespace CustomSpawns.PrisonerRecruitment
 
         private void DailyGarrisonRecruitmentEvent(Settlement s)
         {
-            return;
             try
             {
                 if (s.IsCastle || s.IsTown)
@@ -176,8 +174,8 @@ namespace CustomSpawns.PrisonerRecruitment
                                 });
                             }
                         }
-                        recruited.ForEach((PrisonerInfo p) => PartyRecruitAndRemovePrisoner(p.ownerParty, p.prisoner, p.count));
-                        devalued.ForEach((PrisonerInfo p) => PartyDevaluePrisoner(p.ownerParty, p.prisoner, p.count));
+                        //recruited.ForEach((PrisonerInfo p) => PartyRecruitAndRemovePrisoner(p.ownerParty, p.prisoner, p.count));
+                        //devalued.ForEach((PrisonerInfo p) => PartyDevaluePrisoner(p.ownerParty, p.prisoner, p.count));
                     }
                 }
             }catch(Exception e)
