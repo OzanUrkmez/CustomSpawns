@@ -186,6 +186,8 @@ namespace CustomSpawns.PrisonerRecruitment
             }
         }
 
+        #region Recruiting
+
         private void PartyRecruitAndRemovePrisoner(PartyBase mb, CharacterObject c)
         {
             ModDebug.ShowMessage("recruiting " + c.StringId + " from prisoners of party " + mb.Id, DebugMessageType.Prisoner);
@@ -200,10 +202,6 @@ namespace CustomSpawns.PrisonerRecruitment
             acquiringParty.AddElementToMemberRoster(c, 1);
         }
 
-        private void PartyDevaluePrisoner(PartyBase mb, CharacterObject c)
-        {
-            //TODO devalue only if not recruited! there is a possibility it doesnt exist anymore!
-        }
 
         private void PartyRecruitAndRemovePrisoner(PartyBase mb, CharacterObject c, int times)
         {
@@ -221,6 +219,9 @@ namespace CustomSpawns.PrisonerRecruitment
             }
         }
 
+        #endregion
+
+        #region Devaluing
 
         private void PartyDevaluePrisoner(PartyBase mb, CharacterObject c, int times)
         {
@@ -229,5 +230,13 @@ namespace CustomSpawns.PrisonerRecruitment
                 PartyDevaluePrisoner(mb, c);
             }
         }
+
+        private void PartyDevaluePrisoner(PartyBase mb, CharacterObject c)
+        {
+            //TODO devalue only if not recruited! there is a possibility it doesnt exist anymore!
+        }
+
+        #endregion
+
     }
 }
