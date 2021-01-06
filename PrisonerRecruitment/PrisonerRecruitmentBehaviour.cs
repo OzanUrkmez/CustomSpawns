@@ -205,18 +205,16 @@ namespace CustomSpawns.PrisonerRecruitment
 
         private void PartyRecruitAndRemovePrisoner(PartyBase mb, CharacterObject c, int times)
         {
-            for(int  i = 0; i < times; i++)
-            {
-                PartyRecruitAndRemovePrisoner(mb, c);
-            }
+            ModDebug.ShowMessage("recruiting " + c.StringId + " from prisoners of party " + mb.Id, DebugMessageType.Prisoner);
+            mb.PrisonRoster.RemoveTroop(c, times);
+            mb.AddElementToMemberRoster(c, times);
         }
 
         private void PartyRecruitAndRemovePrisoner(PartyBase acquiringParty, PartyBase prisonerParty, CharacterObject c, int times)
         {
-            for (int i = 0; i < times; i++)
-            {
-                PartyRecruitAndRemovePrisoner(acquiringParty, prisonerParty, c);
-            }
+            ModDebug.ShowMessage("recruiting " + c.StringId + " from prisoners of party " + prisonerParty.Id + " to the party " + acquiringParty.Id, DebugMessageType.Prisoner);
+            prisonerParty.PrisonRoster.RemoveTroop(c, times);
+            acquiringParty.AddElementToMemberRoster(c, times);
         }
 
         #endregion
