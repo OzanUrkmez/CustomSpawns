@@ -161,7 +161,7 @@ namespace CustomSpawns.PrisonerRecruitment
                                 {
                                     count = recruitedCount,
                                     prisoner = p.prisoner,
-                                    ownerParty = p.ownerParty
+                                    ownerParty = t.GarrisonParty.Party
                                 });
                             }
                             if (devaluedCount > 0)
@@ -170,7 +170,7 @@ namespace CustomSpawns.PrisonerRecruitment
                                 {
                                     count = devaluedCount,
                                     prisoner = p.prisoner,
-                                    ownerParty = p.ownerParty
+                                    ownerParty = t.GarrisonParty.Party
                                 });
                             }
                         }
