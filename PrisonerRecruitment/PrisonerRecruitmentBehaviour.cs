@@ -101,6 +101,8 @@ namespace CustomSpawns.PrisonerRecruitment
                 if (s.IsCastle || s.IsTown)
                 {
                     Town t = s.Town;
+                    if (t.IsUnderSiege)
+                        return;
                     var prisoners = CampaignUtils.GetPrisonersInSettlement(t);
                     if (prisoners.Count > 0)
                     {
