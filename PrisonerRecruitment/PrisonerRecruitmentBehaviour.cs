@@ -31,7 +31,8 @@ namespace CustomSpawns.PrisonerRecruitment
                 if (!s.IsTown && !s.IsCastle)
                     continue;
                 PartyBase settlementParty = null, garrisonParty = null;
-                foreach(var party in s.Parties)
+                settlementParty = s.Town.Owner;
+                foreach(var party in ((SettlementComponent)s.Town).Settlement.Parties)
                 {
                     if (party.IsGarrison)
                         garrisonParty = party.Party;
