@@ -7,18 +7,55 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 using TaleWorlds.Localization;
 using TaleWorlds.TwoDimension;
+using CustomSpawns.UtilityBehaviours;
 
 namespace CustomSpawns.PrisonerRecruitment
 {
+
     class PrisonerRecruitmentBehaviour : CampaignBehaviorBase
     {
 
         public PrisonerRecruitmentBehaviour()
         {
             Config = PrisonerRecruitmentConfigLoader.Instance.Config;
+            OnSaveStartRunBehaviour.Singleton.RegisterFunctionToRunOnSaveStart(OnSaveStart);
         }
 
         private PrisonerRecruitmentConfig Config;
+
+        private void OnSaveStart()
+        {
+            //deal with corrupted settlement parties from pre-1.4.1
+            foreach(Settlement s in Settlement.All)
+            {
+                if (!s.IsTown && !s.IsCastle)
+                    continue;
+                PartyBase settlementParty = null, garrisonParty = null;
+                foreach(var party in s.Parties)
+                {
+                    if (party.IsGarrison)
+                        garrisonParty = party.Party;
+                    if (party.Party.IsSettlement)
+                        settlementParty = party.Party;
+                }
+
+                if (settlementParty == null || garrisonParty == null)
+                    continue;
+
+                List<TroopRosterElement> elements = new List<TroopRosterElement>();
+
+                foreach (var troopRosterElement in settlementParty.MemberRoster)
+                {
+                    elements.Add(troopRosterElement);
+                }
+
+                foreach (var troopRosterElement in elements)
+                {
+                    settlementParty.MemberRoster.RemoveTroop(troopRosterElement.Character, troopRosterElement.Number);
+                    garrisonParty.MemberRoster.AddToCounts(troopRosterElement.Character, troopRosterElement.Number);
+                }
+            }
+        }
 
         public override void RegisterEvents()
         {
