@@ -33,6 +33,7 @@ namespace CustomSpawns.PrisonerRecruitment
 
         private void DailyPrisonerRecruitmentEvent(MobileParty mb)
         {
+            return;
             try
             {
                 if (Config.Enabled == false || mb.IsMainParty)
@@ -96,6 +97,7 @@ namespace CustomSpawns.PrisonerRecruitment
 
         private void DailyGarrisonRecruitmentEvent(Settlement s)
         {
+            return;
             try
             {
                 if (s.IsCastle || s.IsTown)
