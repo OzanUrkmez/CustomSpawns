@@ -428,7 +428,8 @@ namespace CustomSpawns
                     {
                         prisoner = partyBase.PrisonRoster.GetCharacterAtIndex(i),
                         count = partyBase.PrisonRoster.GetTroopCount(partyBase.PrisonRoster.GetCharacterAtIndex(i)),
-                        ownerParty = partyBase
+                        acquiringParty = null,
+                        prisonerParty = partyBase
                     });
                 }
             }
@@ -454,6 +455,7 @@ namespace CustomSpawns
     {
         public CharacterObject prisoner;
         public int count;
-        public PartyBase ownerParty;
+        public PartyBase acquiringParty;
+        public PartyBase prisonerParty;
     }
 }

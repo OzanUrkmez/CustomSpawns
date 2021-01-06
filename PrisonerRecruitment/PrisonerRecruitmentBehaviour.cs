@@ -161,7 +161,8 @@ namespace CustomSpawns.PrisonerRecruitment
                                 {
                                     count = recruitedCount,
                                     prisoner = p.prisoner,
-                                    ownerParty = t.GarrisonParty.Party
+                                    acquiringParty = t.GarrisonParty.Party,
+                                    prisonerParty = p.prisonerParty
                                 });
                             }
                             if (devaluedCount > 0)
@@ -170,12 +171,13 @@ namespace CustomSpawns.PrisonerRecruitment
                                 {
                                     count = devaluedCount,
                                     prisoner = p.prisoner,
-                                    ownerParty = t.GarrisonParty.Party
+                                    acquiringParty = p.prisonerParty,
+                                    prisonerParty = p.prisonerParty
                                 });
                             }
                         }
-                        //recruited.ForEach((PrisonerInfo p) => PartyRecruitAndRemovePrisoner(p.ownerParty, p.prisoner, p.count));
-                        //devalued.ForEach((PrisonerInfo p) => PartyDevaluePrisoner(p.ownerParty, p.prisoner, p.count));
+                        recruited.ForEach((PrisonerInfo p) => PartyRecruitAndRemovePrisoner(p.acquiringParty, p.prisonerParty, p.prisoner, p.count));
+                        //devalued.ForEach((PrisonerInfo p) => PartyDevaluePrisoner(p.acquiringParty, p.prisonerParty, p.prisoner, p.count)); IMPLEMENT!
                     }
                 }
             }catch(Exception e)
@@ -191,6 +193,13 @@ namespace CustomSpawns.PrisonerRecruitment
             mb.AddElementToMemberRoster(c, 1);
         }
 
+        private void PartyRecruitAndRemovePrisoner(PartyBase acquiringParty, PartyBase prisonerParty, CharacterObject c)
+        {
+            ModDebug.ShowMessage("recruiting " + c.StringId + " from prisoners of party " + prisonerParty.Id + " to the party " + acquiringParty.Id, DebugMessageType.Prisoner);
+            prisonerParty.PrisonRoster.RemoveTroop(c, 1);
+            acquiringParty.AddElementToMemberRoster(c, 1);
+        }
+
         private void PartyDevaluePrisoner(PartyBase mb, CharacterObject c)
         {
             //TODO devalue only if not recruited! there is a possibility it doesnt exist anymore!
@@ -203,6 +212,15 @@ namespace CustomSpawns.PrisonerRecruitment
                 PartyRecruitAndRemovePrisoner(mb, c);
             }
         }
+
+        private void PartyRecruitAndRemovePrisoner(PartyBase acquiringParty, PartyBase prisonerParty, CharacterObject c, int times)
+        {
+            for (int i = 0; i < times; i++)
+            {
+                PartyRecruitAndRemovePrisoner(acquiringParty, prisonerParty, c);
+            }
+        }
+
 
         private void PartyDevaluePrisoner(PartyBase mb, CharacterObject c, int times)
         {
