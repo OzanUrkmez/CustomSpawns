@@ -22,8 +22,6 @@ namespace CustomSpawns
         public static readonly bool isAPIMode = false;
         public static CustomSpawnsCustomSpeedModel customSpeedModel;
 
-
-
         private static bool removalMode = false;
 
         #region Taleworlds Sub Mod Callbacks
