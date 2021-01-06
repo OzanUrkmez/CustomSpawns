@@ -21,7 +21,7 @@ namespace CustomSpawns.Spawn
     {
 
 
-        public static MobileParty SpawnParty(Settlement spawnedSettlement, Clan clan, PartyTemplateObject templateObject, Track.PartyTypeEnum partyType,  TextObject partyName = null)
+        public static MobileParty SpawnParty(Settlement spawnedSettlement, Clan clan, PartyTemplateObject templateObject,MobileParty.PartyTypeEnum partyType,  TextObject partyName = null)
         {
             try
             {
@@ -73,7 +73,7 @@ namespace CustomSpawns.Spawn
                     int num2 = MBRandom.RoundRandomized((float)party.MemberRoster.TotalManCount * (1f / (float)itemObject.Value) * (float)num * MBRandom.RandomFloat * MBRandom.RandomFloat * MBRandom.RandomFloat * MBRandom.RandomFloat);
                     if (num2 > 0)
                     {
-                        party.ItemRoster.AddToCounts(itemObject, num2);
+                        party.ItemRoster.AddToCounts(itemObject, num2, true);
                     }
                 }
             }
