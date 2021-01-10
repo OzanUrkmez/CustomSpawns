@@ -20,5 +20,7 @@ namespace CustomSpawns
         public int UpdatePartyRedundantDataPerHour { get; set; }
 
         public int SameErrorShowUntil { get; set; } 
+
+        public float SpawnChanceFlatMultiplier { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CustomSpawns.MCMv3;
+//using CustomSpawns.MCMv3;
 using TaleWorlds.Library;
 
 namespace CustomSpawns
@@ -34,7 +34,7 @@ namespace CustomSpawns
                 numberOfTimesShown[errorMessage]++;
             }
 
-            if (numberOfTimesShown[errorMessage] > CsSettings.SameErrorShowUntil)
+            if (numberOfTimesShown[errorMessage] > ConfigLoader.Instance.Config.SameErrorShowUntil)
             {
                 UX.ShowMessage(errorMessage, Color.ConvertStringToColor(UX.GetMessageColour("error")));
             }

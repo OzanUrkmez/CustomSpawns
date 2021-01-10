@@ -6,22 +6,26 @@
 	<Hero id="cs_lord_desert_cult_3" faction="Faction.cs_desert_cult" text="{=CzM6y3MT}The chief of recruitment of the Desert Cult."/>
 
 	<!-- Redemptive Order -->
-	<Hero id="cs_lord_redemptive_order_1" faction="Faction.cs_redemptive_order" text="{=CzM6y3MT}A devout believer in God, Ryagos has dedicated his entire life to purging every corner of Calradia."/>
-	<Hero id="cs_lord_redemptive_order_2" faction="Faction.cs_redemptive_order" text="{=CzM6y3MT}The wife of Ryagos, dedicated to the same cause as him. She can be a little more rash or merciless, though her values are often aligned with those of her husband."/>
+	<Hero id="cs_lord_redemptive_order_1" faction="Faction.cs_redemptive_order" text="{=CzM6y3MT}A devout believer in God, Ryagos has dedicated his entire life to purging every corner of Calradia." spouse="Hero.cs_lord_redemptive_order_2"/>
+	<Hero id="cs_lord_redemptive_order_2" faction="Faction.cs_redemptive_order" text="{=CzM6y3MT}The wife of Ryagos, dedicated to the same cause as him. She can be a little more rash or merciless, though her values are often aligned with those of her husband." spouse="Hero.cs_lord_redemptive_order_1"/>
 	<Hero id="cs_lord_redemptive_order_3" faction="Faction.cs_redemptive_order" text="{=CzM6y3MT}Lamos is a skilled preacher, and at the same time, a skilled commander. He rallies the people around him, serving Ryagos' orders and giving sermons in every village he passes."/>
 
 	<!-- Harbingers Of Wrath -->
-	<Hero id="cs_lord_harbingers_of_wrath_1" faction="Faction.cs_harbingers_of_wrath" text="{=CzM6y3MT}Lucus is the leader of The Harbingers of Wrath. He was infamous as a tournament champion throughout Calradia before he was caught doping and kicked out of the Order of the Phoenix. He then joined the Redemptive Order, until one day he led a failed coup in the order and him and his compatriots were kicked out."/>
-	<Hero id="cs_lord_harbingers_of_wrath_2" faction="Faction.cs_harbingers_of_wrath" text="{=CzM6y3MT}The mistress of Lucus"/>
+	<Hero id="cs_lord_harbingers_of_wrath_1" faction="Faction.cs_harbingers_of_wrath" text="{=CzM6y3MT}Lucus is the leader of The Harbingers of Wrath. He was infamous as a tournament champion throughout Calradia before he was caught doping and kicked out of the Order of the Phoenix. He then joined the Redemptive Order, until one day he led a failed coup in the order and him and his compatriots were kicked out." spouse="Hero.cs_lord_harbingers_of_wrath_2"/>
+	<Hero id="cs_lord_harbingers_of_wrath_2" faction="Faction.cs_harbingers_of_wrath" text="{=CzM6y3MT}The mistress of Lucus." spouse="Hero.cs_lord_harbingers_of_wrath_1"/>
 
 	<!-- Manhunters -->
 	<Hero id="cs_lord_manhunters_1" faction="Faction.cs_manhunters" text="{=CzM6y3MT}The chief organizer of the manhunters, deciding how funding is spent."/>
 
 	<!-- Southern Enslavers -->
-	<Hero id="cs_lord_southern_enslavers_1" faction="Faction.cs_southern_enslavers" text="{=CzM6y3MT}The chief organizer of the southern enslavers, arranging campaigns and deciding on strategy."/>
+	<Hero id="cs_lord_southern_enslavers_1" faction="Faction.cs_southern_enslavers" text="{=CzM6y3MT}The chief organizer of the southern enslavers, arranging campaigns and deciding on strategy. Enslavement of people has been a family tradition in Razes' dynasty for a long time now. With the Southern Enslavers as his fathers greatest accomplishment, he seeks to expand his realm of crimes and slaves ever more. He'd walk over any corpse to achieve his ultimate dream. A kingdom built on slaves."/>
+	<Hero id="cs_lord_southern_enslavers_2" faction="Faction.cs_southern_enslavers" text="{=CzM6y3MT}The financial pillar of the southern enslavers, funding campaigns and deciding on prisoners. Asmona, also famously called the scourge of the coast, is the patron of the Slavecoast. She once was a former noble lady of the imperial court and thus knows valuable contacts. However, she was never well known for her patience nor the ambition to stay and being married to some boring old general, so she joined crime and landed in the Slavecoast where she gained renown fast."/>
+	<Hero id="cs_lord_southern_enslavers_3" faction="Faction.cs_southern_enslavers" text="{=CzM6y3MT}The enforcer of the southern enslavers, leading campaigns and deciding on tactics. He's an eager war chief of a land beyond the southern dunes. Even though the migration of his Obaktu tribe started by seeking wealth and slaves in Calrdadia, his ambition grew onto funding a holding in this new foreign land called Calradia, in which his tribe may live one day."/>
 
 	<!-- Northern Liberators -->
-	<Hero id="cs_lord_northern_liberators_1" faction="Faction.cs_northern_liberators" text="{=CzM6y3MT}The chief organizer of the northern liberators, arranging campaigns and deciding on strategy."/>
+	<Hero id="cs_lord_northern_liberators_1" faction="Faction.cs_northern_liberators" text="{=CzM6y3MT}The chief organizer of the northern liberators, arranging campaigns and deciding on strategy. He once was a prisoner of the Southern Enslavers himself, but he managed to escape. Now with the help of the Bjornings, his fellow northern captives who he freed, he fights for northern supremacy."/>
+	<Hero id="cs_lord_northern_liberators_2" faction="Faction.cs_northern_liberators" text="{=CzM6y3MT}The financial pillar of the northern liberators, funding campaigns and deciding on prisoners. Titled as one of the most hideous, pompous and fattest vlandian merchants, he's also one among the most wealthiest men in western Calradia. Even though he's an absolutely incompetent fighter, his tongue is at least as sharp as a sword and his mercenary company, the Sellswords, does all the dirty work for him."/>
+	<Hero id="cs_lord_northern_liberators_3" faction="Faction.cs_northern_liberators" text="{=CzM6y3MT}The enforcer of the northern liberators, leading campaigns and deciding on tactics. Nobody knows his real name nor his ambitions. He never speaks much, too. He's a mystery among his foes and his Bloodsworn brothers alike. Though the rage that aflames in his remaining eye tells a story of a man with a clear vision and a goal ahead."/>
 
 	<!-- Peasant Revolters -->
 	<Hero id="cs_lord_peasant_revolutionaries_1" faction="Faction.cs_peasant_revolutionaries" text="{=CzM6y3MT}Karlinn is the leader of the Revolutionaries. Once a simple farmhand, now an enraged man with determination in his eyes. His fiery temper and hate for the upper classes made him the vanguard of the peasant uprising movements."/>
@@ -31,8 +35,8 @@
 	<Hero id="cs_lord_peasant_revolters_1" faction="Faction.cs_peasant_revolters" text="{=CzM6y3MT}Chungis is the leader of the Roaming Brigands. He's one of the most devious and cunning steppe warlords. Scoundrels of all sorts admire him and follow his horde gladly."/>
 
 	<!-- Barbarians -->
-	<Hero id="cs_lord_barbarians_1" faction="Faction.cs_barbarians" text="{=CzM6y3MT}Bubla is the de-facto leader of the barbarians, and each smaller semi-nomadic family unit eventually answers to him."/>
-	<Hero id="cs_lord_barbarians_2" faction="Faction.cs_barbarians" text="{=CzM6y3MT}Bubla's brother Rogo. He is much more aggressive, and believes that an assault on Sturgia could actually yield results."/>
+	<Hero id="cs_lord_barbarians_1" faction="Faction.cs_barbarians" text="{=CzM6y3MT}Bubla is the de-facto leader of the barbarians, and each smaller semi-nomadic family unit eventually answers to him." mother="Hero.cs_lord_barbarians_3"/>
+	<Hero id="cs_lord_barbarians_2" faction="Faction.cs_barbarians" text="{=CzM6y3MT}Bubla's brother Rogo. He is much more aggressive, and believes that an assault on Sturgia could actually yield results." mother="Hero.cs_lord_barbarians_3"/>
 	<Hero id="cs_lord_barbarians_3" faction="Faction.cs_barbarians" text="{=CzM6y3MT}Bubla's mother Ama. Ama believes that through diplomacy and taking sides in the war in a strategic manner, stable land for the people could be found."/>
 
 	<!-- Order of the Phoenix -->
@@ -42,7 +46,7 @@
 	<Hero id="cs_lord_makko_1" faction="Faction.cs_makko" text="{=CzM6y3MT}Momumbus is the captain of the giant expedition that eventually reaches Calradia."/>
 
 	<!-- Humar -->
-	<Hero id="cs_lord_humar_1" faction="Faction.cs_humar" text="{=CzM6y3MT}Cengiz is the leader of the fading Humar tribes."/>
+	<Hero id="cs_lord_humar_1" faction="Faction.cs_humar" text="{=CzM6y3MT}Ceng is the current ruler of the far-eastern Humar tribes."/>
 
 	<!-- Madmen -->
 	<Hero id="cs_lord_madmen_1" faction="Faction.cs_madmen"/>

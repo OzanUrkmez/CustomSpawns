@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomSpawns.PrisonerRecruitment
+namespace CustomSpawns.CampaignData
 {
-    class PrisonerRecruitmentManager
+    interface ICampaignDataListener
     {
     }
 }

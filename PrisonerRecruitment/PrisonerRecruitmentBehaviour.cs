@@ -7,18 +7,56 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 using TaleWorlds.Localization;
 using TaleWorlds.TwoDimension;
+using CustomSpawns.UtilityBehaviours;
 
 namespace CustomSpawns.PrisonerRecruitment
 {
+
     class PrisonerRecruitmentBehaviour : CampaignBehaviorBase
     {
 
         public PrisonerRecruitmentBehaviour()
         {
             Config = PrisonerRecruitmentConfigLoader.Instance.Config;
+            OnSaveStartRunBehaviour.Singleton.RegisterFunctionToRunOnSaveStart(OnSaveStart);
         }
 
         private PrisonerRecruitmentConfig Config;
+
+        private void OnSaveStart()
+        {
+            //deal with corrupted settlement parties from pre-1.4.1
+            foreach(Settlement s in Settlement.All)
+            {
+                if (!s.IsTown && !s.IsCastle)
+                    continue;
+                PartyBase settlementParty = null, garrisonParty = null;
+                settlementParty = s.Town.Owner;
+                foreach(var party in ((SettlementComponent)s.Town).Settlement.Parties)
+                {
+                    if (party.IsGarrison)
+                        garrisonParty = party.Party;
+                    if (party.Party.IsSettlement)
+                        settlementParty = party.Party;
+                }
+
+                if (settlementParty == null || garrisonParty == null)
+                    continue;
+
+                List<TroopRosterElement> elements = new List<TroopRosterElement>();
+
+                foreach (var troopRosterElement in settlementParty.MemberRoster)
+                {
+                    elements.Add(troopRosterElement);
+                }
+
+                foreach (var troopRosterElement in elements)
+                {
+                    settlementParty.MemberRoster.RemoveTroop(troopRosterElement.Character, troopRosterElement.Number);
+                    garrisonParty.MemberRoster.AddToCounts(troopRosterElement.Character, troopRosterElement.Number);
+                }
+            }
+        }
 
         public override void RegisterEvents()
         {
@@ -101,6 +139,8 @@ namespace CustomSpawns.PrisonerRecruitment
                 if (s.IsCastle || s.IsTown)
                 {
                     Town t = s.Town;
+                    if (t.IsUnderSiege)
+                        return;
                     var prisoners = CampaignUtils.GetPrisonersInSettlement(t);
                     if (prisoners.Count > 0)
                     {
@@ -159,7 +199,8 @@ namespace CustomSpawns.PrisonerRecruitment
                                 {
                                     count = recruitedCount,
                                     prisoner = p.prisoner,
-                                    ownerParty = p.ownerParty
+                                    acquiringParty = t.GarrisonParty.Party,
+                                    prisonerParty = p.prisonerParty
                                 });
                             }
                             if (devaluedCount > 0)
@@ -168,12 +209,13 @@ namespace CustomSpawns.PrisonerRecruitment
                                 {
                                     count = devaluedCount,
                                     prisoner = p.prisoner,
-                                    ownerParty = p.ownerParty
+                                    acquiringParty = p.prisonerParty,
+                                    prisonerParty = p.prisonerParty
                                 });
                             }
                         }
-                        recruited.ForEach((PrisonerInfo p) => PartyRecruitAndRemovePrisoner(p.ownerParty, p.prisoner, p.count));
-                        devalued.ForEach((PrisonerInfo p) => PartyDevaluePrisoner(p.ownerParty, p.prisoner, p.count));
+                        recruited.ForEach((PrisonerInfo p) => PartyRecruitAndRemovePrisoner(p.acquiringParty, p.prisonerParty, p.prisoner, p.count));
+                        //devalued.ForEach((PrisonerInfo p) => PartyDevaluePrisoner(p.acquiringParty, p.prisonerParty, p.prisoner, p.count)); IMPLEMENT!
                     }
                 }
             }catch(Exception e)
@@ -182,6 +224,8 @@ namespace CustomSpawns.PrisonerRecruitment
             }
         }
 
+        #region Recruiting
+
         private void PartyRecruitAndRemovePrisoner(PartyBase mb, CharacterObject c)
         {
             ModDebug.ShowMessage("recruiting " + c.StringId + " from prisoners of party " + mb.Id, DebugMessageType.Prisoner);
@@ -189,18 +233,31 @@ namespace CustomSpawns.PrisonerRecruitment
             mb.AddElementToMemberRoster(c, 1);
         }
 
-        private void PartyDevaluePrisoner(PartyBase mb, CharacterObject c)
+        private void PartyRecruitAndRemovePrisoner(PartyBase acquiringParty, PartyBase prisonerParty, CharacterObject c)
         {
-            //TODO devalue only if not recruited! there is a possibility it doesnt exist anymore!
+            ModDebug.ShowMessage("recruiting " + c.StringId + " from prisoners of party " + prisonerParty.Id + " to the party " + acquiringParty.Id, DebugMessageType.Prisoner);
+            prisonerParty.PrisonRoster.RemoveTroop(c, 1);
+            acquiringParty.AddElementToMemberRoster(c, 1);
         }
+
 
         private void PartyRecruitAndRemovePrisoner(PartyBase mb, CharacterObject c, int times)
         {
-            for(int  i = 0; i < times; i++)
-            {
-                PartyRecruitAndRemovePrisoner(mb, c);
-            }
+            ModDebug.ShowMessage("recruiting " + c.StringId + " from prisoners of party " + mb.Id, DebugMessageType.Prisoner);
+            mb.PrisonRoster.RemoveTroop(c, times);
+            mb.AddElementToMemberRoster(c, times);
         }
+
+        private void PartyRecruitAndRemovePrisoner(PartyBase acquiringParty, PartyBase prisonerParty, CharacterObject c, int times)
+        {
+            ModDebug.ShowMessage("recruiting " + c.StringId + " from prisoners of party " + prisonerParty.Id + " to the party " + acquiringParty.Id, DebugMessageType.Prisoner);
+            prisonerParty.PrisonRoster.RemoveTroop(c, times);
+            acquiringParty.AddElementToMemberRoster(c, times);
+        }
+
+        #endregion
+
+        #region Devaluing
 
         private void PartyDevaluePrisoner(PartyBase mb, CharacterObject c, int times)
         {
@@ -209,5 +266,13 @@ namespace CustomSpawns.PrisonerRecruitment
                 PartyDevaluePrisoner(mb, c);
             }
         }
+
+        private void PartyDevaluePrisoner(PartyBase mb, CharacterObject c)
+        {
+            //TODO devalue only if not recruited! there is a possibility it doesnt exist anymore!
+        }
+
+        #endregion
+
     }
 }

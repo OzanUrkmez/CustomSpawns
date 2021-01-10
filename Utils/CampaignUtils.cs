@@ -43,17 +43,21 @@ namespace CustomSpawns
             return settlement;
         }
 
-        public static Settlement PickRandomSettlementOfCulture(List<CultureCode> c, List<Data.SpawnSettlementType> preferredTypes = null)
+        public static Settlement PickRandomSettlementOfCulture(List<CultureCode> c, List<Data.SpawnSettlementType> preferredTypes = null, List<Settlement> exceptions = null)
         {
             int num = 0;
             List<Settlement> permissible = new List<Settlement>();
+
+            if (exceptions == null)
+                exceptions = new List<Settlement>();
+
             if (preferredTypes != null)
             {
                 foreach (Settlement s in Settlement.All)
                 {
                     foreach (var type in preferredTypes)
                     {
-                        if (SettlementIsOfValidType(s, type))
+                        if (SettlementIsOfValidType(s, type) && !exceptions.Contains(s))
                         {
                             permissible.Add(s);
                             break;
@@ -65,7 +69,7 @@ namespace CustomSpawns
             {
                 foreach (Settlement s in Settlement.All)
                 {
-                    if ((s.IsTown || s.IsVillage) && (c.Contains(s.Culture.GetCultureCode())))
+                    if (!exceptions.Contains(s) && (s.IsTown || s.IsVillage) && (c.Contains(s.Culture.GetCultureCode())))
                     {
                         permissible.Add(s);
                     }
@@ -87,8 +91,57 @@ namespace CustomSpawns
                     return s;
                 }
             }
-            ModDebug.ShowMessage("Unable to find proper settlement of" + c.ToString() + " for some reason.", DebugMessageType.Spawn);
-            return permissible.Count == 0 ? Settlement.All[0] : permissible[0];
+            //ModDebug.ShowMessage("Unable to find proper settlement of" + c.ToString() + " for some reason.", DebugMessageType.Spawn);
+            return null;
+        }
+
+        public static Settlement PickRandomSettlementOfCulture(List<CultureCode> c, Func<Settlement, bool> exceptionPredicate, List<Data.SpawnSettlementType> preferredTypes = null)
+        {
+            int num = 0;
+            List<Settlement> permissible = new List<Settlement>();
+
+            if (preferredTypes != null && preferredTypes.Count != 0)
+            {
+                foreach (Settlement s in Settlement.All)
+                {
+                    foreach (var type in preferredTypes)
+                    {
+                        if (SettlementIsOfValidType(s, type) && !exceptionPredicate(s))
+                        {
+                            permissible.Add(s);
+                            break;
+                        }
+                    }
+                }
+            }
+            if (permissible.Count == 0)
+            {
+                foreach (Settlement s in Settlement.All)
+                {
+                    if (!exceptionPredicate(s) && (s.IsTown || s.IsVillage) && (c.Contains(s.Culture.GetCultureCode())))
+                    {
+                        permissible.Add(s);
+                    }
+                }
+            }
+            permissible.Randomize();
+            foreach (Settlement s in permissible)
+            {
+                int num2 = TaleWorldsCode.BanditsCampaignBehaviour.CalculateDistanceScore(s.Position2D.DistanceSquared(MobileParty.MainParty.Position2D));
+                num += num2;
+            }
+            int num3 = MBRandom.RandomInt(num);
+            foreach (Settlement s in permissible)
+            {
+                int num4 = TaleWorldsCode.BanditsCampaignBehaviour.CalculateDistanceScore(s.Position2D.DistanceSquared(MobileParty.MainParty.Position2D)); //makes it more likely that the spawn will be further to the player.
+                num3 -= num4;
+                if (num3 <= 0)
+                {
+                    return s;
+                }
+            }
+            //ModDebug.ShowMessage("Unable to find proper settlement of" + c.ToString() + " for some reason.", DebugMessageType.Spawn);
+            return null;
         }
 
         public static Settlement PickRandomSettlementOfKingdom(List<Kingdom> f, List<Data.SpawnSettlementType> preferredTypes = null) //instead of PicKRandomSettlementOfCulture, does not prioritize types over kingdom
@@ -160,6 +213,9 @@ namespace CustomSpawns
         {
             if (rand == null)
                 rand = new Random();
+            if (list.Count == 0)
+                return null;
+
             var preferred = new List<Settlement>();
             if (preferredTypes != null)
             {
@@ -372,7 +428,8 @@ namespace CustomSpawns
                     {
                         prisoner = partyBase.PrisonRoster.GetCharacterAtIndex(i),
                         count = partyBase.PrisonRoster.GetTroopCount(partyBase.PrisonRoster.GetCharacterAtIndex(i)),
-                        ownerParty = partyBase
+                        acquiringParty = null,
+                        prisonerParty = partyBase
                     });
                 }
             }
@@ -398,6 +455,7 @@ namespace CustomSpawns
     {
         public CharacterObject prisoner;
         public int count;
-        public PartyBase ownerParty;
+        public PartyBase acquiringParty;
+        public PartyBase prisonerParty;
     }
 }

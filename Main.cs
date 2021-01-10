@@ -9,7 +9,7 @@ using TaleWorlds.MountAndBlade;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
 using System.Windows.Forms;
-using CustomSpawns.MCMv3;
+//using CustomSpawns.MCMv3;
 using StoryMode;
 using CustomSpawns.UtilityBehaviours;
 using HarmonyLib;
@@ -18,7 +18,7 @@ namespace CustomSpawns
 {
     public class Main : MBSubModuleBase
     {
-        public static readonly string version = "v1.3.3";
+        public static readonly string version = "v1.4.1";
         public static readonly bool isAPIMode = false;
         public static CustomSpawnsCustomSpeedModel customSpeedModel;
 
@@ -40,7 +40,7 @@ namespace CustomSpawns
 
 
             ModIntegration.SubModManager.LoadAllValidDependentMods();
-            if (CsSettings.IsRemovalMode)
+            if (ConfigLoader.Instance.Config.IsRemovalMode)
             {
                 removalMode = true;
                 return;
@@ -80,7 +80,7 @@ namespace CustomSpawns
             {
                 UX.ShowMessage( subMod.SubModuleName + " is now integrated into the CustomSpawns API.", Color.ConvertStringToColor("#001FFFFF"));
             }
-            CsSettings.GetInstance();
+            //ConfigLoader.Instance.Config.GetInstance();
         }
 
         #endregion
@@ -92,7 +92,7 @@ namespace CustomSpawns
                 ClearLastInstances();
                 AddBehaviours(gameStarterObject as CampaignGameStarter);
                 //do overrides
-                if (CsSettings.ModifyPartySpeeds && !removalMode)
+                if (ConfigLoader.Instance.Config.ModifyPartySpeeds && !removalMode)
                     gameStarterObject.AddModel(customSpeedModel);
             }
             catch (Exception e)
@@ -113,7 +113,7 @@ namespace CustomSpawns
             if (!removalMode)
             {
 
-                OnSaveStartRunBehaviour.InitializeSingleton(starter);
+                OnSaveStartRunBehaviour.InitializeSave(starter);
                 OnSaveStartRunBehaviour.Singleton.RegisterFunctionToRunOnSaveStart(OnSaveStart);
 
                 starter.AddBehavior(new Spawn.SpawnBehaviour(Data.SpawnDataManager.Instance));
@@ -129,6 +129,8 @@ namespace CustomSpawns
 
                 //campaign behaviours
                 starter.AddBehavior(CampaignData.DevestationMetricData.Singleton);
+                starter.AddBehavior(CampaignData.DailyLogger.Singleton);
+                starter.AddBehavior(CampaignData.CampaignTest.Singleton);
 
                 //these come last! assuming those that are added last are also run last.
                 starter.AddBehavior(MobilePartyTrackingBehaviour.Singleton);

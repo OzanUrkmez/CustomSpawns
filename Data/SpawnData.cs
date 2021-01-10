@@ -13,7 +13,7 @@ using TaleWorlds.Core;
 using TaleWorlds.Engine;
 using TaleWorlds.ObjectSystem;
 using Path = System.IO.Path;
-
+using CustomSpawns.CampaignData;
 
 namespace CustomSpawns.Data
 {
@@ -191,6 +191,12 @@ namespace CustomSpawns.Data
 
                     dat.AttackClosestIfIdleForADay = node["AttackClosestIfIdleForADay"] == null ? true : bool.Parse(node["AttackClosestIfIdleForADay"].InnerText);
 
+                    dat.DynamicSpawnChancePeriod = node["DynamicSpawnChancePeriod"] == null ? 0 : 
+                        (float.Parse(node["DynamicSpawnChancePeriod"].InnerText) > 1? float.Parse(node["DynamicSpawnChancePeriod"].InnerText) : 0);
+
+                    dat.DynamicSpawnChanceEffect = node["DynamicSpawnChanceEffect"] == null ? 0 :
+                        (MathF.Clamp(float.Parse(node["DynamicSpawnChanceEffect"].InnerText), 0, 1));
+
                     //try spawn at list creation
                     if (node["TrySpawnAt"] != null && node["TrySpawnAt"].InnerText != "")
                     {
@@ -268,6 +274,27 @@ namespace CustomSpawns.Data
                     else
                     {
                         Main.customSpeedModel.RegisterPartyBaseSpeed(dat.PartyTemplate.StringId, float.MinValue);
+                    }
+
+                    //minimum devestation override
+                    float minimumDevestationToSpawnOverride = 0;
+                    if (node["MinimumDevestationToSpawn"] != null)
+                    {
+                        if(!float.TryParse(node["MinimumDevestationToSpawn"].InnerText, out minimumDevestationToSpawnOverride)){
+                            throw new Exception("MinimumDevestationToSpawn must be a float value!");
+                        }
+                        dat.MinimumDevestationToSpawn = minimumDevestationToSpawnOverride;
+                    }
+
+                    //devestation linear multiplier
+                    float devestationLinearMultiplierOverride = 0;
+                    if (node["MinimumDevestationToSpawn"] != null)
+                    {
+                        if (!float.TryParse(node["DevestationLinearMultiplier"].InnerText, out devestationLinearMultiplierOverride))
+                        {
+                            throw new Exception("DevestationLinearMultiplier must be a float value!");
+                        }
+                        dat.DevestationLinearMultiplier = devestationLinearMultiplierOverride;
                     }
 
                     //patrol around closest lest interrupted and switch 
@@ -417,12 +444,34 @@ namespace CustomSpawns.Data
         private float chanceOfSpawn;
         public int MinimumNumberOfDaysUntilSpawn { get; set; }
         public bool AttackClosestIfIdleForADay { get; set; }
+
+        public float DynamicSpawnChancePeriod { get; set; }
+
+        public float DynamicSpawnChanceEffect { get; set; }
+
+        public float MinimumDevestationToSpawn { get; set; }
+
+        public float DevestationLinearMultiplier { get; set; }
+
         public AI.PatrolAroundClosestLestInterruptedAndSwitchBehaviour.PatrolAroundClosestLestInterruptedAndSwitchBehaviourData PatrolAroundClosestLestInterruptedAndSwitch { get; set; }
         public float ChanceOfSpawn
         {
             get
             {
-                return chanceOfSpawn + ChanceInverseConstant * (float)(MaximumOnMap - numberSpawned) / (float)(MaximumOnMap);
+                float devestationLerp = DevestationMetricData.Singleton.GetDevestationLerp();
+
+                float baseChance = 
+                    chanceOfSpawn + ChanceInverseConstant * (float)(MaximumOnMap - numberSpawned) / (float)(MaximumOnMap) + DevestationLinearMultiplier * devestationLerp;
+
+                float dynamicCoeff = 1;
+
+                if(DynamicSpawnChanceEffect > 0)
+                {
+                    dynamicCoeff = DataUtils.GetCurrentDynamicSpawnCoeff(DynamicSpawnChancePeriod);
+                }
+
+                return (1 - DynamicSpawnChanceEffect) * baseChance + DynamicSpawnChanceEffect * dynamicCoeff * baseChance;
+                    
             }
             set
             {

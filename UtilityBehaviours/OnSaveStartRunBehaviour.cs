@@ -26,9 +26,11 @@ namespace CustomSpawns.UtilityBehaviours
             }
         }
 
-        public static void InitializeSingleton(CampaignGameStarter starter)
+        public static void InitializeSave(CampaignGameStarter starter)
         {
-            _singleton = new OnSaveStartRunBehaviour();
+            if(Singleton == null)
+                Singleton = new OnSaveStartRunBehaviour();
+            Singleton.alreadyRun = false;
             starter.AddBehavior(_singleton);
         }
 
@@ -54,6 +56,7 @@ namespace CustomSpawns.UtilityBehaviours
 
         public void RegisterFunctionToRunOnSaveStart(Action f)
         {
+            run -= f;
             run += f;
         }
     }
