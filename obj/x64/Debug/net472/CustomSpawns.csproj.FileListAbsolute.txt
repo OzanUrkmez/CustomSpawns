@@ -1,0 +1,12 @@
+C:\Users\Shmoove\source\repos\Jirow13\CustomSpawns\obj\x64\Debug\net472\CustomSpawns.Properties.Resources.resources
+C:\Users\Shmoove\source\repos\Jirow13\CustomSpawns\obj\x64\Debug\net472\CustomSpawns.csproj.GenerateResource.cache
+C:\Users\Shmoove\source\repos\Jirow13\CustomSpawns\obj\x64\Debug\net472\CustomSpawns.AssemblyInfoInputs.cache
+C:\Users\Shmoove\source\repos\Jirow13\CustomSpawns\obj\x64\Debug\net472\CustomSpawns.AssemblyInfo.cs
+C:\Users\Shmoove\source\repos\Jirow13\CustomSpawns\obj\x64\Debug\net472\CustomSpawns.csproj.CoreCompileInputs.cache
+C:\Users\Shmoove\source\repos\Jirow13\CustomSpawns\bin\x64\Debug\net472\CustomSpawns.dll
+C:\Users\Shmoove\source\repos\Jirow13\CustomSpawns\bin\x64\Debug\net472\CustomSpawns.pdb
+C:\Users\Shmoove\source\repos\Jirow13\CustomSpawns\bin\x64\Debug\net472\Newtonsoft.Json.dll
+C:\Users\Shmoove\source\repos\Jirow13\CustomSpawns\obj\x64\Debug\net472\CustomSpawns.csproj.CopyComplete
+C:\Users\Shmoove\source\repos\Jirow13\CustomSpawns\obj\x64\Debug\net472\CustomSpawns.dll
+C:\Users\Shmoove\source\repos\Jirow13\CustomSpawns\obj\x64\Debug\net472\CustomSpawns.pdb
+C:\Users\Shmoove\source\repos\Jirow13\CustomSpawns\obj\x64\Debug\net472\CustomSpawns.csprojAssemblyReference.cache
