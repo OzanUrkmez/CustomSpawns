@@ -50,17 +50,25 @@ namespace CustomSpawns.Data
 
         private DialogueDataManager()
         {
-            if (!Main.isAPIMode)
+            try
             {
-                string path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data", "CustomDialogue.xml"); // the usual path deal, located in the CustomSpawns or Data folder
-                ConstructListFromXML(path);
-            }
-            foreach (var subMod in ModIntegration.SubModManager.dependentModsArray)
-            {
-                string path = Path.Combine(subMod.CustomSpawnsDirectoryPath, "CustomDialogue.xml");
-                if (File.Exists(path))
+                if (!Main.isAPIMode)
+                {
+                    string path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data", "CustomDialogue.xml"); // the usual path deal, located in the CustomSpawns or Data folder
                     ConstructListFromXML(path);
+                }
+                foreach (var subMod in ModIntegration.SubModManager.dependentModsArray)
+                {
+                    string path = Path.Combine(subMod.CustomSpawnsDirectoryPath, "CustomDialogue.xml");
+                    if (File.Exists(path))
+                        ConstructListFromXML(path);
+                }
+            }catch(Exception e)
+            {
+                ErrorHandler.HandleException(e, " Dialogue System XML loading");
             }
+
+
         }
 
         private void ConstructListFromXML(string filePath)

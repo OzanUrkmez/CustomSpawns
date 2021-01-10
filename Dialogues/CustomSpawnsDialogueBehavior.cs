@@ -9,6 +9,7 @@ using TaleWorlds.SaveSystem;
 
 namespace CustomSpawns.Dialogues
 {
+    //TODO Improve upon delegate logic. add more options. 
     public class CustomSpawnsDialogueBehavior : CampaignBehaviorBase
     {
         public override void RegisterEvents()
@@ -48,7 +49,7 @@ namespace CustomSpawns.Dialogues
                     {
                         if(PlayerEncounter.InsideSettlement)
                         {
-
+                            //TODO is this supposed to return false?
                         }
                         return this.EvaluateDialogueCondition(d);
                     },
