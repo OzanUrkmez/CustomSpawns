@@ -180,7 +180,7 @@ namespace CustomSpawns.Data
                     }
 
                     dat.InheritClanFromSettlement = node["GetClanFromSettlement"] == null ? false : bool.Parse(node["GetClanFromSettlement"].InnerText);
-                    dat.PartyType = node["PartyType"] == null ? Track.PartyTypeEnum.Bandit : StringToPartyTypeEnumIfInvalidBandit(node["PartyType"].InnerText);
+                    dat.PartyType = node["PartyType"] == null ? MobileParty.PartyTypeEnum.Bandit : StringToPartyTypeEnumIfInvalidBandit(node["PartyType"].InnerText);
                     dat.ChanceOfSpawn = node["ChanceOfSpawn"] == null? 1 : float.Parse(node["ChanceOfSpawn"].InnerText);
                     dat.Name = node["Name"] == null ? "Unnamed" : node["Name"].InnerText;
                     dat.ChanceInverseConstant = node["ChanceInverseConstant"] == null? 0 : float.Parse(node["ChanceInverseConstant"].InnerText);
@@ -386,24 +386,24 @@ namespace CustomSpawns.Data
             }
         }
 
-        private Track.PartyTypeEnum StringToPartyTypeEnumIfInvalidBandit(string s)
+        private MobileParty.PartyTypeEnum StringToPartyTypeEnumIfInvalidBandit(string s)
         {
             switch (s)
             {
                 case "Default":
-                    return Track.PartyTypeEnum.Default;
+                    return MobileParty.PartyTypeEnum.Default;
                 case "Bandit":
-                    return Track.PartyTypeEnum.Bandit;
+                    return MobileParty.PartyTypeEnum.Bandit;
                 case "Caravan":
-                    return Track.PartyTypeEnum.Caravan;
+                    return MobileParty.PartyTypeEnum.Caravan;
                 case "GarrisonParty":
-                    return Track.PartyTypeEnum.GarrisonParty;
+                    return MobileParty.PartyTypeEnum.GarrisonParty;
                 case "Lord":
-                    return Track.PartyTypeEnum.Lord;
+                    return MobileParty.PartyTypeEnum.Lord;
                 case "Villager":
-                    return Track.PartyTypeEnum.Villager;
+                    return MobileParty.PartyTypeEnum.Villager;
                 default:
-                    return Track.PartyTypeEnum.Bandit;
+                    return MobileParty.PartyTypeEnum.Bandit;
             }
         }
 
@@ -432,7 +432,7 @@ namespace CustomSpawns.Data
     }
     public class SpawnData
     {
-        public Track.PartyTypeEnum PartyType { get; set; }
+        public MobileParty.PartyTypeEnum PartyType { get; set; }
         public Clan SpawnClan { get; set; }
         public List<SpawnSettlementType> TrySpawnAtList = new List<SpawnSettlementType>();
         public List<Clan> OverridenSpawnClan = new List<Clan>();
