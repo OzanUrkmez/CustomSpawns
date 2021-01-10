@@ -187,8 +187,10 @@ namespace CustomSpawns.Spawn
                                 return;
                             data.IncrementNumberSpawned(); //increment for can spawn and chance modifications
                                                            //dynamic data registration
+                            //dynamic spawn tracking
                             DynamicSpawnData.AddDynamicSpawnData(spawnedParty, new CSPartyData(data, spawnSettlement));
-
+                            //dialogue system
+                            Dialogues.DialogueManager.CustomSpawnsDialogueBehavior.RegisterParty(spawnedParty, data.PartyTemplate.StringId);
                             j++;
                             //AI Checks!
                             Spawner.HandleAIChecks(spawnedParty, data, spawnSettlement);
@@ -212,7 +214,6 @@ namespace CustomSpawns.Spawn
                                 //    isSpawnSoundPlaying = true;
                                 //}
                             }
-
                             DailyLogger.ReportSpawn(spawnedParty, currentChanceOfSpawn);
                         }
                         else
