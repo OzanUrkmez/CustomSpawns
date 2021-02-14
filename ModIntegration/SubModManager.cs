@@ -23,7 +23,6 @@ namespace CustomSpawns.ModIntegration
                 string basePath = Path.Combine(BasePath.Name, "Modules");
                 List<SubMod> subMods = new List<SubMod>();
                 var all = Directory.EnumerateDirectories(basePath);
-                var loadedMods = new List<ModuleInfo>();
                 foreach (string path in all)
                 {
                     if (Directory.Exists(Path.Combine(path, "CustomSpawns"))) //mod is a custom spawns mod!

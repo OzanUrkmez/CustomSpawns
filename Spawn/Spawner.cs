@@ -31,7 +31,9 @@ namespace CustomSpawns.Spawn
 
                 //create.
                 MobileParty mobileParty = MBObjectManager.Instance.CreateObject<MobileParty>(templateObject.StringId + "_" + 1);
-                mobileParty.InitializeMobileParty(textObject, ConstructTroopRoster(templateObject, mobileParty.Party), new TroopRoster(mobileParty.Party), spawnedSettlement.GatePosition, 0);
+
+                mobileParty.InitializeMobileParty(ConstructTroopRoster(templateObject, mobileParty.Party),
+                    new TroopRoster(mobileParty.Party), spawnedSettlement.GatePosition, 0);
 
                 //initialize
                 Spawner.InitParty(mobileParty, textObject, clan, spawnedSettlement);
@@ -48,7 +50,7 @@ namespace CustomSpawns.Spawn
 
         private static void InitParty(MobileParty party, TextObject name, Clan faction, Settlement homeSettlement)
         {
-            party.Name = name;
+            party.SetCustomName(name);
             if (faction.Leader == null)
             {
                 party.Party.Owner = faction.Heroes.ToList().Count == 0? null : faction.Heroes.First();
