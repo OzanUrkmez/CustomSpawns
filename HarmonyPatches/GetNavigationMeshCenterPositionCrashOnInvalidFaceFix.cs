@@ -6,25 +6,34 @@ using System.Text;
 using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Engine;
+using TaleWorlds.Library;
 
 namespace CustomSpawns.HarmonyPatches
 {
 
     [HarmonyPatch(typeof(Scene), "GetNavMeshCenterPosition")]
-    class GetNavigationMeshCenterPositionCrashOnInvalidFaceFix
+    public class GetNavigationMeshCenterPositionCrashOnInvalidFaceFix
     {
 
-        static Exception Finalizer(Exception exception)
+        static bool Prefix(int faceIndex, ref Vec3 centerPosition)
         {
-            if(exception != null)
+
+            if (faceIndex == int.MaxValue) //this seems to be input when an invalid face is selected.
             {
                 ErrorHandler.ShowPureErrorMessage("CustomSpawns has detected a possible mod conflict or an in-game bug!" +
-                    " A position that is outside of the bounds of the current map was tried to be accessed. This occurs often when the game" +
-                    " is trying to spawn something at an inacessible coordinate. KEEP IN MIND THAT YOUR GAME MIGHT BECOME UNSTABLE!" +
-                    " CustomSpawns has suppressed the crash but the game was meant to crash.");
+                    " A face with an index that is not on the current navigation mesh of the map was tried to be accessed. " +
+                    " This occurs often when the game" +
+                    " is trying to spawn something at an inacessible coordinate, which might be caused by a mod altering the map or the map" +
+                    " being changed without a mod updating to accompany this." +
+                    " KEEP IN MIND THAT YOUR GAME MIGHT BECOME UNSTABLE!" +
+                    " CustomSpawns has suppressed the crash.");
+
+                centerPosition = new Vec3();
+
+                return true;
             }
 
-            return null;
+            return false;
         }
 
     }
