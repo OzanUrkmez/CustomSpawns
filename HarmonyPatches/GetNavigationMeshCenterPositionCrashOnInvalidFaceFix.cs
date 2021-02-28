@@ -18,23 +18,24 @@ namespace CustomSpawns.HarmonyPatches
         static bool Prefix(int faceIndex, ref Vec3 centerPosition)
         {
 
-            if (faceIndex == int.MaxValue) //this seems to be input when an invalid face is selected.
+            if (faceIndex == int.MaxValue || faceIndex < 0) //this seems to be input when an invalid face is selected.
             {
                 ErrorHandler.ShowPureErrorMessage("CustomSpawns has detected a possible mod conflict or an in-game bug!" +
                     " A face with an index that is not on the current navigation mesh of the map was tried to be accessed. " +
                     " This occurs often when the game" +
-                    " is trying to spawn something at an inacessible coordinate, which might be caused by a mod altering the map or the map" +
+                    " is trying to deal with an invalid coordinate, which might be caused by a mod altering the map or the map" +
                     " being changed without a mod updating to accompany this." +
                     " KEEP IN MIND THAT YOUR GAME MIGHT BECOME UNSTABLE!" +
                     " CustomSpawns has suppressed the crash.");
 
                 centerPosition = new Vec3();
 
-                return true;
+                return false;
             }
 
-            return false;
+            return true;
         }
 
     }
+
 }
