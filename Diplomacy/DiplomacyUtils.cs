@@ -19,6 +19,16 @@ namespace CustomSpawns.Diplomacy
             DeclareWarAction.Apply(faction, provocator);
         }
 
+        public static void MakePeace(IFaction faction1, IFaction faction2)
+        {
+            MakePeaceAction.Apply(faction1, faction2);
+        }
+
+        public static void DeclareWarOverProvocation(IFaction faction, IFaction provocator)
+        {
+            DeclareWarAction.ApplyDeclareWarOverProvocation(faction, provocator);
+        }
+
         public static void ApplyExtremeHatred(IFaction f, IFaction f2)
         {
             FactionManager.SetStanceTwoSided(f, f2, -70);

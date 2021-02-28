@@ -27,7 +27,7 @@ namespace CustomSpawns.Economics
                             int num2 = MBRandom.RoundRandomized((float)mobileParty.MemberRoster.TotalManCount * (1f / (float)itemObject.Value) * (float)num * MBRandom.RandomFloat * MBRandom.RandomFloat * MBRandom.RandomFloat * MBRandom.RandomFloat);
                             if (num2 > 0)
                             {
-                                mobileParty.ItemRoster.AddToCounts(itemObject, num2, true);
+                                mobileParty.ItemRoster.AddToCounts(itemObject, num2);
                             }
                         }
                     }

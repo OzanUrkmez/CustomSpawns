@@ -68,7 +68,10 @@ namespace CustomSpawns.CampaignData
             Settlement closestSettlement = CampaignUtils.GetClosestVillage(e.Position);
 
             if (!settlementToDevestation.ContainsKey(closestSettlement))
+            {
                 ErrorHandler.HandleException(new Exception("Devestation value for settlement could not be found!"));
+                return;
+            }
 
             ChangeDevestation(closestSettlement, increase);
 
@@ -91,7 +94,10 @@ namespace CustomSpawns.CampaignData
                 return;
 
             if (!settlementToDevestation.ContainsKey(s))
-                ErrorHandler.HandleException(new Exception("Devestation value for settlement could not be found!"));
+            {
+                ErrorHandler.HandleException(new Exception("Devastation value for settlement could not be found!"));
+                return;
+            }
 
             var presentInDay = MobilePartyTrackingBehaviour.Singleton.GetSettlementDailyMobilePartyPresences(s);
 
@@ -147,7 +153,10 @@ namespace CustomSpawns.CampaignData
         private void ChangeDevestation(Settlement s, float change)
         {
             if (!settlementToDevestation.ContainsKey(s))
-                ErrorHandler.HandleException(new Exception("Devestation value for settlement could not be found!"));
+            {
+                ErrorHandler.HandleException(new Exception("Devastation value for settlement could not be found!"));
+                return;
+            }
 
             settlementToDevestation[s] += change;
 

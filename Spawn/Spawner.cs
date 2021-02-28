@@ -21,7 +21,7 @@ namespace CustomSpawns.Spawn
     {
 
 
-        public static MobileParty SpawnParty(Settlement spawnedSettlement, Clan clan, PartyTemplateObject templateObject,MobileParty.PartyTypeEnum partyType,  TextObject partyName = null)
+        public static MobileParty SpawnParty(Settlement spawnedSettlement, Clan clan, PartyTemplateObject templateObject, Track.PartyTypeEnum partyType,  TextObject partyName = null)
         {
             try
             {
@@ -31,7 +31,9 @@ namespace CustomSpawns.Spawn
 
                 //create.
                 MobileParty mobileParty = MBObjectManager.Instance.CreateObject<MobileParty>(templateObject.StringId + "_" + 1);
-                mobileParty.InitializeMobileParty(textObject, ConstructTroopRoster(templateObject, mobileParty.Party), new TroopRoster(mobileParty.Party), spawnedSettlement.GatePosition, 0);
+
+                mobileParty.InitializeMobileParty(ConstructTroopRoster(templateObject, mobileParty.Party),
+                    new TroopRoster(mobileParty.Party), spawnedSettlement.GatePosition, 0);
 
                 //initialize
                 Spawner.InitParty(mobileParty, textObject, clan, spawnedSettlement);
@@ -48,7 +50,7 @@ namespace CustomSpawns.Spawn
 
         private static void InitParty(MobileParty party, TextObject name, Clan faction, Settlement homeSettlement)
         {
-            party.Name = name;
+            party.SetCustomName(name);
             if (faction.Leader == null)
             {
                 party.Party.Owner = faction.Heroes.ToList().Count == 0? null : faction.Heroes.First();
@@ -73,7 +75,7 @@ namespace CustomSpawns.Spawn
                     int num2 = MBRandom.RoundRandomized((float)party.MemberRoster.TotalManCount * (1f / (float)itemObject.Value) * (float)num * MBRandom.RandomFloat * MBRandom.RandomFloat * MBRandom.RandomFloat * MBRandom.RandomFloat);
                     if (num2 > 0)
                     {
-                        party.ItemRoster.AddToCounts(itemObject, num2, true);
+                        party.ItemRoster.AddToCounts(itemObject, num2);
                     }
                 }
             }

@@ -18,7 +18,7 @@ namespace CustomSpawns
 {
     public class Main : MBSubModuleBase
     {
-        public static readonly string version = "v1.4.1";
+        public static readonly string version = "v1.4.3";
         public static readonly bool isAPIMode = false;
         public static CustomSpawnsCustomSpeedModel customSpeedModel;
 
@@ -123,6 +123,7 @@ namespace CustomSpawns
                 starter.AddBehavior(new Diplomacy.ForcedWarPeaceBehaviour());
                 starter.AddBehavior(new Diplomacy.ForceNoKingdomBehaviour());
                 starter.AddBehavior(new PrisonerRecruitment.PrisonerRecruitmentBehaviour());
+                starter.AddBehavior(new Dialogues.CustomSpawnsDialogueBehavior());
 
 
 
