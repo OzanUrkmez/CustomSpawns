@@ -344,32 +344,6 @@ namespace CustomSpawns.Dialogues
 
         // final version uses no structs, yay!!! no more lazy copouts (well, at least a reduced amount of them)
 
-        /* public struct CustomSpawnsDialogueInstance
-        {
-            public bool isPlayer;
-            public string id;
-            public string tokenIn;
-            public string tokenOut;
-            public string text;
-            public CSDialogueCondition conditionType;
-            public CSDialogueConsequence consequenceType;
-            public CustomSpawnsDialogueParams parameters;
-            public int priority;
-
-            public CustomSpawnsDialogueInstance(bool playerLine, string k, string inS, string outS, string body, CSDialogueCondition cond, CSDialogueConsequence cons, CustomSpawnsDialogueParams settings, int pri)
-            {
-                isPlayer = playerLine;
-                id = k;
-                tokenIn = inS;
-                tokenOut = outS;
-                text = body;
-                conditionType = cond;
-                consequenceType = cons;
-                parameters = settings;
-                priority = pri;
-            }
-        }   keeping this in case I need to rollback (most likely not) */
-
         public enum CSDialogueCondition
         {
             None,
@@ -394,18 +368,6 @@ namespace CustomSpawns.Dialogues
             BarterForPeace,
             StandardBarter
         }
-
-        /* public class CustomSpawnsDialogueBehaviorTypeDefiner : CampaignBehaviorBase.SaveableCampaignBehaviorTypeDefiner
-        {
-            public CustomSpawnsDialogueBehaviorTypeDefiner() : base(61223)
-            {
-            }
-            
-            protected override void DefineClassTypes()
-            {
-                base.AddClassDefinition(typeof())
-            }
-        } */
 
         public class CustomSpawnsDialogueBehaviorTypeDefiner : CampaignBehaviorBase.SaveableCampaignBehaviorTypeDefiner
         {
