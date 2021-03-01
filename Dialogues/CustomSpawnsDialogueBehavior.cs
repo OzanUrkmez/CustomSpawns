@@ -317,10 +317,10 @@ namespace CustomSpawns.Dialogues
 
         #endregion Consequence Delegates
 
-        public void RegisterParty(MobileParty mb, string template)
+        public void RegisterParty(MobileParty mb, string partyTemplateID)
         {
             ModDebug.ShowMessage("party of " + mb.StringId + " has registered for dialogue detection", DebugMessageType.Dialogue);
-            dialoguePartyRef.Add(mb, template);
+            dialoguePartyRef.Add(mb, partyTemplateID);
         }
 
         private void GetData() // the classic
