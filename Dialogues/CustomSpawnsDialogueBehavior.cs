@@ -76,16 +76,33 @@ namespace CustomSpawns.Dialogues
         private bool EvaluateDialogueCondition(Data.DialogueData d)
         {
             CustomSpawnsDialogueParams p = d.Parameters;
+
+            if(d.Condition == CSDialogueCondition.None)
+            {
+                return true;
+            }
+
+            PartyBase encounteredParty = PlayerEncounter.EncounteredParty;
+
+            //party template conditions:
+            if (dialoguePartyRef.ContainsKey(encounteredParty.MobileParty) &&
+                (dialoguePartyRef[encounteredParty.MobileParty] == p.c_partyTemplate))
+            {
+                switch (d.Condition)
+                {
+                    case CSDialogueCondition.PartyTemplateAndStance:
+                        return this.party_template_condition_delegate(encounteredParty, p.c_isFriendly);
+                    case CSDialogueCondition.PartyTemplateAttackerAndStance:
+                        return this.party_template_and_attacker_hostile_condition_delegate(encounteredParty, p.c_isFriendly);
+                    case CSDialogueCondition.PartyTemplateDefenderAndStance:
+                        return this.party_template_and_defender_hostile_condition_delegate(encounteredParty, p.c_isFriendly);
+                }
+            }
+
+            //other conditions<
+
             switch (d.Condition)
             {
-                case CSDialogueCondition.None:
-                    return true;
-                case CSDialogueCondition.PartyTemplateAndStance:
-                    return this.party_template_condition_delegate(p.c_partyTemplate, p.c_isFriendly);
-                case CSDialogueCondition.PartyTemplateAttackerAndStance:
-                    return this.party_template_and_attacker_hostile_condition_delegate(p.c_partyTemplate, p.c_isFriendly);
-                case CSDialogueCondition.PartyTemplateDefenderAndStance:
-                    return this.party_template_and_defender_hostile_condition_delegate(p.c_partyTemplate, p.c_isFriendly);
                 case CSDialogueCondition.GenericWar:
                     return this.generic_war_condition_delegate(p.c_isFriendly);
                 case CSDialogueCondition.CharacterTrait:
@@ -128,14 +145,13 @@ namespace CustomSpawns.Dialogues
 
         #region Condition Delegates
 
-        private bool party_template_condition_delegate(string t, bool isFriendly) // generic party checking delegate
+        private bool party_template_condition_delegate(PartyBase encounteredParty, bool isFriendly) // generic party checking delegate
         {
-            PartyBase encounteredParty = PlayerEncounter.EncounteredParty;
             if (encounteredParty.MobileParty != null)
             {
                 if (isFriendly)
                 {
-                    if (dialoguePartyRef.ContainsKey(encounteredParty.MobileParty) && (dialoguePartyRef[encounteredParty.MobileParty] == t) && !Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                    if (!Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
                     {
                         return true;
                     }
@@ -143,7 +159,7 @@ namespace CustomSpawns.Dialogues
                 }
                 else if (!isFriendly)
                 {
-                    if (dialoguePartyRef.ContainsKey(encounteredParty.MobileParty) && (dialoguePartyRef[encounteredParty.MobileParty] == t) && Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                    if (Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
                     {
                         return true;
                     }
@@ -152,14 +168,13 @@ namespace CustomSpawns.Dialogues
             return false;
         }
 
-        private bool party_template_and_defender_hostile_condition_delegate(string t, bool isFriendly) // checks for template, attitude and if the party is defending (being engaged)
+        private bool party_template_and_defender_hostile_condition_delegate(PartyBase encounteredParty, bool isFriendly) // checks for template, attitude and if the party is defending (being engaged)
         {
-            PartyBase encounteredParty = PlayerEncounter.EncounteredParty;
             if (encounteredParty.MobileParty != null)
             {
                 if (isFriendly)
                 {
-                    if (dialoguePartyRef.ContainsKey(encounteredParty.MobileParty) && (dialoguePartyRef[encounteredParty.MobileParty] == t) && PlayerEncounter.PlayerIsAttacker && !Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                    if (PlayerEncounter.PlayerIsAttacker && !Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
                     {
                         return true;
                     }
@@ -167,7 +182,7 @@ namespace CustomSpawns.Dialogues
                 }
                 else if (!isFriendly)
                 {
-                    if (dialoguePartyRef.ContainsKey(encounteredParty.MobileParty) && (dialoguePartyRef[encounteredParty.MobileParty] == t) && PlayerEncounter.PlayerIsAttacker && Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                    if (PlayerEncounter.PlayerIsAttacker && Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
                     {
                         return true;
                     }
@@ -176,14 +191,13 @@ namespace CustomSpawns.Dialogues
             return false;
         }
 
-        private bool party_template_and_attacker_hostile_condition_delegate(string t, bool isFriendly) // checks for template, attitude and if the party is attacking (engaging the player)
+        private bool party_template_and_attacker_hostile_condition_delegate(PartyBase encounteredParty, bool isFriendly) // checks for template, attitude and if the party is attacking (engaging the player)
         {
-            PartyBase encounteredParty = PlayerEncounter.EncounteredParty;
             if (encounteredParty.MobileParty != null)
             {
                 if (isFriendly)
                 {
-                    if (dialoguePartyRef.ContainsKey(encounteredParty.MobileParty) && (dialoguePartyRef[encounteredParty.MobileParty] == t) && !PlayerEncounter.PlayerIsAttacker && !Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                    if (!PlayerEncounter.PlayerIsAttacker && !Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
                     {
                         return true;
                     }
@@ -191,7 +205,7 @@ namespace CustomSpawns.Dialogues
                 }
                 else if (!isFriendly)
                 {
-                    if (dialoguePartyRef.ContainsKey(encounteredParty.MobileParty) && (dialoguePartyRef[encounteredParty.MobileParty] == t) && !PlayerEncounter.PlayerIsAttacker && Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
+                    if (!PlayerEncounter.PlayerIsAttacker && Hero.MainHero.MapFaction.IsAtWarWith(encounteredParty.MapFaction))
                     {
                         return true;
                     }
