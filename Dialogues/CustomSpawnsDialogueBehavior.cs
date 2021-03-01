@@ -99,7 +99,7 @@ namespace CustomSpawns.Dialogues
                 }
             }
 
-            //other conditions<
+            //other conditions
 
             switch (d.Condition)
             {
