@@ -45,7 +45,7 @@ namespace CustomSpawns.PrisonerRecruitment
 
                 List<TroopRosterElement> elements = new List<TroopRosterElement>();
 
-                foreach (var troopRosterElement in settlementParty.MemberRoster)
+                foreach (var troopRosterElement in settlementParty.MemberRoster.GetTroopRoster())
                 {
                     elements.Add(troopRosterElement);
                 }
@@ -96,8 +96,10 @@ namespace CustomSpawns.PrisonerRecruitment
 
                 List<CharacterObject> recruited = new List<CharacterObject>();
                 List<CharacterObject> devalued = new List<CharacterObject>();
-                foreach (CharacterObject c in mb.PrisonRoster.Troops)
+
+                foreach (var tr in mb.PrisonRoster.GetTroopRoster())
                 {
+                    var c = tr.Character;
                     if (c.IsHero || c.IsPlayerCharacter)
                         continue;
                     float particularRecruitChance = recruitChance - (c.Level * Config.PrisonerLevelReverseModifierPerLevel);

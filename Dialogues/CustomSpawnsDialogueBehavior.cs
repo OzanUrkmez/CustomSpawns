@@ -110,9 +110,11 @@ namespace CustomSpawns.Dialogues
                 case CSDialogueCondition.LastBarter:
                     return this.barter_check_condition_delegate(p.c_barterSuccessful);
                 case CSDialogueCondition.FirstConversationLordName:
-                    return this.first_and_lord_name_condition_delegate(p.c_lordName); // these two untested
+                    return this.first_and_lord_name_condition_delegate(p.c_lordName); // these three untested
                 case CSDialogueCondition.FirstConversationFaction:
                     return this.first_and_faction_condition_delegate(p.c_faction); // ^
+                case CSDialogueCondition.FactionDefault:
+                    return this.faction_condition_delegate(p.c_faction);
                 default:
                     return false;
             }
@@ -273,6 +275,19 @@ namespace CustomSpawns.Dialogues
             return false;
         }
 
+        private bool faction_condition_delegate(string faction)
+        {
+            if (PlayerEncounter.EncounteredParty.MobileParty != null)
+            {
+                if (PlayerEncounter.EncounteredParty.MobileParty.MapFaction.StringId == faction)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         #endregion Condition Delegates
 
         #region Consequence Delegates
@@ -298,6 +313,8 @@ namespace CustomSpawns.Dialogues
             PartyBase encounteredParty = PlayerEncounter.EncounteredParty;
             Diplomacy.DiplomacyUtils.MakePeace(Hero.MainHero.MapFaction, encounteredParty.MapFaction);
         }
+
+
 
         private void surrender_consequence_delegate(bool isPlayer) // for surrenders you need to update the player encounter- not sure if this closes the window or not
         {
@@ -354,6 +371,7 @@ namespace CustomSpawns.Dialogues
             CharacterTrait,
             FirstConversationLordName,
             FirstConversationFaction,
+            FactionDefault,
             LastBarter
         }
 

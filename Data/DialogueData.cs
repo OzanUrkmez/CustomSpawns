@@ -161,6 +161,8 @@ namespace CustomSpawns.Data
                     return CustomSpawnsDialogueBehavior.CSDialogueCondition.FirstConversationLordName;
                 case "FirstConversationFaction":
                     return CustomSpawnsDialogueBehavior.CSDialogueCondition.FirstConversationFaction;
+                case "FactionDefault":
+                    return CustomSpawnsDialogueBehavior.CSDialogueCondition.FactionDefault;
                 default:
                     throw new Exception("A dialogue condition type wasn't explicity defined! If it is supposed to be always true, use 'none' please!"); // making sure the modder isn't passing nonsense
             }
