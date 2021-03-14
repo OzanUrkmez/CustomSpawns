@@ -25,6 +25,15 @@ namespace CustomSpawns.Spawn
         {
             try
             {
+
+                if(templateObject == null)
+                {
+                    ErrorHandler.ShowPureErrorMessage(
+                        "Party Template with ID " + templateObject.StringId + " possibly does not exist. It was tried to be assigned to "
+                        + templateObject.StringId);
+                    return null;
+                }
+
                 //get name and show message.
                 TextObject textObject = partyName ?? clan.Name;
                 ModDebug.ShowMessage("CustomSpawns: Spawning " + textObject.ToString() + " at " + spawnedSettlement.GatePosition + " in settlement " + spawnedSettlement.Name.ToString(), DebugMessageType.Spawn);
