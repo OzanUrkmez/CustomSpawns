@@ -1,0 +1,1338 @@
+Day 0:
+Aserai Deserters and Battanian Deserters have declared war!
+Imperial Deserters and Battanian Deserters have declared war!
+Khuzait Deserters and Battanian Deserters have declared war!
+Vlandian Deserters and Battanian Deserters have declared war!
+Sturgian Deserters and Battanian Deserters have declared war!
+Southern Enslavers and Battanian Deserters have declared war!
+Northern Liberators and Battanian Deserters have declared war!
+Madmen and Battanian Deserters have declared war!
+Harbingers of Wrath and Battanian Deserters have declared war!
+Redemptive Order and Battanian Deserters have declared war!
+Order of the Phoenix and Battanian Deserters have declared war!
+Desert Cult and Battanian Deserters have declared war!
+Manhunters and Battanian Deserters have declared war!
+Makko and Battanian Deserters have declared war!
+Humar and Battanian Deserters have declared war!
+dwqqeqwe and Battanian Deserters have declared war!
+Sturgia and Battanian Deserters have declared war!
+Aserai and Battanian Deserters have declared war!
+Khuzait and Battanian Deserters have declared war!
+Northern Empire and Battanian Deserters have declared war!
+Western Empire and Battanian Deserters have declared war!
+Southern Empire and Battanian Deserters have declared war!
+Vlandia and Battanian Deserters have declared war!
+Ghilman and Battanian Deserters have declared war!
+Legion of the Betrayed and Battanian Deserters have declared war!
+Skolderbrotva and Battanian Deserters have declared war!
+Company of the Golden Boar and Battanian Deserters have declared war!
+Beni Zilal and Battanian Deserters have declared war!
+Wolfskins and Battanian Deserters have declared war!
+Brotherhood of the Woods and Battanian Deserters have declared war!
+Hidden Hand and Battanian Deserters have declared war!
+Lake Rats and Battanian Deserters have declared war!
+Embers of the Flame and Battanian Deserters have declared war!
+Jawwal and Battanian Deserters have declared war!
+Karakhergit and Battanian Deserters have declared war!
+Forest People and Battanian Deserters have declared war!
+Eleftheroi and Battanian Deserters have declared war!
+Imperial Deserters and Aserai Deserters have declared war!
+Khuzait Deserters and Aserai Deserters have declared war!
+Vlandian Deserters and Aserai Deserters have declared war!
+Sturgian Deserters and Aserai Deserters have declared war!
+Southern Enslavers and Aserai Deserters have declared war!
+Northern Liberators and Aserai Deserters have declared war!
+Madmen and Aserai Deserters have declared war!
+Harbingers of Wrath and Aserai Deserters have declared war!
+Redemptive Order and Aserai Deserters have declared war!
+Order of the Phoenix and Aserai Deserters have declared war!
+Desert Cult and Aserai Deserters have declared war!
+Manhunters and Aserai Deserters have declared war!
+Makko and Aserai Deserters have declared war!
+Humar and Aserai Deserters have declared war!
+dwqqeqwe and Aserai Deserters have declared war!
+Sturgia and Aserai Deserters have declared war!
+Khuzait and Aserai Deserters have declared war!
+Northern Empire and Aserai Deserters have declared war!
+Western Empire and Aserai Deserters have declared war!
+Southern Empire and Aserai Deserters have declared war!
+Vlandia and Aserai Deserters have declared war!
+Battania and Aserai Deserters have declared war!
+Ghilman and Aserai Deserters have declared war!
+Legion of the Betrayed and Aserai Deserters have declared war!
+Skolderbrotva and Aserai Deserters have declared war!
+Company of the Golden Boar and Aserai Deserters have declared war!
+Beni Zilal and Aserai Deserters have declared war!
+Wolfskins and Aserai Deserters have declared war!
+Brotherhood of the Woods and Aserai Deserters have declared war!
+Hidden Hand and Aserai Deserters have declared war!
+Lake Rats and Aserai Deserters have declared war!
+Embers of the Flame and Aserai Deserters have declared war!
+Jawwal and Aserai Deserters have declared war!
+Karakhergit and Aserai Deserters have declared war!
+Forest People and Aserai Deserters have declared war!
+Eleftheroi and Aserai Deserters have declared war!
+Khuzait Deserters and Imperial Deserters have declared war!
+Vlandian Deserters and Imperial Deserters have declared war!
+Sturgian Deserters and Imperial Deserters have declared war!
+Southern Enslavers and Imperial Deserters have declared war!
+Northern Liberators and Imperial Deserters have declared war!
+Madmen and Imperial Deserters have declared war!
+Harbingers of Wrath and Imperial Deserters have declared war!
+Redemptive Order and Imperial Deserters have declared war!
+Order of the Phoenix and Imperial Deserters have declared war!
+Desert Cult and Imperial Deserters have declared war!
+Manhunters and Imperial Deserters have declared war!
+Makko and Imperial Deserters have declared war!
+Humar and Imperial Deserters have declared war!
+dwqqeqwe and Imperial Deserters have declared war!
+Sturgia and Imperial Deserters have declared war!
+Aserai and Imperial Deserters have declared war!
+Khuzait and Imperial Deserters have declared war!
+Vlandia and Imperial Deserters have declared war!
+Battania and Imperial Deserters have declared war!
+Ghilman and Imperial Deserters have declared war!
+Legion of the Betrayed and Imperial Deserters have declared war!
+Skolderbrotva and Imperial Deserters have declared war!
+Company of the Golden Boar and Imperial Deserters have declared war!
+Beni Zilal and Imperial Deserters have declared war!
+Wolfskins and Imperial Deserters have declared war!
+Brotherhood of the Woods and Imperial Deserters have declared war!
+Hidden Hand and Imperial Deserters have declared war!
+Lake Rats and Imperial Deserters have declared war!
+Embers of the Flame and Imperial Deserters have declared war!
+Jawwal and Imperial Deserters have declared war!
+Karakhergit and Imperial Deserters have declared war!
+Forest People and Imperial Deserters have declared war!
+Eleftheroi and Imperial Deserters have declared war!
+Vlandian Deserters and Khuzait Deserters have declared war!
+Sturgian Deserters and Khuzait Deserters have declared war!
+Southern Enslavers and Khuzait Deserters have declared war!
+Northern Liberators and Khuzait Deserters have declared war!
+Madmen and Khuzait Deserters have declared war!
+Harbingers of Wrath and Khuzait Deserters have declared war!
+Redemptive Order and Khuzait Deserters have declared war!
+Order of the Phoenix and Khuzait Deserters have declared war!
+Desert Cult and Khuzait Deserters have declared war!
+Manhunters and Khuzait Deserters have declared war!
+Makko and Khuzait Deserters have declared war!
+Humar and Khuzait Deserters have declared war!
+dwqqeqwe and Khuzait Deserters have declared war!
+Sturgia and Khuzait Deserters have declared war!
+Aserai and Khuzait Deserters have declared war!
+Northern Empire and Khuzait Deserters have declared war!
+Western Empire and Khuzait Deserters have declared war!
+Southern Empire and Khuzait Deserters have declared war!
+Vlandia and Khuzait Deserters have declared war!
+Battania and Khuzait Deserters have declared war!
+Ghilman and Khuzait Deserters have declared war!
+Legion of the Betrayed and Khuzait Deserters have declared war!
+Skolderbrotva and Khuzait Deserters have declared war!
+Company of the Golden Boar and Khuzait Deserters have declared war!
+Beni Zilal and Khuzait Deserters have declared war!
+Wolfskins and Khuzait Deserters have declared war!
+Brotherhood of the Woods and Khuzait Deserters have declared war!
+Hidden Hand and Khuzait Deserters have declared war!
+Lake Rats and Khuzait Deserters have declared war!
+Embers of the Flame and Khuzait Deserters have declared war!
+Jawwal and Khuzait Deserters have declared war!
+Karakhergit and Khuzait Deserters have declared war!
+Forest People and Khuzait Deserters have declared war!
+Eleftheroi and Khuzait Deserters have declared war!
+Sturgian Deserters and Vlandian Deserters have declared war!
+Southern Enslavers and Vlandian Deserters have declared war!
+Northern Liberators and Vlandian Deserters have declared war!
+Madmen and Vlandian Deserters have declared war!
+Harbingers of Wrath and Vlandian Deserters have declared war!
+Redemptive Order and Vlandian Deserters have declared war!
+Order of the Phoenix and Vlandian Deserters have declared war!
+Desert Cult and Vlandian Deserters have declared war!
+Manhunters and Vlandian Deserters have declared war!
+Makko and Vlandian Deserters have declared war!
+Humar and Vlandian Deserters have declared war!
+dwqqeqwe and Vlandian Deserters have declared war!
+Sturgia and Vlandian Deserters have declared war!
+Aserai and Vlandian Deserters have declared war!
+Khuzait and Vlandian Deserters have declared war!
+Northern Empire and Vlandian Deserters have declared war!
+Western Empire and Vlandian Deserters have declared war!
+Southern Empire and Vlandian Deserters have declared war!
+Battania and Vlandian Deserters have declared war!
+Ghilman and Vlandian Deserters have declared war!
+Legion of the Betrayed and Vlandian Deserters have declared war!
+Skolderbrotva and Vlandian Deserters have declared war!
+Company of the Golden Boar and Vlandian Deserters have declared war!
+Beni Zilal and Vlandian Deserters have declared war!
+Wolfskins and Vlandian Deserters have declared war!
+Brotherhood of the Woods and Vlandian Deserters have declared war!
+Hidden Hand and Vlandian Deserters have declared war!
+Lake Rats and Vlandian Deserters have declared war!
+Embers of the Flame and Vlandian Deserters have declared war!
+Jawwal and Vlandian Deserters have declared war!
+Karakhergit and Vlandian Deserters have declared war!
+Forest People and Vlandian Deserters have declared war!
+Eleftheroi and Vlandian Deserters have declared war!
+Southern Enslavers and Sturgian Deserters have declared war!
+Northern Liberators and Sturgian Deserters have declared war!
+Madmen and Sturgian Deserters have declared war!
+Harbingers of Wrath and Sturgian Deserters have declared war!
+Redemptive Order and Sturgian Deserters have declared war!
+Order of the Phoenix and Sturgian Deserters have declared war!
+Desert Cult and Sturgian Deserters have declared war!
+Manhunters and Sturgian Deserters have declared war!
+Makko and Sturgian Deserters have declared war!
+Humar and Sturgian Deserters have declared war!
+dwqqeqwe and Sturgian Deserters have declared war!
+Aserai and Sturgian Deserters have declared war!
+Khuzait and Sturgian Deserters have declared war!
+Northern Empire and Sturgian Deserters have declared war!
+Western Empire and Sturgian Deserters have declared war!
+Southern Empire and Sturgian Deserters have declared war!
+Vlandia and Sturgian Deserters have declared war!
+Battania and Sturgian Deserters have declared war!
+Ghilman and Sturgian Deserters have declared war!
+Legion of the Betrayed and Sturgian Deserters have declared war!
+Skolderbrotva and Sturgian Deserters have declared war!
+Company of the Golden Boar and Sturgian Deserters have declared war!
+Beni Zilal and Sturgian Deserters have declared war!
+Wolfskins and Sturgian Deserters have declared war!
+Brotherhood of the Woods and Sturgian Deserters have declared war!
+Hidden Hand and Sturgian Deserters have declared war!
+Lake Rats and Sturgian Deserters have declared war!
+Embers of the Flame and Sturgian Deserters have declared war!
+Jawwal and Sturgian Deserters have declared war!
+Karakhergit and Sturgian Deserters have declared war!
+Forest People and Sturgian Deserters have declared war!
+Eleftheroi and Sturgian Deserters have declared war!
+Southern Enslavers and United Deserters have declared war!
+Northern Liberators and United Deserters have declared war!
+Madmen and United Deserters have declared war!
+Harbingers of Wrath and United Deserters have declared war!
+Redemptive Order and United Deserters have declared war!
+Order of the Phoenix and United Deserters have declared war!
+Desert Cult and United Deserters have declared war!
+Manhunters and United Deserters have declared war!
+Makko and United Deserters have declared war!
+Humar and United Deserters have declared war!
+dwqqeqwe and United Deserters have declared war!
+Sturgia and United Deserters have declared war!
+Aserai and United Deserters have declared war!
+Khuzait and United Deserters have declared war!
+Vlandia and United Deserters have declared war!
+Battania and United Deserters have declared war!
+Ghilman and United Deserters have declared war!
+Legion of the Betrayed and United Deserters have declared war!
+Skolderbrotva and United Deserters have declared war!
+Company of the Golden Boar and United Deserters have declared war!
+Beni Zilal and United Deserters have declared war!
+Wolfskins and United Deserters have declared war!
+Brotherhood of the Woods and United Deserters have declared war!
+Hidden Hand and United Deserters have declared war!
+Lake Rats and United Deserters have declared war!
+Embers of the Flame and United Deserters have declared war!
+Jawwal and United Deserters have declared war!
+Karakhergit and United Deserters have declared war!
+Forest People and United Deserters have declared war!
+Eleftheroi and United Deserters have declared war!
+Northern Liberators and Southern Enslavers have declared war!
+Madmen and Southern Enslavers have declared war!
+Harbingers of Wrath and Southern Enslavers have declared war!
+Redemptive Order and Southern Enslavers have declared war!
+Order of the Phoenix and Southern Enslavers have declared war!
+Revolutionaries and Southern Enslavers have declared war!
+Outcasts and Southern Enslavers have declared war!
+Roaming Brigands and Southern Enslavers have declared war!
+Desert Cult and Southern Enslavers have declared war!
+Barbarians and Southern Enslavers have declared war!
+Manhunters and Southern Enslavers have declared war!
+Makko and Southern Enslavers have declared war!
+Humar and Southern Enslavers have declared war!
+dwqqeqwe and Southern Enslavers have declared war!
+Sturgia and Southern Enslavers have declared war!
+Northern Empire and Southern Enslavers have declared war!
+Vlandia and Southern Enslavers have declared war!
+Battania and Southern Enslavers have declared war!
+Ghilman and Southern Enslavers have declared war!
+Legion of the Betrayed and Southern Enslavers have declared war!
+Skolderbrotva and Southern Enslavers have declared war!
+Company of the Golden Boar and Southern Enslavers have declared war!
+Beni Zilal and Southern Enslavers have declared war!
+Wolfskins and Southern Enslavers have declared war!
+Brotherhood of the Woods and Southern Enslavers have declared war!
+Hidden Hand and Southern Enslavers have declared war!
+Lake Rats and Southern Enslavers have declared war!
+Embers of the Flame and Southern Enslavers have declared war!
+Jawwal and Southern Enslavers have declared war!
+Karakhergit and Southern Enslavers have declared war!
+Forest People and Southern Enslavers have declared war!
+Southern Enslavers and Aserai have made peace!
+Madmen and Northern Liberators have declared war!
+Harbingers of Wrath and Northern Liberators have declared war!
+Redemptive Order and Northern Liberators have declared war!
+Order of the Phoenix and Northern Liberators have declared war!
+Revolutionaries and Northern Liberators have declared war!
+Outcasts and Northern Liberators have declared war!
+Roaming Brigands and Northern Liberators have declared war!
+Desert Cult and Northern Liberators have declared war!
+Manhunters and Northern Liberators have declared war!
+Makko and Northern Liberators have declared war!
+Humar and Northern Liberators have declared war!
+Aserai and Northern Liberators have declared war!
+Khuzait and Northern Liberators have declared war!
+Western Empire and Northern Liberators have declared war!
+Southern Empire and Northern Liberators have declared war!
+Ghilman and Northern Liberators have declared war!
+Legion of the Betrayed and Northern Liberators have declared war!
+Company of the Golden Boar and Northern Liberators have declared war!
+Beni Zilal and Northern Liberators have declared war!
+Wolfskins and Northern Liberators have declared war!
+Brotherhood of the Woods and Northern Liberators have declared war!
+Hidden Hand and Northern Liberators have declared war!
+Lake Rats and Northern Liberators have declared war!
+Embers of the Flame and Northern Liberators have declared war!
+Jawwal and Northern Liberators have declared war!
+Karakhergit and Northern Liberators have declared war!
+Forest People and Northern Liberators have declared war!
+Eleftheroi and Northern Liberators have declared war!
+Northern Liberators and Sturgia have made peace!
+Harbingers of Wrath and Madmen have declared war!
+Redemptive Order and Madmen have declared war!
+Order of the Phoenix and Madmen have declared war!
+Revolutionaries and Madmen have declared war!
+Outcasts and Madmen have declared war!
+Roaming Brigands and Madmen have declared war!
+Desert Cult and Madmen have declared war!
+Barbarians and Madmen have declared war!
+Manhunters and Madmen have declared war!
+Makko and Madmen have declared war!
+Humar and Madmen have declared war!
+dwqqeqwe and Madmen have declared war!
+Sturgia and Madmen have declared war!
+Aserai and Madmen have declared war!
+Khuzait and Madmen have declared war!
+Vlandia and Madmen have declared war!
+Battania and Madmen have declared war!
+Ghilman and Madmen have declared war!
+Legion of the Betrayed and Madmen have declared war!
+Skolderbrotva and Madmen have declared war!
+Company of the Golden Boar and Madmen have declared war!
+Beni Zilal and Madmen have declared war!
+Wolfskins and Madmen have declared war!
+Brotherhood of the Woods and Madmen have declared war!
+Hidden Hand and Madmen have declared war!
+Lake Rats and Madmen have declared war!
+Embers of the Flame and Madmen have declared war!
+Jawwal and Madmen have declared war!
+Karakhergit and Madmen have declared war!
+Forest People and Madmen have declared war!
+Eleftheroi and Madmen have declared war!
+Redemptive Order and Harbingers of Wrath have declared war!
+Order of the Phoenix and Harbingers of Wrath have declared war!
+Revolutionaries and Harbingers of Wrath have declared war!
+Outcasts and Harbingers of Wrath have declared war!
+Roaming Brigands and Harbingers of Wrath have declared war!
+Desert Cult and Harbingers of Wrath have declared war!
+Barbarians and Harbingers of Wrath have declared war!
+Manhunters and Harbingers of Wrath have declared war!
+Makko and Harbingers of Wrath have declared war!
+Humar and Harbingers of Wrath have declared war!
+dwqqeqwe and Harbingers of Wrath have declared war!
+Sturgia and Harbingers of Wrath have declared war!
+Aserai and Harbingers of Wrath have declared war!
+Khuzait and Harbingers of Wrath have declared war!
+Vlandia and Harbingers of Wrath have declared war!
+Battania and Harbingers of Wrath have declared war!
+Ghilman and Harbingers of Wrath have declared war!
+Legion of the Betrayed and Harbingers of Wrath have declared war!
+Skolderbrotva and Harbingers of Wrath have declared war!
+Company of the Golden Boar and Harbingers of Wrath have declared war!
+Beni Zilal and Harbingers of Wrath have declared war!
+Wolfskins and Harbingers of Wrath have declared war!
+Brotherhood of the Woods and Harbingers of Wrath have declared war!
+Hidden Hand and Harbingers of Wrath have declared war!
+Lake Rats and Harbingers of Wrath have declared war!
+Embers of the Flame and Harbingers of Wrath have declared war!
+Jawwal and Harbingers of Wrath have declared war!
+Karakhergit and Harbingers of Wrath have declared war!
+Forest People and Harbingers of Wrath have declared war!
+Eleftheroi and Harbingers of Wrath have declared war!
+Revolutionaries and Redemptive Order have declared war!
+Outcasts and Redemptive Order have declared war!
+Roaming Brigands and Redemptive Order have declared war!
+Desert Cult and Redemptive Order have declared war!
+Barbarians and Redemptive Order have declared war!
+Makko and Redemptive Order have declared war!
+Humar and Redemptive Order have declared war!
+Ghilman and Redemptive Order have declared war!
+Legion of the Betrayed and Redemptive Order have declared war!
+Company of the Golden Boar and Redemptive Order have declared war!
+Beni Zilal and Redemptive Order have declared war!
+Wolfskins and Redemptive Order have declared war!
+Brotherhood of the Woods and Redemptive Order have declared war!
+Hidden Hand and Redemptive Order have declared war!
+Lake Rats and Redemptive Order have declared war!
+Embers of the Flame and Redemptive Order have declared war!
+Jawwal and Redemptive Order have declared war!
+Karakhergit and Redemptive Order have declared war!
+Forest People and Redemptive Order have declared war!
+Revolutionaries and Order of the Phoenix have declared war!
+Outcasts and Order of the Phoenix have declared war!
+Roaming Brigands and Order of the Phoenix have declared war!
+Desert Cult and Order of the Phoenix have declared war!
+Barbarians and Order of the Phoenix have declared war!
+Manhunters and Order of the Phoenix have declared war!
+Makko and Order of the Phoenix have declared war!
+Humar and Order of the Phoenix have declared war!
+Sturgia and Order of the Phoenix have declared war!
+Aserai and Order of the Phoenix have declared war!
+Khuzait and Order of the Phoenix have declared war!
+Northern Empire and Order of the Phoenix have declared war!
+Western Empire and Order of the Phoenix have declared war!
+Southern Empire and Order of the Phoenix have declared war!
+Battania and Order of the Phoenix have declared war!
+Ghilman and Order of the Phoenix have declared war!
+Legion of the Betrayed and Order of the Phoenix have declared war!
+Company of the Golden Boar and Order of the Phoenix have declared war!
+Beni Zilal and Order of the Phoenix have declared war!
+Wolfskins and Order of the Phoenix have declared war!
+Brotherhood of the Woods and Order of the Phoenix have declared war!
+Hidden Hand and Order of the Phoenix have declared war!
+Lake Rats and Order of the Phoenix have declared war!
+Embers of the Flame and Order of the Phoenix have declared war!
+Jawwal and Order of the Phoenix have declared war!
+Karakhergit and Order of the Phoenix have declared war!
+Forest People and Order of the Phoenix have declared war!
+Eleftheroi and Order of the Phoenix have declared war!
+Outcasts and Revolutionaries have declared war!
+Desert Cult and Revolutionaries have declared war!
+Manhunters and Revolutionaries have declared war!
+Makko and Revolutionaries have declared war!
+Humar and Revolutionaries have declared war!
+dwqqeqwe and Revolutionaries have declared war!
+Sturgia and Revolutionaries have declared war!
+Aserai and Revolutionaries have declared war!
+Khuzait and Revolutionaries have declared war!
+Vlandia and Revolutionaries have declared war!
+Battania and Revolutionaries have declared war!
+Ghilman and Revolutionaries have declared war!
+Legion of the Betrayed and Revolutionaries have declared war!
+Skolderbrotva and Revolutionaries have declared war!
+Company of the Golden Boar and Revolutionaries have declared war!
+Beni Zilal and Revolutionaries have declared war!
+Wolfskins and Revolutionaries have declared war!
+Brotherhood of the Woods and Revolutionaries have declared war!
+Hidden Hand and Revolutionaries have declared war!
+Lake Rats and Revolutionaries have declared war!
+Embers of the Flame and Revolutionaries have declared war!
+Jawwal and Revolutionaries have declared war!
+Karakhergit and Revolutionaries have declared war!
+Forest People and Revolutionaries have declared war!
+Eleftheroi and Revolutionaries have declared war!
+Desert Cult and Outcasts have declared war!
+Manhunters and Outcasts have declared war!
+Makko and Outcasts have declared war!
+Humar and Outcasts have declared war!
+dwqqeqwe and Outcasts have declared war!
+Sturgia and Outcasts have declared war!
+Aserai and Outcasts have declared war!
+Khuzait and Outcasts have declared war!
+Northern Empire and Outcasts have declared war!
+Western Empire and Outcasts have declared war!
+Southern Empire and Outcasts have declared war!
+Vlandia and Outcasts have declared war!
+Ghilman and Outcasts have declared war!
+Legion of the Betrayed and Outcasts have declared war!
+Skolderbrotva and Outcasts have declared war!
+Company of the Golden Boar and Outcasts have declared war!
+Beni Zilal and Outcasts have declared war!
+Wolfskins and Outcasts have declared war!
+Brotherhood of the Woods and Outcasts have declared war!
+Hidden Hand and Outcasts have declared war!
+Lake Rats and Outcasts have declared war!
+Embers of the Flame and Outcasts have declared war!
+Jawwal and Outcasts have declared war!
+Karakhergit and Outcasts have declared war!
+Forest People and Outcasts have declared war!
+Eleftheroi and Outcasts have declared war!
+Desert Cult and Roaming Brigands have declared war!
+Manhunters and Roaming Brigands have declared war!
+Makko and Roaming Brigands have declared war!
+Humar and Roaming Brigands have declared war!
+dwqqeqwe and Roaming Brigands have declared war!
+Sturgia and Roaming Brigands have declared war!
+Aserai and Roaming Brigands have declared war!
+Northern Empire and Roaming Brigands have declared war!
+Western Empire and Roaming Brigands have declared war!
+Southern Empire and Roaming Brigands have declared war!
+Vlandia and Roaming Brigands have declared war!
+Battania and Roaming Brigands have declared war!
+Ghilman and Roaming Brigands have declared war!
+Legion of the Betrayed and Roaming Brigands have declared war!
+Skolderbrotva and Roaming Brigands have declared war!
+Company of the Golden Boar and Roaming Brigands have declared war!
+Beni Zilal and Roaming Brigands have declared war!
+Wolfskins and Roaming Brigands have declared war!
+Brotherhood of the Woods and Roaming Brigands have declared war!
+Hidden Hand and Roaming Brigands have declared war!
+Lake Rats and Roaming Brigands have declared war!
+Embers of the Flame and Roaming Brigands have declared war!
+Jawwal and Roaming Brigands have declared war!
+Karakhergit and Roaming Brigands have declared war!
+Forest People and Roaming Brigands have declared war!
+Eleftheroi and Roaming Brigands have declared war!
+Barbarians and Desert Cult have declared war!
+Manhunters and Desert Cult have declared war!
+Makko and Desert Cult have declared war!
+Humar and Desert Cult have declared war!
+dwqqeqwe and Desert Cult have declared war!
+Sturgia and Desert Cult have declared war!
+Khuzait and Desert Cult have declared war!
+Northern Empire and Desert Cult have declared war!
+Western Empire and Desert Cult have declared war!
+Southern Empire and Desert Cult have declared war!
+Vlandia and Desert Cult have declared war!
+Battania and Desert Cult have declared war!
+Ghilman and Desert Cult have declared war!
+Legion of the Betrayed and Desert Cult have declared war!
+Skolderbrotva and Desert Cult have declared war!
+Company of the Golden Boar and Desert Cult have declared war!
+Wolfskins and Desert Cult have declared war!
+Brotherhood of the Woods and Desert Cult have declared war!
+Hidden Hand and Desert Cult have declared war!
+Lake Rats and Desert Cult have declared war!
+Embers of the Flame and Desert Cult have declared war!
+Jawwal and Desert Cult have declared war!
+Karakhergit and Desert Cult have declared war!
+Forest People and Desert Cult have declared war!
+Eleftheroi and Desert Cult have declared war!
+Manhunters and Barbarians have declared war!
+Makko and Barbarians have declared war!
+Humar and Barbarians have declared war!
+dwqqeqwe and Barbarians have declared war!
+Aserai and Barbarians have declared war!
+Khuzait and Barbarians have declared war!
+Northern Empire and Barbarians have declared war!
+Western Empire and Barbarians have declared war!
+Southern Empire and Barbarians have declared war!
+Vlandia and Barbarians have declared war!
+Battania and Barbarians have declared war!
+Ghilman and Barbarians have declared war!
+Legion of the Betrayed and Barbarians have declared war!
+Company of the Golden Boar and Barbarians have declared war!
+Beni Zilal and Barbarians have declared war!
+Wolfskins and Barbarians have declared war!
+Brotherhood of the Woods and Barbarians have declared war!
+Hidden Hand and Barbarians have declared war!
+Lake Rats and Barbarians have declared war!
+Embers of the Flame and Barbarians have declared war!
+Jawwal and Barbarians have declared war!
+Karakhergit and Barbarians have declared war!
+Forest People and Barbarians have declared war!
+Makko and Manhunters have declared war!
+Humar and Manhunters have declared war!
+Ghilman and Manhunters have declared war!
+Legion of the Betrayed and Manhunters have declared war!
+Company of the Golden Boar and Manhunters have declared war!
+Beni Zilal and Manhunters have declared war!
+Wolfskins and Manhunters have declared war!
+Brotherhood of the Woods and Manhunters have declared war!
+Hidden Hand and Manhunters have declared war!
+Lake Rats and Manhunters have declared war!
+Embers of the Flame and Manhunters have declared war!
+Jawwal and Manhunters have declared war!
+Karakhergit and Manhunters have declared war!
+Forest People and Manhunters have declared war!
+Humar and Makko have declared war!
+dwqqeqwe and Makko have declared war!
+Sturgia and Makko have declared war!
+Aserai and Makko have declared war!
+Northern Empire and Makko have declared war!
+Western Empire and Makko have declared war!
+Southern Empire and Makko have declared war!
+Vlandia and Makko have declared war!
+Battania and Makko have declared war!
+Ghilman and Makko have declared war!
+Legion of the Betrayed and Makko have declared war!
+Skolderbrotva and Makko have declared war!
+Company of the Golden Boar and Makko have declared war!
+Beni Zilal and Makko have declared war!
+Wolfskins and Makko have declared war!
+Brotherhood of the Woods and Makko have declared war!
+Hidden Hand and Makko have declared war!
+Lake Rats and Makko have declared war!
+Embers of the Flame and Makko have declared war!
+Jawwal and Makko have declared war!
+Karakhergit and Makko have declared war!
+Forest People and Makko have declared war!
+Eleftheroi and Makko have declared war!
+dwqqeqwe and Humar have declared war!
+Sturgia and Humar have declared war!
+Aserai and Humar have declared war!
+Northern Empire and Humar have declared war!
+Western Empire and Humar have declared war!
+Southern Empire and Humar have declared war!
+Vlandia and Humar have declared war!
+Battania and Humar have declared war!
+Ghilman and Humar have declared war!
+Legion of the Betrayed and Humar have declared war!
+Skolderbrotva and Humar have declared war!
+Company of the Golden Boar and Humar have declared war!
+Beni Zilal and Humar have declared war!
+Wolfskins and Humar have declared war!
+Brotherhood of the Woods and Humar have declared war!
+Hidden Hand and Humar have declared war!
+Lake Rats and Humar have declared war!
+Embers of the Flame and Humar have declared war!
+Jawwal and Humar have declared war!
+Karakhergit and Humar have declared war!
+Forest People and Humar have declared war!
+Eleftheroi and Humar have declared war!
+Day 6:
+Sturgia and Northern Empire have declared war!
+Day 10:
+Vlandia and Battania have declared war!
+Day 13:
+Company of the Golden Boar and Northern Liberators have made peace!
+Company of the Golden Boar and Redemptive Order have made peace!
+Company of the Golden Boar and Manhunters have made peace!
+Day 14:
+Battania and Vlandia have made peace!
+Day 16:
+Nevyansk Castle has been captured succesfully through siege, changing hands from Sturgia to Vlandia
+Day 20:
+Northern Empire and Sturgia have made peace!
+New Spawn: cs_forest_giant_trainer_group_1
+    Total Strength:98.42
+Chance of Spawn: 0.002
+Day 24:
+Sturgia and Battania have declared war!
+Day 25:
+Eleftheroi and Northern Liberators have made peace!
+Shibal Zumr Castle has been captured succesfully through siege, changing hands from Aserai to Southern Empire
+Day 27:
+Battania and Sturgia have made peace!
+Khuzait and Southern Empire have declared war!
+Day 29:
+Company of the Golden Boar and Northern Liberators have declared war!
+Company of the Golden Boar and Redemptive Order have declared war!
+Company of the Golden Boar and Manhunters have declared war!
+Day 32:
+Ab Comer Castle has been captured succesfully through siege, changing hands from Battania to Western Empire
+Day 33:
+Southern Empire and Khuzait have made peace!
+Day 35:
+Western Empire and Southern Empire have declared war!
+Day 37:
+Southern Empire and Western Empire have made peace!
+Day 39:
+Southern Empire and Aserai have made peace!
+Day 43:
+Ab Comer Castle has been captured succesfully through siege, changing hands from Western Empire to Battania
+Day 45:
+New Spawn: cs_vlandia_deserters_4
+    Total Strength:28.868
+Chance of Spawn: 0.0175
+Day 50:
+Nevyansk Castle has been captured succesfully through siege, changing hands from Vlandia to Sturgia
+Day 52:
+Southern Empire and Northern Empire have declared war!
+Day 54:
+Manhunters and Battanian Deserters have declared war!
+Manhunters and Aserai Deserters have declared war!
+Manhunters and Imperial Deserters have declared war!
+Manhunters and Khuzait Deserters have declared war!
+Manhunters and Vlandian Deserters have declared war!
+Manhunters and Sturgian Deserters have declared war!
+Manhunters and United Deserters have declared war!
+Manhunters and Southern Enslavers have declared war!
+Manhunters and Northern Liberators have declared war!
+Manhunters and Madmen have declared war!
+Manhunters and Harbingers of Wrath have declared war!
+Manhunters and Order of the Phoenix have declared war!
+Manhunters and Revolutionaries have declared war!
+Manhunters and Outcasts have declared war!
+Manhunters and Roaming Brigands have declared war!
+Manhunters and Desert Cult have declared war!
+Manhunters and Barbarians have declared war!
+Ghilman and Manhunters have declared war!
+Legion of the Betrayed and Manhunters have declared war!
+Company of the Golden Boar and Manhunters have declared war!
+Manhunters and Makko have declared war!
+Manhunters and Humar have declared war!
+Day 60:
+Redemptive Order and Madmen have declared war!
+Order of the Phoenix and Madmen have declared war!
+Manhunters and Madmen have declared war!
+dwqqeqwe and Madmen have declared war!
+Sturgia and Madmen have declared war!
+Aserai and Madmen have declared war!
+Khuzait and Madmen have declared war!
+Northern Empire and Madmen have declared war!
+Western Empire and Madmen have declared war!
+Southern Empire and Madmen have declared war!
+Vlandia and Madmen have declared war!
+Battania and Madmen have declared war!
+Ghilman and Madmen have declared war!
+Legion of the Betrayed and Madmen have declared war!
+Skolderbrotva and Madmen have declared war!
+Company of the Golden Boar and Madmen have declared war!
+Day 62:
+Gaos Castle has been captured succesfully through siege, changing hands from Northern Empire to Southern Empire
+Day 65:
+Aserai and Vlandia have declared war!
+Day 68:
+Vlandia and Sturgia have made peace!
+Day 75:
+New Spawn: cs_forest_giant_trainer_group_1
+    Total Strength:116.28
+Chance of Spawn: 0.002
+Legion of the Betrayed and Northern Liberators have made peace!
+Legion of the Betrayed and Redemptive Order have made peace!
+Legion of the Betrayed and Manhunters have made peace!
+Day 77:
+Epinosa Castle has been captured succesfully through siege, changing hands from Northern Empire to Khuzait
+Day 79:
+Southern Empire and Northern Empire have made peace!
+Day 82:
+Sturgia and Battania have declared war!
+Battania and Western Empire have made peace!
+Day 83:
+New Spawn: cs_southern_giant_recruit_enslavers_1
+    Total Strength:144.352
+Chance of Spawn: 0.008
+Day 87:
+Aserai and Vlandia have made peace!
+Day 89:
+Sturgia and Vlandia have declared war!
+Day 91:
+New Spawn: cs_united_deserters_1
+    Total Strength:141.52
+Chance of Spawn: 0.011
+Day 93:
+Legion of the Betrayed and Northern Liberators have declared war!
+Legion of the Betrayed and Redemptive Order have declared war!
+Legion of the Betrayed and Manhunters have declared war!
+Battania and Sturgia have made peace!
+Day 96:
+Western Empire and Vlandia have declared war!
+Day 97:
+Epinosa Castle has been captured succesfully through siege, changing hands from Khuzait to Northern Empire
+Day 98:
+Lake Rats and Northern Liberators have made peace!
+Lake Rats and Redemptive Order have made peace!
+Lake Rats and Order of the Phoenix have made peace!
+Day 99:
+Eleftheroi and Order of the Phoenix have made peace!
+Day 101:
+Jawwal and Northern Liberators have made peace!
+Jawwal and Redemptive Order have made peace!
+Day 103:
+Amprela has been captured succesfully through siege, changing hands from Northern Empire to Khuzait
+Day 104:
+Redemptive Order and Northern Liberators have made peace!
+Redemptive Order and Ghilman have made peace!
+Redemptive Order and Legion of the Betrayed have made peace!
+Redemptive Order and Company of the Golden Boar have made peace!
+Redemptive Order and Beni Zilal have made peace!
+Redemptive Order and Wolfskins have made peace!
+Redemptive Order and Hidden Hand have made peace!
+Redemptive Order and Embers of the Flame have made peace!
+Redemptive Order and Karakhergit have made peace!
+Redemptive Order and Forest People have made peace!
+Vlandia and Sturgia have made peace!
+Day 105:
+Redemptive Order and Northern Liberators have declared war!
+Ghilman and Redemptive Order have declared war!
+Legion of the Betrayed and Redemptive Order have declared war!
+Company of the Golden Boar and Redemptive Order have declared war!
+Northern Empire and Khuzait have made peace!
+Day 112:
+Vlandia and Western Empire have made peace!
+Day 113:
+New Spawn: cs_southern_giant_recruit_enslavers_1
+    Total Strength:137.472
+Chance of Spawn: 0.008
+Day 114:
+New Spawn: cs_united_deserters_1
+    Total Strength:117.1
+Chance of Spawn: 0.011
+Southern Empire and Western Empire have declared war!
+Day 118:
+Battania and Western Empire have declared war!
+Day 125:
+Karakhergit and Southern Enslavers have made peace!
+Day 126:
+Northern Empire and Southern Empire have declared war!
+Day 127:
+Western Empire and Southern Empire have made peace!
+Day 133:
+Lageta has been captured succesfully through siege, changing hands from Western Empire to Battania
+Day 134:
+Gaos Castle has been captured succesfully through siege, changing hands from Southern Empire to Northern Empire
+Day 136:
+Sturgia and Battania have declared war!
+Legion of the Betrayed and Northern Liberators have made peace!
+Legion of the Betrayed and Redemptive Order have made peace!
+Legion of the Betrayed and Manhunters have made peace!
+Day 137:
+Company of the Golden Boar and Northern Liberators have made peace!
+Company of the Golden Boar and Redemptive Order have made peace!
+Company of the Golden Boar and Manhunters have made peace!
+Day 139:
+Karakhergit and Northern Liberators have made peace!
+Day 140:
+Khuzait and Northern Empire have declared war!
+Northern Empire and Southern Empire have made peace!
+Day 147:
+Sturgia and Battania have made peace!
+Day 151:
+Khuzait and Sturgia have declared war!
+Day 154:
+Vlandia and Sturgia have declared war!
+Day 156:
+Company of the Golden Boar and Northern Liberators have declared war!
+Company of the Golden Boar and Redemptive Order have declared war!
+Company of the Golden Boar and Manhunters have declared war!
+Day 157:
+Khuzait and Sturgia have made peace!
+Day 158:
+Western Empire and Northern Empire have declared war!
+Day 163:
+Uthelaim Castle has been captured succesfully through siege, changing hands from Battania to Western Empire
+Day 165:
+Southern Empire and Northern Empire have declared war!
+Day 167:
+Northern Empire and Western Empire have made peace!
+Day 174:
+Epinosa Castle has been captured succesfully through siege, changing hands from Northern Empire to Khuzait
+Legion of the Betrayed and Northern Liberators have declared war!
+Legion of the Betrayed and Redemptive Order have declared war!
+Legion of the Betrayed and Manhunters have declared war!
+Day 175:
+Southern Empire and Northern Empire have made peace!
+Day 179:
+Aserai and Battania have declared war!
+Day 181:
+New Spawn: cs_united_deserters_1
+    Total Strength:134.88
+Chance of Spawn: 0.011
+Day 182:
+Aserai and Battania have made peace!
+Day 183:
+Lageta has been captured succesfully through siege, changing hands from Battania to Western Empire
+Southern Empire and Western Empire have declared war!
+Battania and Western Empire have made peace!
+Day 190:
+Nevyansk Castle has been captured succesfully through siege, changing hands from Sturgia to Vlandia
+Legion of the Betrayed and Northern Liberators have made peace!
+Legion of the Betrayed and Redemptive Order have made peace!
+Legion of the Betrayed and Manhunters have made peace!
+Day 194:
+Lochana Castle has been captured succesfully through siege, changing hands from Northern Empire to Khuzait
+Day 197:
+Onica Castle has been captured succesfully through siege, changing hands from Western Empire to Southern Empire
+Day 198:
+Legion of the Betrayed and Northern Liberators have declared war!
+Legion of the Betrayed and Redemptive Order have declared war!
+Legion of the Betrayed and Manhunters have declared war!
+Day 201:
+Syratos Castle has been captured succesfully through siege, changing hands from Northern Empire to Khuzait
+Day 209:
+Morenia Castle has been captured succesfully through siege, changing hands from Southern Empire to Western Empire
+Day 213:
+Western Empire and Southern Empire have made peace!
+Day 217:
+Brotherhood of the Woods and Northern Liberators have made peace!
+Brotherhood of the Woods and Redemptive Order have made peace!
+Day 219:
+New Spawn: cs_how_doomhost_group_1
+    Total Strength:672.3679
+Chance of Spawn: 0.001
+Vlandia and Sturgia have made peace!
+Day 220:
+Khuzait and Northern Empire have made peace!
+Day 221:
+Western Empire and Battania have declared war!
+Day 231:
+Sturgia and Battania have declared war!
+Day 235:
+Uthelaim Castle has been captured succesfully through siege, changing hands from Western Empire to Battania
+Day 237:
+Northern Empire and Western Empire have declared war!
+Day 239:
+Ab Comer Castle has been captured succesfully through siege, changing hands from Battania to Western Empire
+Day 241:
+Sturgia and Battania have made peace!
+Battania and Western Empire have made peace!
+Day 246:
+Khuzait and Northern Empire have declared war!
+Day 248:
+Western Empire and Northern Empire have made peace!
+Aserai and Western Empire have declared war!
+Day 251:
+Ghilman and Northern Liberators have made peace!
+Ghilman and Redemptive Order have made peace!
+Ghilman and Manhunters have made peace!
+Day 260:
+Myzea has been captured succesfully through siege, changing hands from Northern Empire to Khuzait
+Day 261:
+Aserai and Western Empire have made peace!
+Day 266:
+Southern Empire and Khuzait have declared war!
+Day 267:
+Northern Empire and Khuzait have made peace!
+New Spawn: cs_united_deserters_1
+    Total Strength:116.48
+Chance of Spawn: 0.011
+Day 268:
+Northern Empire and Southern Empire have declared war!
+Khuzait and Southern Empire have made peace!
+Day 270:
+Sturgia and Vlandia have declared war!
+Western Empire and Battania have declared war!
+Day 275:
+Gaos Castle has been captured succesfully through siege, changing hands from Northern Empire to Southern Empire
+Day 279:
+Northern Empire and Southern Empire have made peace!
+Day 282:
+Aserai and Southern Empire have declared war!
+Day 285:
+Ab Comer Castle has been captured succesfully through siege, changing hands from Western Empire to Battania
+Veron Castle has been captured succesfully through siege, changing hands from Western Empire to Battania
+Day 288:
+Northern Empire and Sturgia have declared war!
+Sturgia and Northern Empire have made peace!
+Khuzait and Northern Empire have declared war!
+Day 292:
+New Spawn: cs_northern_recruit_enslavers_3
+    Total Strength:56.432
+Chance of Spawn: 0.02
+Day 294:
+Lavenia Castle has been captured succesfully through siege, changing hands from Southern Empire to Aserai
+Southern Empire and Aserai have made peace!
+Day 296:
+New Spawn: cs_mass_peasant_revolt_1
+    Total Strength:261.884
+Chance of Spawn: 0.002168915
+Day 297:
+New Spawn: cs_barbarian_raiders_5
+    Total Strength:64.24001
+Chance of Spawn: 0.018
+Day 304:
+Vlandia and Sturgia have made peace!
+Day 306:
+Southern Empire and Western Empire have declared war!
+Day 307:
+Southern Empire and Western Empire have made peace!
+Day 309:
+Hertogea Castle has been captured succesfully through siege, changing hands from Western Empire to Battania
+Day 310:
+Aserai and Western Empire have declared war!
+Battania and Western Empire have made peace!
+Day 312:
+Forest People and Southern Enslavers have made peace!
+Day 316:
+Sturgia and Northern Empire have declared war!
+Day 317:
+Atrion Castle has been captured succesfully through siege, changing hands from Northern Empire to Khuzait
+Day 318:
+Morenia Castle has been captured succesfully through siege, changing hands from Western Empire to Aserai
+Northern Empire and Sturgia have made peace!
+Day 330:
+Aserai and Western Empire have made peace!
+Day 334:
+Argoron has been captured succesfully through siege, changing hands from Northern Empire to Khuzait
+New Spawn: cs_united_deserters_1
+    Total Strength:132.1
+Chance of Spawn: 0.011
+Day 335:
+Khuzait and Northern Empire have made peace!
+Day 348:
+Battania and Sturgia have declared war!
+Day 356:
+Battania and Sturgia have made peace!
+Day 357:
+Battania and Aserai have declared war!
+Day 358:
+Western Empire and Southern Empire have declared war!
+Day 361:
+Ghilman and Northern Liberators have declared war!
+Ghilman and Redemptive Order have declared war!
+Ghilman and Manhunters have declared war!
+Western Empire and Battania have declared war!
+Day 362:
+Aserai and Battania have made peace!
+Sturgia and Vlandia have declared war!
+Day 363:
+Brotherhood of the Woods and Southern Enslavers have made peace!
+Day 366:
+Western Empire and Southern Empire have made peace!
+Day 371:
+Gersegos Castle has been captured succesfully through siege, changing hands from Western Empire to Battania
+Day 377:
+Garontor Castle has been captured succesfully through siege, changing hands from Western Empire to Battania
+Day 379:
+Southern Empire and Battania have declared war!
+Aserai and Vlandia have declared war!
+Day 380:
+Western Empire and Vlandia have declared war!
+Day 382:
+Hertogea Castle has been captured succesfully through siege, changing hands from Battania to Western Empire
+Day 383:
+Southern Empire and Battania have made peace!
+Day 384:
+Vlandia and Western Empire have made peace!
+Day 385:
+New Spawn: cs_sturgia_deserters_4
+    Total Strength:32.98
+Chance of Spawn: 0.0175
+Jawwal and Order of the Phoenix have made peace!
+Day 386:
+Gersegos Castle has been captured succesfully through siege, changing hands from Battania to Western Empire
+Day 387:
+Aserai and Vlandia have made peace!
+Day 388:
+Southern Empire and Western Empire have declared war!
+Day 389:
+Northern Empire and Western Empire have declared war!
+Battania and Western Empire have made peace!
+Day 390:
+New Spawn: cs_roaming_arena_outlaws_1
+    Total Strength:33.8
+Chance of Spawn: 0.02
+Day 391:
+New Spawn: cs_southern_giant_recruit_enslavers_1
+    Total Strength:179.872
+Chance of Spawn: 0.008
+Day 395:
+Northern Empire and Western Empire have made peace!
+Day 399:
+Vlandia and Sturgia have made peace!
+Day 400:
+New Spawn: cs_mass_peasant_revolutionary_revolt_1
+    Total Strength:547.18
+Chance of Spawn: 0.001686248
+Day 402:
+New Spawn: cs_sturgia_deserters_2
+    Total Strength:38.56
+Chance of Spawn: 0.0175
+Day 404:
+Southern Empire and Western Empire have made peace!
+Day 405:
+Aserai and Southern Empire have declared war!
+Day 407:
+Khuzait and Western Empire have declared war!
+Day 408:
+Southern Enslavers and Redemptive Order have made peace!
+Southern Enslavers and Manhunters have made peace!
+Southern Enslavers and dwqqeqwe have made peace!
+Southern Enslavers and Ghilman have made peace!
+Southern Enslavers and Legion of the Betrayed have made peace!
+Southern Enslavers and Skolderbrotva have made peace!
+Southern Enslavers and Company of the Golden Boar have made peace!
+Southern Enslavers and Beni Zilal have made peace!
+Southern Enslavers and Wolfskins have made peace!
+Southern Enslavers and Lake Rats have made peace!
+Southern Enslavers and Jawwal have made peace!
+Day 409:
+Redemptive Order and Southern Enslavers have declared war!
+Manhunters and Southern Enslavers have declared war!
+dwqqeqwe and Southern Enslavers have declared war!
+Ghilman and Southern Enslavers have declared war!
+Legion of the Betrayed and Southern Enslavers have declared war!
+Skolderbrotva and Southern Enslavers have declared war!
+Company of the Golden Boar and Southern Enslavers have declared war!
+Day 417:
+New Spawn: cs_mountain_raider_boss_squad_template_1
+    Total Strength:104.248
+Chance of Spawn: 0.0025
+Day 420:
+Southern Empire and Aserai have made peace!
+Vlandia and Western Empire have declared war!
+Vlandia and Western Empire have made peace!
+Day 422:
+Battania and Western Empire have declared war!
+Skolderbrotva and Southern Enslavers have made peace!
+Day 423:
+Khuzait and Western Empire have made peace!
+Day 426:
+New Spawn: cs_roaming_arena_outlaws_1
+    Total Strength:20.8
+Chance of Spawn: 0.02
+Day 429:
+New Spawn: cs_united_deserters_1
+    Total Strength:252.7
+Chance of Spawn: 0.011
+Day 430:
+Sturgia and Western Empire have declared war!
+Day 431:
+Western Empire and Sturgia have made peace!
+Day 432:
+Southern Empire and Western Empire have declared war!
+Sturgia and Vlandia have declared war!
+Day 436:
+Battania and Western Empire have made peace!
+Day 441:
+New Spawn: cs_forest_giant_trainer_group_1
+    Total Strength:115.62
+Chance of Spawn: 0.002
+Day 443:
+Western Empire and Southern Empire have made peace!
+Khuzait and Southern Empire have declared war!
+Day 444:
+Aserai and Southern Empire have declared war!
+Day 448:
+Northern Empire and Khuzait have declared war!
+Day 449:
+Southern Empire and Aserai have made peace!
+Day 450:
+Skolderbrotva and Southern Enslavers have declared war!
+Khuzait and Southern Empire have made peace!
+Day 453:
+Western Empire and Vlandia have declared war!
+Day 454:
+Vlandia and Western Empire have made peace!
+Day 460:
+Battania and Vlandia have declared war!
+Day 461:
+Argoron has been captured succesfully through siege, changing hands from Khuzait to Northern Empire
+Day 462:
+Western Empire and Northern Empire have declared war!
+Battania and Vlandia have made peace!
+Western Empire and Battania have declared war!
+Day 463:
+Northern Empire and Western Empire have made peace!
+Day 466:
+Southern Empire and Northern Empire have declared war!
+Day 467:
+Saneopa has been captured succesfully through siege, changing hands from Northern Empire to Khuzait
+Day 469:
+Northern Empire and Southern Empire have made peace!
+Day 470:
+Gersegos Castle has been captured succesfully through siege, changing hands from Western Empire to Battania
+Day 473:
+Southern Empire and Khuzait have declared war!
+Day 475:
+Northern Empire and Khuzait have made peace!
+Day 484:
+Aserai and Southern Empire have declared war!
+Day 485:
+Khuzait and Southern Empire have made peace!
+Day 486:
+Nevyansk Castle has been captured succesfully through siege, changing hands from Vlandia to Sturgia
+Vlandia and Sturgia have made peace!
+Day 490:
+Gersegos Castle has been captured succesfully through siege, changing hands from Battania to Western Empire
+Day 494:
+Veron Castle has been captured succesfully through siege, changing hands from Battania to Western Empire
+Day 495:
+Gersegos Castle has been captured succesfully through siege, changing hands from Western Empire to Battania
+Day 497:
+Sturgia and Battania have declared war!
+Day 503:
+Vlandia and Battania have declared war!
+Battania and Vlandia have made peace!
+Battania and Sturgia have made peace!
+Day 505:
+Aserai and Southern Empire have made peace!
+Day 509:
+Gersegos Castle has been captured succesfully through siege, changing hands from Battania to Western Empire
+Day 511:
+Garontor Castle has been captured succesfully through siege, changing hands from Battania to Western Empire
+Day 513:
+Veron Castle has been captured succesfully through siege, changing hands from Western Empire to Battania
+New Spawn: cs_roaming_arena_outlaws_1
+    Total Strength:24.7
+Chance of Spawn: 0.02
+Day 520:
+Veron Castle has been captured succesfully through siege, changing hands from Battania to Western Empire
+New Spawn: cs_northern_recruit_enslavers_3
+    Total Strength:69.592
+Chance of Spawn: 0.02
+Day 526:
+Gersegos Castle has been captured succesfully through siege, changing hands from Western Empire to Battania
+Day 532:
+New Spawn: cs_northern_recruit_enslavers_3
+    Total Strength:53.112
+Chance of Spawn: 0.02
+Day 533:
+New Spawn: cs_cleansing_group_1
+    Total Strength:226.724
+Chance of Spawn: 0.001
+Khuzait and Battania have declared war!
+Day 535:
+Western Empire and Battania have made peace!
+Day 541:
+New Spawn: cs_united_deserters_1
+    Total Strength:177.26
+Chance of Spawn: 0.011
+Day 546:
+Southern Empire and Khuzait have declared war!
+Aserai and Battania have declared war!
+Battania and Khuzait have made peace!
+Day 548:
+New Spawn: cs_roaming_arena_outlaws_2
+    Total Strength:52
+Chance of Spawn: 0.02
+Day 549:
+Western Empire and Khuzait have declared war!
+Khuzait and Western Empire have made peace!
+Day 550:
+Sturgia and Khuzait have declared war!
+New Spawn: cs_roaming_arena_outlaws_2
+    Total Strength:40.3
+Chance of Spawn: 0.02
+Day 551:
+Khuzait and Sturgia have made peace!
+Day 554:
+Northern Empire and Khuzait have declared war!
+Day 555:
+Gaos Castle has been captured succesfully through siege, changing hands from Southern Empire to Khuzait
+Day 561:
+Khuzait and Southern Empire have made peace!
+Day 564:
+Aserai and Battania have made peace!
+Day 566:
+Aserai and Southern Empire have declared war!
+Day 567:
+New Spawn: cs_ro_crusade_group_1
+    Total Strength:1033.092
+Chance of Spawn: 0.001
+Day 568:
+Western Empire and Aserai have declared war!
+Day 569:
+Sturgia and Vlandia have declared war!
+Day 570:
+Southern Empire and Aserai have made peace!
+Day 573:
+Saneopa has been captured succesfully through siege, changing hands from Khuzait to Northern Empire
+Day 576:
+Battania and Northern Empire have declared war!
+Day 579:
+Northern Empire and Battania have made peace!
+Day 580:
+Western Empire and Aserai have made peace!
+Southern Empire and Western Empire have declared war!
+Battania and Western Empire have declared war!
+Day 588:
+Western Empire and Battania have made peace!
+Gaos Castle has been captured succesfully through siege, changing hands from Khuzait to Northern Empire
+Day 593:
+Rhotae has been captured succesfully through siege, changing hands from Western Empire to Southern Empire
+Day 595:
+Aserai and Southern Empire have declared war!
+Day 596:
+Western Empire and Southern Empire have made peace!
+Day 597:
+Battania and Sturgia have declared war!
+Day 599:
+Argoron has been captured succesfully through siege, changing hands from Northern Empire to Khuzait
+Day 600:
+Northern Empire and Khuzait have made peace!
+Day 601:
+Sturgia and Battania have made peace!
+Day 607:
+Nevyansk Castle has been captured succesfully through siege, changing hands from Sturgia to Vlandia
+Day 608:
+Western Empire and Aserai have declared war!
+Day 611:
+Southern Empire and Aserai have made peace!
+Day 614:
+Northern Empire and Battania have declared war!
+Battania and Northern Empire have made peace!
+Day 617:
+Western Empire and Sturgia have declared war!
+Sturgia and Western Empire have made peace!
+Battania and Vlandia have declared war!
+Day 618:
+Khuzait and Sturgia have declared war!
+Western Empire and Battania have declared war!
+Battania and Vlandia have made peace!
+Day 619:
+Tubilis Castle has been captured succesfully through siege, changing hands from Aserai to Western Empire
+Northern Empire and Sturgia have declared war!
+Northern Empire and Sturgia have made peace!
+Southern Empire and Western Empire have declared war!
+Aserai and Western Empire have made peace!
+Vlandia and Sturgia have made peace!
+Day 622:
+New Spawn: cs_southern_giant_recruit_enslavers_1
+    Total Strength:166.632
+Chance of Spawn: 0.008
+Day 623:
+New Spawn: cs_mass_peasant_revolt_1
+    Total Strength:616.436
+Chance of Spawn: 0.001992134
+New Spawn: cs_roaming_arena_outlaws_1
+    Total Strength:26
+Chance of Spawn: 0.02
+Day 629:
+Hertogea Castle has been captured succesfully through siege, changing hands from Western Empire to Southern Empire
+Day 630:
+Sturgia and Khuzait have made peace!
+Day 634:
+Western Empire and Southern Empire have made peace!
+Day 635:
+New Spawn: cs_forest_giant_trainer_group_1
+    Total Strength:172.74
+Chance of Spawn: 0.002
+Day 637:
+Veron Castle has been captured succesfully through siege, changing hands from Western Empire to Battania
+Day 638:
+Aserai and Southern Empire have declared war!
+Day 640:
+Sturgia and Northern Empire have declared war!
+Sturgia and Northern Empire have made peace!
+Vlandia and Battania have declared war!
+Battania and Western Empire have made peace!
+Day 642:
+Sturgia and Vlandia have declared war!
+Day 646:
+Vlandia and Battania have made peace!
+Day 648:
+Morenia Castle has been captured succesfully through siege, changing hands from Aserai to Southern Empire
+Day 653:
+Nevyansk Castle has been captured succesfully through siege, changing hands from Vlandia to Sturgia
+Day 654:
+Battania and Aserai have declared war!
+Day 657:
+Southern Empire and Aserai have made peace!
+Day 658:
+Aserai and Battania have made peace!
+Day 659:
+Vlandia and Aserai have declared war!
+Day 660:
+Aserai and Vlandia have made peace!
+Day 665:
+Western Empire and Battania have declared war!
+Day 670:
+New Spawn: cs_barbarian_exodus_1
+    Total Strength:403.84
+Chance of Spawn: 0.001
+Day 672:
+New Spawn: cs_united_deserters_1
+    Total Strength:114.5
+Chance of Spawn: 0.011
+Day 675:
+Nevyansk Castle has been captured succesfully through siege, changing hands from Sturgia to Vlandia
+Day 676:
+Khuzait and Sturgia have declared war!
+Day 678:
+New Spawn: cs_forest_giant_trainer_group_1
+    Total Strength:110.66
+Chance of Spawn: 0.002
+Aserai and Southern Empire have declared war!
+Day 680:
+Vlandia and Sturgia have made peace!
+Day 681:
+Khuzait and Battania have declared war!
+Day 684:
+Western Empire and Battania have made peace!
+Day 685:
+Sturgia and Khuzait have made peace!
+Vlandia and Western Empire have declared war!
+Day 686:
+Sturgia and Battania have declared war!
+New Spawn: cs_united_deserters_1
+    Total Strength:194.52
+Chance of Spawn: 0.011
