@@ -56,7 +56,7 @@ namespace CustomSpawns.Dialogues
                     delegate
                     {
                         this.EvaluateDialogueConsequence(d);
-                    });
+                    }); //TODO add in priority value here.
                 }
                 else
                 {

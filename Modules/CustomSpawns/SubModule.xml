@@ -1,7 +1,7 @@
  <Module>
      <Name value="CustomSpawns"/>
      <Id value="CustomSpawns"/>
-     <Version value="v1.4.5"/>
+     <Version value="v1.4.4"/>
      <SingleplayerModule value="true"/>
      <MultiplayerModule value="false"/>
      <DependedModules>
@@ -62,6 +62,15 @@
                 <GameType value = "EditorGame"/>
         	</IncludedGameTypes>
         </XmlNode>
+		<XmlNode>                
+			<XmlName id="EquipmentRosters" path="CustomSpawns_equipment_sets"/>
+			<IncludedGameTypes>
+				<GameType value = "Campaign"/>
+				<GameType value = "CampaignStoryMode"/>
+				<GameType value = "CustomGame"/>
+				<GameType value = "EditorGame"/>
+			</IncludedGameTypes>
+		</XmlNode>  
         <XmlNode>               
             <XmlName id="NPCCharacters" path="CustomLords"/>
             <IncludedGameTypes>
