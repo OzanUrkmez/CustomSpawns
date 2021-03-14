@@ -62,6 +62,15 @@
                 <GameType value = "EditorGame"/>
         	</IncludedGameTypes>
         </XmlNode>
+		<XmlNode>                
+			<XmlName id="EquipmentRosters" path="CustomSpawns_equipment_sets"/>
+			<IncludedGameTypes>
+				<GameType value = "Campaign"/>
+				<GameType value = "CampaignStoryMode"/>
+				<GameType value = "CustomGame"/>
+				<GameType value = "EditorGame"/>
+			</IncludedGameTypes>
+		</XmlNode> 
         <XmlNode>               
             <XmlName id="NPCCharacters" path="CustomLords"/>
             <IncludedGameTypes>
