@@ -1,0 +1,74 @@
+<Module>
+    <Name value="CustomSpawns"/>
+    <Id value="CustomSpawns"/>
+    <Version value="v1.3.2"/>
+    <SingleplayerModule value="true"/>
+    <MultiplayerModule value="false"/>
+    <DependedModules>
+        <DependedModule Id="Native"/>
+        <DependedModule Id="SandBoxCore"/>
+        <DependedModule Id="Sandbox"/>
+        <DependedModule Id="CustomBattle"/>
+        <DependedModule Id="StoryMode" />
+    </DependedModules>
+    <SubModules>
+        <SubModule>
+            <Name value="CustomSpawns"/>
+            <DLLName value="CustomSpawns.dll"/>
+            <SubModuleClassType value="CustomSpawns.Main"/>
+            <Tags>
+                <Tag key="DedicatedServerType" value="none" />
+                <Tag key="IsNoRenderModeElement" value="false" />
+            </Tags>
+        </SubModule>
+        <SubModule>
+            <Name value="MCMv3 Integrated Loader"/>
+            <DLLName value="MCMv3.dll"/>
+            <SubModuleClassType value="MCM.IntegratedLoaderSubModule"/>
+            <Tags>
+                <Tag key="DedicatedServerType" value="none" />
+                <Tag key="IsNoRenderModeElement" value="false" />
+            </Tags>
+        </SubModule>
+    </SubModules>
+    <Xmls>
+        <XmlNode>
+            <XmlName path = "CustomTroopTemplates" id = "partyTemplates"/>
+            <IncludedGameTypes>
+                <GameType value="Campaign"/>
+                <GameType value="CampaignStoryMode"/>
+                <GameType value="CustomGame"/>
+            </IncludedGameTypes>
+        </XmlNode>
+        <XmlNode>
+            <XmlName path = "CustomTroops" id = "NPCCharacters"/>
+            <IncludedGameTypes>
+                <GameType value="Campaign"/>
+                <GameType value="CampaignStoryMode"/>
+                <GameType value="CustomGame"/>
+            </IncludedGameTypes>
+        </XmlNode>
+        <XmlNode>
+            <XmlName id="NPCCharacters" path="CustomLords"/>
+            <IncludedGameTypes>
+                <GameType value = "Campaign"/>
+                <GameType value = "CampaignStoryMode"/>
+            </IncludedGameTypes>
+        </XmlNode>
+        <XmlNode>
+            <XmlName id="Heroes" path="CustomHeroes"/>
+            <IncludedGameTypes>
+                <GameType value = "Campaign"/>
+                <GameType value = "CampaignStoryMode"/>
+            </IncludedGameTypes>
+        </XmlNode>
+        <XmlNode>
+            <XmlName path = "CustomFactions" id = "Factions"/>
+            <IncludedGameTypes>
+                <GameType value="Campaign"/>
+                <GameType value="CampaignStoryMode"/>
+                <GameType value="CustomGame"/>
+            </IncludedGameTypes>
+        </XmlNode>
+    </Xmls>
+</Module>

@@ -1,0 +1,44 @@
+-Addition of items to custom spawns and parties, such as horses to make them travel faster.
+-Ability to add preconditions and chance modifiers, such as one dependent on loyalty or stability of settlements or factions
+-customize base hp etc
+-addition of conditional number of horses, such as for 50% of troops etc
+-spawn in/around settlements etc
+-checks like IsStarving can be checked to spawn things when they are true. There are so many flags like that!
+-message where revolts etc. are! big events should also tell of where they are happening
+-revolts etc more likely to happen to places with high adversity, under siege, frequently raided etc
+-more complicated spawn rolls and such
+-spawns shall be in different factions, and will be able to attack each other etc.
+-make faces of desert cult more varied
+-better peasant troop trees!
+-add variance to barbarians
+-localized peasant revolts etc. more specific upgrade trees. improve their troops etc. 
+-ADD MORE VARIED TROOPS!!
+-search for hideouts near certain cultures/settlements etc
+-manhunters!
+-infighting between spawns. So different factions
+-Custom dialogue
+-custom loot
+-specific settlement spawning
+-Custom spawn change probabilities based on loyalty etc. For exmaple for peasant revolters! yes yes
+-make revolters patrol around the place they have revolted in!
+-add "clean" API install for other mods to use
+-days passed modifiers
+
+
+-later, build an API that allows for people to directly interact with your code so that they can implement their own checks.
+-add safe guard for AI registration checks
+
+-when ready, share github link
+-LOOK MORE INTO AI BEHAVIOR. There seems to be a join party behaviour! There also seems to be an escort party behaviour!
+-possible power level bug with custom troops?
+-more complex AI behaviour! (slavers actually travelling from parts of the land and if they succeed something happens?)
+-custom spawns that spawn depending on other spawns. Maybe join them etc!
+
+ADD MORE TUTORIALS ETC!! Caution people about overriding base-game upgrade trees. It is doable just through XML but very very precarious
+
+-Add hideout, settlement etc. ONLY VERY LATER THIS WOULD BE VERY HARD
+-Bands of AI ganging up on a near settlement etc. Moving together, waiting for each other etc. This would actually be totally doable. Show messages etc too for these things sometimes. Can do boss parties raiding etc!
+
+
+EXTREME MAYBE:
+-complex behaviour by which small parties remember the approximate placement of an enemy party and if this small party meets with another they might try to hunt it together. communication simulation. of course they would go to last seen place. maybe but seems like a neat idea or a basis for one
