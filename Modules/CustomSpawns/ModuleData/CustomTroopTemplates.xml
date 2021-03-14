@@ -206,7 +206,7 @@
         <PartyTemplateStack min_value="5" max_value="16" troop="NPCCharacter.cs_sellsword" />
       </stacks>
     </MBPartyTemplate>
-    <MBPartyTemplate id="cs_razes_party" >
+    <MBPartyTemplate id="cs_razes" >
       <stacks>
         <PartyTemplateStack min_value="1" max_value="8" troop="NPCCharacter.cs_battania_slave" />
         <PartyTemplateStack min_value="1" max_value="8" troop="NPCCharacter.cs_empire_slave" />
@@ -215,7 +215,7 @@
         <PartyTemplateStack min_value="1" max_value="8" troop="NPCCharacter.cs_barbarian_slave" />
       </stacks>
     </MBPartyTemplate>
-    <MBPartyTemplate id="cs_björns_party" >
+    <MBPartyTemplate id="cs_björns" >
       <stacks>
         <PartyTemplateStack min_value="2" max_value="12" troop="NPCCharacter.cs_aserai_slave" />
         <PartyTemplateStack min_value="2" max_value="12" troop="NPCCharacter.cs_empire_slave" />
@@ -718,7 +718,7 @@
     </MBPartyTemplate>
 
     <!-- Makko -->
-    <MBPartyTemplate id="cs_makko_lord_party" >
+    <MBPartyTemplate id="cs_makko_lord" >
       <stacks>
         <PartyTemplateStack min_value="3" max_value="40" troop="NPCCharacter.cs_makko_levy" />
         <PartyTemplateStack min_value="25" max_value="60" troop="NPCCharacter.cs_makko_spearman" />
@@ -745,7 +745,7 @@
       </stacks>
     </MBPartyTemplate>
 
-    <MBPartyTemplate id="cs_makko_army_party" >
+    <MBPartyTemplate id="cs_makko_army" >
       <stacks>
         <PartyTemplateStack min_value="25" max_value="60" troop="NPCCharacter.cs_makko_spearman" />
         <PartyTemplateStack min_value="15" max_value="32" troop="NPCCharacter.cs_makko_shield_spearman" />
@@ -809,7 +809,7 @@
     </MBPartyTemplate>
 
 	<!-- Humar -->
-    <MBPartyTemplate id="cs_humar_lord_party" >
+    <MBPartyTemplate id="cs_humar_lord" >
       <stacks>
         <PartyTemplateStack min_value="3" max_value="35" troop="NPCCharacter.cs_humar_militia" />
         <PartyTemplateStack min_value="25" max_value="50" troop="NPCCharacter.cs_humar_spearman" />
@@ -833,7 +833,7 @@
       </stacks>
     </MBPartyTemplate>
 
-    <MBPartyTemplate id="cs_humar_army_party" >
+    <MBPartyTemplate id="cs_humar_army" >
       <stacks>
         <PartyTemplateStack min_value="25" max_value="50" troop="NPCCharacter.cs_humar_spearman" />
         <PartyTemplateStack min_value="25" max_value="35" troop="NPCCharacter.cs_humar_pikeman" />
@@ -855,7 +855,7 @@
       </stacks>
     </MBPartyTemplate>
 
-	<MBPartyTemplate id="cs_humar_scouting_party" >
+	<MBPartyTemplate id="cs_humar_scouting" >
       <stacks>
         <PartyTemplateStack min_value="1" max_value="1" troop="NPCCharacter.cs_humar_lancer" />
         <PartyTemplateStack min_value="6" max_value="20" troop="NPCCharacter.cs_humar_spearman" />
