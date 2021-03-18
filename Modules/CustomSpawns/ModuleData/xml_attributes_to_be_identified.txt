@@ -1,0 +1,2 @@
+CustomSpawns/ModuleData/CustomWanderers.xml: NPCCharacters.NPCCharacter.name
+CustomSpawns/ModuleData/wanderer_strings_CustomSpawns.xml: base.strings.string.text

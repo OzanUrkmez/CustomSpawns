@@ -5,7 +5,7 @@
      <SingleplayerModule value="true"/>
      <MultiplayerModule value="false"/>
      <DependedModules>
-         <DependedModule Id="Native" DependentVersion = "e1.5.8"/>eeee
+         <DependedModule Id="Native" DependentVersion = "e1.5.8"/>
          <DependedModule Id="SandBoxCore" DependentVersion = "e1.5.8"/>
          <DependedModule Id="Sandbox" DependentVersion = "e1.5.8"/>
          <DependedModule Id="CustomBattle" DependentVersion = "e1.5.8"/>
@@ -62,8 +62,24 @@
                 <GameType value = "EditorGame"/>
         	</IncludedGameTypes>
         </XmlNode>
-		<XmlNode>                
+        <XmlNode>
+        	<XmlName path = "CustomWanderers" id = "NPCCharacters"/>
+        	<IncludedGameTypes>
+				<GameType value="Campaign"/>
+                <GameType value="CampaignStoryMode"/>
+        	</IncludedGameTypes>
+        </XmlNode>
+		<XmlNode>
 			<XmlName id="EquipmentRosters" path="CustomSpawns_equipment_sets"/>
+			<IncludedGameTypes>
+				<GameType value = "Campaign"/>
+				<GameType value = "CampaignStoryMode"/>
+				<GameType value = "CustomGame"/>
+				<GameType value = "EditorGame"/>
+			</IncludedGameTypes>
+		</XmlNode> 
+		<XmlNode>
+			<XmlName id="EquipmentRosters" path="CustomWanderers_equipment_sets"/>
 			<IncludedGameTypes>
 				<GameType value = "Campaign"/>
 				<GameType value = "CampaignStoryMode"/>

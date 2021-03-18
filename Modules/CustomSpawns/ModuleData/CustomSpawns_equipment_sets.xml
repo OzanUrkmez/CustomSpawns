@@ -17,7 +17,7 @@
     <EquipmentSet civilian="true">
         <Equipment id="Item.aserai_noble_sword_3_t5" slot="Item0"/>
         <Equipment id="Item.turban" slot="Head"/>
-        <Equipment id="Item.light tunic" slot="Body"/>
+        <Equipment id="Item.light_tunic" slot="Body"/>
         <Equipment id="Item.eastern_leather_boots" slot="Leg"/>
     </EquipmentSet>
   </EquipmentRoster>
@@ -429,5 +429,4 @@
         <Equipment id="Item.peasant_pitchfork_1_t1" slot="Item0"/>
     </EquipmentSet>
   </EquipmentRoster>
-  
 </EquipmentRosters>

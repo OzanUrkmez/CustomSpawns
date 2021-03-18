@@ -316,7 +316,7 @@
   
   <NPCCharacter culture="Culture.mountain_bandits" default_group="Cavalry" id="cs_mountain_raider" level="11" name="{=P6Md9DpR}Mountain Raider" occupation="Bandit">
     <face>
-        <face_key_template value="BodyProperty.cs_mixed_folk" />
+        <face_key_template value="BodyProperty.villager_sturgia" />
       </face>
     <skills>
       <skill id="Athletics" value="90" />
@@ -461,7 +461,7 @@
   </NPCCharacter>
   <NPCCharacter culture="Culture.forest_bandits" default_group="Ranged" id="cs_forest_trainee" level="6" name="{=ZxmBdWTu}Bandit Trainee" occupation="Bandit">
     <face>
-      <face_key_template value="BodyProperty.forest_bandits_bandit" />
+      <face_key_template value="BodyProperty.villager_battania" />
     </face>
     <skills>
       <skill id="Athletics" value="30" />
@@ -541,7 +541,7 @@
   </NPCCharacter>
   <NPCCharacter culture="Culture.forest_bandits" default_group="Infantry" id="cs_forest_waylay" level="11" name="{=ZxmBdWTu}Forest Waylay" occupation="Bandit">
     <face>
-      <face_key_template value="BodyProperty.forest_bandits_bandit" />
+      <face_key_template value="BodyProperty.villager_battania" />
     </face>
     <skills>
       <skill id="Athletics" value="55" />

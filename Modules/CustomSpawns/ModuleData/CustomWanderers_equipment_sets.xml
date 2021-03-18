@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EquipmentRosters>
+  <EquipmentRoster id="cs_wanderer_phillus_template">
+    <EquipmentSet>
+        <Equipment id="Item.battania_axe_3_t5" slot="Item0"/>
+        <Equipment id="Item.fur_skirt" slot="Body"/>
+        <Equipment id="Item.battania_woodland_boots" slot="Leg"/>
+        <Equipment id="Item.rough_bearskin" slot="Cape"/>
+    </EquipmentSet>
+  </EquipmentRoster>
+  <EquipmentRoster id="cs_wanderer_phillus_civic">
+    <EquipmentSet civilian="true">
+        <Equipment id="Item.battania_axe_3_t5" slot="Item0"/>
+        <Equipment id="Item.fur_skirt" slot="Body"/>
+        <Equipment id="Item.battania_woodland_boots" slot="Leg"/>
+        <Equipment id="Item.rough_bearskin" slot="Cape"/>
+    </EquipmentSet>
+  </EquipmentRoster>
+</EquipmentRosters>

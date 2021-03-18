@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <strings>
+    <string id="prebackstory.cs_spc_wanderer_anopey" text="{=CSAnopeyText1}You want to hear a story? I got tales to tell! Sit down and listen." />
+    <string id="backstory_a.cs_spc_wanderer_anopey" text="{=CSAnopeyText2}Have you heard of the bug fixing wars of the past? No?" />
+    <string id="backstory_b.cs_spc_wanderer_anopey" text="{=CSAnopeyText3}Well, I was there when it happened. Cruel times!" />
+    <string id="backstory_c.cs_spc_wanderer_anopey" text="{=CSAnopeyText4}But I survived and fought every day against uneven odds." />
+    <string id="response_1.cs_spc_wanderer_anopey" text="{=CSAnopeyText5}Wow, you are an amazing veteran." />
+    <string id="response_2.cs_spc_wanderer_anopey" text="{=CSAnopeyText6}I don't care. Give update, plz!" />
+    <string id="backstory_d.cs_spc_wanderer_anopey" text="{=CSAnopeyText7}You seem like you need some assistance for your project. Let me aid you!" />
+	
+    <string id="prebackstory.cs_spc_wanderer_phillus" text="{=CSPhillusText1}You better not be a manhunter, though." />
+    <string id="backstory_a.cs_spc_wanderer_phillus" text="{=CSPhillusText2}I split skulls ever since I've been born!" />
+    <string id="backstory_b.cs_spc_wanderer_phillus" text="{=CSPhillusText3}If you think you are smarter than me, you are wrong. I outsmarted pigs when I was a child!" />
+    <string id="backstory_c.cs_spc_wanderer_phillus" text="{=CSPhillusText4}I have drunk from many skulls and I will drink from many more. So do not stand in my way when I find a nice head on my next preys shoulder." />
+    <string id="response_1.cs_spc_wanderer_phillus" text="{=CSPhillusText5}You seem like a funny one. Want to come with me?" />
+    <string id="response_2.cs_spc_wanderer_phillus" text="{=CSPhillusText6}You know I think gotta go. Farewell!" />
+    <string id="backstory_d.cs_spc_wanderer_phillus" text="{=CSPhillusText7}Of course!" />
+  </strings>
+</base>
