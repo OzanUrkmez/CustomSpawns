@@ -295,6 +295,10 @@
     <Compile Include="Config\ConfigLoader.cs" />
     <Compile Include="CampaignData\Implementations\DailyLogger.cs" />
     <Compile Include="CampaignData\Config\DailyLoggerConfig.cs" />
+    <Compile Include="Dialogues\DialogueAlgebra\DialogueCondition.cs" />
+    <Compile Include="Dialogues\DialogueAlgebra\DialogueConditionBare.cs" />
+    <Compile Include="Dialogues\DialogueAlgebra\DialogueConditionWithExtraStaticParams.cs" />
+    <Compile Include="Dialogues\DialogueConditions.cs" />
     <Compile Include="Dialogues\CustomSpawnsDialogueBehavior.cs" />
     <Compile Include="Dialogues\CustomSpawnsDialogueParams.cs" />
     <Compile Include="Data\DialogueData.cs" />
