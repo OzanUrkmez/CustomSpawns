@@ -5,7 +5,7 @@
      <SingleplayerModule value="true"/>
      <MultiplayerModule value="false"/>
      <DependedModules>
-         <DependedModule Id="Native" DependentVersion = "e1.5.8"/>
+         <DependedModule Id="Native" DependentVersion = "e1.5.8"/>eeee
          <DependedModule Id="SandBoxCore" DependentVersion = "e1.5.8"/>
          <DependedModule Id="Sandbox" DependentVersion = "e1.5.8"/>
          <DependedModule Id="CustomBattle" DependentVersion = "e1.5.8"/>
