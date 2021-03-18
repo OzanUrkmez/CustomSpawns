@@ -62,24 +62,8 @@
                 <GameType value = "EditorGame"/>
         	</IncludedGameTypes>
         </XmlNode>
-        <XmlNode>
-        	<XmlName path = "CustomWanderers" id = "NPCCharacters"/>
-        	<IncludedGameTypes>
-				<GameType value="Campaign"/>
-                <GameType value="CampaignStoryMode"/>
-        	</IncludedGameTypes>
-        </XmlNode>
 		<XmlNode>
 			<XmlName id="EquipmentRosters" path="CustomSpawns_equipment_sets"/>
-			<IncludedGameTypes>
-				<GameType value = "Campaign"/>
-				<GameType value = "CampaignStoryMode"/>
-				<GameType value = "CustomGame"/>
-				<GameType value = "EditorGame"/>
-			</IncludedGameTypes>
-		</XmlNode> 
-		<XmlNode>
-			<XmlName id="EquipmentRosters" path="CustomWanderers_equipment_sets"/>
 			<IncludedGameTypes>
 				<GameType value = "Campaign"/>
 				<GameType value = "CampaignStoryMode"/>
