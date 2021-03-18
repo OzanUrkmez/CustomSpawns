@@ -20,6 +20,15 @@
       <EquipmentRoster>
         <equipment id="Item.peasant_pitchfork_1_t1" slot="Item0" />
       </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.peasant_2haxe_1_t1" slot="Item0" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.peasant_hatchet_1_t1" slot="Item0" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.peasant_pitchfork_1_t1" slot="Item0" />
+      </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
   <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_decent_crazed_man" level="2" name="{=P6Md9DpR}Decent Crazed Man" occupation="Bandit">
@@ -39,6 +48,24 @@
       <upgrade_target id="NPCCharacter.cs_competent_crazed_man" />
     </upgrade_targets>
     <Equipments>
+      <EquipmentRoster>
+        <equipment id="Item.peasant_pitchfork_1_t1" slot="Item0" />
+        <equipment id="Item.throwing_stone" slot="Item1" />
+        <equipment id="Item.battania_mace_2_t2" slot="Item2" />
+        <equipment id="Item.burlap_sack_dress" slot="Body" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.peasant_2haxe_1_t1" slot="Item0" />
+        <equipment id="Item.throwing_stone" slot="Item1" />
+        <equipment id="Item.battania_mace_2_t2" slot="Item2" />
+        <equipment id="Item.burlap_sack_dress" slot="Body" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.peasant_hatchet_1_t1" slot="Item0" />
+        <equipment id="Item.throwing_stone" slot="Item1" />
+        <equipment id="Item.battania_mace_2_t2" slot="Item2" />
+        <equipment id="Item.burlap_sack_dress" slot="Body" />
+      </EquipmentRoster>
       <EquipmentRoster>
         <equipment id="Item.peasant_pitchfork_1_t1" slot="Item0" />
         <equipment id="Item.throwing_stone" slot="Item1" />
@@ -67,10 +94,23 @@
       <EquipmentRoster>
         <equipment id="Item.peasant_pitchfork_1_t1" slot="Item0" />
         <equipment id="Item.throwing_stone" slot="Item1" />
-        <equipment id="Item.battania_mace_2_t2" slot="Item2" />
-        <equipment id="Item.burlap_sack_dress" slot="Body" />
+        <equipment id="Item.battania_female_civil_b" slot="Body" />
+        <equipment id="Item.eastern_wrapped_armguards" slot="Gloves" />
+        <equipment id="Item.aserai_villager_female_headdress" slot="Head" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.peasant_pitchfork_1_t1" slot="Item0" />
+        <equipment id="Item.throwing_stone" slot="Item1" />
+        <equipment id="Item.sackcloth_tunic" slot="Body" />
         <equipment id="Item.eastern_wrapped_armguards" slot="Gloves" />
         <equipment id="Item.cloth_headwrap" slot="Head" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.peasant_2haxe_1_t1" slot="Item0" />
+        <equipment id="Item.throwing_stone" slot="Item1" />
+        <equipment id="Item.long_woolen_tunic" slot="Body" />
+        <equipment id="Item.eastern_wrapped_armguards" slot="Gloves" />
+        <equipment id="Item.head_piece" slot="Head" />
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
@@ -92,14 +132,40 @@
     </upgrade_targets>
     <Equipments>
       <EquipmentRoster>
-        <equipment id="Item.sturgia_2haxe_2_t5" slot="Item0" />
-        <equipment id="Item.throwing_stone" slot="Item1" />
-        <equipment id="Item.battania_mace_2_t2" slot="Item2" />
-        <equipment id="Item.battered_horsemans_kite_shield" slot="Item3" />
+        <equipment id="Item.battania_mace_2_t2" slot="Item0" />
+        <equipment id="Item.battered_horsemans_kite_shield" slot="Item1" />
+        <equipment id="Item.throwing_stone" slot="Item2" />
         <equipment id="Item.highland_cloth" slot="Body" />
         <equipment id="Item.eastern_wrapped_armguards" slot="Gloves" />
         <equipment id="Item.fur_hat" slot="Head" />
-        <equipment id="Item.female_hood" slot="Cape" />
+        <equipment id="Item.wrapped_scarf" slot="Cape" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.battania_mace_2_t2" slot="Item0" />
+        <equipment id="Item.throwing_stone" slot="Item1" />
+        <equipment id="Item.worn_kite_shield" slot="Item2" />
+        <equipment id="Item.highland_cloth" slot="Body" />
+        <equipment id="Item.eastern_wrapped_armguards" slot="Gloves" />
+        <equipment id="Item.vlandia_bandit_cape_b" slot="Head" />
+        <equipment id="Item.wrapped_scarf" slot="Cape" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.small_bit_axe_t2" slot="Item0" />
+        <equipment id="Item.throwing_stone" slot="Item1" />
+        <equipment id="Item.worn_kite_shield" slot="Item2" />
+        <equipment id="Item.highland_cloth" slot="Body" />
+        <equipment id="Item.eastern_wrapped_armguards" slot="Gloves" />
+        <equipment id="Item.headscarf" slot="Head" />
+        <equipment id="Item.battania_civil_cloak" slot="Cape" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.small_bit_axe_t2" slot="Item0" />
+        <equipment id="Item.throwing_stone" slot="Item1" />
+        <equipment id="Item.worn_kite_shield" slot="Item2" />
+        <equipment id="Item.highland_cloth" slot="Body" />
+        <equipment id="Item.eastern_wrapped_armguards" slot="Gloves" />
+        <equipment id="Item.wrapped_headcloth" slot="Head" />
+        <equipment id="Item.hood" slot="Cape" />
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
@@ -121,13 +187,53 @@
     </upgrade_targets>
     <Equipments>
       <EquipmentRoster>
-        <equipment id="Item.sturgia_2haxe_2_t5" slot="Item0" />
+        <equipment id="Item.laced_cloth_coif" slot="Item0" />
         <equipment id="Item.battania_mace_2_t2" slot="Item1" />
-        <equipment id="Item.battered_horsemans_kite_shield" slot="Item2" />
+        <equipment id="Item.worn_kite_shield" slot="Item2" />
+        <equipment id="Item.bandit_fur_a" slot="Body" />
+        <equipment id="Item.buttoned_leather_bracers" slot="Gloves" />
+        <equipment id="Item.womens_headwrap_c" slot="Head" />
+        <equipment id="Item.reinforced_suede_shoulders" slot="Cape" />
+        <equipment id="Item.ladys_shoe" slot="Leg" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.peasant_maul_t1_2" slot="Item0" />
+        <equipment id="Item.battania_mace_2_t2" slot="Item1" />
+        <equipment id="Item.worn_kite_shield" slot="Item2" />
         <equipment id="Item.bandit_fur_a" slot="Body" />
         <equipment id="Item.buttoned_leather_bracers" slot="Gloves" />
         <equipment id="Item.nordic_fur_cap" slot="Head" />
         <equipment id="Item.reinforced_suede_shoulders" slot="Cape" />
+        <equipment id="Item.ladys_shoe" slot="Leg" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.peasant_maul_t1_2" slot="Item0" />
+        <equipment id="Item.small_bit_axe_t2" slot="Item1" />
+        <equipment id="Item.worn_kite_shield" slot="Item2" />
+        <equipment id="Item.bandit_fur_a" slot="Body" />
+        <equipment id="Item.buttoned_leather_bracers" slot="Gloves" />
+        <equipment id="Item.womens_headwrap_c" slot="Head" />
+        <equipment id="Item.reinforced_suede_shoulders" slot="Cape" />
+        <equipment id="Item.ladys_shoe" slot="Leg" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.laced_cloth_coif" slot="Item0" />
+        <equipment id="Item.battania_mace_2_t2" slot="Item1" />
+        <equipment id="Item.worn_kite_shield" slot="Item2" />
+        <equipment id="Item.bandit_fur_a" slot="Body" />
+        <equipment id="Item.buttoned_leather_bracers" slot="Gloves" />
+        <equipment id="Item.tuareg" slot="Head" />
+        <equipment id="Item.battanian_leather_shoulder_a" slot="Cape" />
+        <equipment id="Item.ladys_shoe" slot="Leg" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.peasant_maul_t1_2" slot="Item0" />
+        <equipment id="Item.small_bit_axe_t2" slot="Item1" />
+        <equipment id="Item.worn_kite_shield" slot="Item2" />
+        <equipment id="Item.bandit_fur_a" slot="Body" />
+        <equipment id="Item.buttoned_leather_bracers" slot="Gloves" />
+        <equipment id="Item.womens_headwrap_c" slot="Head" />
+        <equipment id="Item.battanian_leather_shoulder_a" slot="Cape" />
         <equipment id="Item.ladys_shoe" slot="Leg" />
       </EquipmentRoster>
     </Equipments>
@@ -152,11 +258,44 @@
       <EquipmentRoster>
         <equipment id="Item.sturgia_2haxe_2_t5" slot="Item0" />
         <equipment id="Item.battania_mace_2_t2" slot="Item1" />
-        <equipment id="Item.battered_horsemans_kite_shield" slot="Item2" />
+        <equipment id="Item.bound_horsemans_kite_shield" slot="Item2" />
         <equipment id="Item.generic_javelin_1_t3" slot="Item3" />
         <equipment id="Item.bandit_fur_a" slot="Body" />
-        <equipment id="Item.buttoned_leather_bracers" slot="Gloves" />
+        <equipment id="Item.woven_leather_bracers" slot="Gloves" />
+        <equipment id="Item.roughhide_cap" slot="Head" />
+        <equipment id="Item.battanian_leather_shoulder_a" slot="Cape" />
+        <equipment id="Item.khuzait_curved_boots" slot="Leg" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.sturgia_2haxe_2_t5" slot="Item0" />
+        <equipment id="Item.battania_mace_2_t2" slot="Item1" />
+        <equipment id="Item.bound_horsemans_kite_shield" slot="Item2" />
+        <equipment id="Item.generic_javelin_1_t3" slot="Item3" />
+        <equipment id="Item.bandit_fur_a" slot="Body" />
+        <equipment id="Item.woven_leather_bracers" slot="Gloves" />
         <equipment id="Item.nordic_fur_cap" slot="Head" />
+        <equipment id="Item.reinforced_suede_shoulders" slot="Cape" />
+        <equipment id="Item.khuzait_curved_boots" slot="Leg" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.sturgia_2haxe_2_t5" slot="Item0" />
+        <equipment id="Item.small_bit_axe_t2" slot="Item1" />
+        <equipment id="Item.bound_horsemans_kite_shield" slot="Item2" />
+        <equipment id="Item.generic_javelin_1_t3" slot="Item3" />
+        <equipment id="Item.bandit_fur_a" slot="Body" />
+        <equipment id="Item.woven_leather_bracers" slot="Gloves" />
+        <equipment id="Item.leather_studdedhelm" slot="Head" />
+        <equipment id="Item.reinforced_suede_shoulders" slot="Cape" />
+        <equipment id="Item.khuzait_curved_boots" slot="Leg" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.sturgia_2haxe_2_t5" slot="Item0" />
+        <equipment id="Item.short_sword_t3" slot="Item1" />
+        <equipment id="Item.bound_horsemans_kite_shield" slot="Item2" />
+        <equipment id="Item.generic_javelin_1_t3" slot="Item3" />
+        <equipment id="Item.bandit_fur_a" slot="Body" />
+        <equipment id="Item.woven_leather_bracers" slot="Gloves" />
+        <equipment id="Item.tight_head_scarf" slot="Head" />
         <equipment id="Item.reinforced_suede_shoulders" slot="Cape" />
         <equipment id="Item.khuzait_curved_boots" slot="Leg" />
       </EquipmentRoster>
@@ -180,15 +319,59 @@
     </upgrade_targets>
     <Equipments>
       <EquipmentRoster>
-        <equipment id="Item.battania_polearm_1_t5" slot="Item0" />
-        <equipment id="Item.ambassador_sword_t3" slot="Item1" />
-        <equipment id="Item.battered_horsemans_kite_shield" slot="Item2" />
+        <equipment id="Item.vlandia_polearm_1_t5" slot="Item0" />
+        <equipment id="Item.imperial_axe_t3" slot="Item1" />
+        <equipment id="Item.bound_horsemans_kite_shield" slot="Item2" />
+        <equipment id="Item.generic_javelin_1_t3" slot="Item3" />
+        <equipment id="Item.battania_dress_c" slot="Body" />
+        <equipment id="Item.woven_leather_bracers" slot="Gloves" />
+        <equipment id="Item.cervelliere_over_arming_coif" slot="Head" />
+        <equipment id="Item.battanian_chainmail_shoulder_a" slot="Cape" />
+        <equipment id="Item.turndown_leather_boots" slot="Leg" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.vlandia_polearm_1_t5" slot="Item0" />
+        <equipment id="Item.imperial_axe_t3" slot="Item1" />
+        <equipment id="Item.bound_horsemans_kite_shield" slot="Item2" />
+        <equipment id="Item.generic_javelin_1_t3" slot="Item3" />
+        <equipment id="Item.empire_dress_b" slot="Body" />
+        <equipment id="Item.woven_leather_bracers" slot="Gloves" />
+        <equipment id="Item.cervelliere_over_arming_coif" slot="Head" />
+        <equipment id="Item.battanian_chainmail_shoulder_a" slot="Cape" />
+        <equipment id="Item.turndown_leather_boots" slot="Leg" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.vlandia_polearm_1_t5" slot="Item0" />
+        <equipment id="Item.imperial_axe_t3" slot="Item1" />
+        <equipment id="Item.bound_horsemans_kite_shield" slot="Item2" />
         <equipment id="Item.generic_javelin_1_t3" slot="Item3" />
         <equipment id="Item.vlandian_noble_woman_dress" slot="Body" />
-        <equipment id="Item.buttoned_leather_bracers" slot="Gloves" />
-        <equipment id="Item.nordic_fur_cap" slot="Head" />
-        <equipment id="Item.reinforced_suede_shoulders" slot="Cape" />
-        <equipment id="Item.khuzait_curved_boots" slot="Leg" />
+        <equipment id="Item.woven_leather_bracers" slot="Gloves" />
+        <equipment id="Item.cervelliere_over_arming_coif" slot="Head" />
+        <equipment id="Item.battanian_chainmail_shoulder_a" slot="Cape" />
+        <equipment id="Item.turndown_leather_boots" slot="Leg" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.vlandia_polearm_1_t5" slot="Item0" />
+        <equipment id="Item.imperial_axe_t3" slot="Item1" />
+        <equipment id="Item.bound_horsemans_kite_shield" slot="Item2" />
+        <equipment id="Item.generic_javelin_1_t3" slot="Item3" />
+        <equipment id="Item.vlandian_woman_dress" slot="Body" />
+        <equipment id="Item.woven_leather_bracers" slot="Gloves" />
+        <equipment id="Item.cervelliere_over_arming_coif" slot="Head" />
+        <equipment id="Item.battanian_chainmail_shoulder_a" slot="Cape" />
+        <equipment id="Item.turndown_leather_boots" slot="Leg" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.vlandia_polearm_1_t5" slot="Item0" />
+        <equipment id="Item.imperial_axe_t3" slot="Item1" />
+        <equipment id="Item.bound_horsemans_kite_shield" slot="Item2" />
+        <equipment id="Item.generic_javelin_1_t3" slot="Item3" />
+        <equipment id="Item.vlandian_corset_dress" slot="Body" />
+        <equipment id="Item.woven_leather_bracers" slot="Gloves" />
+        <equipment id="Item.cervelliere_over_arming_coif" slot="Head" />
+        <equipment id="Item.battanian_chainmail_shoulder_a" slot="Cape" />
+        <equipment id="Item.turndown_leather_boots" slot="Leg" />
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
@@ -210,15 +393,59 @@
     </upgrade_targets>
     <Equipments>
       <EquipmentRoster>
-        <equipment id="Item.battania_polearm_1_t5" slot="Item0" />
-        <equipment id="Item.ambassador_sword_t3" slot="Item1" />
-        <equipment id="Item.battered_horsemans_kite_shield" slot="Item2" />
+        <equipment id="Item.empire_polearm_2_t5" slot="Item0" />
+        <equipment id="Item.imperial_axe_t3" slot="Item1" />
+        <equipment id="Item.reinforced_flat_kite_shield" slot="Item2" />
         <equipment id="Item.generic_javelin_1_t3" slot="Item3" />
-        <equipment id="Item.leather_strips_over_padded_robe" slot="Body" />
-        <equipment id="Item.buttoned_leather_bracers" slot="Gloves" />
+        <equipment id="Item.scale_armor" slot="Body" />
+        <equipment id="Item.guarded_padded_vambrace" slot="Gloves" />
         <equipment id="Item.kettle_helmet_over_padded_coif" slot="Head" />
-        <equipment id="Item.reinforced_suede_shoulders" slot="Cape" />
-        <equipment id="Item.khuzait_curved_boots" slot="Leg" />
+        <equipment id="Item.aserai_horseman_shoulder" slot="Cape" />
+        <equipment id="Item.highland_leg_wrappings" slot="Leg" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.empire_polearm_2_t5" slot="Item0" />
+        <equipment id="Item.imperial_axe_t3" slot="Item1" />
+        <equipment id="Item.reinforced_flat_kite_shield" slot="Item2" />
+        <equipment id="Item.generic_javelin_1_t3" slot="Item3" />
+        <equipment id="Item.scale_armor" slot="Body" />
+        <equipment id="Item.guarded_padded_vambrace" slot="Gloves" />
+        <equipment id="Item.steppe_helmet" slot="Head" />
+        <equipment id="Item.aserai_horseman_shoulder" slot="Cape" />
+        <equipment id="Item.highland_leg_wrappings" slot="Leg" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.empire_polearm_2_t5" slot="Item0" />
+        <equipment id="Item.imperial_axe_t3" slot="Item1" />
+        <equipment id="Item.reinforced_flat_kite_shield" slot="Item2" />
+        <equipment id="Item.generic_javelin_1_t3" slot="Item3" />
+        <equipment id="Item.scale_armor" slot="Body" />
+        <equipment id="Item.guarded_padded_vambrace" slot="Gloves" />
+        <equipment id="Item.peaked_helmet_over_mail" slot="Head" />
+        <equipment id="Item.aserai_horseman_shoulder" slot="Cape" />
+        <equipment id="Item.highland_leg_wrappings" slot="Leg" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.empire_polearm_2_t5" slot="Item0" />
+        <equipment id="Item.imperial_axe_t3" slot="Item1" />
+        <equipment id="Item.reinforced_flat_kite_shield" slot="Item2" />
+        <equipment id="Item.generic_javelin_1_t3" slot="Item3" />
+        <equipment id="Item.scale_armor" slot="Body" />
+        <equipment id="Item.guarded_padded_vambrace" slot="Gloves" />
+        <equipment id="Item.kettle_helmet_over_arming_coif" slot="Head" />
+        <equipment id="Item.padded_leather_shoulders" slot="Cape" />
+        <equipment id="Item.highland_leg_wrappings" slot="Leg" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.empire_polearm_2_t5" slot="Item0" />
+        <equipment id="Item.imperial_axe_t3" slot="Item1" />
+        <equipment id="Item.reinforced_flat_kite_shield" slot="Item2" />
+        <equipment id="Item.generic_javelin_1_t3" slot="Item3" />
+        <equipment id="Item.scale_armor" slot="Body" />
+        <equipment id="Item.guarded_padded_vambrace" slot="Gloves" />
+        <equipment id="Item.guards_kettle_over_mail_coif" slot="Head" />
+        <equipment id="Item.padded_leather_shoulders" slot="Cape" />
+        <equipment id="Item.highland_leg_wrappings" slot="Leg" />
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
@@ -240,14 +467,25 @@
     </upgrade_targets>
     <Equipments>
       <EquipmentRoster>
-        <equipment id="Item.battania_polearm_1_t5" slot="Item0" />
-        <equipment id="Item.ambassador_sword_t3" slot="Item1" />
-        <equipment id="Item.battered_horsemans_kite_shield" slot="Item2" />
+        <equipment id="Item.empire_polearm_2_t5" slot="Item0" />
+        <equipment id="Item.sturgia_sword_5_t4" slot="Item1" />
+        <equipment id="Item.reinforced_flat_kite_shield" slot="Item2" />
         <equipment id="Item.generic_javelin_1_t3" slot="Item3" />
-        <equipment id="Item.ringed_desert_armor" slot="Body" />
-        <equipment id="Item.northern_plated_gloves" slot="Gloves" />
-        <equipment id="Item.visored_helmet_over_laced_coif" slot="Head" />
-        <equipment id="Item.studded_imperial_neckguard" slot="Cape" />
+        <equipment id="Item.banded_leather_over_mail" slot="Body" />
+        <equipment id="Item.lordly_padded_mitten" slot="Gloves" />
+        <equipment id="Item.peaked_helmet_over_mail_coif" slot="Head" />
+        <equipment id="Item.padded_leather_shoulders" slot="Cape" />
+        <equipment id="Item.plated_strip_boots" slot="Leg" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.empire_polearm_2_t5" slot="Item0" />
+        <equipment id="Item.sturgia_sword_5_t4" slot="Item1" />
+        <equipment id="Item.reinforced_flat_kite_shield" slot="Item2" />
+        <equipment id="Item.generic_javelin_1_t3" slot="Item3" />
+        <equipment id="Item.banded_leather_over_mail" slot="Body" />
+        <equipment id="Item.lordly_padded_mitten" slot="Gloves" />
+        <equipment id="Item.peaked_helmet_over_mail_coif" slot="Head" />
+        <equipment id="Item.aserai_horseman_shoulder" slot="Cape" />
         <equipment id="Item.plated_strip_boots" slot="Leg" />
       </EquipmentRoster>
     </Equipments>
@@ -271,15 +509,41 @@
     <Equipments>
       <EquipmentRoster>
         <equipment id="Item.battania_polearm_1_t5" slot="Item0" />
-        <equipment id="Item.ambassador_sword_t3" slot="Item1" />
+        <equipment id="Item.pointed_falchion_sword_t4" slot="Item1" />
         <equipment id="Item.southern_oval_shield" slot="Item2" />
         <equipment id="Item.generic_javelin_1_t3" slot="Item3" />
-        <equipment id="Item.ringed_desert_armor" slot="Body" />
-        <equipment id="Item.northern_plated_gloves" slot="Gloves" />
+        <equipment id="Item.banded_leather_over_mail" slot="Body" />
+        <equipment id="Item.lordly_padded_mitten" slot="Gloves" />
         <equipment id="Item.visored_helmet_over_laced_coif" slot="Head" />
-        <equipment id="Item.studded_imperial_neckguard" slot="Cape" />
+        <equipment id="Item.empire_plate_armor_shoulder_b" slot="Cape" />
         <equipment id="Item.plated_strip_boots" slot="Leg" />
-        <equipment id="Item.noble_horse" slot="Horse" />
+        <equipment id="Item.charger" slot="Horse" />
+        <equipment id="Item.steppe_half_barding" slot="HorseHarness" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.battania_polearm_1_t5" slot="Item0" />
+        <equipment id="Item.pointed_falchion_sword_t4" slot="Item1" />
+        <equipment id="Item.southern_oval_shield" slot="Item2" />
+        <equipment id="Item.generic_javelin_1_t3" slot="Item3" />
+        <equipment id="Item.banded_leather_over_mail" slot="Body" />
+        <equipment id="Item.lordly_padded_mitten" slot="Gloves" />
+        <equipment id="Item.visored_helmet_over_padded_cloth" slot="Head" />
+        <equipment id="Item.empire_plate_armor_shoulder_b" slot="Cape" />
+        <equipment id="Item.plated_strip_boots" slot="Leg" />
+        <equipment id="Item.charger" slot="Horse" />
+        <equipment id="Item.steppe_half_barding" slot="HorseHarness" />
+      </EquipmentRoster>
+      <EquipmentRoster>
+        <equipment id="Item.battania_polearm_1_t5" slot="Item0" />
+        <equipment id="Item.pointed_falchion_sword_t4" slot="Item1" />
+        <equipment id="Item.southern_oval_shield" slot="Item2" />
+        <equipment id="Item.generic_javelin_1_t3" slot="Item3" />
+        <equipment id="Item.banded_leather_over_mail" slot="Body" />
+        <equipment id="Item.lordly_padded_mitten" slot="Gloves" />
+        <equipment id="Item.visored_helmet_over_padded_coif" slot="Head" />
+        <equipment id="Item.empire_plate_armor_shoulder_b" slot="Cape" />
+        <equipment id="Item.plated_strip_boots" slot="Leg" />
+        <equipment id="Item.charger" slot="Horse" />
         <equipment id="Item.steppe_half_barding" slot="HorseHarness" />
       </EquipmentRoster>
     </Equipments>
@@ -301,15 +565,15 @@
       <EquipmentRoster>
         <equipment id="Item.battania_polearm_1_t5" slot="Item0" />
         <equipment id="Item.empire_noble_sword_2_t5" slot="Item1" />
-        <equipment id="Item.southern_oval_shield" slot="Item2" />
+        <equipment id="Item.emirs_oval_shield" slot="Item2" />
         <equipment id="Item.eastern_javelin_3_t4" slot="Item3" />
         <equipment id="Item.imperial_scale_armor" slot="Body" />
-        <equipment id="Item.northern_plated_gloves" slot="Gloves" />
+        <equipment id="Item.lordly_mail_mitten" slot="Gloves" />
         <equipment id="Item.lendman_helmet_over_full_mail" slot="Head" />
-        <equipment id="Item.imperial_lamellar_shoulders" slot="Cape" />
+        <equipment id="Item.battania_warlord_pauldrons" slot="Cape" />
         <equipment id="Item.plated_strip_boots" slot="Leg" />
         <equipment id="Item.noble_horse" slot="Horse" />
-        <equipment id="Item.steppe_half_barding" slot="HorseHarness" />
+        <equipment id="Item.half_mail_and_plate_barding" slot="HorseHarness" />
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
