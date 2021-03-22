@@ -298,9 +298,8 @@
     <Compile Include="Dialogues\DialogueAlgebra\DialogueCondition.cs" />
     <Compile Include="Dialogues\DialogueAlgebra\DialogueConditionBare.cs" />
     <Compile Include="Dialogues\DialogueAlgebra\DialogueConditionWithExtraStaticParams.cs" />
-    <Compile Include="Dialogues\DialogueConditions.cs" />
+    <Compile Include="Dialogues\DialogueConditionsManager.cs" />
     <Compile Include="Dialogues\CustomSpawnsDialogueBehavior.cs" />
-    <Compile Include="Dialogues\CustomSpawnsDialogueParams.cs" />
     <Compile Include="Data\DialogueData.cs" />
     <Compile Include="Data\DataUtils.cs" />
     <Compile Include="Data\DiplomacyData.cs" />

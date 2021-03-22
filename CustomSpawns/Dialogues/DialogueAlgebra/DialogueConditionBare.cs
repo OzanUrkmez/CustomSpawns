@@ -14,5 +14,6 @@ namespace CustomSpawns.Dialogues.DialogueAlgebra
         {
             ConditionEvaluator = evaluator;
         }
+
     }
 }

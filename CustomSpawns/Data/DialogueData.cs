@@ -12,6 +12,9 @@ using TaleWorlds.Localization;
 using TaleWorlds.Core;
 using CustomSpawns.Dialogues;
 
+using CustomSpawns.Dialogues.DialogueAlgebra;
+using System.Text.RegularExpressions;
+
 namespace CustomSpawns.Data
 {
     public class DialogueDataManager
@@ -63,7 +66,8 @@ namespace CustomSpawns.Data
                     if (File.Exists(path))
                         ConstructListFromXML(path);
                 }
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 ErrorHandler.HandleException(e, " Dialogue System XML loading");
             }
@@ -82,126 +86,131 @@ namespace CustomSpawns.Data
 
                 DialogueData dat = new DialogueData();
 
-                string c_template = "";
-                string c_trait = "";
-                bool c_friendly = true; // declaring these here so we can access them later
-                bool c_playerTrait = true;
-                int c_value = 0;
-                bool c_barterSuccess = true;
-                string c_lordName = "";
-                string c_faction = "";
-
-                bool cs_playerSurrender = false;
-
-                foreach (XmlNode childNode in node)
+                if (node.Attributes["condition"] != null)
                 {
-                    if (childNode.NodeType == XmlNodeType.Comment)
-                        continue;
-
-                    if (childNode.Name == "IsPlayerLine")
-                    {
-                        dat.IsPlayer = childNode == null ? false : bool.Parse(childNode.InnerText);
-                    }
-
-                    if (childNode.Name == "DialogueLine") // checking for the four types of node: DialogueLine, IsPlayerLine, DialogueCondition and DialogueConsequence. they all need to be present
-                    {
-                        dat.Id = childNode.Attributes["id"].InnerText;
-                        dat.InToken = childNode.Attributes["in_token"].InnerText;
-                        dat.OutToken = childNode.Attributes["out_token"].InnerText;
-                        dat.DialogueText = childNode.Attributes["text"].InnerText;
-                        dat.Priority = int.Parse(childNode.Attributes["priority"].InnerText);
-                    }
-
-                    if (childNode.Name == "DialogueCondition")
-                    {
-                        dat.Condition = ParseCondition(childNode.Attributes["type"].InnerText);
-
-                        c_template = childNode.Attributes["template"] == null ? "" : childNode.Attributes["template"].InnerText;
-                        c_friendly = childNode.Attributes["is_friendly"] == null ? true : bool.Parse(childNode.Attributes["is_friendly"].InnerText);
-                        c_playerTrait = childNode.Attributes["player_trait"] == null ? true : bool.Parse(childNode.Attributes["player_trait"].InnerText); // setting the condition parameters here (they can be reused depending on the delegate)
-                        c_trait = childNode.Attributes["trait"] == null ? "" : childNode.Attributes["trait"].InnerText;
-                        c_value = childNode.Attributes["value"] == null ? 0 : int.Parse(childNode.Attributes["value"].InnerText);
-                        c_barterSuccess = childNode.Attributes["successful_barter"] == null ? true : bool.Parse(childNode.Attributes["successful_barter"].InnerText);
-                        c_lordName = childNode.Attributes["lord_name"] == null ? "" : childNode.Attributes["lord_name"].InnerText;
-                        c_faction = childNode.Attributes["faction"] == null ? "" : childNode.Attributes["faction"].InnerText;
-                    }
-
-                    if (childNode.Name == "DialogueConsequence")
-                    {
-                        dat.Consequence = ParseConsequence(childNode.Attributes["type"].InnerText);
-
-                        cs_playerSurrender = childNode.Attributes["player_surrender"] == null ? false : bool.Parse(childNode.Attributes["player_surrender"].InnerText); // now setting the consequence parameters
-                    }
+                    dat.Condition = ParseCondition(node.Attributes["condition"].Value);
                 }
-                dat.Parameters = new CustomSpawnsDialogueParams(c_template, c_friendly, cs_playerSurrender, c_playerTrait, c_trait, c_value, c_barterSuccess, c_lordName, c_faction); // now we init a new DialogueParameters class to be used later, read comments there as to why it's a class and not a struct
+
+                dat.DialogueText = node.Attributes["text"]?.Value;
 
                 data.Add(dat);
+
             }
         }
 
-        private CustomSpawnsDialogueBehavior.CSDialogueCondition ParseCondition(string text) // just a little enum switch- more can be added easily
+        private DialogueCondition ParseCondition(string text)
         {
-            switch(text)
+            //TODO: Parse AND, OR, etc to make use of the algebra system.
+
+            try
             {
-                case "none":
-                    return CustomSpawnsDialogueBehavior.CSDialogueCondition.None;
-                case "PartyTemplateAndStance":
-                    return CustomSpawnsDialogueBehavior.CSDialogueCondition.PartyTemplateAndStance;
-                case "PartyTemplateDefenderAndStance":
-                    return CustomSpawnsDialogueBehavior.CSDialogueCondition.PartyTemplateDefenderAndStance;
-                case "PartyTemplateAttackerAndStance":
-                    return CustomSpawnsDialogueBehavior.CSDialogueCondition.PartyTemplateAttackerAndStance;
-                case "WarCheck":
-                    return CustomSpawnsDialogueBehavior.CSDialogueCondition.GenericWar;
-                case "CharacterTrait":
-                    return CustomSpawnsDialogueBehavior.CSDialogueCondition.CharacterTrait;
-                case "CheckLastBarter":
-                    return CustomSpawnsDialogueBehavior.CSDialogueCondition.LastBarter;
-                case "FirstConversationLordName":
-                    return CustomSpawnsDialogueBehavior.CSDialogueCondition.FirstConversationLordName;
-                case "FirstConversationFaction":
-                    return CustomSpawnsDialogueBehavior.CSDialogueCondition.FirstConversationFaction;
-                case "FactionDefault":
-                    return CustomSpawnsDialogueBehavior.CSDialogueCondition.FactionDefault;
-                default:
-                    throw new Exception("A dialogue condition type wasn't explicity defined! If it is supposed to be always true, use 'none' please!"); // making sure the modder isn't passing nonsense
+
+                //Simple as possible for now. No paranthesis support to group
+
+                string[] tokens = text.Split(' ');
+
+                if(tokens.Length == 0)
+                {
+                    //user has entered empty condition string
+                    return new DialogueConditionBare((p) => true, "");
+                }else if(tokens.Length == 1)
+                {
+                    //just a good old single function.
+                    return ParseConditionToken(tokens[0]);
+                }else if(tokens.Length % 2 == 0)
+                {
+                    throw new Exception("Invalid algebraic expression: " + text);
+                }
+
+                //tokens.Length is thus at least 3.
+
+                DialogueCondition aggregate = null;
+                DialogueCondition cur = null;
+                 
+                aggregate = ParseConditionToken(tokens[0]);
+
+                for (int i = 2; i < tokens.Length; i += 2)
+                {
+                    if (i % 2 == 0)
+                    {
+
+                        cur = ParseConditionToken(tokens[i]);
+
+                        i -= 3; //we will add 2 to this and so we will get to the logic keyword.
+                    }
+                    else
+                    {
+                        //logic keyword AND OR 
+
+                        if(tokens[i] == "AND" || tokens[i] == "&" || tokens[i] == "&&")
+                        {
+                            aggregate = aggregate & cur;
+                        }
+                        else if(tokens[i] == "OR" || tokens[i] == "|" || tokens[i] == "||")
+                        {
+                            aggregate = aggregate | cur;
+                        }
+                        else
+                        {
+                            throw new Exception("Unrecognized logic keyword: " + tokens[i]);
+                        }
+
+                    }
+                }
+
+                return aggregate;
+
             }
+            catch(Exception e)
+            {
+                ErrorHandler.ShowPureErrorMessage("Could not parse dialogue condition: \n" + text + "\n Error Message: \n" + e.Message);
+                return null;
+            }
+
+
         }
 
-        private CustomSpawnsDialogueBehavior.CSDialogueConsequence ParseConsequence(string text) // same with the conditions, easy ability to add new ones
+        private DialogueCondition ParseConditionToken(string token)
         {
-            switch (text)
+            //function and its parameters
+            string[] openPSplit = token.Split('(');
+
+            string funcName = openPSplit[0];
+
+            //get rid of trailing
+
+            for (int j = 1; j < openPSplit.Length; j++)
             {
-                case "none":
-                    return CustomSpawnsDialogueBehavior.CSDialogueConsequence.None;
-                case "EndConversation":
-                    return CustomSpawnsDialogueBehavior.CSDialogueConsequence.EndConversation;
-                case "EndConversationInBattle":
-                    return CustomSpawnsDialogueBehavior.CSDialogueConsequence.EndConversationInBattle;
-                case "DeclareWar":
-                    return CustomSpawnsDialogueBehavior.CSDialogueConsequence.DeclareWar;
-                case "DeclarePeace":
-                    return CustomSpawnsDialogueBehavior.CSDialogueConsequence.DeclarePeace;
-                case "EndConversationSurrender":
-                    return CustomSpawnsDialogueBehavior.CSDialogueConsequence.EndConversationSurrender;
-                case "BarterForPeace":
-                    return CustomSpawnsDialogueBehavior.CSDialogueConsequence.BarterForPeace;
+                openPSplit[j] = openPSplit[j].TrimEnd(',', ')');
+            }
+
+
+            switch (openPSplit.Length)
+            {
+                case 0:
+                    throw new Exception("Can't parse " + token + ". It may be empty.");
+                case 1:
+                    //no params
+                    return DialogueConditionsManager.GetDialogueCondition(funcName);
+                case 2:
+                    // 1 param
+                    return DialogueConditionsManager.GetDialogueCondition(funcName, openPSplit[1]);
+                case 3:
+                    // 2 params
+                    return DialogueConditionsManager.GetDialogueCondition(funcName, openPSplit[1], openPSplit[2]);
+                case 4:
+                    // 3 params
+                    return DialogueConditionsManager.GetDialogueCondition(funcName, openPSplit[1], openPSplit[2], openPSplit[3]);
                 default:
-                    throw new Exception("A dialogue consequence type wasn't explicity defined! If it is supposed to be always true, use 'none' please!"); // ditto
+                    throw new Exception("Can't parse " + token + ". Possibly too many params.");
             }
         }
     }
 
     public class DialogueData
     {
-        public bool IsPlayer { get; set; }
-        public string Id { get; set; }
-        public string InToken { get; set; }
-        public string OutToken { get; set; }
-        public string DialogueText { get; set; } // all of these are properties just in case to prevent fuckery
-        public int Priority { get; set; }
-        public CustomSpawnsDialogueBehavior.CSDialogueCondition Condition { get; set; }
-        public CustomSpawnsDialogueBehavior.CSDialogueConsequence Consequence { get; set; }
-        public CustomSpawnsDialogueParams Parameters { get; set; }
+        public string DialogueText { get; set; }
+
+        public DialogueCondition Condition { get; set; }
     }
 }

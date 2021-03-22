@@ -15,6 +15,7 @@ namespace CustomSpawns.Utils
         {
             return (strindID.StartsWith("cs_"));
         }
+
         public static IEnumerable<T> TakeAllButLast<T>(this IEnumerable<T> source)
         {
             var it = source.GetEnumerator();

@@ -1,5 +1,7 @@
 <root>
 
+<Dialogue condition = "HasPartyID(cs_mountain_raider_squad_template)" text = "I'll drink from your skull!">
 
+</Dialogue>
 
 </root>
