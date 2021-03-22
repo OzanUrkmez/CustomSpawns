@@ -17,7 +17,7 @@ namespace CustomSpawns.Dialogues
 
         static DialogueConditionsManager()
         {
-            allMethods = typeof(DialogueCondition).GetMethods().
+            allMethods = typeof(DialogueConditionsManager).GetMethods().
                Where((m) => m.GetCustomAttributes(typeof(DialogueImplementorAttribute), false).Count() > 0).ToList();
         }
 
