@@ -37,7 +37,7 @@ namespace CustomSpawns.Dialogues
                 var a = m.GetCustomAttribute<DialogueImplementorAttribute>();
                 if (a.ExposedName == implementor)
                 {
-                    if (m.GetParameters().Length != 0)
+                    if (m.GetParameters().Length != 1)
                         continue;
 
                     return new DialogueConditionBare
@@ -57,7 +57,7 @@ namespace CustomSpawns.Dialogues
                 var a = m.GetCustomAttribute<DialogueImplementorAttribute>();
                 if (a.ExposedName == implementor)
                 {
-                    if (m.GetParameters().Length != 1)
+                    if (m.GetParameters().Length != 2)
                         continue;
 
                     return new DialogueConditionWithExtraStaticParams<string>
@@ -77,7 +77,7 @@ namespace CustomSpawns.Dialogues
                 var a = m.GetCustomAttribute<DialogueImplementorAttribute>();
                 if (a.ExposedName == implementor)
                 {
-                    if (m.GetParameters().Length != 2)
+                    if (m.GetParameters().Length != 3)
                         continue;
 
                     return new DialogueConditionWithExtraStaticParams<string, string>
@@ -97,7 +97,7 @@ namespace CustomSpawns.Dialogues
                 var a = m.GetCustomAttribute<DialogueImplementorAttribute>();
                 if (a.ExposedName == implementor)
                 {
-                    if (m.GetParameters().Length != 3)
+                    if (m.GetParameters().Length != 4)
                         continue;
 
                     return new DialogueConditionWithExtraStaticParams<string, string,string>
