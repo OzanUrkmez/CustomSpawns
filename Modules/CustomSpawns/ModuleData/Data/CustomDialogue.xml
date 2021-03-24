@@ -1,7 +1,27 @@
 <root>
 
+<!-- BANDITS -->
+
 <Dialogue condition = "HasPartyID(cs_mountain_raider_squad_template)" text = "I'll drink from your skull!">
 
 </Dialogue>
+
+<Dialogue condition = "HasPartyID(cs_mountain_raider_boss_squad_template)" text = "I'll drink from your skull!">
+
+</Dialogue>
+
+<Dialogue condition = "HasPartyID(cs_forest_trainer_group)" text = "I'll drink from your skull!">
+
+</Dialogue>
+
+<Dialogue condition = "HasPartyID(cs_forest_ambushers)" text = "I'll drink from your skull!">
+
+</Dialogue>
+
+<Dialogue condition = "HasPartyID(cs_forest_giant_trainer_group)" text = "I'll drink from your skull!">
+
+</Dialogue>
+
+<!-- DESERTERS -->
 
 </root>
