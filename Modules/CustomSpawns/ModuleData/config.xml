@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Config>
-	<IsDebugMode> false </IsDebugMode> <!-- if this set to false no debug messages are shown no matter any of the parameters below -->
+	<IsDebugMode> true </IsDebugMode> <!-- if this set to false no debug messages are shown no matter any of the parameters below -->
 	<ShowAIDebug> false </ShowAIDebug>
 	<ShowDeathTrackDebug> true </ShowDeathTrackDebug>
 

@@ -24,4 +24,32 @@
 
 <!-- DESERTERS -->
 
+<Dialogue condition = "HasPartyID(cs_battania_deserters)" text = "I'll drink from your skull!">
+
+</Dialogue>
+
+<Dialogue condition = "HasPartyID(cs_aserai_deserters)" text = "I'll drink from your skull!">
+
+</Dialogue>
+
+<Dialogue condition = "HasPartyID(cs_imperial_deserters)" text = "I'll drink from your skull!">
+
+</Dialogue>
+
+<Dialogue condition = "HasPartyID(cs_khuzait_deserters)" text = "I'll drink from your skull!">
+
+</Dialogue>
+
+<Dialogue condition = "HasPartyID(cs_vlandia_deserters)" text = "I'll drink from your skull!">
+
+</Dialogue>
+
+<Dialogue condition = "HasPartyID(cs_sturgia_deserters)" text = "I'll drink from your skull!">
+
+</Dialogue>
+
+<Dialogue condition = "HasPartyID(cs_united_deserters)" text = "I'll drink from your skull!">
+
+</Dialogue>
+
 </root>
