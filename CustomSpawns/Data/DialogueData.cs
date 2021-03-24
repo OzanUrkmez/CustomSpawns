@@ -51,6 +51,8 @@ namespace CustomSpawns.Data
             _instance = null;
         }
 
+        private static int currentID = 0;
+
         private DialogueDataManager()
         {
             try
@@ -79,6 +81,7 @@ namespace CustomSpawns.Data
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(filePath);
+
             foreach (XmlNode node in doc.DocumentElement)
             {
                 if (node.NodeType == XmlNodeType.Comment)
@@ -93,8 +96,11 @@ namespace CustomSpawns.Data
 
                 dat.DialogueText = node.Attributes["text"]?.Value;
 
+                dat.Dialogue_ID = "CS_Dialogue_" + currentID.ToString();
+
                 data.Add(dat);
 
+                currentID++;
             }
         }
 
@@ -210,7 +216,7 @@ namespace CustomSpawns.Data
     public class DialogueData
     {
         public string DialogueText { get; set; }
-
+        public string Dialogue_ID { get; set; }
         public DialogueCondition Condition { get; set; }
     }
 }

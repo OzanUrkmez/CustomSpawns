@@ -47,20 +47,16 @@ namespace CustomSpawns.Dialogues
                 GetData();
             }
 
-            int currentID = 0;
-
             foreach (Data.DialogueData d in dataManager.Data) // handle the dialogues
             {
 
-                starter.AddDialogLine("CS_" + currentID.ToString(), "start", "", d.DialogueText,
+                starter.AddDialogLine(d.Dialogue_ID, "start", "", d.DialogueText,
                     delegate
                     {
                         return EvalulateDialogueCondition(d.Condition);
                     },
                     null
                     );
-
-                currentID++;
             }
         }
 
