@@ -37,8 +37,15 @@ namespace CustomSpawns.Dialogues
         // tokens are like impulses, so an out token leads into an in token. 'magic tokens' are tokens which have special functions, they are start (in token) and close_window (out token)
         // conditions are delegates that must anonymously return a bool, which will be wheteher or not the line is displayed
         // consequences are void delegates, just pieces of code run after a line has been selected
-        // i think? priority determines which line is shown if multiple lines meet the requirements, and also maybe what order player lines are displayed in (speculation)
+        // i think? priority determines which line is shown if multiple lines meet the requirements,
+        // and also maybe what order player lines are displayed in (speculation)
         // -ComradeCheekiBreeki
+
+        //It seems that the first condition that is met is run, and all after it are ignored.
+        //The higher the priority (higher number), the more likelihood it has of being run first.
+        //However, there also seems to be an option to turn off this sorting of conditions based on priority through
+        //ConversationManager.[Enable/Disable]Sort(). Sorting seems to be enabled by default in the time of writing (Bannerlord 1.5.8)
+        //-Ozan
 
         public void AddCustomDialogues(CampaignGameStarter starter)
         {
@@ -55,14 +62,14 @@ namespace CustomSpawns.Dialogues
                     {
                         return EvalulateDialogueCondition(d.Condition);
                     },
-                    null
+                    null,
+                    int.MaxValue
                     );
             }
         }
 
         private bool EvalulateDialogueCondition(DialogueCondition condition)
         {
-
             var param = new DialogueConditionParams()
             {
                 AdversaryParty = PlayerEncounter.EncounteredParty.MobileParty,
