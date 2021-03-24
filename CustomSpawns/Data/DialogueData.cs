@@ -190,6 +190,15 @@ namespace CustomSpawns.Data
                 openPSplit[j] = openPSplit[j].TrimEnd(',', ')');
             }
 
+            bool negationFlag = false;
+
+            if(funcName[0] == '!')
+            {
+                negationFlag = true;
+                funcName = funcName.TrimStart('!');
+            }
+
+            DialogueCondition returned = null;
 
             switch (openPSplit.Length)
             {
@@ -197,19 +206,30 @@ namespace CustomSpawns.Data
                     throw new Exception("Can't parse " + token + ". It may be empty.");
                 case 1:
                     //no params
-                    return DialogueConditionsManager.GetDialogueCondition(funcName);
+                    returned = DialogueConditionsManager.GetDialogueCondition(funcName);
+                    break;
                 case 2:
                     // 1 param
-                    return DialogueConditionsManager.GetDialogueCondition(funcName, openPSplit[1]);
+                    returned = DialogueConditionsManager.GetDialogueCondition(funcName, openPSplit[1]);
+                    break;
                 case 3:
                     // 2 params
-                    return DialogueConditionsManager.GetDialogueCondition(funcName, openPSplit[1], openPSplit[2]);
+                    returned = DialogueConditionsManager.GetDialogueCondition(funcName, openPSplit[1], openPSplit[2]);
+                    break;
                 case 4:
                     // 3 params
-                    return DialogueConditionsManager.GetDialogueCondition(funcName, openPSplit[1], openPSplit[2], openPSplit[3]);
+                    returned = DialogueConditionsManager.GetDialogueCondition(funcName, openPSplit[1], openPSplit[2], openPSplit[3]);
+                    break;
                 default:
                     throw new Exception("Can't parse " + token + ". Possibly too many params.");
             }
+
+            if (negationFlag)
+            {
+                returned = !returned;
+            }
+
+            return returned;
         }
     }
 

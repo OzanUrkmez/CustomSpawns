@@ -35,6 +35,11 @@ namespace CustomSpawns.Dialogues.DialogueAlgebra
                 "(" + d1.ExposedDefiningString + ") | (" + d2.ExposedDefiningString + ")"
                 );
         }
+
+        public static DialogueCondition operator !(DialogueCondition d)
+        {
+            return new DialogueConditionBare((p) => !d.ConditionEvaluator(p), "!(" + d.ExposedDefiningString + ")");
+        }
     }
 
 }
