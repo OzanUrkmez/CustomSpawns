@@ -179,16 +179,23 @@ namespace CustomSpawns.Data
         private DialogueCondition ParseConditionToken(string token)
         {
             //function and its parameters
-            string[] openPSplit = token.Split('(');
+            List<string> openPSplit = token.Split('(', ',').ToList();
 
             string funcName = openPSplit[0];
 
             //get rid of trailing
 
-            for (int j = 1; j < openPSplit.Length; j++)
+            for (int j = 1; j < openPSplit.Count; j++)
             {
                 openPSplit[j] = openPSplit[j].TrimEnd(',', ')');
+                //remove empty
+                if(openPSplit[j].Length == 0)
+                {
+                    openPSplit.RemoveAt(j);
+                    j--;
+                }
             }
+
 
             bool negationFlag = false;
 
@@ -200,7 +207,7 @@ namespace CustomSpawns.Data
 
             DialogueCondition returned = null;
 
-            switch (openPSplit.Length)
+            switch (openPSplit.Count)
             {
                 case 0:
                     throw new Exception("Can't parse " + token + ". It may be empty.");
