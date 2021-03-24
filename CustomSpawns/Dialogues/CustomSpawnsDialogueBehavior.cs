@@ -26,6 +26,10 @@ namespace CustomSpawns.Dialogues
         public override void SyncData(IDataStore dataStore)
         {
             dataStore.SyncData<Dictionary<MobileParty, string>>("dialoguePartyRef", ref dialoguePartyRef);
+            if(dialoguePartyRef == null)
+            {
+                dialoguePartyRef = new Dictionary<MobileParty, string>();
+            }
         }
 
         // basic dialogue overview: 
