@@ -18,7 +18,7 @@ namespace CustomSpawns.Dialogues
         static DialogueConditionsManager()
         {
             allMethods = typeof(DialogueConditionsManager).GetMethods(BindingFlags.Static | BindingFlags.NonPublic).
-                 Where((m) => m.GetCustomAttributes(typeof(DialogueImplementorAttribute), false).Count() > 0).ToList();
+                 Where((m) => m.GetCustomAttributes(typeof(DialogueConditionImplementorAttribute), false).Count() > 0).ToList();
         }
 
         #region Getters
@@ -34,7 +34,7 @@ namespace CustomSpawns.Dialogues
 
             foreach (var m in allMethods)
             {
-                var a = m.GetCustomAttribute<DialogueImplementorAttribute>();
+                var a = m.GetCustomAttribute<DialogueConditionImplementorAttribute>();
                 if (a.ExposedName == implementor)
                 {
                     if (m.GetParameters().Length != 1)
@@ -54,7 +54,7 @@ namespace CustomSpawns.Dialogues
 
             foreach (var m in allMethods)
             {
-                var a = m.GetCustomAttribute<DialogueImplementorAttribute>();
+                var a = m.GetCustomAttribute<DialogueConditionImplementorAttribute>();
                 if (a.ExposedName == implementor)
                 {
                     if (m.GetParameters().Length != 2)
@@ -74,7 +74,7 @@ namespace CustomSpawns.Dialogues
 
             foreach (var m in allMethods)
             {
-                var a = m.GetCustomAttribute<DialogueImplementorAttribute>();
+                var a = m.GetCustomAttribute<DialogueConditionImplementorAttribute>();
                 if (a.ExposedName == implementor)
                 {
                     if (m.GetParameters().Length != 3)
@@ -94,7 +94,7 @@ namespace CustomSpawns.Dialogues
 
             foreach (var m in allMethods)
             {
-                var a = m.GetCustomAttribute<DialogueImplementorAttribute>();
+                var a = m.GetCustomAttribute<DialogueConditionImplementorAttribute>();
                 if (a.ExposedName == implementor)
                 {
                     if (m.GetParameters().Length != 4)
@@ -111,7 +111,7 @@ namespace CustomSpawns.Dialogues
 
         #endregion
 
-        [DialogueImplementor("HasPartyID")]
+        [DialogueConditionImplementor("HasPartyID")]
         private static bool HasPartyID(DialogueConditionParams param, string ID)
         {
             if (param.Adversary == null)
@@ -125,11 +125,11 @@ namespace CustomSpawns.Dialogues
         }
 
         [AttributeUsage(AttributeTargets.Method)]
-        private class DialogueImplementorAttribute : Attribute
+        private class DialogueConditionImplementorAttribute : Attribute
         {
             public string ExposedName { get; private set; }
 
-            public DialogueImplementorAttribute(string name)
+            public DialogueConditionImplementorAttribute(string name)
             {
                 ExposedName = name;
             }
