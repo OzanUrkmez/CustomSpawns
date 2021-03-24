@@ -111,18 +111,81 @@ namespace CustomSpawns.Dialogues
 
         #endregion
 
+        #region Conditions
+
         [DialogueConditionImplementor("HasPartyID")]
         private static bool HasPartyID(DialogueConditionParams param, string ID)
         {
-            if (param.Adversary == null)
+            if (param.AdversaryParty == null)
                 return false;
 
-            if (CampaignUtils.IsolateMobilePartyStringID(param.Adversary.Party.MobileParty) == ID)
+            if (CampaignUtils.IsolateMobilePartyStringID(param.AdversaryParty.Party.MobileParty) == ID)
             {
                 return true;
             }
             return false;
         }
+
+        [DialogueConditionImplementor("PartyIsInFaction")]
+        private static bool PartyIsInFaction(DialogueConditionParams param, string factionName)
+        {
+            if (param.AdversaryParty == null)
+                return false;
+
+            return param.AdversaryParty.MapFaction.Name.ToString() == factionName;
+        }
+
+        [DialogueConditionImplementor("IsHero")]
+        private static bool IsHero(DialogueConditionParams param, string name)
+        {
+            return Hero.OneToOneConversationHero != null && Hero.OneToOneConversationHero.Name.ToString() == name;
+        }
+
+        [DialogueConditionImplementor("FirstTimeTalkWithHero")]
+        private static bool FirstTimeTalkWithHero(DialogueConditionParams param)
+        {
+            return Hero.OneToOneConversationHero != null && !Hero.OneToOneConversationHero.HasMet;
+        }
+
+        [DialogueConditionImplementor("IsFriendly")]
+        private static bool IsFriendly(DialogueConditionParams param)
+        {
+            if (param.AdversaryParty == null)
+                return false;
+
+            return !param.AdversaryParty.MapFaction.IsAtWarWith(param.PlayerParty.MapFaction);
+        }
+
+
+        [DialogueConditionImplementor("IsHostile")]
+        private static bool IsHostile(DialogueConditionParams param)
+        {
+            if (param.AdversaryParty == null)
+                return false;
+
+            return param.AdversaryParty.MapFaction.IsAtWarWith(param.PlayerParty.MapFaction);
+        }
+
+
+        [DialogueConditionImplementor("IsDefending")]
+        private static bool IsDefending(DialogueConditionParams param)
+        {
+            if (param.AdversaryParty == null)
+                return false;
+
+            return PlayerEncounter.PlayerIsAttacker;
+        }
+
+        [DialogueConditionImplementor("IsAttacking")]
+        private static bool IsAttacking(DialogueConditionParams param)
+        {
+            if (param.AdversaryParty == null)
+                return false;
+
+            return PlayerEncounter.PlayerIsDefender;
+        }
+
+        #endregion
 
         [AttributeUsage(AttributeTargets.Method)]
         private class DialogueConditionImplementorAttribute : Attribute
@@ -138,7 +201,7 @@ namespace CustomSpawns.Dialogues
 
     public class DialogueConditionParams
     {
-        public MobileParty Adversary;
+        public MobileParty AdversaryParty;
         public MobileParty PlayerParty;
     }
 }

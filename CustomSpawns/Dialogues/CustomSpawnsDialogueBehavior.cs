@@ -65,7 +65,7 @@ namespace CustomSpawns.Dialogues
 
             var param = new DialogueConditionParams()
             {
-                Adversary = PlayerEncounter.EncounteredParty.MobileParty,
+                AdversaryParty = PlayerEncounter.EncounteredParty.MobileParty,
                 PlayerParty = Hero.MainHero.PartyBelongedTo
             };
 
