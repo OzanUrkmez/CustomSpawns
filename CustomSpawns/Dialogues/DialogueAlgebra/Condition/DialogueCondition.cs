@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CustomSpawns.Dialogues.DialogueAlgebra
 {
 
-    public delegate bool DialogueConditionDelegate(DialogueConditionParams conditionParams);
+    public delegate bool DialogueConditionDelegate(DialogueParams conditionParams);
 
     public abstract class DialogueCondition
     {

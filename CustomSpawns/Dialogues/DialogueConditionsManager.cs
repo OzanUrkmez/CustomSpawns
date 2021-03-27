@@ -41,7 +41,7 @@ namespace CustomSpawns.Dialogues
                         continue;
 
                     return new DialogueConditionBare
-                        ((x) => ((Func<DialogueConditionParams, bool>)m.CreateDelegate(typeof(Func<DialogueConditionParams, bool>)))(x),
+                        ((x) => ((Func<DialogueParams, bool>)m.CreateDelegate(typeof(Func<DialogueParams, bool>)))(x),
                         a.ExposedName);
                 }
             }
@@ -61,7 +61,7 @@ namespace CustomSpawns.Dialogues
                         continue;
 
                     return new DialogueConditionWithExtraStaticParams<string>
-                        ((Func<DialogueConditionParams, string, bool>)m.CreateDelegate(typeof(Func<DialogueConditionParams, string, bool>)),
+                        ((Func<DialogueParams, string, bool>)m.CreateDelegate(typeof(Func<DialogueParams, string, bool>)),
                         param, a.ExposedName + "(" + param + ")");
                 }
             }
@@ -81,7 +81,7 @@ namespace CustomSpawns.Dialogues
                         continue;
 
                     return new DialogueConditionWithExtraStaticParams<string, string>
-                        ((Func<DialogueConditionParams, string, string, bool>)m.CreateDelegate(typeof(Func<DialogueConditionParams, string, string, bool>)),
+                        ((Func<DialogueParams, string, string, bool>)m.CreateDelegate(typeof(Func<DialogueParams, string, string, bool>)),
                         param1, param2, a.ExposedName + "(" + param1 + ", " + param2 + ")");
                 }
             }
@@ -101,7 +101,7 @@ namespace CustomSpawns.Dialogues
                         continue;
 
                     return new DialogueConditionWithExtraStaticParams<string, string,string>
-                        ((Func<DialogueConditionParams, string, string, string, bool>)m.CreateDelegate(typeof(Func<DialogueConditionParams, string, string, string, bool>)),
+                        ((Func<DialogueParams, string, string, string, bool>)m.CreateDelegate(typeof(Func<DialogueParams, string, string, string, bool>)),
                         param1, param2, param3, a.ExposedName + "(" + param1 + ", " + param2 + ", " + param3 +")");
                 } 
             }
@@ -114,7 +114,7 @@ namespace CustomSpawns.Dialogues
         #region Conditions
 
         [DialogueConditionImplementor("HasPartyID")]
-        private static bool HasPartyID(DialogueConditionParams param, string ID)
+        private static bool HasPartyID(DialogueParams param, string ID)
         {
             if (param.AdversaryParty == null)
                 return false;
@@ -127,7 +127,7 @@ namespace CustomSpawns.Dialogues
         }
 
         [DialogueConditionImplementor("PartyIsInFaction")]
-        private static bool PartyIsInFaction(DialogueConditionParams param, string factionName)
+        private static bool PartyIsInFaction(DialogueParams param, string factionName)
         {
             if (param.AdversaryParty == null)
                 return false;
@@ -136,19 +136,19 @@ namespace CustomSpawns.Dialogues
         }
 
         [DialogueConditionImplementor("IsHero")]
-        private static bool IsHero(DialogueConditionParams param, string name)
+        private static bool IsHero(DialogueParams param, string name)
         {
             return Hero.OneToOneConversationHero != null && Hero.OneToOneConversationHero.Name.ToString() == name;
         }
 
         [DialogueConditionImplementor("FirstTimeTalkWithHero")]
-        private static bool FirstTimeTalkWithHero(DialogueConditionParams param)
+        private static bool FirstTimeTalkWithHero(DialogueParams param)
         {
             return Hero.OneToOneConversationHero != null && !Hero.OneToOneConversationHero.HasMet;
         }
 
         [DialogueConditionImplementor("IsFriendly")]
-        private static bool IsFriendly(DialogueConditionParams param)
+        private static bool IsFriendly(DialogueParams param)
         {
             if (param.AdversaryParty == null)
                 return false;
@@ -158,7 +158,7 @@ namespace CustomSpawns.Dialogues
 
 
         [DialogueConditionImplementor("IsHostile")]
-        private static bool IsHostile(DialogueConditionParams param)
+        private static bool IsHostile(DialogueParams param)
         {
             if (param.AdversaryParty == null)
                 return false;
@@ -168,7 +168,7 @@ namespace CustomSpawns.Dialogues
 
 
         [DialogueConditionImplementor("IsDefending")]
-        private static bool IsDefending(DialogueConditionParams param)
+        private static bool IsDefending(DialogueParams param)
         {
             if (param.AdversaryParty == null)
                 return false;
@@ -177,7 +177,7 @@ namespace CustomSpawns.Dialogues
         }
 
         [DialogueConditionImplementor("IsAttacking")]
-        private static bool IsAttacking(DialogueConditionParams param)
+        private static bool IsAttacking(DialogueParams param)
         {
             if (param.AdversaryParty == null)
                 return false;
@@ -199,7 +199,7 @@ namespace CustomSpawns.Dialogues
         }
     }
 
-    public class DialogueConditionParams
+    public class DialogueParams
     {
         public MobileParty AdversaryParty;
         public MobileParty PlayerParty;

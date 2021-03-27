@@ -70,7 +70,7 @@ namespace CustomSpawns.Dialogues
 
         private bool EvalulateDialogueCondition(DialogueCondition condition)
         {
-            var param = new DialogueConditionParams()
+            var param = new DialogueParams()
             {
                 AdversaryParty = PlayerEncounter.EncounteredParty.MobileParty,
                 PlayerParty = Hero.MainHero.PartyBelongedTo
