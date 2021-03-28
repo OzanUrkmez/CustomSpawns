@@ -94,6 +94,22 @@ namespace CustomSpawns.Data
                     dat.Condition = ParseCondition(node.Attributes["condition"].Value);
                 }
 
+                if (node.Attributes["consequence"] != null)
+                {
+                    dat.Consequence = ParseConsequence(node.Attributes["consequence"].Value);
+                }
+
+                bool isPlayerDialogue;
+
+                if(!bool.TryParse(node.Attributes["player"]?.Value, out isPlayerDialogue))
+                {
+                    dat.IsPlayerDialogue = false;
+                }
+                else
+                {
+                    dat.IsPlayerDialogue = isPlayerDialogue;
+                }
+
                 dat.DialogueText = node.Attributes["text"]?.Value;
 
                 dat.Dialogue_ID = "CS_Dialogue_" + currentID.ToString();
@@ -378,5 +394,6 @@ namespace CustomSpawns.Data
         public string Dialogue_ID { get; set; }
         public DialogueCondition Condition { get; set; }
         public DialogueConsequence Consequence { get; set; }
+        public bool IsPlayerDialogue { get; set; }
     }
 }

@@ -26,7 +26,7 @@ namespace CustomSpawns.Dialogues
         public override void SyncData(IDataStore dataStore)
         {
             dataStore.SyncData<Dictionary<MobileParty, string>>("dialoguePartyRef", ref dialoguePartyRef);
-            if(dialoguePartyRef == null)
+            if (dialoguePartyRef == null)
             {
                 dialoguePartyRef = new Dictionary<MobileParty, string>();
             }
@@ -57,17 +57,36 @@ namespace CustomSpawns.Dialogues
             foreach (Data.DialogueData d in dataManager.Data) // handle the dialogues
             {
 
-                starter.AddDialogLine(d.Dialogue_ID, "start", "exit", d.DialogueText,
-                    delegate
-                    {
-                        return EvalulateDialogueCondition(d.Condition);
-                    },
-                    delegate
-                    {
-                        ExecuteDialogueConsequence(d.Consequence);
-                    },
-                    int.MaxValue
-                    );
+                if (d.IsPlayerDialogue)
+                {
+                    starter.AddPlayerLine(d.Dialogue_ID, "start", "exit", d.DialogueText,
+                        delegate
+                        {
+                            return EvalulateDialogueCondition(d.Condition);
+                        },
+                        delegate
+                        {
+                            ExecuteDialogueConsequence(d.Consequence);
+                        },
+                        int.MaxValue
+                        );
+                }
+                else
+                {
+                    starter.AddDialogLine(d.Dialogue_ID, "start", "exit", d.DialogueText,
+                        delegate
+                        {
+                            return EvalulateDialogueCondition(d.Condition);
+                        },
+                        delegate
+                        {
+                            ExecuteDialogueConsequence(d.Consequence);
+                        },
+                        int.MaxValue
+                        );
+                }
+
+
             }
         }
 
