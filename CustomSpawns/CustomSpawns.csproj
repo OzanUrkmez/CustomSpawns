@@ -295,9 +295,12 @@
     <Compile Include="Config\ConfigLoader.cs" />
     <Compile Include="CampaignData\Implementations\DailyLogger.cs" />
     <Compile Include="CampaignData\Config\DailyLoggerConfig.cs" />
-    <Compile Include="Dialogues\DialogueAlgebra\DialogueCondition.cs" />
-    <Compile Include="Dialogues\DialogueAlgebra\DialogueConditionBare.cs" />
-    <Compile Include="Dialogues\DialogueAlgebra\DialogueConditionWithExtraStaticParams.cs" />
+    <Compile Include="Dialogues\DialogueAlgebra\Condition\DialogueCondition.cs" />
+    <Compile Include="Dialogues\DialogueAlgebra\Condition\DialogueConditionBare.cs" />
+    <Compile Include="Dialogues\DialogueAlgebra\Condition\DialogueConditionWithExtraStaticParams.cs" />
+    <Compile Include="Dialogues\DialogueAlgebra\DialogueConsequence.cs" />
+    <Compile Include="Dialogues\DialogueAlgebra\DialogueConsequenceBare.cs" />
+    <Compile Include="Dialogues\DialogueAlgebra\DialogueConsequenceWithExtraStaticParams.cs" />
     <Compile Include="Dialogues\DialogueConditionsManager.cs" />
     <Compile Include="Dialogues\CustomSpawnsDialogueBehavior.cs" />
     <Compile Include="Data\DialogueData.cs" />
@@ -306,6 +309,7 @@
     <Compile Include="Data\DynamicSpawnData.cs" />
     <Compile Include="Data\NameSignifierData.cs" />
     <Compile Include="Data\SpawnData.cs" />
+    <Compile Include="Dialogues\DialogueConsequencesManager.cs" />
     <Compile Include="Dialogues\DialogueManager.cs" />
     <Compile Include="Diplomacy\DiplomacyUtils.cs" />
     <Compile Include="Diplomacy\ForcedWarPeaceBehaviour.cs" />
