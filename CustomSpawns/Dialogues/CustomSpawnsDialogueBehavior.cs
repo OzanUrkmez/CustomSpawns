@@ -57,26 +57,40 @@ namespace CustomSpawns.Dialogues
             foreach (Data.DialogueData d in dataManager.Data) // handle the dialogues
             {
 
-                starter.AddDialogLine(d.Dialogue_ID, "start", "", d.DialogueText,
+                starter.AddDialogLine(d.Dialogue_ID, "start", "exit", d.DialogueText,
                     delegate
                     {
                         return EvalulateDialogueCondition(d.Condition);
                     },
-                    null,
+                    delegate
+                    {
+                        ExecuteDialogueConsequence(d.Consequence);
+                    },
                     int.MaxValue
                     );
             }
         }
 
+        private DialogueParams CurrentDialogueParam //TODO Cache in same frame?
+        {
+            get
+            {
+                return new DialogueParams()
+                {
+                    AdversaryParty = PlayerEncounter.EncounteredParty.MobileParty,
+                    PlayerParty = Hero.MainHero.PartyBelongedTo
+                };
+            }
+        }
+
         private bool EvalulateDialogueCondition(DialogueCondition condition)
         {
-            var param = new DialogueParams()
-            {
-                AdversaryParty = PlayerEncounter.EncounteredParty.MobileParty,
-                PlayerParty = Hero.MainHero.PartyBelongedTo
-            };
+            return condition.ConditionEvaluator(CurrentDialogueParam);
+        }
 
-            return condition.ConditionEvaluator(param);
+        private void ExecuteDialogueConsequence(DialogueConsequence consequence)
+        {
+            consequence.ConsequenceExecutor(CurrentDialogueParam);
         }
 
         public void RegisterParty(MobileParty mb, string partyTemplateID)
