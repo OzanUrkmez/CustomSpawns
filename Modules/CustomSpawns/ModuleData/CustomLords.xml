@@ -58,13 +58,12 @@
       <EquipmentSet id="cs_desertcult_template_genericlord_civic" civilian="true" />
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter age="5" culture="Culture.aserai" default_group="Cavalry" id="cs_lord_desert_cult_4" is_female="true" is_hero="true" name="{=lFV6m1rc}Ayse" occupation="Lord" voice="ironic">
+  <NPCCharacter age="10" culture="Culture.aserai" default_group="Cavalry" id="cs_lord_desert_cult_4" is_female="true" is_hero="true" name="{=lFV6m1rc}Ayse" occupation="Lord" voice="ironic">
     <face>
       <BodyProperties version="4" weight="0.2" build="0.3"  key="0031D00FC0001010BA77C9484A5747643CD1833B3101B44A21C3C5347CA32C860037760303BC3520000000000000000000000000000000000000000042741004"  />
     </face>
     <skills></skills>
     <Traits>
-      <!-- TEENAGER, NO SKILLS OR TRAITS YET-->
     </Traits>
     <Equipments>
       <EquipmentSet id="cs_desertcult_template_genericlord" />
@@ -72,7 +71,7 @@
     </Equipments>
   </NPCCharacter>
   <!-- Redemptive Order -->
-  <NPCCharacter age="36" culture="Culture.vlandia" default_group="Cavalry" id="cs_lord_redemptive_order_1" is_hero="true" name="{=acp2IcMs}Ryagos" occupation="Lord" voice="earnest">
+  <NPCCharacter age="46" culture="Culture.vlandia" default_group="Cavalry" id="cs_lord_redemptive_order_1" is_hero="true" name="{=acp2IcMs}Ryagos" occupation="Lord" voice="earnest">
     <face>
       <BodyProperties build="0.9096" key="000BD0058000100D785AA72917C606A54D469CDC9A3683A59A15AF927269E22C00070478065D7806000000000000000000000000000000000000000000001184" version="4" weight="0.5019"/>
     </face>
@@ -91,7 +90,7 @@
       <EquipmentSet id="cs_redemptive_template_lord_civic" civilian="true" />
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter age="30" culture="Culture.vlandia" default_group="Cavalry" id="cs_lord_redemptive_order_2" is_female="true" is_hero="true" name="{=7ayj6WAw}Ashlay" occupation="Lord" voice="curt">
+  <NPCCharacter age="40" culture="Culture.vlandia" default_group="Cavalry" id="cs_lord_redemptive_order_2" is_female="true" is_hero="true" name="{=7ayj6WAw}Ashlay" occupation="Lord" voice="curt">
     <face>
       <BodyProperties build="0.4096" key="00002C0B40FC0403F498A8D188A5E77F56F0735F70008EFF42E67468A4378677000550060C589593000000000000000000000000000000000000000000780100" version="4" weight="0.4019"/>
     </face>
@@ -128,13 +127,12 @@
       <EquipmentSet id="cs_redemptive_template_inquisitor_civic" civilian="true" />
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter age="3" culture="Culture.vlandia" default_group="Cavalry" id="cs_lord_redemptive_order_4" is_female="true" is_hero="true" name="{=ZkaaXxeB}Mathilde" occupation="Lord" voice="softspoken">
+  <NPCCharacter age="9" culture="Culture.vlandia" default_group="Cavalry" id="cs_lord_redemptive_order_4" is_female="true" is_hero="true" name="{=ZkaaXxeB}Mathilde" occupation="Lord" voice="softspoken">
     <face>
 	  <BodyProperties version="4" weight="0.5" build="0.5"  key="0000BC080000100B069AF7F017C406A54D484C730AA883F59A15A89F7969E3BB00F774030F6F786D000000000000000000000000000000000000000005E80044"  />
     </face>
     <skills></skills>
     <Traits>
-      <!-- TEENAGER, NO SKILLS OR TRAITS YET-->
     </Traits>
     <Equipments>
       <EquipmentSet id="cs_redemptive_template_grandinquisitor" />
@@ -180,19 +178,6 @@
       <EquipmentSet id="cs_wrath_template_cultcivic" civilian="true" />
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter age="1" culture="Culture.empire" default_group="Infantry" id="cs_lord_harbingers_of_wrath_3" is_hero="true" name="{=ZkaaXxeB}Naton" occupation="Lord" voice="earnest">
-    <face>
-      <BodyProperties version="4" weight="0.5" build="0.95"  key="000268055BCC100013A34860245152878A76968A27536C0E985310257979835300C776030C6E9949000000000000000000000000000000000000000039948046"  />
-    </face>
-    <skills></skills>
-    <Traits>
-      <!-- TEENAGER, NO SKILLS OR TRAITS YET-->
-    </Traits>
-    <Equipments>
-      <EquipmentSet id="cs_wrath_template_cultlord" />
-      <EquipmentSet id="cs_wrath_template_cultcivic" civilian="true" />
-    </Equipments>
-  </NPCCharacter>
   <!-- Manhunters -->
   <NPCCharacter age="62" culture="Culture.empire" default_group="Cavalry" id="cs_lord_manhunters_1" is_hero="true" name="{=48bvCvb2}Vrumann" occupation="Lord" voice="curt">
     <face>
@@ -219,7 +204,6 @@
     </face>
     <skills></skills>
     <Traits>
-      <!-- TEENAGER, NO SKILLS OR TRAITS YET-->
     </Traits>
     <Equipments>
       <EquipmentSet id="cs_manhunter_template_lord" />
@@ -368,7 +352,6 @@
     </face>
     <skills></skills>
     <Traits>
-      <!-- TEENAGER, NO SKILLS OR TRAITS YET-->
     </Traits>
     <Equipments>
       <EquipmentSet id="cs_revolutionaries_template_lord" />
@@ -394,13 +377,12 @@
       <EquipmentSet id="cs_outcast_template_civic" civilian="true" />
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter age="10" culture="Culture.battania" default_group="Infantry" id="cs_lord_peasant_absolutists_2" is_female="true" is_hero="true" name="{=ZkaaXxeB}Kaja" occupation="Lord" voice="earnest">
+  <NPCCharacter age="13" culture="Culture.battania" default_group="Infantry" id="cs_lord_peasant_absolutists_2" is_female="true" is_hero="true" name="{=ZkaaXxeB}Kaja" occupation="Lord" voice="earnest">
     <face>
 	  <BodyProperties version="4" weight="0.5" build="0.5"  key="000008078088200596B56758C7948573E848C897774B66CD444475385AB754690097760309C664270000000000000000000000000000000000000000333440C4"  />
     </face>
     <skills></skills>
     <Traits>
-      <!-- TEENAGER, NO SKILLS OR TRAITS YET-->
     </Traits>
     <Equipments>
       <EquipmentSet id="cs_outcast_template_lord" />
@@ -427,7 +409,7 @@
       <EquipmentSet id="cs_roamingbrigand_template_civic" civilian="true" />
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter age="25" culture="Culture.khuzait" default_group="Cavalry" id="cs_lord_peasant_revolters_2" is_hero="true" name="{=ZkaaXxeB}Zor" occupation="Lord" voice="softspoken">
+  <NPCCharacter age="11" culture="Culture.khuzait" default_group="Cavalry" id="cs_lord_peasant_revolters_2" is_hero="true" name="{=ZkaaXxeB}Zor" occupation="Lord" voice="softspoken">
     <face>
       <BodyProperties version="4" weight="0.5" build="0.5"  key="000DEC09805818C0ACD9A54473B86147877D4A53667F6873484DA449A539765B00C776030C59B69C00000000000000000000000000000000000000003D8C3043"  />
     </face>
@@ -438,19 +420,6 @@
       <Trait id="Manager" value="6"/>
       <Trait id="Valor" value="1"/>
       <Trait id="Generosity" value="-1"/>
-    </Traits>
-    <Equipments>
-      <EquipmentSet id="cs_roamingbrigand_template_lord" />
-      <EquipmentSet id="cs_roamingbrigand_template_civic" civilian="true" />
-    </Equipments>
-  </NPCCharacter>
-  <NPCCharacter age="3" culture="Culture.khuzait" default_group="Cavalry" id="cs_lord_peasant_revolters_3" is_hero="true" name="{=ZkaaXxeB}Targ" occupation="Lord" voice="ironic">
-    <face>
-      <BodyProperties version="4" weight="0.4" build="0.8"  key="0013EC0E5E003753358EA04C01804B67906B9779E4FEE66AE45F41468819883800A776030A0D64220000000000000000000000000000000000000000254C90C5"  />
-    </face>
-    <skills></skills>
-    <Traits>
-      <!-- TEENAGER, NO SKILLS OR TRAITS YET-->
     </Traits>
     <Equipments>
       <EquipmentSet id="cs_roamingbrigand_template_lord" />
@@ -512,13 +481,12 @@
       <EquipmentSet id="cs_barbarians_template_female_civic" civilian="true" />
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter age="5" culture="Culture.sturgia" default_group="Infantry" id="cs_lord_barbarians_4" is_hero="true" name="{=ZkaaXxeB}Snokr" occupation="Lord" voice="earnest">
+  <NPCCharacter age="3" culture="Culture.sturgia" default_group="Infantry" id="cs_lord_barbarians_4" is_hero="true" name="{=ZkaaXxeB}Snokr" occupation="Lord" voice="earnest">
     <face>
       <BodyProperties version="4" weight="0.4" build="0.7"  key="0000400418CC285B0677A99F7E30C97C87C6F8F65FA9451076E4A3964A76C52800E776030EF2D68300000000000000000000000000000000000000005DCC8144"  />
     </face>
     <skills></skills>
     <Traits>
-      <!-- TEENAGER, NO SKILLS OR TRAITS YET-->
     </Traits>
     <Equipments>
       <EquipmentSet id="cs_barbarians_template_chieftain" />
@@ -531,7 +499,6 @@
     </face>
     <skills></skills>
     <Traits>
-      <!-- TEENAGER, NO SKILLS OR TRAITS YET-->
     </Traits>
     <Equipments>
       <EquipmentSet id="cs_barbarians_template_chieftain" />
@@ -544,7 +511,6 @@
     </face>
     <skills></skills>
     <Traits>
-      <!-- TEENAGER, NO SKILLS OR TRAITS YET-->
     </Traits>
     <Equipments>
       <EquipmentSet id="cs_barbarians_template_chieftain" />
@@ -576,7 +542,6 @@
     </face>
     <skills></skills>
     <Traits>
-      <!-- TEENAGER, NO SKILLS OR TRAITS YET-->
     </Traits>
     <Equipments>
       <EquipmentSet id="cs_phoenix_template_lord" />

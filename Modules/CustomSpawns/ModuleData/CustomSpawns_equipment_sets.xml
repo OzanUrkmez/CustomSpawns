@@ -278,12 +278,6 @@
         <Equipment id="Item.guarded_armwraps" slot="Gloves"/>
         <Equipment id="Item.hood" slot="Cape"/>
     </EquipmentSet>
-    <EquipmentSet civilian="true">
-        <Equipment id="Item.short_sword_t3" slot="Item0"/>
-        <Equipment id="Item.patched_gambeson" slot="Body"/>
-        <Equipment id="Item.ragged_boots" slot="Leg"/>
-        <Equipment id="Item.guarded_armwraps" slot="Gloves"/>
-    </EquipmentSet>
   </EquipmentRoster>
   <EquipmentRoster id="cs_revolutionaries_template_female_civic">
     <EquipmentSet civilian="true">
