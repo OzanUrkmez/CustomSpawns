@@ -21,15 +21,9 @@ namespace CustomSpawns.Dialogues
 
         private Data.DialogueDataManager dataManager;
 
-        Dictionary<MobileParty, string> dialoguePartyRef = new Dictionary<MobileParty, string>();
-
         public override void SyncData(IDataStore dataStore)
         {
-            dataStore.SyncData<Dictionary<MobileParty, string>>("dialoguePartyRef", ref dialoguePartyRef);
-            if (dialoguePartyRef == null)
-            {
-                dialoguePartyRef = new Dictionary<MobileParty, string>();
-            }
+
         }
 
         // basic dialogue overview: 
@@ -122,7 +116,6 @@ namespace CustomSpawns.Dialogues
         public void RegisterParty(MobileParty mb, string partyTemplateID)
         {
             ModDebug.ShowMessage("party of " + mb.StringId + " has registered for dialogue detection", DebugMessageType.Dialogue);
-            dialoguePartyRef.Add(mb, partyTemplateID);
         }
 
         private void GetData() // the classic
