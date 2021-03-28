@@ -67,7 +67,6 @@
       <!-- TEENAGER, NO SKILLS OR TRAITS YET-->
     </Traits>
     <Equipments>
-      <EquipmentRoster />
       <EquipmentSet id="cs_desertcult_template_genericlord" />
       <EquipmentSet id="cs_desertcult_template_genericlord_civic" civilian="true" />
     </Equipments>
@@ -138,7 +137,6 @@
       <!-- TEENAGER, NO SKILLS OR TRAITS YET-->
     </Traits>
     <Equipments>
-      <EquipmentRoster />
       <EquipmentSet id="cs_redemptive_template_grandinquisitor" />
       <EquipmentSet id="cs_redemptive_template_inquisitor_civic" civilian="true" />
     </Equipments>
@@ -191,7 +189,6 @@
       <!-- TEENAGER, NO SKILLS OR TRAITS YET-->
     </Traits>
     <Equipments>
-      <EquipmentRoster />
       <EquipmentSet id="cs_wrath_template_cultlord" />
       <EquipmentSet id="cs_wrath_template_cultcivic" civilian="true" />
     </Equipments>
@@ -225,7 +222,6 @@
       <!-- TEENAGER, NO SKILLS OR TRAITS YET-->
     </Traits>
     <Equipments>
-      <EquipmentRoster />
       <EquipmentSet id="cs_manhunter_template_lord" />
       <EquipmentSet id="cs_manhunter_template_civic" civilian="true" />
     </Equipments>
@@ -366,7 +362,7 @@
       <EquipmentSet id="cs_revolutionaries_template_civic" civilian="true" />
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter age="10" culture="Culture.vlandia" default_group="Infantry" id="cs_lord_peasant_revolutionaries_2" is_female="true" is_hero="true" name="{=ZkaaXxeB}Johanna" occupation="Lord" voice="earnest">
+  <NPCCharacter age="11" culture="Culture.vlandia" default_group="Infantry" id="cs_lord_peasant_revolutionaries_2" is_female="true" is_hero="true" name="{=ZkaaXxeB}Johanna" occupation="Lord" voice="earnest">
     <face>
       <BodyProperties version="4" weight="0.01" build="0.01"  key="00009C08002C2006067B697053A010C076B6886425234401087D7FB69D7ABFF5003776030388499600000000000000000000000000000000000000006A5420C4"  />
     </face>
@@ -375,7 +371,6 @@
       <!-- TEENAGER, NO SKILLS OR TRAITS YET-->
     </Traits>
     <Equipments>
-      <EquipmentRoster />
       <EquipmentSet id="cs_revolutionaries_template_lord" />
       <EquipmentSet id="cs_revolutionaries_template_female_civic" civilian="true" />
     </Equipments>
@@ -408,7 +403,6 @@
       <!-- TEENAGER, NO SKILLS OR TRAITS YET-->
     </Traits>
     <Equipments>
-      <EquipmentRoster />
       <EquipmentSet id="cs_outcast_template_lord" />
       <EquipmentSet id="cs_outcast_template_female_civic" civilian="true" />
     </Equipments>
@@ -446,7 +440,6 @@
       <Trait id="Generosity" value="-1"/>
     </Traits>
     <Equipments>
-      <EquipmentRoster />
       <EquipmentSet id="cs_roamingbrigand_template_lord" />
       <EquipmentSet id="cs_roamingbrigand_template_civic" civilian="true" />
     </Equipments>
@@ -460,7 +453,6 @@
       <!-- TEENAGER, NO SKILLS OR TRAITS YET-->
     </Traits>
     <Equipments>
-      <EquipmentRoster />
       <EquipmentSet id="cs_roamingbrigand_template_lord" />
       <EquipmentSet id="cs_roamingbrigand_template_civic" civilian="true" />
     </Equipments>
@@ -529,7 +521,6 @@
       <!-- TEENAGER, NO SKILLS OR TRAITS YET-->
     </Traits>
     <Equipments>
-      <EquipmentRoster />
       <EquipmentSet id="cs_barbarians_template_chieftain" />
       <EquipmentSet id="cs_barbarians_template_civic" civilian="true" />
     </Equipments>
@@ -543,7 +534,6 @@
       <!-- TEENAGER, NO SKILLS OR TRAITS YET-->
     </Traits>
     <Equipments>
-      <EquipmentRoster />
       <EquipmentSet id="cs_barbarians_template_chieftain" />
       <EquipmentSet id="cs_barbarians_template_female_civic" civilian="true" />
     </Equipments>
@@ -557,7 +547,6 @@
       <!-- TEENAGER, NO SKILLS OR TRAITS YET-->
     </Traits>
     <Equipments>
-      <EquipmentRoster />
       <EquipmentSet id="cs_barbarians_template_chieftain" />
       <EquipmentSet id="cs_barbarians_template_female_civic" civilian="true" />
     </Equipments>
@@ -590,7 +579,6 @@
       <!-- TEENAGER, NO SKILLS OR TRAITS YET-->
     </Traits>
     <Equipments>
-      <EquipmentRoster />
       <EquipmentSet id="cs_phoenix_template_lord" />
       <EquipmentSet id="cs_phoenix_template_civic" civilian="true" />
     </Equipments>
