@@ -104,12 +104,19 @@ namespace CustomSpawns.Dialogues
 
         private bool EvalulateDialogueCondition(DialogueCondition condition)
         {
+            if(condition == null)
+            {
+                return true;
+            }
             return condition.ConditionEvaluator(CurrentDialogueParam);
         }
 
         private void ExecuteDialogueConsequence(DialogueConsequence consequence)
         {
-            consequence.ConsequenceExecutor(CurrentDialogueParam);
+            if(consequence != null)
+            {
+                consequence.ConsequenceExecutor(CurrentDialogueParam);
+            }
         }
 
         public void RegisterParty(MobileParty mb, string partyTemplateID)
