@@ -42,6 +42,9 @@ namespace CustomSpawns.RewardSystem
         {
             foreach (var party in defeatedParties)
             {
+                var moneyAmount = 0;
+                var renownAmount = 0;
+                var influenceAmount = 0;
                 var partyRewards = XmlRewardData.GetInstance().PartyRewards;
                 var partyReward = partyRewards.FirstOrDefault(el => party.Party.Id.Contains(el.PartyId));
                 if (partyReward != null)
@@ -53,13 +56,14 @@ namespace CustomSpawns.RewardSystem
                             case RewardType.Influence:
                                 if (reward.RenownInfluenceMoneyAmount != null)
                                 {
+                                    influenceAmount = Convert.ToInt32(reward.RenownInfluenceMoneyAmount);
                                     mapEventPlayerParty.GainedInfluence += Convert.ToSingle(reward.RenownInfluenceMoneyAmount);
-                                    // mapEventWinnerSide.InfluenceValue += Convert.ToSingle(reward.RenownInfluenceMoneyAmount);
                                 }
                                 break;
                             case RewardType.Money:
                                 if (reward.RenownInfluenceMoneyAmount != null)
                                 {
+                                    moneyAmount = Convert.ToInt32(reward.RenownInfluenceMoneyAmount);
                                     mapEventPlayerParty.PlunderedGold += Convert.ToInt32(reward.RenownInfluenceMoneyAmount);
                                 }
                                 break;
@@ -67,20 +71,38 @@ namespace CustomSpawns.RewardSystem
                                 if (reward.ItemId != null)
                                 {
                                     var itemToAdd = ItemObject.All.FirstOrDefault(obj => obj.StringId == reward.ItemId);
-                                    mapEventPlayerParty.RosterToReceiveLootItems.Add(new ItemRosterElement(itemToAdd, 1));
+                                    if (reward.Chance != null)
+                                    {
+                                        if (IsItemGiven(Convert.ToDecimal(reward.Chance)))
+                                        {
+                                            mapEventPlayerParty.RosterToReceiveLootItems.Add(new ItemRosterElement(itemToAdd, 1));
+                                        }
+                                    }
                                 }
                                 break;
                             case RewardType.Renown:
                                 if (reward.RenownInfluenceMoneyAmount != null)
                                 {
-                                    //playerParty.LeaderHero.Clan.AddRenown(Convert.ToSingle(reward.RenownInfluenceMoneyAmount));
+                                    renownAmount = Convert.ToInt32(reward.RenownInfluenceMoneyAmount);
                                     mapEventPlayerParty.GainedRenown += Convert.ToSingle(reward.RenownInfluenceMoneyAmount);
                                 }
                                 break;
                         }
                     }
+                    InformationManager.DisplayMessage(
+                        new InformationMessage(
+                            $"{mapEventPlayerParty.Party.Leader.Name} defeated {party.Party.Name} gaining {moneyAmount} money, {renownAmount} renown and {influenceAmount} influence", 
+                            Colors.Green
+                            )
+                        );
                 }
             }
+        }
+
+        private bool IsItemGiven(decimal chance)
+        {
+            var random = new Random();
+            return random.Next(101) <= chance * 100;
         }
     }
 }
