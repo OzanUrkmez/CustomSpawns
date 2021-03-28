@@ -9,6 +9,7 @@ using TaleWorlds;
 using TaleWorlds.CampaignSystem;
 
 using CustomSpawns.Dialogues.DialogueAlgebra;
+using TaleWorlds.CampaignSystem.Barterables;
 
 namespace CustomSpawns.Dialogues
 {
@@ -111,6 +112,64 @@ namespace CustomSpawns.Dialogues
         #endregion
 
         #region Consequences
+
+        [DialogueConsequenceImplementorAttribute("Leave")]
+        private static void end_conversation_consequence_delegate(DialogueParams param)
+        {
+            PlayerEncounter.LeaveEncounter = true;
+        }
+
+        [DialogueConsequenceImplementorAttribute("Battle")]
+        private static void end_conversation_battle_consequence_delegate(DialogueParams param)
+        {
+            PlayerEncounter.Current.IsEnemy = true;
+        }
+
+        [DialogueConsequenceImplementorAttribute("War")]
+        private static void declare_war_consequence_delegate(DialogueParams param)
+        {
+            PartyBase encounteredParty = PlayerEncounter.EncounteredParty;
+            Diplomacy.DiplomacyUtils.DeclareWarOverProvocation(Hero.MainHero.MapFaction, encounteredParty.MapFaction);
+        }
+
+        [DialogueConsequenceImplementorAttribute("Peace")]
+        private static void declare_peace_consequence_delegate()
+        {
+            PartyBase encounteredParty = PlayerEncounter.EncounteredParty;
+            Diplomacy.DiplomacyUtils.MakePeace(Hero.MainHero.MapFaction, encounteredParty.MapFaction);
+        }
+
+        [DialogueConsequenceImplementorAttribute("Surrender")]
+        private static void surrender_consequence_delegate(bool isPlayer) // for surrenders you need to update the player encounter- not sure if this closes the window or not
+        {
+            if (isPlayer)
+                PlayerEncounter.PlayerSurrender = true;
+            else if (!isPlayer)
+                PlayerEncounter.EnemySurrender = true;
+            PlayerEncounter.Update();
+        }
+
+        [DialogueConsequenceImplementorAttribute("BarterPeace")]
+        private static void barter_for_peace_consequence_delegate() // looks like a lot, I just stole most of this from tw >_>
+        {
+            BarterManager instance = BarterManager.Instance;
+            Hero mainHero = Hero.MainHero;
+            Hero oneToOneConversationHero = Hero.OneToOneConversationHero;
+            PartyBase mainParty = PartyBase.MainParty;
+            MobileParty conversationParty = MobileParty.ConversationParty;
+            PartyBase otherParty = (conversationParty != null) ? conversationParty.Party : null;
+            Hero beneficiaryOfOtherHero = null;
+            BarterManager.BarterContextInitializer initContext = new BarterManager.BarterContextInitializer(BarterManager.Instance.InitializeMakePeaceBarterContext);
+            int persuasionCostReduction = 0;
+            bool isAIBarter = false;
+            Barterable[] array = new Barterable[1];
+            int num = 0;
+            Hero originalOwner = conversationParty.MapFaction.Leader;
+            Hero mainHero2 = Hero.MainHero;
+            MobileParty conversationParty2 = MobileParty.ConversationParty;
+            array[num] = new PeaceBarterable(originalOwner, conversationParty.MapFaction, mainHero.MapFaction, CampaignTime.Years(1f));
+            instance.StartBarterOffer(mainHero, oneToOneConversationHero, mainParty, otherParty, beneficiaryOfOtherHero, initContext, persuasionCostReduction, isAIBarter, array);
+        }
 
         #endregion
 
