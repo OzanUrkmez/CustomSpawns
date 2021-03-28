@@ -278,6 +278,20 @@
         <Equipment id="Item.guarded_armwraps" slot="Gloves"/>
         <Equipment id="Item.hood" slot="Cape"/>
     </EquipmentSet>
+    <EquipmentSet civilian="true">
+        <Equipment id="Item.short_sword_t3" slot="Item0"/>
+        <Equipment id="Item.patched_gambeson" slot="Body"/>
+        <Equipment id="Item.ragged_boots" slot="Leg"/>
+        <Equipment id="Item.guarded_armwraps" slot="Gloves"/>
+    </EquipmentSet>
+  </EquipmentRoster>
+  <EquipmentRoster id="cs_revolutionaries_template_female_civic">
+    <EquipmentSet civilian="true">
+        <Equipment id="Item.short_sword_t3" slot="Item0"/>
+        <Equipment id="Item.battania_female_civil_a" slot="Body"/>
+        <Equipment id="Item.ragged_boots" slot="Leg"/>
+        <Equipment id="Item.female_hood" slot="Cape"/>
+    </EquipmentSet>
   </EquipmentRoster>
   <EquipmentRoster id="cs_outcast_template_lord">
     <EquipmentSet>
@@ -293,6 +307,13 @@
         <Equipment id="Item.sturgia_axe_5_t5" slot="Item0"/>
         <Equipment id="Item.armored_baggy_trunks" slot="Body"/>
         <Equipment id="Item.guarded_padded_vambrace" slot="Gloves"/>
+        <Equipment id="Item.rough_tied_boots" slot="Leg"/>
+    </EquipmentSet>
+  </EquipmentRoster>
+  <EquipmentRoster id="cs_outcast_template_female_civic">
+    <EquipmentSet civilian="true">
+        <Equipment id="Item.sturgia_axe_5_t5" slot="Item0"/>
+        <Equipment id="Item.long_fur_coat" slot="Body"/>
         <Equipment id="Item.rough_tied_boots" slot="Leg"/>
     </EquipmentSet>
   </EquipmentRoster>
@@ -346,6 +367,13 @@
         <Equipment id="Item.fur_skirt" slot="Body"/>
         <Equipment id="Item.battania_woodland_boots" slot="Leg"/>
         <Equipment id="Item.rough_bearskin" slot="Cape"/>
+    </EquipmentSet>
+  </EquipmentRoster>
+  <EquipmentRoster id="cs_barbarians_template_female_civic">
+    <EquipmentSet civilian="true">
+        <Equipment id="Item.battania_axe_3_t5" slot="Item0"/>
+        <Equipment id="Item.sleeveless_fur_coat" slot="Body"/>
+        <Equipment id="Item.battania_woodland_boots" slot="Leg"/>
     </EquipmentSet>
   </EquipmentRoster>
   
