@@ -126,6 +126,15 @@ namespace CustomSpawns.Dialogues
             return false;
         }
 
+        [DialogueConditionImplementor("PartyIDStartsWith")]
+        private static bool PartyIDStartsWith(DialogueParams param, string ID)
+        {
+            if (param.AdversaryParty == null)
+                return false;
+
+            return param.AdversaryParty.Party.Id.StartsWith(ID);
+        }
+
         [DialogueConditionImplementor("PartyIsInFaction")]
         private static bool PartyIsInFaction(DialogueParams param, string factionName)
         {

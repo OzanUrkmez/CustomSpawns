@@ -1,3 +1,24 @@
+<!-- RECOGNIZED CONDITIONS 
+
+HasPartyID(ID)
+PartyIDStartsWith(Prefix)
+PartyIsInFaction(FactionName)
+IsHero(HeroName)
+
+FirstTimeTalkWithHero
+IsFriendly
+IsHostile
+IsDefending
+IsAttacking
+
+RECOGNIZED LOGIC
+
+AND: AND & &&
+OR: OR | ||
+NOT: !
+
+-->
+
 <root>
 
 <!-- BANDITS -->

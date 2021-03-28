@@ -104,6 +104,8 @@ namespace CustomSpawns.Data
             }
         }
 
+        #region Condition Parsing
+
         private DialogueCondition ParseCondition(string text)
         {
             //TODO: Parse AND, OR, etc to make use of the algebra system.
@@ -238,6 +240,136 @@ namespace CustomSpawns.Data
 
             return returned;
         }
+
+        #endregion
+
+        #region Consequence Parsing
+
+        private DialogueConsequence ParseConsequence(string text)
+        {
+            //TODO: Parse AND, OR, etc to make use of the algebra system.
+
+            try
+            {
+
+                //Simple as possible for now. No paranthesis support to group
+
+                string[] tokens = text.Split(' ');
+
+                if (tokens.Length == 0)
+                {
+                    //user has entered empty condition string
+                    return new DialogueConsequenceBare((p) => { }, "");
+                }
+                else if (tokens.Length == 1)
+                {
+                    //just a good old single function.
+                    return ParseConsequenceToken(tokens[0]);
+                }
+                else if (tokens.Length % 2 == 0)
+                {
+                    throw new Exception("Invalid consequence expression: " + text);
+                }
+
+                //tokens.Length is thus at least 3.
+
+                DialogueConsequence aggregate = null;
+                DialogueConsequence cur = null;
+
+                aggregate = ParseConsequenceToken(tokens[0]);
+
+                for (int i = 2; i < tokens.Length; i += 2)
+                {
+                    if (i % 2 == 0)
+                    {
+
+                        cur = ParseConsequenceToken(tokens[i]);
+
+                        i -= 3; //we will add 2 to this and so we will get to the logic keyword.
+                    }
+                    else
+                    {
+                        //logic keyword AND OR 
+
+                        if (tokens[i] == "AND" || tokens[i] == "&" || tokens[i] == "&&" || tokens[i] == "+")
+                        {
+                            aggregate = aggregate + cur;
+                        }
+                        else
+                        {
+                            throw new Exception("Unrecognized logic keyword for consequences: " + tokens[i]);
+                        }
+
+                    }
+                }
+
+                return aggregate;
+
+            }
+            catch (Exception e)
+            {
+                ErrorHandler.ShowPureErrorMessage("Could not parse dialogue consequnce: \n" + text + "\n Error Message: \n" + e.Message);
+                return null;
+            }
+
+
+        }
+
+        private DialogueConsequence ParseConsequenceToken(string token)
+        {
+            //function and its parameters
+            List<string> openPSplit = token.Split('(', ',').ToList();
+
+            string funcName = openPSplit[0];
+
+            //get rid of trailing
+
+            for (int j = 1; j < openPSplit.Count; j++)
+            {
+                openPSplit[j] = openPSplit[j].TrimEnd(',', ')');
+                //remove empty
+                if (openPSplit[j].Length == 0)
+                {
+                    openPSplit.RemoveAt(j);
+                    j--;
+                }
+            }
+
+            if (funcName[0] == '!')
+            {
+                throw new Exception("Consequences cannot be negated: " + token);
+            }
+
+            DialogueConsequence returned = null;
+
+            switch (openPSplit.Count)
+            {
+                case 0:
+                    throw new Exception("Can't parse " + token + ". It may be empty.");
+                case 1:
+                    //no params
+                    returned = DialogueConsequencesManager.GetDialogueConsequence(funcName);
+                    break;
+                case 2:
+                    // 1 param
+                    returned = DialogueConsequencesManager.GetDialogueConsequence(funcName, openPSplit[1]);
+                    break;
+                case 3:
+                    // 2 params
+                    returned = DialogueConsequencesManager.GetDialogueConsequence(funcName, openPSplit[1], openPSplit[2]);
+                    break;
+                case 4:
+                    // 3 params
+                    returned = DialogueConsequencesManager.GetDialogueConsequence(funcName, openPSplit[1], openPSplit[2], openPSplit[3]);
+                    break;
+                default:
+                    throw new Exception("Can't parse " + token + ". Possibly too many params.");
+            }
+
+            return returned;
+        }
+
+        #endregion
     }
 
     public class DialogueData
@@ -245,5 +377,6 @@ namespace CustomSpawns.Data
         public string DialogueText { get; set; }
         public string Dialogue_ID { get; set; }
         public DialogueCondition Condition { get; set; }
+        public DialogueConsequence Consequence { get; set; }
     }
 }
