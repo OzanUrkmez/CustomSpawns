@@ -34,13 +34,13 @@ namespace CustomSpawns.Data
             }
         }
 
-        private List<DialogueData> data = new List<DialogueData>();
+        private List<DialogueData> rootDialogueData = new List<DialogueData>();
 
         public IList<DialogueData> Data
         {
             get
             {
-                return data.AsReadOnly();
+                return rootDialogueData.AsReadOnly();
             }
         }
 
@@ -84,40 +84,67 @@ namespace CustomSpawns.Data
 
             foreach (XmlNode node in doc.DocumentElement)
             {
-                if (node.NodeType == XmlNodeType.Comment)
+                DialogueData dat = ParseDialogueNode(node);
+
+                if (dat == null)
                     continue;
 
-                DialogueData dat = new DialogueData();
+                rootDialogueData.Add(dat);
 
-                if (node.Attributes["condition"] != null)
-                {
-                    dat.Condition = ParseCondition(node.Attributes["condition"].Value);
-                }
-
-                if (node.Attributes["consequence"] != null)
-                {
-                    dat.Consequence = ParseConsequence(node.Attributes["consequence"].Value);
-                }
-
-                bool isPlayerDialogue;
-
-                if(!bool.TryParse(node.Attributes["player"]?.Value, out isPlayerDialogue))
-                {
-                    dat.IsPlayerDialogue = false;
-                }
-                else
-                {
-                    dat.IsPlayerDialogue = isPlayerDialogue;
-                }
-
-                dat.DialogueText = node.Attributes["text"]?.Value;
-
-                dat.Dialogue_ID = "CS_Dialogue_" + currentID.ToString();
-
-                data.Add(dat);
-
-                currentID++;
             }
+        }
+
+        private DialogueData ParseDialogueNode(XmlNode node)
+        {
+            if (node.NodeType == XmlNodeType.Comment)
+                return null;
+
+            DialogueData dat = new DialogueData();
+
+            dat.Children = new List<DialogueData>();
+
+            if (node.Attributes["condition"] != null)
+            {
+                dat.Condition = ParseCondition(node.Attributes["condition"].Value);
+            }
+
+            if (node.Attributes["consequence"] != null)
+            {
+                dat.Consequence = ParseConsequence(node.Attributes["consequence"].Value);
+            }
+
+            bool isPlayerDialogue;
+
+            if (!bool.TryParse(node.Attributes["player"]?.Value, out isPlayerDialogue))
+            {
+                dat.IsPlayerDialogue = false;
+            }
+            else
+            {
+                dat.IsPlayerDialogue = isPlayerDialogue;
+            }
+
+            dat.DialogueText = node.Attributes["text"]?.Value;
+
+            dat.Dialogue_ID = "CS_Dialogue_" + currentID.ToString();
+
+            currentID++;
+
+            //Now process children.
+
+            DialogueData childData;
+
+            foreach (XmlNode child in node)
+            {
+                childData = ParseDialogueNode(child);
+                
+                if(childData != null)
+                {
+                    dat.Children.Add(childData);
+                }
+            }
+
+            return dat;
         }
 
 
