@@ -60,13 +60,13 @@ namespace CustomSpawns.Data
                 if (!Main.isAPIMode)
                 {
                     string path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data", "CustomDialogue.xml"); // the usual path deal, located in the CustomSpawns or Data folder
-                    ConstructListFromXML(path);
+                    ParseDialogueFile(path);
                 }
                 foreach (var subMod in ModIntegration.SubModManager.dependentModsArray)
                 {
                     string path = Path.Combine(subMod.CustomSpawnsDirectoryPath, "CustomDialogue.xml");
                     if (File.Exists(path))
-                        ConstructListFromXML(path);
+                        ParseDialogueFile(path);
                 }
             }
             catch (Exception e)
@@ -77,7 +77,7 @@ namespace CustomSpawns.Data
 
         }
 
-        private void ConstructListFromXML(string filePath)
+        private void ParseDialogueFile(string filePath)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(filePath);
@@ -119,6 +119,8 @@ namespace CustomSpawns.Data
                 currentID++;
             }
         }
+
+
 
         #region Condition Parsing
 
@@ -395,5 +397,7 @@ namespace CustomSpawns.Data
         public DialogueCondition Condition { get; set; }
         public DialogueConsequence Consequence { get; set; }
         public bool IsPlayerDialogue { get; set; }
+
+        public List<DialogueData> Children { get; set; }
     }
 }

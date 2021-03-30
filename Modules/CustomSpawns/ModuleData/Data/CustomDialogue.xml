@@ -23,54 +23,13 @@ NOT: !
 
 <!-- BANDITS -->
 
-<Dialogue condition = "HasPartyID(cs_mountain_raider_squad_template)" text = "I'll drink from your skull!">
+<Dialogue condition = "HasPartyID(cs_mountain_raider_squad_template)" text = "Aye, what do we 'ave here?">
+	<Dialogue condition = "" text = "Just a walking purse, sir." player = "true">
 
-</Dialogue>
+	</Dialogue>
+	<Dialogue condition = "" text = "Some steel for you thieving rascals!" player = "true">
 
-<Dialogue condition = "HasPartyID(cs_mountain_raider_boss_squad_template)" text = "I'll drink from your skull!">
-
-</Dialogue>
-
-<Dialogue condition = "HasPartyID(cs_forest_trainer_group)" text = "I'll drink from your skull!">
-
-</Dialogue>
-
-<Dialogue condition = "HasPartyID(cs_forest_ambushers)" text = "I'll drink from your skull!">
-
-</Dialogue>
-
-<Dialogue condition = "HasPartyID(cs_forest_giant_trainer_group)" text = "I'll drink from your skull!">
-
-</Dialogue>
-
-<!-- DESERTERS -->
-
-<Dialogue condition = "HasPartyID(cs_battania_deserters)" text = "I'll drink from your skull!">
-
-</Dialogue>
-
-<Dialogue condition = "HasPartyID(cs_aserai_deserters)" text = "I'll drink from your skull!">
-
-</Dialogue>
-
-<Dialogue condition = "HasPartyID(cs_imperial_deserters)" text = "I'll drink from your skull!">
-
-</Dialogue>
-
-<Dialogue condition = "HasPartyID(cs_khuzait_deserters)" text = "I'll drink from your skull!">
-
-</Dialogue>
-
-<Dialogue condition = "HasPartyID(cs_vlandia_deserters)" text = "I'll drink from your skull!">
-
-</Dialogue>
-
-<Dialogue condition = "HasPartyID(cs_sturgia_deserters)" text = "I'll drink from your skull!">
-
-</Dialogue>
-
-<Dialogue condition = "HasPartyID(cs_united_deserters)" text = "I'll drink from your skull!">
-
+	</Dialogue>
 </Dialogue>
 
 </root>
