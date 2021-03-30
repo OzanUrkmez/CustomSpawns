@@ -8,6 +8,8 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Barterables;
 using TaleWorlds.SaveSystem;
 
+using CustomSpawns.Data;
+
 namespace CustomSpawns.Dialogues
 {
     //TODO Improve upon delegate logic. add more options. 
@@ -51,38 +53,55 @@ namespace CustomSpawns.Dialogues
             foreach (Data.DialogueData d in dataManager.Data) // handle the dialogues
             {
 
-                if (d.IsPlayerDialogue)
-                {
-                    starter.AddPlayerLine(d.Dialogue_ID, "start", "exit", d.DialogueText,
-                        delegate
-                        {
-                            return EvalulateDialogueCondition(d.Condition);
-                        },
-                        delegate
-                        {
-                            ExecuteDialogueConsequence(d.Consequence);
-                        },
-                        int.MaxValue
-                        );
-                }
-                else
-                {
-                    starter.AddDialogLine(d.Dialogue_ID, "start", "exit", d.DialogueText,
-                        delegate
-                        {
-                            return EvalulateDialogueCondition(d.Condition);
-                        },
-                        delegate
-                        {
-                            ExecuteDialogueConsequence(d.Consequence);
-                        },
-                        int.MaxValue
-                        );
-                }
-
+                AddDialogLine(starter, d, "start");
 
             }
         }
+
+        private void AddDialogLine(CampaignGameStarter starter, DialogueData d, string in_token)
+        {
+            if (d.IsPlayerDialogue)
+            {
+                starter.AddPlayerLine(d.Dialogue_ID,
+                    in_token,
+                    d.Children.Count == 0? "exit" : d.Dialogue_ID,
+                    d.DialogueText,
+                    delegate
+                    {
+                        return EvalulateDialogueCondition(d.Condition);
+                    },
+                    delegate
+                    {
+                        ExecuteDialogueConsequence(d.Consequence);
+                    },
+                    int.MaxValue
+                    );
+            }
+            else
+            {
+                starter.AddDialogLine(d.Dialogue_ID,
+                    in_token,
+                    d.Children.Count == 0 ? "exit" : d.Dialogue_ID,
+                    d.DialogueText,
+                    delegate
+                    {
+                        return EvalulateDialogueCondition(d.Condition);
+                    },
+                    delegate
+                    {
+                        ExecuteDialogueConsequence(d.Consequence);
+                    },
+                    int.MaxValue
+                    );
+            }
+
+            foreach(DialogueData child in d.Children)
+            {
+                AddDialogLine(starter, child, d.Dialogue_ID);
+            }
+        }
+
+
 
         private DialogueParams CurrentDialogueParam //TODO Cache in same frame?
         {
