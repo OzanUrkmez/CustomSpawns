@@ -140,12 +140,22 @@ namespace CustomSpawns.Dialogues
         }
 
         [DialogueConsequenceImplementorAttribute("Surrender")]
-        private static void surrender_consequence_delegate(bool isPlayer) // for surrenders you need to update the player encounter- not sure if this closes the window or not
+        private static void surrender_consequence_delegate(string isPlayer) // for surrenders you need to update the player encounter- not sure if this closes the window or not
         {
-            if (isPlayer)
+            isPlayer = isPlayer.ToLower();
+
+            if (isPlayer == "true")
+            {
                 PlayerEncounter.PlayerSurrender = true;
-            else if (!isPlayer)
+            }
+            else if (isPlayer == "false")
+            {
                 PlayerEncounter.EnemySurrender = true;
+            }
+            else
+            {
+                ErrorHandler.ShowPureErrorMessage("Can't interpret " + isPlayer.ToString() + " as a bool. Possible typo in the XML consequence 'Surrender'");
+            }
             PlayerEncounter.Update();
         }
 

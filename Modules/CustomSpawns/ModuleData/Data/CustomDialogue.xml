@@ -17,6 +17,16 @@ AND: AND & &&
 OR: OR | ||
 NOT: !
 
+RECOGNIZED CONSEQUENCES
+
+Leave
+Battle
+War
+Peace
+Surrender(isPlayer) Enter true or false as parameter. case insensitive.
+BarterPeace
+
+
 -->
 
 <root>
