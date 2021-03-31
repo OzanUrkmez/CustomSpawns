@@ -181,6 +181,34 @@ namespace CustomSpawns.Dialogues
             instance.StartBarterOffer(mainHero, oneToOneConversationHero, mainParty, otherParty, beneficiaryOfOtherHero, initContext, persuasionCostReduction, isAIBarter, array);
         }
 
+        [DialogueConsequenceImplementorAttribute("BarterNoAttack")]
+        private static void conversation_set_up_safe_passage_barter_on_consequence() //taken from LordConversationsCampaignBehaviour
+        {
+            BarterManager instance = BarterManager.Instance;
+            Hero mainHero = Hero.MainHero;
+            Hero oneToOneConversationHero = Hero.OneToOneConversationHero;
+            PartyBase mainParty = PartyBase.MainParty;
+            MobileParty conversationParty = MobileParty.ConversationParty;
+            PartyBase otherParty = (conversationParty != null) ? conversationParty.Party : null;
+            Hero beneficiaryOfOtherHero = null;
+            BarterManager.BarterContextInitializer initContext = new BarterManager.BarterContextInitializer(BarterManager.Instance.InitializeSafePassageBarterContext);
+            int persuasionCostReduction = 0;
+            bool isAIBarter = false;
+            Barterable[] array = new Barterable[2];
+            int num = 0;
+            Hero oneToOneConversationHero2 = Hero.OneToOneConversationHero;
+            Hero mainHero2 = Hero.MainHero;
+            MobileParty conversationParty2 = MobileParty.ConversationParty;
+            array[num] = new SafePassageBarterable(oneToOneConversationHero2, mainHero2, (conversationParty2 != null) ? conversationParty2.Party : null, PartyBase.MainParty);
+            int num2 = 1;
+            Hero mainHero3 = Hero.MainHero;
+            Hero oneToOneConversationHero3 = Hero.OneToOneConversationHero;
+            PartyBase mainParty2 = PartyBase.MainParty;
+            MobileParty conversationParty3 = MobileParty.ConversationParty;
+            array[num2] = new NoAttackBarterable(mainHero3, oneToOneConversationHero3, mainParty2, (conversationParty3 != null) ? conversationParty3.Party : null, CampaignTime.Days(5f));
+            instance.StartBarterOffer(mainHero, oneToOneConversationHero, mainParty, otherParty, beneficiaryOfOtherHero, initContext, persuasionCostReduction, isAIBarter, array);
+        }
+
         #endregion
 
         [AttributeUsage(AttributeTargets.Method)]
