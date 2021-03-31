@@ -25,7 +25,7 @@ War
 Peace
 Surrender(isPlayer) Enter true or false as parameter. case insensitive.
 BarterPeace
-
+BarterNoAttack  This lasts for 5 days. It is hard coded into the game though on request I can make this alterable with a parameter you can enter.
 
 -->
 
@@ -34,10 +34,10 @@ BarterPeace
 <!-- BANDITS -->
 
 <Dialogue condition = "HasPartyID(cs_mountain_raider_squad_template)" text = "Aye, what do we 'ave here?">
-	<Dialogue condition = "" text = "Just a walking purse, sir." player = "true">
+	<Dialogue condition = "" text = "Just a walking purse, sir." consequence = "BarterNoAttack" player = "true" >
 
 	</Dialogue>
-	<Dialogue condition = "" text = "Some steel for you thieving rascals!" player = "true">
+	<Dialogue condition = "" text = "Some steel for you thieving rascals!" consequence = "Battle" player = "true">
 
 	</Dialogue>
 </Dialogue>

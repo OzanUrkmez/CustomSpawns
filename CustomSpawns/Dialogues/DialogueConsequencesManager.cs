@@ -18,7 +18,7 @@ namespace CustomSpawns.Dialogues
 
         static DialogueConsequencesManager()
         {
-            allMethods = typeof(DialogueConditionsManager).GetMethods(BindingFlags.Static | BindingFlags.NonPublic).
+            allMethods = typeof(DialogueConsequencesManager).GetMethods(BindingFlags.Static | BindingFlags.NonPublic).
                  Where((m) => m.GetCustomAttributes(typeof(DialogueConsequenceImplementorAttribute), false).Count() > 0).ToList();
         }
 
