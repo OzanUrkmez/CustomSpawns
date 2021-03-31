@@ -140,7 +140,7 @@ namespace CustomSpawns.Dialogues
         }
 
         [DialogueConsequenceImplementorAttribute("Surrender")]
-        private static void surrender_consequence_delegate(string isPlayer) // for surrenders you need to update the player encounter- not sure if this closes the window or not
+        private static void surrender_consequence_delegate(DialogueParams param, string isPlayer) // for surrenders you need to update the player encounter- not sure if this closes the window or not
         {
             isPlayer = isPlayer.ToLower();
 
@@ -160,7 +160,7 @@ namespace CustomSpawns.Dialogues
         }
 
         [DialogueConsequenceImplementorAttribute("BarterPeace")]
-        private static void barter_for_peace_consequence_delegate() // looks like a lot, I just stole most of this from tw >_>
+        private static void barter_for_peace_consequence_delegate(DialogueParams param) // looks like a lot, I just stole most of this from tw >_>
         {
             BarterManager instance = BarterManager.Instance;
             Hero mainHero = Hero.MainHero;
@@ -182,7 +182,7 @@ namespace CustomSpawns.Dialogues
         }
 
         [DialogueConsequenceImplementorAttribute("BarterNoAttack")]
-        private static void conversation_set_up_safe_passage_barter_on_consequence() //taken from LordConversationsCampaignBehaviour
+        private static void conversation_set_up_safe_passage_barter_on_consequence(DialogueParams param) //taken from LordConversationsCampaignBehaviour
         {
             BarterManager instance = BarterManager.Instance;
             Hero mainHero = Hero.MainHero;
