@@ -60,20 +60,35 @@ namespace CustomSpawns.Dialogues
 
         private void AddDialogLine(CampaignGameStarter starter, DialogueData d, string in_token)
         {
+
+            ConversationSentence.OnConditionDelegate cond = null;
+
+            if(d.Condition != null)
+            {
+                cond = delegate
+                {
+                    return EvalulateDialogueCondition(d.Condition);
+                };
+            }
+
+            ConversationSentence.OnConsequenceDelegate conseq = null;
+
+            if(d.Consequence != null)
+            {
+                conseq = delegate
+                {
+                    ExecuteDialogueConsequence(d.Consequence);
+                };
+            }
+
             if (d.IsPlayerDialogue)
             {
                 starter.AddPlayerLine(d.Dialogue_ID,
                     in_token,
                     d.Children.Count == 0? "exit" : d.Dialogue_ID,
                     d.DialogueText,
-                    delegate
-                    {
-                        return EvalulateDialogueCondition(d.Condition);
-                    },
-                    delegate
-                    {
-                        ExecuteDialogueConsequence(d.Consequence);
-                    },
+                    cond,
+                    conseq,
                     int.MaxValue
                     );
             }
@@ -83,14 +98,8 @@ namespace CustomSpawns.Dialogues
                     in_token,
                     d.Children.Count == 0 ? "exit" : d.Dialogue_ID,
                     d.DialogueText,
-                    delegate
-                    {
-                        return EvalulateDialogueCondition(d.Condition);
-                    },
-                    delegate
-                    {
-                        ExecuteDialogueConsequence(d.Consequence);
-                    },
+                    cond,
+                    conseq,
                     int.MaxValue
                     );
             }

@@ -155,7 +155,7 @@ namespace CustomSpawns.Data
         {
             if(text.Length == 0)
             {
-                return new DialogueConditionBare((p) => true, "");
+                return null;
             }
 
             try
@@ -168,7 +168,7 @@ namespace CustomSpawns.Data
                 if(tokens.Length == 0)
                 {
                     //user has entered empty condition string
-                    return new DialogueConditionBare((p) => true, "");
+                    return null;
                 }else if(tokens.Length == 1)
                 {
                     //just a good old single function.
@@ -298,7 +298,7 @@ namespace CustomSpawns.Data
 
             if(text.Length == 0)
             {
-                return new DialogueConsequenceBare((p) => { }, "");
+                return null;
             }
 
             try
@@ -311,7 +311,7 @@ namespace CustomSpawns.Data
                 if (tokens.Length == 0)
                 {
                     //user has entered empty condition string
-                    return new DialogueConsequenceBare((p) => { }, "");
+                    return null;
                 }
                 else if (tokens.Length == 1)
                 {
