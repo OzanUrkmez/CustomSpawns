@@ -153,7 +153,10 @@ namespace CustomSpawns.Data
 
         private DialogueCondition ParseCondition(string text)
         {
-            //TODO: Parse AND, OR, etc to make use of the algebra system.
+            if(text.Length == 0)
+            {
+                return new DialogueConditionBare((p) => true, "");
+            }
 
             try
             {
@@ -292,7 +295,11 @@ namespace CustomSpawns.Data
 
         private DialogueConsequence ParseConsequence(string text)
         {
-            //TODO: Parse AND, OR, etc to make use of the algebra system.
+
+            if(text.Length == 0)
+            {
+                return new DialogueConsequenceBare((p) => { }, "");
+            }
 
             try
             {
