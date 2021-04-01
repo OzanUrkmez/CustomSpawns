@@ -194,6 +194,12 @@ namespace CustomSpawns.Dialogues
             return PlayerEncounter.PlayerIsDefender;
         }
 
+        [DialogueConditionImplementor("BarterSuccessful")]
+        private static bool conversation_barter_successful_on_condition(DialogueParams param)
+        {
+            return Campaign.Current.BarterManager.LastBarterIsAccepted;
+        }
+
         #endregion
 
         [AttributeUsage(AttributeTargets.Method)]

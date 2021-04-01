@@ -85,7 +85,7 @@ namespace CustomSpawns.Dialogues
             {
                 starter.AddPlayerLine(d.Dialogue_ID,
                     in_token,
-                    d.Children.Count == 0? "exit" : d.Dialogue_ID,
+                    d.Children.Count == 0? "close_window" : d.Dialogue_ID,
                     d.DialogueText,
                     cond,
                     conseq,
@@ -96,7 +96,7 @@ namespace CustomSpawns.Dialogues
             {
                 starter.AddDialogLine(d.Dialogue_ID,
                     in_token,
-                    d.Children.Count == 0 ? "exit" : d.Dialogue_ID,
+                    d.Children.Count == 0 ? "close_window" : d.Dialogue_ID,
                     d.DialogueText,
                     cond,
                     conseq,

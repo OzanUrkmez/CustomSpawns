@@ -34,11 +34,14 @@ BarterNoAttack  This lasts for 5 days. It is hard coded into the game though on 
 <!-- BANDITS -->
 
 <Dialogue condition = "HasPartyID(cs_mountain_raider_squad_template)" text = "Aye, what do we 'ave here?">
-	<Dialogue condition = "" text = "Just a walking purse, sir." consequence = "BarterNoAttack" player = "true" >
-
+	<Dialogue condition = "IsAttacking" text = "Just a walking purse, sir." consequence = "BarterNoAttack" player = "true" >
+		
 	</Dialogue>
 	<Dialogue condition = "" text = "Some steel for you thieving rascals!" consequence = "Battle" player = "true">
 
+	</Dialogue>
+	<Dialogue condition = "IsDefending" text = "Quite the mouth you have for mountain scum. We'll let you go for now, but you better learn some manners next time." consequence = "Battle" player = "true">
+		
 	</Dialogue>
 </Dialogue>
 
