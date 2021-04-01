@@ -10,6 +10,7 @@ IsFriendly
 IsHostile
 IsDefending
 IsAttacking
+BarterSuccessful USE THIS ONLY DIRECTLY INSIDE A BARTER.
 
 RECOGNIZED LOGIC
 
@@ -25,7 +26,7 @@ War
 Peace
 Surrender(isPlayer) Enter true or false as parameter. case insensitive.
 BarterPeace
-BarterNoAttack  This lasts for 5 days. It is hard coded into the game though on request I can make this alterable with a parameter you can enter.
+BarterNoAttack 
 
 -->
 
@@ -35,7 +36,12 @@ BarterNoAttack  This lasts for 5 days. It is hard coded into the game though on 
 
 <Dialogue condition = "HasPartyID(cs_mountain_raider_squad_template)" text = "Aye, what do we 'ave here?">
 	<Dialogue condition = "IsAttacking" text = "Just a walking purse, sir." consequence = "BarterNoAttack" player = "true" >
+		<Dialogue condition = "BarterSuccessful" text = "Aye, that should be enough.">
 		
+		</Dialogue>
+		<Dialogue condition = "!BarterSuccessful" text = "Ye an empty purse 'pparently.">
+		
+		</Dialogue>
 	</Dialogue>
 	<Dialogue condition = "" text = "Some steel for you thieving rascals!" consequence = "Battle" player = "true">
 
