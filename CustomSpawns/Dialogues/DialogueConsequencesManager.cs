@@ -182,7 +182,7 @@ namespace CustomSpawns.Dialogues
         }
 
         [DialogueConsequenceImplementorAttribute("BarterNoAttack")]
-        private static void conversation_set_up_safe_passage_barter_on_consequence(DialogueParams param) //taken from LordConversationsCampaignBehaviour
+        private static void conversation_set_up_safe_passage_barter_on_consequence(DialogueParams param)
         {
             BarterManager instance = BarterManager.Instance;
             Hero oneToOneConversationHero = Hero.OneToOneConversationHero;

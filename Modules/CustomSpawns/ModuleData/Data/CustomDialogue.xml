@@ -18,13 +18,16 @@ AND: AND & &&
 OR: OR | ||
 NOT: !
 
-RECOGNIZED CONSEQUENCES
+RECOGNIZED CONSEQUENCES. War, Peace, BarterPeace are not yet tested and probably will not work as expected since the Diplomacy System of Custom Spawns is pretty bad right now.
 
 Leave
 Battle
 War
 Peace
 Surrender(isPlayer) Enter true or false as parameter. case insensitive.
+
+BARTER CONSEQUENCES are like regular consequences but they have to be attached to a line that the player will never see. This is how the TW system works currently, or at least I couldn't find an easy way to circumvent it. Check examples in Calradia at War for barters.
+
 BarterPeace
 BarterNoAttack 
 
@@ -35,18 +38,25 @@ BarterNoAttack
 <!-- BANDITS -->
 
 <Dialogue condition = "HasPartyID(cs_mountain_raider_squad_template)" text = "Aye, what do we 'ave here?">
-	<Dialogue condition = "IsAttacking" text = "Just a walking purse, sir." consequence = "BarterNoAttack" player = "true" >
-		<Dialogue condition = "BarterSuccessful" text = "Aye, that should be enough.">
-		
+	<Dialogue condition = "IsAttacking" text = "Just a walking purse, sir." player = "true" >
+		<Dialogue text = "Aye, spill 'em coins then.">
+			<Dialogue text = "Ze screen text that no one will see" consequence = "BarterNoAttack">
+				<Dialogue condition = "BarterSuccessful" text = "Aye, that should be enough.">
+				
+				</Dialogue>
+				<Dialogue condition = "!BarterSuccessful" text = "Ye an empty purse 'pparently.">
+
+				</Dialogue>
+			</Dialogue>
 		</Dialogue>
-		<Dialogue condition = "!BarterSuccessful" text = "Ye an empty purse 'pparently.">
+	</Dialogue>
+	<Dialogue condition = "IsAttacking" text = "No need to posture! We surrender." consequence = "Surrender(true)" player = "true">
 		
-		</Dialogue>
 	</Dialogue>
 	<Dialogue condition = "" text = "Some steel for you thieving rascals!" consequence = "Battle" player = "true">
 
 	</Dialogue>
-	<Dialogue condition = "IsDefending" text = "Quite the mouth you have for mountain scum. We'll let you go for now, but you better learn some manners next time." consequence = "Battle" player = "true">
+	<Dialogue condition = "IsDefending" text = "Quite the mouth you have for mountain scum. We'll let you go for now, but you better learn some manners next time." consequence = "Leave" player = "true">
 		
 	</Dialogue>
 </Dialogue>
