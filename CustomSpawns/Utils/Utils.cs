@@ -11,9 +11,9 @@ namespace CustomSpawns.Utils
 {
     public static class Utils
     {
-        public static bool IsCustomSpawnsStringID(string strindID)
+        public static bool IsCustomSpawnsStringID(string stringID)
         {
-            return (strindID.StartsWith("cs_"));
+            return (stringID.StartsWith("cs_"));
         }
 
         public static IEnumerable<T> TakeAllButLast<T>(this IEnumerable<T> source)

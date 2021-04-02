@@ -16,6 +16,12 @@ namespace CustomSpawns.HarmonyPatches
         //TODO make this alterable.
         static void Postfix(ref int __result)
         {
+            MobileParty other = MobileParty.ConversationParty;
+            if (other == null || !Utils.Utils.IsCustomSpawnsStringID(other.StringId))
+            {
+                return;
+            }
+
             __result /= 8;
         }
 
