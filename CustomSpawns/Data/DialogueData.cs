@@ -254,6 +254,8 @@ namespace CustomSpawns.Data
                             throw new Exception("Unrecognized logic keyword: " + tokens[i]);
                         }
 
+                        i += 1; // we will add 2 to this and so we will get to next token.
+
                     }
                 }
 
@@ -395,6 +397,7 @@ namespace CustomSpawns.Data
                             throw new Exception("Unrecognized logic keyword for consequences: " + tokens[i]);
                         }
 
+                        i += 1; // we will add 2 to this and so we will get to next token.
                     }
                 }
 
