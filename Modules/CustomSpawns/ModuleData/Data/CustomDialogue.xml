@@ -284,7 +284,7 @@ if set to true this is player dialogue. If multiple player dialogues are trigger
 	<Dialogue condition = "PartyIsInFaction(cs_madmen) AND IsFriendly" text = "Huh?" consequence = "Leave">
 
 	</Dialogue>
-	
+
 <!-- -->
 
 <!-- Harbingers of Wrath -->
@@ -303,7 +303,7 @@ if set to true this is player dialogue. If multiple player dialogues are trigger
 
 <!-- Redemptive Order -->
 
-	<Dialogue condition = "PartyIsInFaction(cs_harbingers_of_wrath) AND IsHostile AND IsAttacking" text = "You are a sinner, and yet you are riding around with such pride." consequence = "Battle">
+	<Dialogue condition = "PartyIsInFaction(cs_redemptive_order) AND IsHostile AND IsAttacking" text = "You are a sinner, and yet you are riding around with such pride." consequence = "Battle">
 		<Dialogue text = "You are a learned man, maybe even a knight. Is there no way for this to end peacefully?" player = "true" >
 			<Dialogue text = "Don't worry. You'll have plenty of opportunities to redeem yourself before God." consequence = "Battle">
 
@@ -311,12 +311,30 @@ if set to true this is player dialogue. If multiple player dialogues are trigger
 		</Dialogue>
 	</Dialogue>
 
-	<Dialogue condition = "PartyIsInFaction(cs_harbingers_of_wrath) AND IsHostile AND IsDefending" text = "Such strength! God is testing me for certain." consequence = "Battle">
+	<Dialogue condition = "PartyIsInFaction(cs_redemptive_order) AND IsHostile AND IsDefending" text = "Such strength! God is testing me for certain." consequence = "Battle">
 
 	</Dialogue>
 
-	<Dialogue condition = "PartyIsInFaction(cs_harbingers_of_wrath) AND IsFriendly" text = "How rare! A friendly face on the road" consequence = "Leave">
+	<Dialogue condition = "PartyIsInFaction(cs_redemptive_order) AND IsFriendly" text = "How rare! A friendly face on the road" consequence = "Leave">
 		<Dialogue text = "It's my pleasure! Take care. You are doing God's work." consequence = "Leave" player = "true">
+
+		</Dialogue>
+	</Dialogue>
+
+<!-- -->
+
+<!-- Order of the Phoenix -->
+
+	<Dialogue condition = "PartyIsInFaction(cs_ko_phoenix) AND IsHostile AND IsAttacking" text = "More pestilence upon this tumultuous land. I, of the last standing Knight Order of Calradia, the Phoenix, shall ensure your swift death." consequence = "Battle">
+
+	</Dialogue>
+
+	<Dialogue condition = "PartyIsInFaction(cs_ko_phoenix) AND IsHostile AND IsDefending" text = "Go on then. A Knight does not fear any adversity! I shall die in honour, and laugh down on your pitiful existence from the heavens." consequence = "Battle">
+
+	</Dialogue>
+
+	<Dialogue condition = "PartyIsInFaction(cs_ko_phoenix) AND IsFriendly" text = "How rare! A friendly face on the road" consequence = "Leave">
+		<Dialogue text = "It's my pleasure! Take care, sir Knight." consequence = "Leave" player = "true">
 
 		</Dialogue>
 	</Dialogue>
