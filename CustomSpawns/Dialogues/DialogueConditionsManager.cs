@@ -132,7 +132,7 @@ namespace CustomSpawns.Dialogues
             if (param.AdversaryParty == null)
                 return false;
 
-            return param.AdversaryParty.Party.Id.StartsWith(ID);
+            return CampaignUtils.IsolateMobilePartyStringID(param.AdversaryParty).StartsWith(ID);
         }
 
         [DialogueConditionImplementor("PartyIDEndsWith")]
@@ -141,7 +141,7 @@ namespace CustomSpawns.Dialogues
             if (param.AdversaryParty == null)
                 return false;
 
-            return param.AdversaryParty.Party.Id.EndsWith(ID);
+            return CampaignUtils.IsolateMobilePartyStringID(param.AdversaryParty).EndsWith(ID);
         }
 
         [DialogueConditionImplementor("PartyIsInFaction")]
