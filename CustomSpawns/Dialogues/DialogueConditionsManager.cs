@@ -135,19 +135,28 @@ namespace CustomSpawns.Dialogues
             return param.AdversaryParty.Party.Id.StartsWith(ID);
         }
 
-        [DialogueConditionImplementor("PartyIsInFaction")]
-        private static bool PartyIsInFaction(DialogueParams param, string factionName)
+        [DialogueConditionImplementor("PartyIDEndsWith")]
+        private static bool PartyIDEndsWith(DialogueParams param, string ID)
         {
             if (param.AdversaryParty == null)
                 return false;
 
-            return param.AdversaryParty.MapFaction.Name.ToString() == factionName;
+            return param.AdversaryParty.Party.Id.EndsWith(ID);
+        }
+
+        [DialogueConditionImplementor("PartyIsInFaction")]
+        private static bool PartyIsInFaction(DialogueParams param, string factionID)
+        {
+            if (param.AdversaryParty == null)
+                return false;
+
+            return param.AdversaryParty.MapFaction.StringId.ToString() == factionID;
         }
 
         [DialogueConditionImplementor("IsHero")]
-        private static bool IsHero(DialogueParams param, string name)
+        private static bool IsHero(DialogueParams param, string ID)
         {
-            return Hero.OneToOneConversationHero != null && Hero.OneToOneConversationHero.Name.ToString() == name;
+            return Hero.OneToOneConversationHero != null && Hero.OneToOneConversationHero.StringId == ID;
         }
 
         [DialogueConditionImplementor("FirstTimeTalkWithHero")]

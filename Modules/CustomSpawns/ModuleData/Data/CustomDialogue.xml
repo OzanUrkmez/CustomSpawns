@@ -9,8 +9,9 @@ RECOGNIZED CONDITIONS
 
 HasPartyID(ID)
 PartyIDStartsWith(Prefix)
-PartyIsInFaction(FactionName)
-IsHero(HeroName)
+PartyIDEndsWith(Suffix)
+PartyIsInFaction(FactionID)
+IsHero(HeroID)
 
 FirstTimeTalkWithHero
 IsFriendly
@@ -164,7 +165,9 @@ if set to true this is player dialogue. If multiple player dialogues are trigger
 
 <!-- DESERTERS -->
 
-	
+	<Dialogue condition = "PartyIsInFaction(cs_battania_deserters) AND IsHostile" text = "Yet another adventurer playing at the art of war. You and your kind have ravaged these lands at the cost of us soldiers.">
+
+	</Dialogue>
 
 <!-- -->
 
