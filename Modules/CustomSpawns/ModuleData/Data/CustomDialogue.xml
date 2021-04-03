@@ -79,7 +79,7 @@ if set to true this is player dialogue. If multiple player dialogues are trigger
 		<Dialogue condition = "IsAttacking" text = "Some steel for you thieving rascals!" consequence = "Battle" player = "true">
 
 		</Dialogue>
-		<Dialogue condition = "IsDefending" text = "I hear you and your lads have been terrorizing the locals?" consequence = "Battle" player = "true">
+		<Dialogue condition = "IsDefending" text = "I hear you and your lads have been terrorizing the locals?"  player = "true">
 			<Dialogue text = "Impossible, m'lord! We are but humble peasants.">
 				<Dialogue text = "A thief, and a liar? Prepare to die." consequence = "Battle" player = "true">
 
@@ -113,7 +113,7 @@ if set to true this is player dialogue. If multiple player dialogues are trigger
 		<Dialogue condition = "IsAttacking" text = "Don't get cocky, rascal. A couple mountain thieves are no match for my men!" consequence = "Battle" player = "true">
 
 		</Dialogue>
-		<Dialogue condition = "IsDefending" text = "I hear you and your lads have been terrorizing the locals?" consequence = "Battle" player = "true">
+		<Dialogue condition = "IsDefending" text = "I hear you and your lads have been terrorizing the locals?" player = "true">
 			<Dialogue text = "Impossible, m'lord! We are but a caravan.">
 				<Dialogue text = "Heh, do you take me for a fool?" consequence = "Battle" player = "true">
 
@@ -149,7 +149,7 @@ if set to true this is player dialogue. If multiple player dialogues are trigger
 		<Dialogue condition = "IsAttacking" text = "Oh, you should be afraid!" consequence = "Battle" player = "true">
 
 		</Dialogue>
-		<Dialogue condition = "IsDefending" text = "I hear you and your lads have been terrorizing the locals?" consequence = "Battle" player = "true">
+		<Dialogue condition = "IsDefending" text = "I hear you and your lads have been terrorizing the locals?"  player = "true">
 			<Dialogue text = "We'll fight until we draw our last breath!" consequence = "Battle">
 
 			</Dialogue>
@@ -165,11 +165,162 @@ if set to true this is player dialogue. If multiple player dialogues are trigger
 
 <!-- DESERTERS -->
 
-	<Dialogue condition = "PartyIsInFaction(cs_battania_deserters) AND IsHostile" text = "Yet another adventurer playing at the art of war. You and your kind have ravaged these lands at the cost of us soldiers.">
+	<Dialogue condition = "PartyIDEndsWith(deserters) AND IsHostile" text = "Yet another adventurer playing at the art of war. You and your kind have ravaged these lands at the cost of us soldiers.">
 
+		<Dialogue condition = "IsAttacking" text = "Come on now. You of all in Calradia must understand the desire to live." player = "true" >
+			<Dialogue text = "Freedom has its costs.">
+				<Dialogue text = "Ze screen text that no one will see" consequence = "BarterNoAttack">
+					<Dialogue condition = "BarterSuccessful" text = "Don't linger around.">
+					
+					</Dialogue>
+					<Dialogue condition = "!BarterSuccessful" text = "We'll take a look at your inventory then.">
+
+					</Dialogue>
+				</Dialogue>
+			</Dialogue>
+		</Dialogue>
+		<Dialogue condition = "IsAttacking" text = "Stay your hand! We surrender." consequence = "Surrender(true)" player = "true">
+			
+		</Dialogue>
+		<Dialogue condition = "IsAttacking" text = "Hah! A mere rook posturing like he owns the land. Let me show you the skills of a real commander." consequence = "Battle" player = "true">
+
+		</Dialogue>
+
+		<Dialogue condition = "IsDefending" text = "Die like the disloyal filth you are." consequence = "Battle" player = "true">
+
+		</Dialogue>
+		<Dialogue condition = "IsDefending" text = "I am in no mood to deal with your pack of fools." consequence = "Leave" player = "true">
+
+		</Dialogue>
+	</Dialogue>
+
+
+	<Dialogue condition = "PartyIDEndsWith(deserters) AND IsFriendly" text = "Beautiful weather out there to enjoy freedom, don't you think?">
+		<Dialogue  text = "Indeed so. May you all enjoy your freedom for long." consequence = "Leave" player = "true">
+
+		</Dialogue>
 	</Dialogue>
 
 <!-- -->
 
+<!-- ENSLAVERS -->
+	
+	<!-- Southern -->
+
+	<Dialogue condition = "PartyIsInFaction(cs_southern_enslavers) AND IsHostile AND IsAttacking" text = "Ah, it seems like you'll make another fine addition to our collection!">
+		<Dialogue text = "Stay your hand! We can pay for passage." player = "true" >
+			<Dialogue text = "No need for petty exchanges like that. You can just pay with lifelong servitude." consequence = "Battle">
+
+			</Dialogue>
+		</Dialogue>
+
+		<Dialogue text = "You will taste your own poison after I am done with you!" consequence = "Battle" player = "true">
+
+		</Dialogue>
+	</Dialogue>
+
+	<Dialogue condition = "PartyIsInFaction(cs_southern_enslavers) AND IsHostile AND IsDefending" text = "Ah, hello, friend!">
+		<Dialogue text = "No friends here. Just steel!" player = "true" >
+			<Dialogue text = "You're gonna be squealing when I am done with you." consequence = "Battle">
+
+			</Dialogue>
+		</Dialogue>
+
+		<Dialogue text = "Ah, nice journeys to you, friend!" consequence = "Leave" player = "true">
+
+		</Dialogue>
+	</Dialogue>
+
+	<Dialogue condition = "PartyIsInFaction(cs_southern_enslavers) AND IsFriendly" text = "Beautiful weather out there to capture some innocent people, don't you think?">
+		<Dialogue  text = "Indeed so. May your slaves be healthy and expensive!" consequence = "Leave" player = "true">
+
+		</Dialogue>
+	</Dialogue>
+
+	<!-- Northern -->
+
+	<Dialogue condition = "PartyIsInFaction(cs_northern_liberators) AND IsHostile AND IsAttacking" text = "Well, aren't you a worthy capture!">
+		<Dialogue text = "Stay your hand! We can pay for passage." player = "true" >
+			<Dialogue text = "Fear not. We'll take everything you have, and have your family pay the rest." consequence = "Battle">
+
+			</Dialogue>
+		</Dialogue>
+
+		<Dialogue text = "All high and mighty, yet you are no different than a bandit!"  player = "true">
+			<Dialogue text = "I'll have to bring out the torture devices just for you." consequence = "Battle">
+
+			</Dialogue>
+		</Dialogue>
+	</Dialogue>
+
+	<Dialogue condition = "PartyIsInFaction(cs_northern_liberators) AND IsHostile AND IsDefending" text = "Ah, hello, friend!">
+		<Dialogue text = "No friends here. Just steel!" player = "true" >
+			<Dialogue text = "You're gonna be squealing when I am done with you." consequence = "Battle">
+
+			</Dialogue>
+		</Dialogue>
+
+		<Dialogue text = "Ah, nice journeys to you, friend!" consequence = "Leave" player = "true">
+
+		</Dialogue>
+	</Dialogue>
+
+	<Dialogue condition = "PartyIsInFaction(cs_northern_liberators) AND IsFriendly" text = "Beautiful weather out there for some justice, eh?">
+		<Dialogue  text = "Indeed so. May your efforts be fruitful, my friend!" player = "true">
+			<Dialogue  text = "Yours as well, friend. Good luck out there." consequence = "Leave">
+			
+			</Dialogue>
+		</Dialogue>
+	</Dialogue>
+
+<!-- -->
+
+<!-- Madmen -->
+
+	<Dialogue condition = "PartyIsInFaction(cs_madmen) AND IsHostile" text = "I'LL MAKE TRINKETS FROM YOUR PINKY TOES!" consequence = "Battle">
+
+	</Dialogue>
+
+	<Dialogue condition = "PartyIsInFaction(cs_madmen) AND IsFriendly" text = "Huh?" consequence = "Leave">
+
+	</Dialogue>
+	
+<!-- -->
+
+<!-- Harbingers of Wrath -->
+
+	<Dialogue condition = "PartyIsInFaction(cs_harbingers_of_wrath) AND IsHostile" text = "All sinners must be purged." consequence = "Battle">
+
+	</Dialogue>
+
+	<Dialogue condition = "PartyIsInFaction(cs_harbingers_of_wrath) AND IsFriendly" text = "How rare! A friendly face on the road" consequence = "Leave">
+		<Dialogue text = "It's my pleasure! Take care. You are doing work for all mankind." consequence = "Leave" player = "true">
+
+		</Dialogue>
+	</Dialogue>
+
+<!-- -->
+
+<!-- Redemptive Order -->
+
+	<Dialogue condition = "PartyIsInFaction(cs_harbingers_of_wrath) AND IsHostile AND IsAttacking" text = "You are a sinner, and yet you are riding around with such pride." consequence = "Battle">
+		<Dialogue text = "You are a learned man, maybe even a knight. Is there no way for this to end peacefully?" player = "true" >
+			<Dialogue text = "Don't worry. You'll have plenty of opportunities to redeem yourself before God." consequence = "Battle">
+
+			</Dialogue>
+		</Dialogue>
+	</Dialogue>
+
+	<Dialogue condition = "PartyIsInFaction(cs_harbingers_of_wrath) AND IsHostile AND IsDefending" text = "Such strength! God is testing me for certain." consequence = "Battle">
+
+	</Dialogue>
+
+	<Dialogue condition = "PartyIsInFaction(cs_harbingers_of_wrath) AND IsFriendly" text = "How rare! A friendly face on the road" consequence = "Leave">
+		<Dialogue text = "It's my pleasure! Take care. You are doing God's work." consequence = "Leave" player = "true">
+
+		</Dialogue>
+	</Dialogue>
+
+<!-- -->
 
 </root>
