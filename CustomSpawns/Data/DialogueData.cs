@@ -149,10 +149,16 @@ namespace CustomSpawns.Data
             if(alternativeTarget == null)
             {
                 dat.Children = new List<DialogueData>();
+
+                dat.Dialogue_ID = "CS_Dialogue_" + currentID.ToString();
+
+                currentID++;
             }
             else
             {
                 dat.Children = alternativeTarget.Children;
+
+                dat.Dialogue_ID = alternativeTarget.Dialogue_ID;
             }
 
             //NODE PROPERTIES
@@ -180,9 +186,6 @@ namespace CustomSpawns.Data
 
             dat.DialogueText = node.Attributes["text"]?.Value;
 
-            dat.Dialogue_ID = "CS_Dialogue_" + currentID.ToString();
-
-            currentID++;
 
             return dat;
         }

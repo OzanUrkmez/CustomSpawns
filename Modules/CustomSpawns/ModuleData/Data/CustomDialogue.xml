@@ -1,4 +1,8 @@
-<!-- RECOGNIZED CONDITIONS 
+<!-- 
+
+Dialogue is read each time a campaign is started or loaded.
+
+RECOGNIZED CONDITIONS 
 
 HasPartyID(ID)
 PartyIDStartsWith(Prefix)
