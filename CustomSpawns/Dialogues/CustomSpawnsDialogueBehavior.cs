@@ -61,6 +61,13 @@ namespace CustomSpawns.Dialogues
         private void AddDialogLine(CampaignGameStarter starter, DialogueData d, string in_token)
         {
 
+            if (d.InjectedToTaleworlds)
+            {
+                return;
+            }
+
+            d.InjectedToTaleworlds = true;
+
             ConversationSentence.OnConditionDelegate cond = null;
 
             if(d.Condition != null)

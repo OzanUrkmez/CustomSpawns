@@ -84,24 +84,78 @@ namespace CustomSpawns.Data
 
             foreach (XmlNode node in doc.DocumentElement)
             {
-                DialogueData dat = ParseDialogueNode(node);
-
-                if (dat == null)
-                    continue;
-
-                rootDialogueData.Add(dat);
+                
+                ParseDialogueNode(node, null);
 
             }
         }
 
-        private DialogueData ParseDialogueNode(XmlNode node)
+        private void ParseDialogueNode(XmlNode node, DialogueData XMLParent)
         {
             if (node.NodeType == XmlNodeType.Comment)
-                return null;
+                return;
 
+            DialogueData dat;
+
+            if(node.Name == "AlternativeDialogue")
+            {
+                //Dialogue alternative to parent.
+                if(XMLParent == null)
+                {
+                    throw new Exception(node.Name + " is not a valid Custom Spawns Dialogue Token!");
+                }
+
+                dat = InitializeDialogueNode(node, XMLParent.Parent, XMLParent); // initialize with same parameters as our XML parent.
+
+                return;
+            }
+
+            if (node.Name != "Dialogue")
+            {
+                throw new Exception(node.Name + " is not a valid Custom Spawns Dialogue Token!");
+            }
+
+            //regular dialogue node.
+
+            dat = InitializeDialogueNode(node, XMLParent, null);
+
+            //Now process children.
+
+            foreach (XmlNode child in node)
+            {
+                ParseDialogueNode(child, dat);
+            }
+        }
+
+        private DialogueData InitializeDialogueNode(XmlNode node, DialogueData XMLParent, DialogueData alternativeTarget)
+        {
             DialogueData dat = new DialogueData();
 
-            dat.Children = new List<DialogueData>();
+            dat.InjectedToTaleworlds = false;
+
+            //NODE RELATIONS
+
+            dat.Parent = XMLParent;
+
+            if(dat.Parent == null)
+            {
+                rootDialogueData.Add(dat);
+            }
+            else
+            {
+                XMLParent.Children.Add(dat);
+            }
+
+            if(alternativeTarget == null)
+            {
+                dat.Children = new List<DialogueData>();
+            }
+            else
+            {
+                dat.Children = alternativeTarget.Children;
+            }
+
+            //NODE PROPERTIES
 
             if (node.Attributes["condition"] != null)
             {
@@ -129,20 +183,6 @@ namespace CustomSpawns.Data
             dat.Dialogue_ID = "CS_Dialogue_" + currentID.ToString();
 
             currentID++;
-
-            //Now process children.
-
-            DialogueData childData;
-
-            foreach (XmlNode child in node)
-            {
-                childData = ParseDialogueNode(child);
-                
-                if(childData != null)
-                {
-                    dat.Children.Add(childData);
-                }
-            }
 
             return dat;
         }
@@ -433,5 +473,9 @@ namespace CustomSpawns.Data
         public bool IsPlayerDialogue { get; set; }
 
         public List<DialogueData> Children { get; set; }
+
+        public DialogueData Parent { get; set; }
+
+        public bool InjectedToTaleworlds { get; set; }
     }
 }
