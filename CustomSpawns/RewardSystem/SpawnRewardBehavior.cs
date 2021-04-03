@@ -91,7 +91,7 @@ namespace CustomSpawns.RewardSystem
                     }
                     InformationManager.DisplayMessage(
                         new InformationMessage(
-                            $"{mapEventPlayerParty.Party.Leader.Name} defeated {party.Party.Name} gaining {moneyAmount} money, {renownAmount} renown and {influenceAmount} influence", 
+                            $"{mapEventPlayerParty.Party.Leader.Name} defeated {party.Party.Name} gaining {moneyAmount} denars, {renownAmount} renown and {influenceAmount} influence", 
                             Colors.Green
                             )
                         );
