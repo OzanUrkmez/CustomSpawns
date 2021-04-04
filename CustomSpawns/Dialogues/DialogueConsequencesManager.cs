@@ -167,7 +167,10 @@ namespace CustomSpawns.Dialogues
             }
             else if (isPlayer == "false")
             {
-                PlayerEncounter.EnemySurrender = true;
+                param.PlayerParty.Party.AddPrisoners(param.AdversaryParty.Party.MemberRoster);
+                param.AdversaryParty.RemoveParty();
+                CustomSpawns.UX.ShowMessage("You have taken your enemies prisoner.", TaleWorlds.Library.Colors.Green);
+                end_conversation_consequence_delegate(param);
             }
             else
             {
