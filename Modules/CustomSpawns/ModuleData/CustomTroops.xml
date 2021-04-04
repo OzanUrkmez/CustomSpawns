@@ -1,6 +1,6 @@
 <NPCCharacters>
   
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_crazed_man" is_basic_troop="true" level="1" name="{=P6Md9DpR}Crazed Man" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_crazed_man" is_basic_troop="true" level="1" name="Crazed Man" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.cs_mixed_folk" />
       </face>
@@ -31,7 +31,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_decent_crazed_man" level="2" name="{=P6Md9DpR}Decent Crazed Man" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_decent_crazed_man" level="2" name="Decent Crazed Man" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.cs_mixed_folk" />
       </face>
@@ -74,7 +74,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_competent_crazed_man" level="6" name="{=P6Md9DpR}Competent Crazed Man" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_competent_crazed_man" level="6" name="Competent Crazed Man" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.cs_mixed_folk" />
       </face>
@@ -114,7 +114,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_trained_crazed_man" level="11" name="{=P6Md9DpR}Trained Crazed Man" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_trained_crazed_man" level="11" name="Trained Crazed Man" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.cs_mixed_folk" />
       </face>
@@ -169,7 +169,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_drilled_crazed_man" level="13" name="{=P6Md9DpR}Drilled Crazed Man" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_drilled_crazed_man" level="13" name="Drilled Crazed Man" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.cs_mixed_folk" />
       </face>
@@ -238,7 +238,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_madman" level="16" name="{=P6Md9DpR}Madman" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_madman" level="16" name="Madman" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.cs_mixed_folk" />
       </face>
@@ -301,7 +301,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_competent_madman" level="18" name="{=P6Md9DpR}Competent Madman" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_competent_madman" level="18" name="Competent Madman" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.cs_mixed_folk" />
       </face>
@@ -375,7 +375,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_trained_madman" level="21" name="{=P6Md9DpR}Trained Madman" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_trained_madman" level="21" name="Trained Madman" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.cs_mixed_folk" />
       </face>
@@ -449,7 +449,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_drilled_madman" level="23" name="{=P6Md9DpR}Drilled Madman" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_drilled_madman" level="23" name="Drilled Madman" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.cs_mixed_folk" />
       </face>
@@ -490,7 +490,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Cavalry" id="cs_mad_lad" level="27" name="{=P6Md9DpR}Fearless Man" occupation="Bandit" upgrade_requires="ItemCategory.war_horse">
+  <NPCCharacter culture="Culture.empire" default_group="Cavalry" id="cs_mad_lad" level="27" name="Fearless Man" occupation="Bandit" upgrade_requires="ItemCategory.war_horse">
     <face>
         <face_key_template value="BodyProperty.cs_mixed_folk" />
       </face>
@@ -548,7 +548,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Cavalry" id="cs_absolute_mad_lad" level="35" name="{=P6Md9DpR}Indomitable Man" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Cavalry" id="cs_absolute_mad_lad" level="35" name="Indomitable Man" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.cs_mixed_folk" />
       </face>
@@ -578,7 +578,7 @@
     </Equipments>
   </NPCCharacter>
   
-  <NPCCharacter culture="Culture.mountain_bandits" default_group="Cavalry" id="cs_mountain_raider" level="11" name="{=P6Md9DpR}Mountain Raider" occupation="Bandit">
+  <NPCCharacter culture="Culture.mountain_bandits" default_group="Cavalry" id="cs_mountain_raider" level="11" name="Mountain Raider" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.villager_sturgia" />
       </face>
@@ -723,7 +723,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.forest_bandits" default_group="Ranged" id="cs_forest_trainee" level="6" name="{=ZxmBdWTu}Bandit Trainee" occupation="Bandit">
+  <NPCCharacter culture="Culture.forest_bandits" default_group="Ranged" id="cs_forest_trainee" level="6" name="Bandit Trainee" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_battania" />
     </face>
@@ -803,7 +803,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.forest_bandits" default_group="Infantry" id="cs_forest_waylay" level="11" name="{=ZxmBdWTu}Forest Waylay" occupation="Bandit">
+  <NPCCharacter culture="Culture.forest_bandits" default_group="Infantry" id="cs_forest_waylay" level="11" name="Forest Waylay" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_battania" />
     </face>
@@ -841,7 +841,7 @@
     </Equipments>
   </NPCCharacter>
   
-  <NPCCharacter culture="Culture.desert_bandits" default_group="Infantry" id="cs_desert_wanderer" is_basic_troop="true" level="6" name="{=ZxmBdWTu}Desert Wanderer" occupation="Bandit">
+  <NPCCharacter culture="Culture.desert_bandits" default_group="Infantry" id="cs_desert_wanderer" is_basic_troop="true" level="6" name="Desert Wanderer" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_aserai" />
     </face>
@@ -863,7 +863,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.desert_bandits" default_group="Infantry" id="cs_desert_recruit" level="11" name="{=ZxmBdWTu}Desert Recruit" occupation="Bandit">
+  <NPCCharacter culture="Culture.desert_bandits" default_group="Infantry" id="cs_desert_recruit" level="11" name="Desert Recruit" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_aserai" />
     </face>
@@ -889,7 +889,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.desert_bandits" default_group="Infantry" id="cs_desert_warrior" level="16" name="{=ZxmBdWTu}Desert Warrior" occupation="Bandit">
+  <NPCCharacter culture="Culture.desert_bandits" default_group="Infantry" id="cs_desert_warrior" level="16" name="Desert Warrior" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_aserai" />
     </face>
@@ -914,7 +914,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.desert_bandits" default_group="Ranged" id="cs_desert_ranger" level="16" name="{=ZxmBdWTu}Desert Ranger" occupation="Bandit">
+  <NPCCharacter culture="Culture.desert_bandits" default_group="Ranged" id="cs_desert_ranger" level="16" name="Desert Ranger" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_aserai" />
     </face>
@@ -941,7 +941,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.desert_bandits" default_group="Ranged" id="cs_desert_marksman" level="21" name="{=ZxmBdWTu}Desert Marksman" occupation="Bandit">
+  <NPCCharacter culture="Culture.desert_bandits" default_group="Ranged" id="cs_desert_marksman" level="21" name="Desert Marksman" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_aserai" />
     </face>
@@ -988,7 +988,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.desert_bandits" default_group="Ranged" id="cs_desert_elite_marksman" level="26" name="{=ZxmBdWTu}Desert Immortal" occupation="Bandit">
+  <NPCCharacter culture="Culture.desert_bandits" default_group="Ranged" id="cs_desert_elite_marksman" level="26" name="Desert Immortal" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_aserai" />
     </face>
@@ -1022,7 +1022,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.desert_bandits" default_group="Cavalry" id="cs_desert_cultsman" level="21" name="{=ZxmBdWTu}Desert Cultsman" occupation="Bandit" upgrade_requires="ItemCategory.horse">
+  <NPCCharacter culture="Culture.desert_bandits" default_group="Cavalry" id="cs_desert_cultsman" level="21" name="Desert Cultsman" occupation="Bandit" upgrade_requires="ItemCategory.horse">
     <face>
       <face_key_template value="BodyProperty.villager_aserai" />
     </face>
@@ -1049,7 +1049,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.desert_bandits" default_group="Cavalry" id="cs_desert_high_cultsman" level="26" name="{=ZxmBdWTu}Desert High Cultsman" occupation="Bandit">
+  <NPCCharacter culture="Culture.desert_bandits" default_group="Cavalry" id="cs_desert_high_cultsman" level="26" name="Desert High Cultsman" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_aserai" />
     </face>
@@ -1101,7 +1101,7 @@
     </Equipments>
   </NPCCharacter>
   
-  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_razes_raider" is_basic_troop="true" level="6" name="{=ZxmBdWTu}Razes' Raider" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_razes_raider" is_basic_troop="true" level="6" name="Razes' Raider" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.villager_aserai" />
     </face>
@@ -1227,7 +1227,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_enslaver" level="16" name="{=ZxmBdWTu}Razes' Enslaver" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_enslaver" level="16" name="Razes' Enslaver" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.villager_aserai" />
     </face>
@@ -1256,7 +1256,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_razes_chosen" level="26" name="{=ZxmBdWTu}Razes' Chosen" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_razes_chosen" level="26" name="Razes' Chosen" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.villager_aserai" />
     </face>
@@ -1297,7 +1297,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_razes_raidboss" level="31" name="{=ZxmBdWTu}Razes' Raid-Boss" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_razes_raidboss" level="31" name="Razes' Raid-Boss" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.villager_aserai" />
     </face>
@@ -1327,7 +1327,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.aserai" default_group="Infantry" id="cs_obaktu_youth" is_basic_troop="true" level="6" name="{=ZxmBdWTu}Obaktu Youth" occupation="Soldier">
+  <NPCCharacter culture="Culture.aserai" default_group="Infantry" id="cs_obaktu_youth" is_basic_troop="true" level="6" name="Obaktu Youth" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_obaktu_youngling" />
     </face>
@@ -1345,7 +1345,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.aserai" default_group="Infantry" id="cs_obaktu_clubman" level="16" name="{=ZxmBdWTu}Obaktu Clubman" occupation="Soldier">
+  <NPCCharacter culture="Culture.aserai" default_group="Infantry" id="cs_obaktu_clubman" level="16" name="Obaktu Clubman" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_obaktu_villager" /> 
     </face>
@@ -1375,7 +1375,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.aserai" default_group="Infantry" id="cs_obaktu_bonebreaker" level="26" name="{=ZxmBdWTu}Obaktu Bonebreaker" occupation="Soldier">
+  <NPCCharacter culture="Culture.aserai" default_group="Infantry" id="cs_obaktu_bonebreaker" level="26" name="Obaktu Bonebreaker" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_obaktu_veteran" />
     </face>
@@ -1439,7 +1439,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.aserai" default_group="Infantry" id="cs_obaktu_chief" level="31" name="{=ZxmBdWTu}Obaktu Chief" occupation="Soldier">
+  <NPCCharacter culture="Culture.aserai" default_group="Infantry" id="cs_obaktu_chief" level="31" name="Obaktu Chief" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_obaktu_elder" />
     </face>
@@ -1475,7 +1475,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_slavecoast_heloti" is_basic_troop="true" level="6" name="{=ZxmBdWTu}Slavecoast Heloti" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_slavecoast_heloti" is_basic_troop="true" level="6" name="Slavecoast Heloti" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_slavecoast_helot" />
     </face>
@@ -1540,7 +1540,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_slavecoast_guardsman" level="16" name="{=ZxmBdWTu}Slavecoast Guardsman" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_slavecoast_guardsman" level="16" name="Slavecoast Guardsman" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_slavecoast_soldier" />
     </face>
@@ -1594,7 +1594,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_slavecoast_elite_guardsman" level="26" name="{=ZxmBdWTu}Slavecoast Elite Guardsman" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_slavecoast_elite_guardsman" level="26" name="Slavecoast Elite Guardsman" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_slavecoast_soldier" />
     </face>
@@ -1657,7 +1657,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_slavecoast_captain" level="31" name="{=ZxmBdWTu}Slavecoast Captain" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_slavecoast_captain" level="31" name="Slavecoast Captain" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_slavecoast_veteran" />
     </face>
@@ -1681,7 +1681,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_slavecoast_slinger" level="16" name="{=ZxmBdWTu}Slavecoast Slinger" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_slavecoast_slinger" level="16" name="Slavecoast Slinger" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_slavecoast_helot" />
     </face>
@@ -1741,7 +1741,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_slavecoast_elite_slinger" level="26" name="{=ZxmBdWTu}Slavecoast Elite Slinger" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_slavecoast_elite_slinger" level="26" name="Slavecoast Elite Slinger" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_slavecoast_soldier" />
     </face>
@@ -1811,7 +1811,7 @@
     </Equipments>
   </NPCCharacter>
   
-  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_bloodsworn_roughneck" is_basic_troop="true" level="6" name="{=P6Md9DpR}Bloodsworn Roughneck" occupation="Soldier">
+  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_bloodsworn_roughneck" is_basic_troop="true" level="6" name="Bloodsworn Roughneck" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_battania" />
       </face>
@@ -1874,7 +1874,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_bloodsworn_warrior" level="16" name="{=P6Md9DpR}Bloodsworn Warrior" occupation="Soldier">
+  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_bloodsworn_warrior" level="16" name="Bloodsworn Warrior" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_battania" />
       </face>
@@ -1941,7 +1941,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_bloodsworn_chosen_warrior" level="26" name="{=P6Md9DpR}Bloodsworn Chosen Warrior" occupation="Soldier">
+  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_bloodsworn_chosen_warrior" level="26" name="Bloodsworn Chosen Warrior" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_battania" />
       </face>
@@ -2019,7 +2019,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_bloodsworn_chieftain" level="31" name="{=P6Md9DpR}Bloodsworn Chieftain" occupation="Soldier">
+  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_bloodsworn_chieftain" level="31" name="Bloodsworn Chieftain" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_battania" />
       </face>
@@ -2084,7 +2084,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_sellsword_trainee" is_basic_troop="true" level="6" name="{=P6Md9DpR}Sellsword Trainee" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_sellsword_trainee" is_basic_troop="true" level="6" name="Sellsword Trainee" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_vlandia" />
       </face>
@@ -2137,7 +2137,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_sellsword" level="16" name="{=P6Md9DpR}Sellsword" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_sellsword" level="16" name="Sellsword" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_sturgia" />
       </face>
@@ -2195,7 +2195,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_sellsword_elite" level="26" name="{=P6Md9DpR}Sellsword Elite" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_sellsword_elite" level="26" name="Sellsword Elite" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_sturgia" />
       </face>
@@ -2277,7 +2277,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_sellsword_captain" level="31" name="{=P6Md9DpR}Sellsword-Captain" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_sellsword_captain" level="31" name="Sellsword-Captain" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_vlandia" />
       </face>
@@ -2330,7 +2330,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.sturgia" default_group="Cavalry" id="cs_bjorning_marauder" is_basic_troop="true" level="6" name="{=P6Md9DpR}Bjorning Marauder" occupation="Soldier">
+  <NPCCharacter culture="Culture.sturgia" default_group="Cavalry" id="cs_bjorning_marauder" is_basic_troop="true" level="6" name="Bjorning Marauder" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_sturgia" />
       </face>
@@ -2397,7 +2397,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.sturgia" default_group="Cavalry" id="cs_bjorning_headhunter" level="16" name="{=P6Md9DpR}Bjorning Headhunter" occupation="Soldier">
+  <NPCCharacter culture="Culture.sturgia" default_group="Cavalry" id="cs_bjorning_headhunter" level="16" name="Bjorning Headhunter" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_sturgia" />
       </face>
@@ -2479,7 +2479,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.sturgia" default_group="Cavalry" id="cs_bjorning_skulldrinker" level="26" name="{=P6Md9DpR}Bjorning Skulldrinker" occupation="Soldier">
+  <NPCCharacter culture="Culture.sturgia" default_group="Cavalry" id="cs_bjorning_skulldrinker" level="26" name="Bjorning Skulldrinker" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_sturgia" />
       </face>
@@ -2543,7 +2543,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.sturgia" default_group="Cavalry" id="cs_bjorning_skullboss" level="31" name="{=P6Md9DpR}Bjorning Skullboss" occupation="Soldier">
+  <NPCCharacter culture="Culture.sturgia" default_group="Cavalry" id="cs_bjorning_skullboss" level="31" name="Bjorning Skullboss" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_northern_giantblood" />
     </face>
@@ -2603,7 +2603,7 @@
     </Equipments>
   </NPCCharacter>
   
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_angry_peasant" is_basic_troop="true" level="1" name="{=P6Md9DpR}Angry Peasant" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_angry_peasant" is_basic_troop="true" level="1" name="Angry Peasant" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_vlandia" />
     </face>
@@ -2683,7 +2683,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_revolutionary_peasant" level="1" name="{=P6Md9DpR}Angry Citizen" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_revolutionary_peasant" level="1" name="Angry Citizen" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -2727,7 +2727,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_western_enraged_smith" level="6" name="{=P6Md9DpR}Angry Smith" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_western_enraged_smith" level="6" name="Angry Smith" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_vlandia" />
     </face>
@@ -2780,7 +2780,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_rebel_tanner" level="11" name="{=P6Md9DpR}Angry Tanner" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_rebel_tanner" level="11" name="Angry Tanner" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_vlandia" />
     </face>
@@ -2824,7 +2824,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_western_enraged_engineer" level="16" name="{=P6Md9DpR}Angry Blacksmith" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_western_enraged_engineer" level="16" name="Angry Blacksmith" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -2873,7 +2873,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_rebel_merchant" level="6" name="{=P6Md9DpR}Angry Merchant" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_rebel_merchant" level="6" name="Angry Merchant" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_vlandia" />
     </face>
@@ -2922,7 +2922,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_rebel_butcher" level="11" name="{=P6Md9DpR}Angry Butcher" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_rebel_butcher" level="11" name="Angry Butcher" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -2950,7 +2950,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.mountain_bandits" default_group="Ranged" id="cs_western_furious_cook" level="16" name="{=P6Md9DpR}Angry Cook" occupation="Bandit">
+  <NPCCharacter culture="Culture.mountain_bandits" default_group="Ranged" id="cs_western_furious_cook" level="16" name="Angry Cook" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -3010,7 +3010,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_rebel_tavernkeeper" level="16" name="{=P6Md9DpR}Angry Tavern Keeper" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_rebel_tavernkeeper" level="16" name="Angry Tavern Keeper" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -3057,7 +3057,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Cavalry" id="cs_rebel_carawanist" level="11" name="{=ZxmBdWTu}Angry Carawanist" occupation="Bandit" upgrade_requires="ItemCategory.horse">
+  <NPCCharacter culture="Culture.empire" default_group="Cavalry" id="cs_rebel_carawanist" level="11" name="Angry Carawanist" occupation="Bandit" upgrade_requires="ItemCategory.horse">
     <face>
       <face_key_template value="BodyProperty.villager_vlandia" />
     </face>
@@ -3097,7 +3097,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Cavalry" id="cs_rebel_guildmaster" level="16" name="{=ZxmBdWTu}Angry Guildmaster" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Cavalry" id="cs_rebel_guildmaster" level="16" name="Angry Guildmaster" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -3139,7 +3139,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_furious_peasant" level="6" name="{=ZxmBdWTu}Rebel Militia" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_furious_peasant" level="6" name="Rebel Militia" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_vlandia" />
     </face>
@@ -3174,7 +3174,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_rebel_armored_militia" level="11" name="{=ZxmBdWTu}Rebel Armored Militia" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_rebel_armored_militia" level="11" name="Rebel Armored Militia" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_vlandia" />
     </face>
@@ -3213,7 +3213,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_rebel_footman" level="16" name="{=ZxmBdWTu}Rebel Footman" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_rebel_footman" level="16" name="Rebel Footman" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_vlandia" />
     </face>
@@ -3243,7 +3243,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_rebel_manatarms" level="21" name="{=ZxmBdWTu}Rebel Man-at-arms" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_rebel_manatarms" level="21" name="Rebel Man-at-arms" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -3286,7 +3286,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_rebel_pikeman" level="16" name="{=ZxmBdWTu}Rebel Pikeman" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_rebel_pikeman" level="16" name="Rebel Pikeman" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_vlandia" />
     </face>
@@ -3324,7 +3324,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_rebel_halberdier" level="21" name="{=ZxmBdWTu}Rebel Halberdier" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_rebel_halberdier" level="21" name="Rebel Halberdier" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_vlandia" />
     </face>
@@ -3354,7 +3354,7 @@
     </Equipments>
   </NPCCharacter>
   
-  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_outcast_oathbreaker" is_basic_troop="true" level="1" name="{=ZxmBdWTu}Exiled Oathbreaker" occupation="Bandit">
+  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_outcast_oathbreaker" is_basic_troop="true" level="1" name="Exiled Oathbreaker" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_sturgia" />
     </face>
@@ -3416,7 +3416,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_outcast_villager" level="1" name="{=ZxmBdWTu}Exiled Villager" occupation="Bandit">
+  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_outcast_villager" level="1" name="Exiled Villager" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_battania" />
     </face>
@@ -3470,7 +3470,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_outcast_belligerentdrunk" level="6" name="{=ZxmBdWTu}Exiled Belligerent Drunk" occupation="Bandit">
+  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_outcast_belligerentdrunk" level="6" name="Exiled Belligerent Drunk" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_sturgia" />
     </face>
@@ -3514,7 +3514,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.battania" default_group="Cavalry" id="cs_outcast_shepherd" level="11" name="{=ZxmBdWTu}Exiled Shepherd" occupation="Bandit">
+  <NPCCharacter culture="Culture.battania" default_group="Cavalry" id="cs_outcast_shepherd" level="11" name="Exiled Shepherd" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_sturgia" />
     </face>
@@ -3554,7 +3554,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.battania" default_group="Cavalry" id="cs_outcast_elder" level="16" name="{=ZxmBdWTu}Exiled Elder" occupation="Bandit" upgrade_requires="ItemCategory.horse">
+  <NPCCharacter culture="Culture.battania" default_group="Cavalry" id="cs_outcast_elder" level="16" name="Exiled Elder" occupation="Bandit" upgrade_requires="ItemCategory.horse">
     <face>
       <face_key_template value="BodyProperty.cs_northern_elder" />
     </face>
@@ -3615,7 +3615,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_outcast_ruffian" is_female="true" level="11" name="{=ZxmBdWTu}Exiled Witch" occupation="Bandit">
+  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_outcast_ruffian" is_female="true" level="11" name="Exiled Witch" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_sturgia" />
     </face>
@@ -3717,7 +3717,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_outcast_gem_artisan" level="6" name="{=ZxmBdWTu}Exiled Gem Artisan" occupation="Bandit">
+  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_outcast_gem_artisan" level="6" name="Exiled Gem Artisan" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_battania" />
     </face>
@@ -3773,7 +3773,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_outcast_miner" level="11" name="{=ZxmBdWTu}Exiled Miner" occupation="Bandit">
+  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_outcast_miner" level="11" name="Exiled Miner" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_battania" />
     </face>
@@ -3818,7 +3818,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_outcast_bejewelled_noble" level="21" name="{=ZxmBdWTu}Exiled Bejewelled Noble" occupation="Bandit">
+  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_outcast_bejewelled_noble" level="21" name="Exiled Bejewelled Noble" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_sturgia" />
     </face>
@@ -3888,7 +3888,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_outcast_lumberjack" level="11" name="{=ZxmBdWTu}Exiled Lumberjack" occupation="Bandit">
+  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_outcast_lumberjack" level="11" name="Exiled Lumberjack" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_battania" />
     </face>
@@ -3943,7 +3943,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.battania" default_group="Ranged" id="cs_outcast_fisher" level="16" name="{=ZxmBdWTu}Exiled Whalehunter" occupation="Bandit">
+  <NPCCharacter culture="Culture.battania" default_group="Ranged" id="cs_outcast_fisher" level="16" name="Exiled Whalehunter" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_sturgia" />
     </face>
@@ -3986,7 +3986,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_outcast_savage" level="16" name="{=ZxmBdWTu}Exiled Savage" occupation="Bandit">
+  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_outcast_savage" level="16" name="Exiled Savage" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.cs_northern_giantblood" />
     </face>
@@ -4051,7 +4051,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.battania" default_group="Ranged" id="cs_outcast_scavenger" level="6" name="{=ZxmBdWTu}Outcast Scavenger" occupation="Bandit">
+  <NPCCharacter culture="Culture.battania" default_group="Ranged" id="cs_outcast_scavenger" level="6" name="Outcast Scavenger" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_battania" />
     </face>
@@ -4086,7 +4086,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.battania" default_group="Ranged" id="cs_outcast_strider" level="11" name="{=ZxmBdWTu}Outcast Strider" occupation="Bandit">
+  <NPCCharacter culture="Culture.battania" default_group="Ranged" id="cs_outcast_strider" level="11" name="Outcast Strider" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_sturgia" />
     </face>
@@ -4128,7 +4128,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.battania" default_group="Ranged" id="cs_outcast_stalker" level="16" name="{=ZxmBdWTu}Outcast Stalker" occupation="Bandit">
+  <NPCCharacter culture="Culture.battania" default_group="Ranged" id="cs_outcast_stalker" level="16" name="Outcast Stalker" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_sturgia" />
     </face>
@@ -4179,7 +4179,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.battania" default_group="Ranged" id="cs_outcast_avenger" level="21" name="{=ZxmBdWTu}Outcast Avenger" occupation="Bandit">
+  <NPCCharacter culture="Culture.battania" default_group="Ranged" id="cs_outcast_avenger" level="21" name="Outcast Avenger" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_sturgia" />
     </face>
@@ -4221,7 +4221,7 @@
     </Equipments>
   </NPCCharacter>
   
-  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_brigand_thief" is_basic_troop="true" level="1" name="{=ZxmBdWTu}Roaming Thief" occupation="Bandit">
+  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_brigand_thief" is_basic_troop="true" level="1" name="Roaming Thief" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_khuzait" />
     </face>
@@ -4247,7 +4247,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_brigand_vagabond" level="1" name="{=ZxmBdWTu}Roaming Vagabond" occupation="Bandit">
+  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_brigand_vagabond" level="1" name="Roaming Vagabond" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_khuzait" />
     </face>
@@ -4300,7 +4300,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_brigand_bazaar_trader" level="6" name="{=ZxmBdWTu}Roaming Bazaar Charlatan" occupation="Bandit">
+  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_brigand_bazaar_trader" level="6" name="Roaming Bazaar Charlatan" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_aserai" />
     </face>
@@ -4340,7 +4340,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_brigand_gladiator" level="16" name="{=ZxmBdWTu}Roaming Gladiator" occupation="Bandit">
+  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_brigand_gladiator" level="16" name="Roaming Gladiator" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.cs_mixed_folk" />
     </face>
@@ -4395,7 +4395,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_brigand_arenamaster" level="21" name="{=ZxmBdWTu}Roaming Dervish" occupation="Bandit">
+  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_brigand_arenamaster" level="21" name="Roaming Dervish" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_aserai" />
     </face>
@@ -4448,7 +4448,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_brigand_assassin" level="21" name="{=ZxmBdWTu}Roaming Assassin" occupation="Bandit">
+  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_brigand_assassin" level="21" name="Roaming Assassin" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_khuzait" />
     </face>
@@ -4495,7 +4495,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_brigand_scholar" level="11" name="{=ZxmBdWTu}Roaming Scholar" occupation="Bandit">
+  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_brigand_scholar" level="11" name="Roaming Scholar" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_khuzait" />
     </face>
@@ -4526,7 +4526,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_brigand_engineer" level="16" name="{=ZxmBdWTu}Roaming Engineer" occupation="Bandit">
+  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_brigand_engineer" level="16" name="Roaming Engineer" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_aserai" />
     </face>
@@ -4558,7 +4558,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_brigand_raider" level="6" name="{=P6Md9DpR}Brigand Raider" occupation="Bandit" upgrade_requires="ItemCategory.horse">
+  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_brigand_raider" level="6" name="Brigand Raider" occupation="Bandit" upgrade_requires="ItemCategory.horse">
     <face>
       <face_key_template value="BodyProperty.villager_khuzait" />
     </face>
@@ -4591,7 +4591,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_brigand_pillager" level="11" name="{=ZxmBdWTu}Brigand Pillager" occupation="Bandit">
+  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_brigand_pillager" level="11" name="Brigand Pillager" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_aserai" />
     </face>
@@ -4643,7 +4643,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_brigand_sacker" level="16" name="{=ZxmBdWTu}Brigand Sacker" occupation="Bandit">
+  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_brigand_sacker" level="16" name="Brigand Sacker" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_aserai" />
     </face>
@@ -4693,7 +4693,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_brigand_chosen" level="21" name="{=ZxmBdWTu}Brigand Chosen" occupation="Bandit">
+  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_brigand_chosen" level="21" name="Brigand Chosen" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_aserai" />
     </face>
@@ -4760,7 +4760,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_brigand_destroyer" level="21" name="{=ZxmBdWTu}Brigand Destroyer" occupation="Bandit">
+  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_brigand_destroyer" level="21" name="Brigand Destroyer" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.villager_khuzait" />
     </face>
@@ -4812,7 +4812,7 @@
     </Equipments>
   </NPCCharacter>
   
-  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian" is_basic_troop="true" level="1" name="{=P6Md9DpR}Barbarian Youth" occupation="Bandit">
+  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian" is_basic_troop="true" level="1" name="Barbarian Youth" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.cs_barbarian_youth" />
     </face>
@@ -4847,7 +4847,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian_raider" level="6" name="{=P6Md9DpR}Barbarian Warrior" occupation="Bandit">
+  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian_raider" level="6" name="Barbarian Warrior" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.villager_sturgia" />
       </face>
@@ -4888,7 +4888,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.mountain_bandits" default_group="Ranged" id="cs_barbarian_ranger" level="6" name="{=P6Md9DpR}Barbarian Scout" occupation="Bandit">
+  <NPCCharacter culture="Culture.mountain_bandits" default_group="Ranged" id="cs_barbarian_ranger" level="6" name="Barbarian Scout" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.villager_sturgia" />
       </face>
@@ -4955,7 +4955,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian_fiercewarrior" level="11" name="{=P6Md9DpR}Barbarian Fierce Warrior" occupation="Bandit">
+  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian_fiercewarrior" level="11" name="Barbarian Fierce Warrior" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.villager_sturgia" />
       </face>
@@ -5020,7 +5020,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian_slayer" level="16" name="{=P6Md9DpR}Barbarian Slayer" occupation="Bandit">
+  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian_slayer" level="16" name="Barbarian Slayer" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.cs_northern_giantblood" />
       </face>
@@ -5050,7 +5050,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian_chosenslayer" level="21" name="{=P6Md9DpR}Barbarian Chosen Slayer" occupation="Bandit">
+  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian_chosenslayer" level="21" name="Barbarian Chosen Slayer" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.cs_northern_giantblood" />
       </face>
@@ -5113,7 +5113,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian_legendaryslayer" level="26" name="{=P6Md9DpR}Barbarian Legendary Slayer" occupation="Bandit">
+  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian_legendaryslayer" level="26" name="Barbarian Legendary Slayer" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.cs_northern_giantblood" />
     </face>
@@ -5175,7 +5175,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian_shielder" level="16" name="{=P6Md9DpR}Barbarian Fighter" occupation="Bandit">
+  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian_shielder" level="16" name="Barbarian Fighter" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.villager_sturgia" />
       </face>
@@ -5203,7 +5203,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian_spearman" level="11" name="{=P6Md9DpR}Barbarian Boar Warrior" occupation="Bandit">
+  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian_spearman" level="11" name="Barbarian Boar Warrior" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.villager_sturgia" />
       </face>
@@ -5259,7 +5259,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.mountain_bandits" default_group="Ranged" id="cs_barbarian_axethrower" level="11" name="{=P6Md9DpR}Barbarian Axethrower" occupation="Bandit">
+  <NPCCharacter culture="Culture.mountain_bandits" default_group="Ranged" id="cs_barbarian_axethrower" level="11" name="Barbarian Axethrower" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.villager_sturgia" />
       </face>
@@ -5329,7 +5329,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian_veteran" level="21" name="{=P6Md9DpR}Barbarian Veteran Fighter" occupation="Bandit">
+  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian_veteran" level="21" name="Barbarian Veteran Fighter" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.villager_sturgia" />
       </face>
@@ -5379,7 +5379,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.mountain_bandits" default_group="Cavalry" id="cs_barbarian_cavalry" level="16" name="{=P6Md9DpR}Barbarian Raider" occupation="Bandit" upgrade_requires="ItemCategory.horse">
+  <NPCCharacter culture="Culture.mountain_bandits" default_group="Cavalry" id="cs_barbarian_cavalry" level="16" name="Barbarian Raider" occupation="Bandit" upgrade_requires="ItemCategory.horse">
     <face>
         <face_key_template value="BodyProperty.villager_sturgia" />
       </face>
@@ -5433,7 +5433,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.mountain_bandits" default_group="Cavalry" id="cs_barbarian_charger" level="21" name="{=P6Md9DpR}Barbarian Charger" occupation="Bandit">
+  <NPCCharacter culture="Culture.mountain_bandits" default_group="Cavalry" id="cs_barbarian_charger" level="21" name="Barbarian Charger" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.villager_sturgia" />
       </face>
@@ -5470,7 +5470,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.mountain_bandits" default_group="Cavalry" id="cs_barbarian_noble" level="26" name="{=P6Md9DpR}Barbarian Noble" occupation="Bandit">
+  <NPCCharacter culture="Culture.mountain_bandits" default_group="Cavalry" id="cs_barbarian_noble" level="26" name="Barbarian Noble" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.cs_northern_giantblood" />
       </face>
@@ -5508,7 +5508,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.mountain_bandits" default_group="Cavalry" id="cs_barbarian_nighthunter" level="16" name="{=P6Md9DpR}Barbarian Nighthunter" occupation="Bandit">
+  <NPCCharacter culture="Culture.mountain_bandits" default_group="Cavalry" id="cs_barbarian_nighthunter" level="16" name="Barbarian Nighthunter" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.cs_barbarian_nighthunter" />
     </face>
@@ -5533,7 +5533,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.mountain_bandits" default_group="Cavalry" id="cs_barbarian_horrificnighthunter" level="21" name="{=P6Md9DpR}Barbarian Horrific Nighthunter" occupation="Bandit">
+  <NPCCharacter culture="Culture.mountain_bandits" default_group="Cavalry" id="cs_barbarian_horrificnighthunter" level="21" name="Barbarian Horrific Nighthunter" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.cs_barbarian_nighthunter" />
     </face>
@@ -5560,7 +5560,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.mountain_bandits" default_group="Ranged" id="cs_barbarian_bearhunter" level="16" name="{=P6Md9DpR}Barbarian Heavy Axethrower" occupation="Bandit">
+  <NPCCharacter culture="Culture.mountain_bandits" default_group="Ranged" id="cs_barbarian_bearhunter" level="16" name="Barbarian Heavy Axethrower" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.villager_sturgia" />
       </face>
@@ -5607,7 +5607,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian_chief" level="26" name="{=P6Md9DpR}Barbarian Hero" occupation="Bandit">
+  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian_chief" level="26" name="Barbarian Hero" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.cs_northern_giantblood" />
       </face>
@@ -5641,7 +5641,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.mountain_bandits" default_group="Ranged" id="cs_barbarian_marauder" level="21" name="{=P6Md9DpR}Barbarian Marauder" occupation="Bandit">
+  <NPCCharacter culture="Culture.mountain_bandits" default_group="Ranged" id="cs_barbarian_marauder" level="21" name="Barbarian Marauder" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.villager_sturgia" />
       </face>
@@ -5688,7 +5688,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.mountain_bandits" default_group="Cavalry" id="cs_barbarian_wolfrunner" level="11" name="{=P6Md9DpR}Barbarian Wolfrunner" occupation="Bandit" upgrade_requires="ItemCategory.horse">
+  <NPCCharacter culture="Culture.mountain_bandits" default_group="Cavalry" id="cs_barbarian_wolfrunner" level="11" name="Barbarian Wolfrunner" occupation="Bandit" upgrade_requires="ItemCategory.horse">
     <face>
         <face_key_template value="BodyProperty.villager_sturgia" />
       </face>
@@ -5732,7 +5732,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian_pikeman" level="21" name="{=P6Md9DpR}Barbarian Pikeman" occupation="Bandit">
+  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian_pikeman" level="21" name="Barbarian Pikeman" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.villager_sturgia" />
       </face>
@@ -5773,7 +5773,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian_longspears" level="16" name="{=P6Md9DpR}Barbarian Longspears" occupation="Bandit">
+  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian_longspears" level="16" name="Barbarian Longspears" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.villager_sturgia" />
       </face>
@@ -5819,7 +5819,7 @@
     </Equipments>
   </NPCCharacter>
   
-  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_battania_slave" level="1" name="{=P6Md9DpR}Battanian Slave" occupation="Bandit">
+  <NPCCharacter culture="Culture.battania" default_group="Infantry" id="cs_battania_slave" level="1" name="Battanian Slave" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.villager_battania" />
       </face>
@@ -5916,7 +5916,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_empire_slave" level="1" name="{=P6Md9DpR}Imperial Slave" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_empire_slave" level="1" name="Imperial Slave" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.villager_empire" />
       </face>
@@ -6013,7 +6013,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.sturgia" default_group="Infantry" id="cs_sturgia_slave" level="1" name="{=P6Md9DpR}Sturgian Slave" occupation="Bandit">
+  <NPCCharacter culture="Culture.sturgia" default_group="Infantry" id="cs_sturgia_slave" level="1" name="Sturgian Slave" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.villager_sturgia" />
       </face>
@@ -6110,7 +6110,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_vlandia_slave" level="1" name="{=P6Md9DpR}Vlandian Slave" occupation="Bandit">
+  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_vlandia_slave" level="1" name="Vlandian Slave" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.villager_vlandia" />
       </face>
@@ -6207,7 +6207,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_khuzait_slave" level="1" name="{=P6Md9DpR}Khuzait Slave" occupation="Bandit">
+  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_khuzait_slave" level="1" name="Khuzait Slave" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.villager_khuzait" />
       </face>
@@ -6304,7 +6304,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.aserai" default_group="Infantry" id="cs_aserai_slave" level="1" name="{=P6Md9DpR}Aserai Slave" occupation="Bandit">
+  <NPCCharacter culture="Culture.aserai" default_group="Infantry" id="cs_aserai_slave" level="1" name="Aserai Slave" occupation="Bandit">
     <face>
         <face_key_template value="BodyProperty.villager_aserai" />
       </face>
@@ -6401,7 +6401,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian_slave" level="1" name="{=P6Md9DpR}Barbarian Slave" occupation="Bandit">
+  <NPCCharacter culture="Culture.mountain_bandits" default_group="Infantry" id="cs_barbarian_slave" level="1" name="Barbarian Slave" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.cs_northern_giantblood" />
     </face>
@@ -6499,7 +6499,7 @@
     </Equipments>
   </NPCCharacter>
   
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_village_youth" is_basic_troop="true" level="6" name="{=ZxmBdWTu}Village Youth" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_village_youth" is_basic_troop="true" level="6" name="Village Youth" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_manhunter_youth" />
     </face>
@@ -6631,7 +6631,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_village_scout" level="11" name="{=ZxmBdWTu}Village Scout" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_village_scout" level="11" name="Village Scout" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -6705,7 +6705,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_lookout" level="16" name="{=ZxmBdWTu}Lookout" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_lookout" level="16" name="Lookout" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -6739,7 +6739,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Cavalry" id="cs_village_ranger" level="16" name="{=ZxmBdWTu}Village Ranger" occupation="Soldier" upgrade_requires="ItemCategory.horse">
+  <NPCCharacter culture="Culture.empire" default_group="Cavalry" id="cs_village_ranger" level="16" name="Village Ranger" occupation="Soldier" upgrade_requires="ItemCategory.horse">
     <face>
       <face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -6779,7 +6779,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Cavalry" id="cs_village_sherrif" level="21" name="{=ZxmBdWTu}Village Sherrif" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Cavalry" id="cs_village_sherrif" level="21" name="Village Sherrif" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -6806,7 +6806,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_trained_youth" level="11" name="{=ZxmBdWTu}Trained Youth" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_trained_youth" level="11" name="Trained Youth" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_manhunter_youth" />
     </face>
@@ -6882,7 +6882,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_burgher" is_basic_troop="true" level="6" name="{=ZxmBdWTu}Burgher" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_burgher" is_basic_troop="true" level="6" name="Burgher" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -6972,7 +6972,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_town_guard" level="16" name="{=ZxmBdWTu}Town Guard" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_town_guard" level="16" name="Town Guard" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -7090,7 +7090,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_town_marksman" level="16" name="{=ZxmBdWTu}Town Marksman" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_town_marksman" level="16" name="Town Marksman" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -7144,7 +7144,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_righteous_citizen" level="11" name="{=ZxmBdWTu}Righteous Citizen" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_righteous_citizen" level="11" name="Righteous Citizen" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -7186,7 +7186,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Cavalry" id="cs_manhunter" level="16" name="{=ZxmBdWTu}Manhunter" occupation="Soldier" upgrade_requires="ItemCategory.horse">
+  <NPCCharacter culture="Culture.empire" default_group="Cavalry" id="cs_manhunter" level="16" name="Manhunter" occupation="Soldier" upgrade_requires="ItemCategory.horse">
     <face>
       <face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -7321,7 +7321,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Cavalry" id="cs_veteran_manhunter" level="21" name="{=ZxmBdWTu}Veteran Manhunter" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Cavalry" id="cs_veteran_manhunter" level="21" name="Veteran Manhunter" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -7456,7 +7456,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Cavalry" id="cs_sherrif" level="26" name="{=ZxmBdWTu}Sherrif" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Cavalry" id="cs_sherrif" level="26" name="Sherrif" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -7513,7 +7513,7 @@
     </Equipments>
   </NPCCharacter>
   
-  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_redemptive_conscript" is_basic_troop="true" level="6" name="{=ZxmBdWTu}Redemptive Conscript" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_redemptive_conscript" is_basic_troop="true" level="6" name="Redemptive Conscript" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.cs_redemptive_villager" />
       </face>
@@ -7574,7 +7574,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_redemptive_footman" level="11" name="{=ZxmBdWTu}Redemptive Footman" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_redemptive_footman" level="11" name="Redemptive Footman" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.cs_redemptive_villager" />
       </face>
@@ -7626,7 +7626,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_redemptive_sentry" level="16" name="{=ZxmBdWTu}Redemptive Crusader" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_redemptive_sentry" level="16" name="Redemptive Crusader" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.cs_redemptive_soldier" />
       </face>
@@ -7666,7 +7666,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_redemptive_crusader" level="21" name="{=ZxmBdWTu}Redemptive Heavy Crusader" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_redemptive_crusader" level="21" name="Redemptive Heavy Crusader" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.cs_redemptive_soldier" />
       </face>
@@ -7734,7 +7734,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_redemptive_juggernaut" level="26" name="{=ZxmBdWTu}Redemptive Grand-Crusader" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_redemptive_juggernaut" level="26" name="Redemptive Grand-Crusader" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.cs_redemptive_soldier" />
       </face>
@@ -7758,7 +7758,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_redemptive_guard" level="16" name="{=ZxmBdWTu}Redemptive Guard" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_redemptive_guard" level="16" name="Redemptive Guard" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.cs_redemptive_soldier" />
       </face>
@@ -7796,7 +7796,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_redemptive_phalanx" level="21" name="{=ZxmBdWTu}Redemptive Phalanx" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_redemptive_phalanx" level="21" name="Redemptive Phalanx" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.cs_redemptive_soldier" />
       </face>
@@ -7826,7 +7826,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_redemptive_moloch" level="26" name="{=ZxmBdWTu}Redemptive Moloch" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_redemptive_moloch" level="26" name="Redemptive Moloch" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.cs_redemptive_soldier" />
       </face>
@@ -7847,7 +7847,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Ranged" id="cs_redemptive_levy_bowman" level="11" name="{=ZxmBdWTu}Redemptive Levy Bowman" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Ranged" id="cs_redemptive_levy_bowman" level="11" name="Redemptive Levy Bowman" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.cs_redemptive_villager" />
       </face>
@@ -7909,7 +7909,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Ranged" id="cs_redemptive_longbowman" level="16" name="{=ZxmBdWTu}Redemptive Longbowman" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Ranged" id="cs_redemptive_longbowman" level="16" name="Redemptive Longbowman" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.cs_redemptive_villager" />
       </face>
@@ -7933,7 +7933,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Ranged" id="cs_redemptive_veteran_longbowman" level="21" name="{=ZxmBdWTu}Redemptive Veteran Longbowman" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Ranged" id="cs_redemptive_veteran_longbowman" level="21" name="Redemptive Veteran Longbowman" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.cs_redemptive_villager" />
       </face>
@@ -7968,7 +7968,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Ranged" id="cs_redemptive_cloudpiercer" level="26" name="{=ZxmBdWTu}Redemptive Cloudpiercer" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Ranged" id="cs_redemptive_cloudpiercer" level="26" name="Redemptive Cloudpiercer" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.cs_redemptive_villager" />
       </face>
@@ -7992,7 +7992,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_redemptive_pilgrim" is_basic_troop="true" level="6" name="{=ZxmBdWTu}Pilgrim" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_redemptive_pilgrim" is_basic_troop="true" level="6" name="Pilgrim" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.cs_redemptive_villager" />
       </face>
@@ -8055,7 +8055,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_redemptive_priest" level="16" name="{=ZxmBdWTu}Redemptive Priest" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_redemptive_priest" level="16" name="Redemptive Priest" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.cs_redemptive_priest" />
       </face>
@@ -8107,7 +8107,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_redemptive_inquisitor" level="26" name="{=ZxmBdWTu}Redemptive Inquisitor" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_redemptive_inquisitor" level="26" name="Redemptive Inquisitor" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.cs_redemptive_inquisitor" />
     </face>
@@ -8127,7 +8127,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_redemptive_standardbearer" is_basic_troop="true" level="16" name="{=ZxmBdWTu}Western Standard-Bearer" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Infantry" id="cs_redemptive_standardbearer" is_basic_troop="true" level="16" name="Western Standard-Bearer" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.cs_redemptive_soldier" />
       </face>
@@ -8149,7 +8149,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Cavalry" id="cs_redemptive_knight" level="21" name="{=P6Md9DpR}Redemptive Knight" occupation="Soldier" upgrade_requires="ItemCategory.war_horse">
+  <NPCCharacter culture="Culture.vlandia" default_group="Cavalry" id="cs_redemptive_knight" level="21" name="Redemptive Knight" occupation="Soldier" upgrade_requires="ItemCategory.war_horse">
     <face>
         <face_key_template value="BodyProperty.cs_redemptive_soldier" />
       </face>
@@ -8188,7 +8188,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Cavalry" id="cs_redemptive_grandknight" level="26" name="{=P6Md9DpR}Redemptive Grand Knight" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Cavalry" id="cs_redemptive_grandknight" level="26" name="Redemptive Grand Knight" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.cs_redemptive_soldier" />
       </face>
@@ -8217,7 +8217,7 @@
     </Equipments>
   </NPCCharacter>
   
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_wrathful_cultist" is_basic_troop="true" level="6" name="{=ZxmBdWTu}Cultist" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_wrathful_cultist" is_basic_troop="true" level="6" name="Cultist" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -8273,7 +8273,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_wrathful_zealot" level="16" name="{=ZxmBdWTu}Zealot of Wrath" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_wrathful_zealot" level="16" name="Zealot of Wrath" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_wrath_zealot" />
     </face>
@@ -8312,7 +8312,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_wrathful_ascendant" level="26" name="{=ZxmBdWTu}Ascendant of Wrath" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_wrathful_ascendant" level="26" name="Ascendant of Wrath" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_wrath_zealot" />
     </face>
@@ -8350,7 +8350,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_wrathful_fanatic" is_basic_troop="true" level="6" name="{=ZxmBdWTu}Wrath Fanatic" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_wrathful_fanatic" is_basic_troop="true" level="6" name="Wrath Fanatic" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -8396,7 +8396,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_wrathful_flagellant" level="11" name="{=ZxmBdWTu}Wrath Flagellant" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_wrathful_flagellant" level="11" name="Wrath Flagellant" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.cs_wrath_zealot" />
     </face>
@@ -8464,7 +8464,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_wrathful_bloodbrother" level="16" name="{=ZxmBdWTu}Wrath Bloodbrother" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_wrathful_bloodbrother" level="16" name="Wrath Bloodbrother" occupation="Bandit">
     <face>
 		<face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -8503,7 +8503,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_wrathful_deathbrother" level="21" name="{=ZxmBdWTu}Wrath Deathbrother" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_wrathful_deathbrother" level="21" name="Wrath Deathbrother" occupation="Bandit">
     <face>
 		<face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -8535,7 +8535,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_wrathful_doombringer" level="26" name="{=ZxmBdWTu}Wrath Doombringer" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_wrathful_doombringer" level="26" name="Wrath Doombringer" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_wrath_zealot" />
     </face>
@@ -8566,7 +8566,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Cavalry" id="cs_wrathful_rider" level="16" name="{=ZxmBdWTu}Wrath Rider" occupation="Soldier" upgrade_requires="ItemCategory.horse">
+  <NPCCharacter culture="Culture.empire" default_group="Cavalry" id="cs_wrathful_rider" level="16" name="Wrath Rider" occupation="Soldier" upgrade_requires="ItemCategory.horse">
     <face>
 		<face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -8605,7 +8605,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Cavalry" id="cs_wrathful_punisher" level="21" name="{=ZxmBdWTu}Wrath Punisher" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Cavalry" id="cs_wrathful_punisher" level="21" name="Wrath Punisher" occupation="Soldier">
     <face>
 		<face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -8646,7 +8646,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Cavalry" id="cs_wrathful_purifier" level="26" name="{=ZxmBdWTu}Wrath Purifier" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Cavalry" id="cs_wrathful_purifier" level="26" name="Wrath Purifier" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_wrath_zealot" />
     </face>
@@ -8688,7 +8688,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_wrathful_lurker" level="11" name="{=ZxmBdWTu}Wrath Lurker" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_wrathful_lurker" level="11" name="Wrath Lurker" occupation="Soldier">
     <face>
 		<face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -8722,7 +8722,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_wrathful_marksman" level="16" name="{=ZxmBdWTu}Wrath Marksman" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_wrathful_marksman" level="16" name="Wrath Marksman" occupation="Soldier">
     <face>
 		<face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -8753,7 +8753,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_wrathful_veteranmarksman" level="21" name="{=ZxmBdWTu}Wrath Veteran Marksman" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_wrathful_veteranmarksman" level="21" name="Wrath Veteran Marksman" occupation="Soldier">
     <face>
 		<face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -8778,7 +8778,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_wrathful_eagleeye" level="26" name="{=ZxmBdWTu}Wrath Eagleeye" occupation="Soldier">
+  <NPCCharacter culture="Culture.empire" default_group="Ranged" id="cs_wrathful_eagleeye" level="26" name="Wrath Eagleeye" occupation="Soldier">
     <face>
 		<face_key_template value="BodyProperty.villager_empire" />
     </face>
@@ -8813,7 +8813,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_wrathful_standardbearer" is_basic_troop="true" level="16" name="{=ZxmBdWTu}Cult Standard-Bearer" occupation="Bandit">
+  <NPCCharacter culture="Culture.empire" default_group="Infantry" id="cs_wrathful_standardbearer" is_basic_troop="true" level="16" name="Cult Standard-Bearer" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.cs_wrath_zealot" />
     </face>
@@ -8835,7 +8835,7 @@
     </Equipments>
   </NPCCharacter>
   
-  <NPCCharacter culture="Culture.vlandia" default_group="Cavalry" id="cs_phoenix_squire" is_basic_troop="true" level="11" name="{=ZxmBdWTu}Phoenix Squire" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Cavalry" id="cs_phoenix_squire" is_basic_troop="true" level="11" name="Phoenix Squire" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.villager_vlandia" />
     </face>
@@ -8881,7 +8881,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Cavalry" id="cs_phoenix_scout" level="16" name="{=P6Md9DpR}Phoenix Scout" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Cavalry" id="cs_phoenix_scout" level="16" name="Phoenix Scout" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.villager_vlandia" />
     </face>
@@ -8909,7 +8909,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="HorseArcher" id="cs_phoenix_huntsman" level="26" name="{=P6Md9DpR}Phoenix Huntsman" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="HorseArcher" id="cs_phoenix_huntsman" level="26" name="Phoenix Huntsman" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.villager_vlandia" />
     </face>
@@ -8955,7 +8955,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Cavalry" id="cs_phoenix_knight" level="21" name="{=P6Md9DpR}Phoenix Knight" occupation="Soldier" upgrade_requires="ItemCategory.war_horse">
+  <NPCCharacter culture="Culture.vlandia" default_group="Cavalry" id="cs_phoenix_knight" level="21" name="Phoenix Knight" occupation="Soldier" upgrade_requires="ItemCategory.war_horse">
     <face>
       <face_key_template value="BodyProperty.villager_vlandia" />
     </face>
@@ -8982,7 +8982,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Cavalry" id="cs_phoenix_champion" level="31" name="{=P6Md9DpR}Phoenix Champion" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Cavalry" id="cs_phoenix_champion" level="31" name="Phoenix Champion" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.villager_vlandia" />
     </face>
@@ -9009,7 +9009,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Cavalry" id="cs_phoenix_paladin" level="31" name="{=P6Md9DpR}Phoenix Paladin" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Cavalry" id="cs_phoenix_paladin" level="31" name="Phoenix Paladin" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.villager_vlandia" />
     </face>
@@ -9033,7 +9033,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Cavalry" id="cs_phoenix_standardbearer" is_basic_troop="true" level="21" name="{=P6Md9DpR}Western Mounted Standard-Bearer" occupation="Soldier">
+  <NPCCharacter culture="Culture.vlandia" default_group="Cavalry" id="cs_phoenix_standardbearer" is_basic_troop="true" level="21" name="Western Mounted Standard-Bearer" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.villager_vlandia" />
     </face>
@@ -9058,7 +9058,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.vlandia" default_group="Cavalry" id="cs_phoenix_heavystandardbearer" level="31" name="{=P6Md9DpR}Western Heavy Mounted Standard-Bearer" occupation="Soldier" upgrade_requires="ItemCategory.war_horse">
+  <NPCCharacter culture="Culture.vlandia" default_group="Cavalry" id="cs_phoenix_heavystandardbearer" level="31" name="Western Heavy Mounted Standard-Bearer" occupation="Soldier" upgrade_requires="ItemCategory.war_horse">
     <face>
       <face_key_template value="BodyProperty.villager_vlandia" />
     </face>
@@ -9084,7 +9084,7 @@
     </Equipments>
   </NPCCharacter>
   
-  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_makko_levy" is_basic_troop="true" level="6" name="{=P6Md9DpR}Makkonian Levy" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_makko_levy" is_basic_troop="true" level="6" name="Makkonian Levy" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_khuzait" />
       </face>
@@ -9157,7 +9157,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_makko_spearman" level="11" name="{=P6Md9DpR}Makkonian Spearman" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_makko_spearman" level="11" name="Makkonian Spearman" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_khuzait" />
       </face>
@@ -9187,7 +9187,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_makko_shield_spearman" level="16" name="{=P6Md9DpR}Makkonian Shielder" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_makko_shield_spearman" level="16" name="Makkonian Shielder" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_khuzait" />
       </face>
@@ -9226,7 +9226,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_makko_greatshield_spearman" level="21" name="{=P6Md9DpR}Makkonian Greatshielder" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_makko_greatshield_spearman" level="21" name="Makkonian Greatshielder" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_khuzait" />
       </face>
@@ -9261,7 +9261,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_makko_ironguard" level="26" name="{=P6Md9DpR}Makkonian Ironguard" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_makko_ironguard" level="26" name="Makkonian Ironguard" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_khuzait" />
       </face>
@@ -9305,7 +9305,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_makko_skirmisher" level="16" name="{=P6Md9DpR}Makkonian Skirmisher" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_makko_skirmisher" level="16" name="Makkonian Skirmisher" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_khuzait" />
       </face>
@@ -9371,7 +9371,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_makko_swordsman" level="21" name="{=P6Md9DpR}Makkonian Light Swordsman" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_makko_swordsman" level="21" name="Makkonian Light Swordsman" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_khuzait" />
       </face>
@@ -9410,7 +9410,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_makko_elite_swordsman" level="26" name="{=P6Md9DpR}Makkonian Heavy Swordsman" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_makko_elite_swordsman" level="26" name="Makkonian Heavy Swordsman" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_khuzait" />
       </face>
@@ -9444,7 +9444,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="HorseArcher" id="cs_makko_horseman" level="11" name="{=P6Md9DpR}Makkonian Horseman" occupation="Soldier" upgrade_requires="ItemCategory.horse">
+  <NPCCharacter culture="Culture.khuzait" default_group="HorseArcher" id="cs_makko_horseman" level="11" name="Makkonian Horseman" occupation="Soldier" upgrade_requires="ItemCategory.horse">
     <face>
         <face_key_template value="BodyProperty.villager_khuzait" />
       </face>
@@ -9472,7 +9472,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="HorseArcher" id="cs_makko_horse_archer" level="16" name="{=P6Md9DpR}Makkonian Horse Archer" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="HorseArcher" id="cs_makko_horse_archer" level="16" name="Makkonian Horse Archer" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_khuzait" />
       </face>
@@ -9500,7 +9500,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="HorseArcher" id="cs_makko_veteran_horse_archer" level="21" name="{=P6Md9DpR}Makkonian Veteran Horse Archer" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="HorseArcher" id="cs_makko_veteran_horse_archer" level="21" name="Makkonian Veteran Horse Archer" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_khuzait" />
       </face>
@@ -9540,7 +9540,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="HorseArcher" id="cs_makko_elite_horse_archer" level="26" name="{=P6Md9DpR}Makkonian Elite Horse Archer" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="HorseArcher" id="cs_makko_elite_horse_archer" level="26" name="Makkonian Elite Horse Archer" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_khuzait" />
       </face>
@@ -9567,7 +9567,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_makko_light_cavalry" level="16" name="{=P6Md9DpR}Makkonian Steppe Lancer" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_makko_light_cavalry" level="16" name="Makkonian Steppe Lancer" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_khuzait" />
       </face>
@@ -9594,7 +9594,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_makko_heavy_cavalry" level="21" name="{=P6Md9DpR}Makkonian Shock-Cavalry" occupation="Soldier" upgrade_requires="ItemCategory.war_horse">
+  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_makko_heavy_cavalry" level="21" name="Makkonian Shock-Cavalry" occupation="Soldier" upgrade_requires="ItemCategory.war_horse">
     <face>
         <face_key_template value="BodyProperty.villager_khuzait" />
       </face>
@@ -9622,7 +9622,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_makko_charger_of_the_eternal_sky" level="26" name="{=P6Md9DpR}Makkonian Charger of the Eternal Sky" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_makko_charger_of_the_eternal_sky" level="26" name="Makkonian Charger of the Eternal Sky" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_khuzait" />
       </face>
@@ -9673,7 +9673,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_makko_crossbowman" level="21" name="{=P6Md9DpR}Makkonian Crossbowman" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_makko_crossbowman" level="21" name="Makkonian Crossbowman" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_khuzait" />
       </face>
@@ -9706,7 +9706,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_makko_veteran_crossbowman" level="26" name="{=P6Md9DpR}Makkonian Quickfire Crossbowman" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_makko_veteran_crossbowman" level="26" name="Makkonian Quickfire Crossbowman" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_khuzait" />
       </face>
@@ -9730,7 +9730,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_makko_elite_crossbowman" level="31" name="{=P6Md9DpR}Makkonian Chu-Ko-Nu" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_makko_elite_crossbowman" level="31" name="Makkonian Chu-Ko-Nu" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_khuzait" />
       </face>
@@ -9754,7 +9754,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_makko_bannerpeasant" is_basic_troop="true" level="6" name="{=P6Md9DpR}Far-Eastern Banner-Peasant" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_makko_bannerpeasant" is_basic_troop="true" level="6" name="Far-Eastern Banner-Peasant" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_khuzait" />
       </face>
@@ -9789,7 +9789,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_makko_standardbearer" level="16" name="{=P6Md9DpR}Far-Eastern Standard-Bearer" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_makko_standardbearer" level="16" name="Far-Eastern Standard-Bearer" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_khuzait" />
       </face>
@@ -9811,7 +9811,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_makko_heavy_standardbearer" level="26" name="{=P6Md9DpR}Far-Eastern Infantry-Officer" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_makko_heavy_standardbearer" level="26" name="Far-Eastern Infantry-Officer" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_khuzait" />
       </face>
@@ -9832,7 +9832,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_makko_cavalry_standardbearer" is_basic_troop="true" level="16" name="{=P6Md9DpR}Far-Eastern Cavalry Standard-Bearer" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_makko_cavalry_standardbearer" is_basic_troop="true" level="16" name="Far-Eastern Cavalry Standard-Bearer" occupation="Soldier">
     <face>
         <face_key_template value="BodyProperty.villager_khuzait" />
       </face>
@@ -9857,7 +9857,7 @@
     </Equipments>
   </NPCCharacter>
   
-  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_humar_militia" is_basic_troop="true" level="6" name="{=P6Md9DpR}Humar Militia" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_humar_militia" is_basic_troop="true" level="6" name="Humar Militia" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_humar_villager" />
     </face>
@@ -9924,7 +9924,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_humar_spearman" level="11" name="{=P6Md9DpR}Humar Pikeman" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_humar_spearman" level="11" name="Humar Pikeman" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_humar_villager" />
       </face>
@@ -9953,7 +9953,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_humar_pikeman" level="16" name="{=P6Md9DpR}Humar Clan-Pikeman" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_humar_pikeman" level="16" name="Humar Clan-Pikeman" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_humar_villager" />
       </face>
@@ -9982,7 +9982,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_humar_veteran_pikeman" level="21" name="{=P6Md9DpR}Humar Pike Samurai" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_humar_veteran_pikeman" level="21" name="Humar Pike Samurai" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_humar_soldier" />
       </face>
@@ -10010,7 +10010,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_humar_elite_pikeman" level="26" name="{=P6Md9DpR}Humar Pike Hero" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_humar_elite_pikeman" level="26" name="Humar Pike Hero" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_humar_soldier" />
     </face>
@@ -10039,7 +10039,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_humar_light_cav" level="16" name="{=P6Md9DpR}Humar Light Cavalry" occupation="Soldier" upgrade_requires="ItemCategory.horse">
+  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_humar_light_cav" level="16" name="Humar Light Cavalry" occupation="Soldier" upgrade_requires="ItemCategory.horse">
     <face>
       <face_key_template value="BodyProperty.cs_humar_villager" />
       </face>
@@ -10066,7 +10066,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_humar_banner_cavalry" level="21" name="{=P6Md9DpR}Humar Banner-Cavalry" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_humar_banner_cavalry" level="21" name="Humar Banner-Cavalry" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_humar_soldier" />
     </face>
@@ -10101,7 +10101,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_humar_banner_bodyguard" level="26" name="{=P6Md9DpR}Humar Banner-Bodyguard" occupation="Soldier" upgrade_requires="ItemCategory.war_horse">
+  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_humar_banner_bodyguard" level="26" name="Humar Banner-Bodyguard" occupation="Soldier" upgrade_requires="ItemCategory.war_horse">
     <face>
       <face_key_template value="BodyProperty.cs_humar_soldier" />	
     </face>
@@ -10137,7 +10137,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_humar_lancer" level="21" name="{=P6Md9DpR}Humar Lancer" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_humar_lancer" level="21" name="Humar Lancer" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_humar_soldier" />
     </face>
@@ -10173,7 +10173,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_humar_heavy_lancer" level="26" name="{=P6Md9DpR}Humar Heavy Lancer" occupation="Soldier" upgrade_requires="ItemCategory.war_horse">
+  <NPCCharacter culture="Culture.khuzait" default_group="Cavalry" id="cs_humar_heavy_lancer" level="26" name="Humar Heavy Lancer" occupation="Soldier" upgrade_requires="ItemCategory.war_horse">
     <face>
       <face_key_template value="BodyProperty.cs_humar_soldier" />	
     </face>
@@ -10210,7 +10210,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_humar_archer" level="11" name="{=P6Md9DpR}Humar Archer" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_humar_archer" level="11" name="Humar Archer" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_humar_villager" />
     </face>
@@ -10234,7 +10234,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_humar_longbow_archer" level="16" name="{=P6Md9DpR}Humar Longbow Archer" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_humar_longbow_archer" level="16" name="Humar Longbow Archer" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_humar_villager" />
     </face>
@@ -10258,7 +10258,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_humar_veteran_archer" level="21" name="{=P6Md9DpR}Humar Veteran Longbow Archer" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_humar_veteran_archer" level="21" name="Humar Veteran Longbow Archer" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_humar_soldier" />
     </face>
@@ -10283,7 +10283,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_humar_elite_archer" level="26" name="{=P6Md9DpR}Humar Armored Archer" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_humar_elite_archer" level="26" name="Humar Armored Archer" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_humar_soldier" />	
     </face>
@@ -10307,7 +10307,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_humar_bomb_thrower" level="16" name="{=P6Md9DpR}Humar Saboteur" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_humar_bomb_thrower" level="16" name="Humar Saboteur" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_humar_soldier" />
     </face>
@@ -10330,7 +10330,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_humar_shinobi" level="21" name="{=P6Md9DpR}Humar Veteran Saboteur" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_humar_shinobi" level="21" name="Humar Veteran Saboteur" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_humar_soldier" />
     </face>
@@ -10365,7 +10365,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_humar_master_shinobi" level="26" name="{=P6Md9DpR}Humar Master-Saboteur" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Ranged" id="cs_humar_master_shinobi" level="26" name="Humar Master-Saboteur" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_humar_soldier" />
     </face>
@@ -10401,7 +10401,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_humar_veteran_samurai" level="21" name="{=P6Md9DpR}Humar Sword Samurai" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_humar_veteran_samurai" level="21" name="Humar Sword Samurai" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_humar_soldier" />
     </face>
@@ -10424,7 +10424,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_humar_elite_samurai" level="26" name="{=P6Md9DpR}Humar Sword Hero" occupation="Soldier">
+  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_humar_elite_samurai" level="26" name="Humar Sword Hero" occupation="Soldier">
     <face>
       <face_key_template value="BodyProperty.cs_humar_soldier" />
     </face>
@@ -10447,7 +10447,7 @@
       </EquipmentRoster>
     </Equipments>
   </NPCCharacter>
-  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_humar_ronin" level="11" name="{=P6Md9DpR}Ronin" occupation="Bandit">
+  <NPCCharacter culture="Culture.khuzait" default_group="Infantry" id="cs_humar_ronin" level="11" name="Ronin" occupation="Bandit">
     <face>
       <face_key_template value="BodyProperty.cs_humar_bandit" />
     </face>
