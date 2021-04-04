@@ -166,7 +166,7 @@ namespace CustomSpawns.Dialogues
                 PlayerEncounter.PlayerSurrender = true;
             }
             else if (isPlayer == "false")
-            {
+            {   //Interestingly, PlayerEncounter.EnemySurrender = true; results in a null reference crash.
                 param.PlayerParty.Party.AddPrisoners(param.AdversaryParty.Party.MemberRoster);
                 param.AdversaryParty.RemoveParty();
                 CustomSpawns.UX.ShowMessage("You have taken your enemies prisoner.", TaleWorlds.Library.Colors.Green);

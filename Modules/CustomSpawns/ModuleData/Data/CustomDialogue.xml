@@ -73,7 +73,7 @@ if set to true this is player dialogue. If multiple player dialogues are trigger
 				</Dialogue>
 			</Dialogue>
 		</Dialogue>
-		<Dialogue condition = "IsAttacking" text = "No need to posture! We surrender." consequence = "Surrender(false)" player = "true">
+		<Dialogue condition = "IsAttacking" text = "No need to posture! We surrender." consequence = "Surrender(true)" player = "true">
 			
 		</Dialogue>
 		<Dialogue condition = "IsAttacking" text = "Some steel for you thieving rascals!" consequence = "Battle" player = "true">
