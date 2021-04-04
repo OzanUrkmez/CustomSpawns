@@ -386,6 +386,11 @@ namespace CustomSpawns
             return min;
         }
 
+        public static bool IsCustomSpawnsClan(Clan clan)
+        {
+            return (clan.StringId.StartsWith("cs_"));
+        }
+
         public static string IsolateMobilePartyStringID(MobileParty mobileParty)
         {
             var str = mobileParty.StringId;
