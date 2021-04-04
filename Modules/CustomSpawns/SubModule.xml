@@ -1,7 +1,7 @@
  <Module>
      <Name value="CustomSpawns"/>
      <Id value="CustomSpawns"/>
-     <Version value="v1.4.6"/>
+     <Version value="v1.4.7"/>
      <SingleplayerModule value="true"/>
      <MultiplayerModule value="false"/>
      <DependedModules>

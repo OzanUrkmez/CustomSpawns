@@ -341,4 +341,49 @@ if set to true this is player dialogue. If multiple player dialogues are trigger
 
 <!-- -->
 
+<!-- Revolutionaries -->
+
+	<Dialogue condition = "PartyIsInFaction(cs_peasant_revolutionaries) AND IsHostile AND IsAttacking" text = "The rights of the people will not be denied!" consequence = "Battle">
+
+	</Dialogue>
+
+	<Dialogue condition = "PartyIsInFaction(cs_peasant_revolutionaries) AND IsHostile AND IsDefending" text = "If you have any honour, then stay your hand!">
+
+		<Dialogue text = "Disperse now, and you all shall live." player = "true">
+			<Dialogue text = "We'd rather die than go back to those so-called lords. The rights of the people will not be denied!" consequence = "Battle">
+
+			</Dialogue>
+		</Dialogue>
+
+		<Dialogue text = "Very well, you all may continue." consequence = "Leave" player = "true">
+
+		</Dialogue>
+	</Dialogue>
+
+	<Dialogue condition = "PartyIsInFaction(cs_peasant_revolutionaries) AND IsFriendly" text = "How rare! A friendly face on the road" consequence = "Leave">
+		<Dialogue text = "It's my pleasure! Take care, sir Knight." consequence = "Leave" player = "true">
+
+		</Dialogue>
+	</Dialogue>
+
+<!-- -->
+
+<!-- Humar -->
+
+	<Dialogue condition = "PartyIsInFaction(cs_humar) AND IsHostile AND IsAttacking" text = "You westerners make for some petty warriors! Prepare to die in the hand of a real soldier." consequence = "Battle">
+
+	</Dialogue>
+
+	<Dialogue condition = "PartyIsInFaction(cs_humar) AND IsHostile AND IsDefending" text = "Finally, a worthy opponent!" consequence = "Battle">
+
+	</Dialogue>
+
+	<Dialogue condition = "PartyIsInFaction(cs_humar) AND IsFriendly" text = "How rare! A friendly face on the road" consequence = "Leave">
+		<Dialogue text = "It's my pleasure!" consequence = "Leave" player = "true">
+
+		</Dialogue>
+	</Dialogue>
+
+<!-- -->
+
 </root>
