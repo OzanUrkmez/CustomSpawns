@@ -190,7 +190,6 @@ namespace CustomSpawns.Spawn
                             //dynamic spawn tracking
                             DynamicSpawnData.AddDynamicSpawnData(spawnedParty, new CSPartyData(data, spawnSettlement));
                             //dialogue system
-                            Dialogues.DialogueManager.CustomSpawnsDialogueBehavior.RegisterParty(spawnedParty, data.PartyTemplate.StringId);
                             j++;
                             //AI Checks!
                             Spawner.HandleAIChecks(spawnedParty, data, spawnSettlement);

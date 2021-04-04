@@ -125,8 +125,8 @@ namespace CustomSpawns.Dialogues
             {
                 return new DialogueParams()
                 {
-                    AdversaryParty = PlayerEncounter.EncounteredParty.MobileParty,
-                    PlayerParty = Hero.MainHero.PartyBelongedTo
+                    AdversaryParty = PlayerEncounter.EncounteredParty?.MobileParty,
+                    PlayerParty = Hero.MainHero?.PartyBelongedTo
                 };
             }
         }
@@ -139,11 +139,6 @@ namespace CustomSpawns.Dialogues
         private void ExecuteDialogueConsequence(DialogueConsequence consequence)
         {
             consequence.ConsequenceExecutor(CurrentDialogueParam);
-        }
-
-        public void RegisterParty(MobileParty mb, string partyTemplateID)
-        {
-            ModDebug.ShowMessage("party of " + mb.StringId + " has registered for dialogue detection", DebugMessageType.Dialogue);
         }
 
         private void GetData() // the classic

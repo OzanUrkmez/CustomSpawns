@@ -122,6 +122,11 @@ namespace CustomSpawns.Dialogues
         [DialogueConsequenceImplementorAttribute("Battle")]
         private static void end_conversation_battle_consequence_delegate(DialogueParams param)
         {
+            if(PlayerEncounter.Current == null)
+            {
+                return;
+            }
+
             PlayerEncounter.Current.IsEnemy = true;
         }
 
@@ -129,6 +134,12 @@ namespace CustomSpawns.Dialogues
         private static void declare_war_consequence_delegate(DialogueParams param)
         {
             PartyBase encounteredParty = PlayerEncounter.EncounteredParty;
+
+            if(encounteredParty == null)
+            {
+                return;
+            }
+
             Diplomacy.DiplomacyUtils.DeclareWarOverProvocation(Hero.MainHero.MapFaction, encounteredParty.MapFaction);
         }
 
@@ -136,6 +147,12 @@ namespace CustomSpawns.Dialogues
         private static void declare_peace_consequence_delegate()
         {
             PartyBase encounteredParty = PlayerEncounter.EncounteredParty;
+
+            if (encounteredParty == null)
+            {
+                return;
+            }
+
             Diplomacy.DiplomacyUtils.MakePeace(Hero.MainHero.MapFaction, encounteredParty.MapFaction);
         }
 
