@@ -4,7 +4,7 @@
 	<ShowAIDebug> false </ShowAIDebug>
 	<ShowDeathTrackDebug> true </ShowDeathTrackDebug>
 
-	<IsAllSpawnMode> true </IsAllSpawnMode>
+	<IsAllSpawnMode> false </IsAllSpawnMode>
 
 	<SpawnAtOneHideout> false </SpawnAtOneHideout>
 	<ModifyPartySpeeds> true </ModifyPartySpeeds>
