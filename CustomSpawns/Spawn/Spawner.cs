@@ -39,13 +39,18 @@ namespace CustomSpawns.Spawn
                 ModDebug.ShowMessage("CustomSpawns: Spawning " + textObject.ToString() + " at " + spawnedSettlement.GatePosition + " in settlement " + spawnedSettlement.Name.ToString(), DebugMessageType.Spawn);
 
                 //create.
-                MobileParty mobileParty = MBObjectManager.Instance.CreateObject<MobileParty>(templateObject.StringId + "_" + 1);
+                MobileParty mobileParty = CreatePartyInstance(spawnedSettlement, clan, templateObject, partyType, partyName);
+
+                if(mobileParty == null)
+                {
+                    return null; //must have had some issue. or maybe it was just the wind.
+                }
 
                 mobileParty.InitializeMobileParty(ConstructTroopRoster(templateObject, mobileParty.Party),
                     new TroopRoster(mobileParty.Party), spawnedSettlement.GatePosition, 0);
 
                 //initialize
-                Spawner.InitParty(mobileParty, textObject, clan, spawnedSettlement);
+                InitParty(mobileParty, textObject, clan, spawnedSettlement);
 
                 return mobileParty;
             }
@@ -57,8 +62,23 @@ namespace CustomSpawns.Spawn
 
         }
 
+        private static MobileParty CreatePartyInstance(Settlement spawnedSettlement, Clan clan, PartyTemplateObject templateObject,
+            Track.PartyTypeEnum partyType, TextObject partyName = null)
+        {
+
+            if (clan.IsBanditFaction) 
+            {
+                return BanditPartyComponent.CreateBanditParty(templateObject.StringId + "_" + 1, clan, spawnedSettlement.Hideout, false);
+            }
+            else
+            {
+                return MBObjectManager.Instance.CreateObject<MobileParty>(templateObject.StringId + "_" + 1);
+            }
+        }
+
         private static void InitParty(MobileParty party, TextObject name, Clan faction, Settlement homeSettlement)
         {
+
             party.SetCustomName(name);
             if (faction.Leader == null)
             {
@@ -66,13 +86,15 @@ namespace CustomSpawns.Spawn
             }
             else
             {
+                if (faction.Leader.HomeSettlement == null)
+                {
+                    faction.UpdateHomeSettlement(homeSettlement);
+                }
+
                 party.Party.Owner = faction.Leader;
             }
             party.Party.Visuals.SetMapIconAsDirty();
-            if (faction.Leader.HomeSettlement == null)
-            {
-                faction.UpdateHomeSettlement(homeSettlement);
-            }
+
             party.ActualClan = faction;
             party.HomeSettlement = homeSettlement;
             TaleWorldsCode.BanditsCampaignBehaviour.CreatePartyTrade(party);

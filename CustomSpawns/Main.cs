@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using CustomSpawns.RewardSystem;
 //using CustomSpawns.MCMv3;
 using StoryMode;
+using SandBox;
 using CustomSpawns.UtilityBehaviours;
 using HarmonyLib;
 
@@ -68,7 +69,8 @@ namespace CustomSpawns
         protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
         {
             base.OnGameStart(game, gameStarterObject);
-            if (!(game.GameType is Campaign) || ((StoryMode.CampaignStoryMode)game.GameType).CampaignGameLoadingType == Campaign.GameLoadingType.NewCampaign)
+            //if it is new campaign then the player has to go through the menus etc.
+            if (!(game.GameType is Campaign) || ((Campaign)game.GameType).CampaignGameLoadingType == Campaign.GameLoadingType.NewCampaign) 
                 return;
             InitializeGame(game, gameStarterObject);
         }
