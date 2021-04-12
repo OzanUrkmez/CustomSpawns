@@ -316,7 +316,9 @@
     <Compile Include="Diplomacy\ForceNoKingdomBehaviour.cs" />
     <Compile Include="Economics\PartyEconomicUtils.cs" />
     <Compile Include="HarmonyPatches\DiplomacyPatches.cs" />
+    <Compile Include="HarmonyPatches\Gameplay\PartySpottingRangePatch.cs" />
     <Compile Include="HarmonyPatches\GetUnitValueForFactionPatch.cs" />
+    <Compile Include="HarmonyPatches\MapScreenPatch.cs" />
     <Compile Include="HarmonyPatches\SurgeryAppliedBugPatch.cs" />
     <Compile Include="HarmonyPatches\GetNavigationMeshCenterPositionCrashOnInvalidFaceFix.cs" />
     <Compile Include="Main.cs" />
@@ -357,6 +359,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CustomHideouts\" />
+    <Folder Include="Input\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
