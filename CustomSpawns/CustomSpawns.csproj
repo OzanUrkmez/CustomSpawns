@@ -52,8 +52,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="0Harmony">
-      <HintPath>\Dependencies\Harmony.2.0.2.0\Release\net472\0Harmony.dll</HintPath>
+    <Reference Include="0Harmony, Version=2.1.1.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Lib.Harmony.2.1.1\lib\net472\0Harmony.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Bannerlord.UIExtenderEx, Version=0.0.11.13, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Bannerlord.MCM.Integrated.3.1.9\lib\net472\Bannerlord.UIExtenderEx.dll</HintPath>

@@ -72,7 +72,7 @@ namespace CustomSpawns.Spawn
             party.SetCustomName(name);
             if (faction.Leader == null)
             {
-                party.Party.Owner = faction.Heroes.ToList().Count == 0? null : faction.Heroes.First();
+                party.Party.SetCustomOwner(faction.Heroes.ToList().Count == 0? null : faction.Heroes.First());
             }
             else
             {
@@ -81,12 +81,12 @@ namespace CustomSpawns.Spawn
                     faction.UpdateHomeSettlement(homeSettlement);
                 }
 
-                party.Party.Owner = faction.Leader;
+                party.Party.SetCustomOwner(faction.Leader);
             }
             party.Party.Visuals.SetMapIconAsDirty();
 
             party.ActualClan = faction;
-            party.HomeSettlement = homeSettlement;
+            party.SetCustomHomeSettlement(homeSettlement);
             TaleWorldsCode.BanditsCampaignBehaviour.CreatePartyTrade(party);
             foreach (ItemObject itemObject in Items.All)
             {
