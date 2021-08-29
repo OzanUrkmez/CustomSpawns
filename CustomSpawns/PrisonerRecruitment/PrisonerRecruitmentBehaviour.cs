@@ -195,7 +195,7 @@ namespace CustomSpawns.PrisonerRecruitment
                                     devaluedCount++;
                                 }
                             }
-                            if (recruitedCount > 0)
+                            if (recruitedCount > 0 && t.GarrisonParty != null)
                             {
                                 recruited.Add(new PrisonerInfo()
                                 {
@@ -205,7 +205,7 @@ namespace CustomSpawns.PrisonerRecruitment
                                     prisonerParty = p.prisonerParty
                                 });
                             }
-                            if (devaluedCount > 0)
+                            if (devaluedCount > 0 && t.GarrisonParty != null)
                             {
                                 devalued.Add(new PrisonerInfo()
                                 {
