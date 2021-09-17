@@ -1,15 +1,15 @@
  <Module>
      <Name value="CustomSpawns"/>
      <Id value="CustomSpawns"/>
-     <Version value="v1.4.8"/>
+     <Version value="v1.6.1"/>
      <SingleplayerModule value="true"/>
      <MultiplayerModule value="false"/>
      <DependedModules>
-         <DependedModule Id="Native" DependentVersion = "e1.5.9"/>
-         <DependedModule Id="SandBoxCore" DependentVersion = "e1.5.9"/>
-         <DependedModule Id="Sandbox" DependentVersion = "e1.5.9"/>
-         <DependedModule Id="CustomBattle" DependentVersion = "e1.5.9"/>
-         <DependedModule Id="StoryMode" DependentVersion = "e1.5.9"/>
+         <DependedModule Id="Native" DependentVersion = "e1.6.1"/>
+         <DependedModule Id="SandBoxCore" DependentVersion = "e1.6.1"/>
+         <DependedModule Id="Sandbox" DependentVersion = "e1.6.1"/>
+         <DependedModule Id="CustomBattle" DependentVersion = "e1.6.1"/>
+         <DependedModule Id="StoryMode" DependentVersion = "e1.6.1"/>
      </DependedModules>
      <SubModules>
         <SubModule>

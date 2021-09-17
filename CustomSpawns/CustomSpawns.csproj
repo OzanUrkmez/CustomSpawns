@@ -54,13 +54,7 @@
   <ItemGroup>
     <Reference Include="0Harmony, Version=2.1.1.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\Lib.Harmony.2.1.1\lib\net472\0Harmony.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Bannerlord.UIExtenderEx, Version=0.0.11.13, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bannerlord.MCM.Integrated.3.1.9\lib\net472\Bannerlord.UIExtenderEx.dll</HintPath>
-    </Reference>
-    <Reference Include="QuestryGameGeneral">
-      <HintPath>\Dependencies\QuestryGameGeneral\QuestryGameGeneral\bin\Debug\QuestryGameGeneral.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="SandBox">
       <HintPath>..\..\Modules\SandBox\bin\Win64_Shipping_Client\SandBox.dll</HintPath>
@@ -324,7 +318,6 @@
     <Compile Include="HarmonyPatches\GetNavigationMeshCenterPositionCrashOnInvalidFaceFix.cs" />
     <Compile Include="HarmonyPatches\PartySpeedModelPatch.cs" />
     <Compile Include="Main.cs" />
-    <Compile Include="MCMv3\CsSettings.cs" />
     <Compile Include="ModIntegration\SubMod.cs" />
     <Compile Include="ModIntegration\SubModManager.cs" />
     <Compile Include="PrisonerRecruitment\PrisonerRecruitmentBehaviour.cs" />
@@ -359,10 +352,6 @@
     <Compile Include="Utils\RemoverBehaviour.cs" />
     <Compile Include="Utils\Utils.cs" />
     <Compile Include="Utils\UX.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CustomHideouts\" />
-    <Folder Include="Input\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
