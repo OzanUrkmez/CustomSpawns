@@ -15,7 +15,8 @@ namespace CustomSpawns.HarmonyPatches
             if (__result)
             {
                 var isolatedPartyStringId = CampaignUtils.IsolateMobilePartyStringID(party);
-                if (SpawnDataManager.Instance.Data.Any(spawnData => isolatedPartyStringId.Equals(spawnData.PartyTemplate.GetName().ToString())))
+                if (SpawnDataManager.Instance.Data.Any(spawnData =>
+                    isolatedPartyStringId.Equals(spawnData.PartyTemplate.GetName().ToString())))
                     __result = false;
             }
         }
