@@ -1,15 +1,15 @@
  <Module>
      <Name value="CustomSpawns Clean API"/>
      <Id value="CustomSpawnsCleanAPI"/>
-     <Version value="v1.6.1"/>
+     <Version value="v1.6.3"/>
      <SingleplayerModule value="true"/>
      <MultiplayerModule value="false"/>
      <DependedModules>
-         <DependedModule Id="Native" DependentVersion = "e1.6.1"/>
-         <DependedModule Id="SandBoxCore" DependentVersion = "e1.6.1"/>
-         <DependedModule Id="Sandbox" DependentVersion = "e1.6.1"/>
-         <DependedModule Id="CustomBattle" DependentVersion = "e1.6.1"/>
-         <DependedModule Id="StoryMode" DependentVersion = "e1.6.1"/>
+         <DependedModule Id="Native" DependentVersion = "e1.6.3"/>
+         <DependedModule Id="SandBoxCore" DependentVersion = "e1.6.3"/>
+         <DependedModule Id="Sandbox" DependentVersion = "e1.6.3"/>
+         <DependedModule Id="CustomBattle" DependentVersion = "e1.6.3"/>
+         <DependedModule Id="StoryMode" DependentVersion = "e1.6.3"/>
      </DependedModules>
      <SubModules>
         <SubModule>
