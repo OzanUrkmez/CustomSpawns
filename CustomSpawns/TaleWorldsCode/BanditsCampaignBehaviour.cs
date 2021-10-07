@@ -21,7 +21,7 @@ namespace CustomSpawns.TaleWorldsCode
             float num2 = Campaign.AverageDistanceBetweenTwoTowns * 0.33f * Campaign.AverageDistanceBetweenTwoTowns * 0.33f;
             foreach (Settlement settlement in Campaign.Current.Settlements)
             {
-                if (settlement.IsHideout() && (settlement.Culture.Equals(faction.Culture) || !sameFactionIsNeeded) && ((isInfestedHideoutNeeded && ((Hideout)settlement.GetComponent(typeof(Hideout))).IsInfested) || (!isInfestedHideoutNeeded && !((Hideout)settlement.GetComponent(typeof(Hideout))).IsInfested)))
+                if (settlement.IsHideout && (settlement.Culture.Equals(faction.Culture) || !sameFactionIsNeeded) && ((isInfestedHideoutNeeded && ((Hideout)settlement.GetComponent(typeof(Hideout))).IsInfested) || (!isInfestedHideoutNeeded && !((Hideout)settlement.GetComponent(typeof(Hideout))).IsInfested)))
                 {
                     int num3 = 1;
                     if (selectingFurtherToOthersNeeded)
@@ -30,7 +30,7 @@ namespace CustomSpawns.TaleWorldsCode
                         float num5 = Campaign.MapDiagonal * Campaign.MapDiagonal;
                         foreach (Settlement settlement2 in Campaign.Current.Settlements)
                         {
-                            if (settlement2.IsHideout() && ((Hideout)settlement2.GetComponent(typeof(Hideout))).IsInfested)
+                            if (settlement2.IsHideout && ((Hideout)settlement2.GetComponent(typeof(Hideout))).IsInfested)
                             {
                                 float num6 = settlement.Position2D.DistanceSquared(settlement2.Position2D);
                                 if (settlement.Culture == settlement2.Culture && num6 < num4)
@@ -51,7 +51,7 @@ namespace CustomSpawns.TaleWorldsCode
             int num7 = MBRandom.RandomInt(num);
             foreach (Settlement settlement3 in Campaign.Current.Settlements)
             {
-                if (settlement3.IsHideout() && (settlement3.Culture.Equals(faction.Culture) || !sameFactionIsNeeded) && ((isInfestedHideoutNeeded && ((Hideout)settlement3.GetComponent(typeof(Hideout))).IsInfested) || (!isInfestedHideoutNeeded && !((Hideout)settlement3.GetComponent(typeof(Hideout))).IsInfested)))
+                if (settlement3.IsHideout && (settlement3.Culture.Equals(faction.Culture) || !sameFactionIsNeeded) && ((isInfestedHideoutNeeded && ((Hideout)settlement3.GetComponent(typeof(Hideout))).IsInfested) || (!isInfestedHideoutNeeded && !((Hideout)settlement3.GetComponent(typeof(Hideout))).IsInfested)))
                 {
                     int num8 = 1;
                     if (selectingFurtherToOthersNeeded)
@@ -60,7 +60,7 @@ namespace CustomSpawns.TaleWorldsCode
                         float num10 = Campaign.MapDiagonal * Campaign.MapDiagonal;
                         foreach (Settlement settlement4 in Campaign.Current.Settlements)
                         {
-                            if (settlement4.IsHideout() && ((Hideout)settlement4.GetComponent(typeof(Hideout))).IsInfested)
+                            if (settlement4.IsHideout && ((Hideout)settlement4.GetComponent(typeof(Hideout))).IsInfested)
                             {
                                 float num11 = settlement3.Position2D.DistanceSquared(settlement4.Position2D);
                                 if (settlement3.Culture == settlement4.Culture && num11 < num9)

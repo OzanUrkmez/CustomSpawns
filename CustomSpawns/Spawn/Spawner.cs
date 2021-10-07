@@ -178,7 +178,7 @@ namespace CustomSpawns.Spawn
             {
                 foreach (Settlement s in Settlement.All)
                 {
-                    if (s.IsHideout())
+                    if (s.IsHideout)
                     {
                         firstHideout = s;
                         break;
@@ -226,7 +226,7 @@ namespace CustomSpawns.Spawn
             {
                 foreach (Settlement s in Settlement.All)
                 {
-                    if (s.IsHideout())
+                    if (s.IsHideout)
                     {
                         firstHideout = s;
                         break;
