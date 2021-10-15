@@ -1,8 +1,0 @@
-C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\CustomSpawns\bin\Win64_Shipping_Client\CustomSpawns.dll
-C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\Modules\CustomSpawns\bin\Win64_Shipping_Client\CustomSpawns.pdb
-C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\CustomSpawns\CustomSpawns\obj\Debug\CustomSpawns.csprojAssemblyReference.cache
-C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\CustomSpawns\CustomSpawns\obj\Debug\CustomSpawns.Properties.Resources.resources
-C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\CustomSpawns\CustomSpawns\obj\Debug\CustomSpawns.csproj.GenerateResource.cache
-C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\CustomSpawns\CustomSpawns\obj\Debug\CustomSpawns.csproj.CoreCompileInputs.cache
-C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\CustomSpawns\CustomSpawns\obj\Debug\CustomSpawns.dll
-C:\Program Files (x86)\Steam\steamapps\common\Mount & Blade II Bannerlord\CustomSpawns\CustomSpawns\obj\Debug\CustomSpawns.pdb

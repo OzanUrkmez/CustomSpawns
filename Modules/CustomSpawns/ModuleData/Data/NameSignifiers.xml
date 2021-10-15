@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<root>
-	<NameSignifier id="cs_peasant_revolt" value = "Pillaging Brigands" base_speed_override = "4.3"/>
-	<NameSignifier id="cs_peasant_revolutionary_revolt" value = "Stray Revolutionaries" base_speed_override = "4.3"/>
-	<NameSignifier id="cs_peasant_absolutist_revolt" value = "Wandering Outcast Tribe" base_speed_override = "4.3"/>
-	<NameSignifier id="cs_barbarian_refugees" value = "Barbarian Refugees" base_speed_override = "4.3"/>
-	<NameSignifier id="cs_makko_army_party" value = "Makkonian Army" base_speed_override = "4.5"/>
-	<NameSignifier id="cs_humar_army_party" value = "Humar Clan" base_speed_override = "4.3"/>
-</root>
