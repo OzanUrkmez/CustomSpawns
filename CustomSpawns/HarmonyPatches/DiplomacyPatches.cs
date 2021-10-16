@@ -10,6 +10,9 @@ using TaleWorlds.CampaignSystem.Actions;
 
 namespace CustomSpawns.HarmonyPatches
 {
+    // Leave kingdom only if the clan is destroyed.
+    // Block any other Custom Spawns clan Kingdom change
+
     [HarmonyPatch(typeof(ChangeKingdomAction), "ApplyByJoinToKingdom")]
     public class ChangeKingdomActionApplyByJoinToKingdomPatch
     {
@@ -19,6 +22,23 @@ namespace CustomSpawns.HarmonyPatches
             if(CampaignUtils.IsCustomSpawnsClan(clan))
             {
                 ModDebug.ShowMessage("Prevented " + clan.StringId + "from joining kingdom " + newKingdom.StringId, DebugMessageType.Diplomacy);
+
+                return false;
+            }
+            return true;
+        }
+
+    }
+
+    [HarmonyPatch(typeof(ChangeKingdomAction), "ApplyByCreateKingdom")]
+    public class ChangeKingdomActionApplyByCreateKingdommPatch
+    {
+
+        static bool Prefix(Clan clan, Kingdom newKingdom, bool showNotification = true)
+        {
+            if (CampaignUtils.IsCustomSpawnsClan(clan))
+            {
+                ModDebug.ShowMessage("Prevented " + clan.StringId + "from leaving his kingdom.", DebugMessageType.Diplomacy);
 
                 return false;
             }
@@ -77,9 +97,24 @@ namespace CustomSpawns.HarmonyPatches
 
     }
 
+    [HarmonyPatch(typeof(ChangeKingdomAction), "ApplyByLeaveKingdomAsMercenary")]
+    public class ChangeKingdomApplyByLeaveKingdomAsMercenary
+    {
+        static bool Prefix(Clan mercenaryClan, Kingdom kingdom, bool showNotification = true)
+        {
+            if (CampaignUtils.IsCustomSpawnsClan(mercenaryClan))
+            {
+                ModDebug.ShowMessage("Prevented " + mercenaryClan.StringId + "from leaving his kingdom.", DebugMessageType.Diplomacy);
 
-    [HarmonyPatch(typeof(ChangeKingdomAction), "ApplyByLeaveKingdomAsMercenaryForNoPayment")]
-    public class ChangeKingdomApplyByLeaveKingdomAsMercenaryForNoPaymentPatch
+                return false;
+            }
+            return true;
+        }
+
+    }
+    
+    [HarmonyPatch(typeof(ChangeKingdomAction), "ApplyByLeaveKingdomAsMercenaryWithKingDecision")]
+    public class ChangeKingdomApplyByLeaveKingdomAsMercenaryWithKingDecision
     {
         static bool Prefix(Clan mercenaryClan, Kingdom kingdom, bool showNotification = true)
         {
