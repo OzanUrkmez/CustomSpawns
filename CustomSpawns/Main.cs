@@ -15,7 +15,6 @@ namespace CustomSpawns
     public class Main : MBSubModuleBase
     {
         public static readonly string version = "v1.6.3";
-        public static readonly bool isAPIMode = false;
         public static PartySpeedContext PartySpeedContext;
 
         private static bool removalMode = false;

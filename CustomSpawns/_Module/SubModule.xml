@@ -5,14 +5,12 @@
 	<SingleplayerModule value="true"/>
 	<MultiplayerModule value="false"/>
 	<DependedModules>
-		<DependedModule Id="Bannerlord.Harmony"/>
 		<DependedModule Id="Native"/>
 		<DependedModule Id="SandBoxCore"/>
 		<DependedModule Id="Sandbox"/>
 		<DependedModule Id="StoryMode"/>
 	</DependedModules>
 	<DependedModuleMetadatas>
-		<DependedModuleMetadata id="Bannerlord.Harmony" order="LoadBeforeThis" version="v$harmonyversion$"/>
 		<DependedModuleMetadata id="Native" order="LoadBeforeThis" version="e$gameversion$.*"/>
 		<DependedModuleMetadata id="SandBoxCore" order="LoadBeforeThis" version="e$gameversion$.*"/>
 		<DependedModuleMetadata id="Sandbox" order="LoadBeforeThis" version="e$gameversion$.*"/>

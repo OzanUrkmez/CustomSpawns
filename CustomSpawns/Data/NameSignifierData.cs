@@ -43,14 +43,14 @@ namespace CustomSpawns.Data
         private Dictionary<string, float> IDToBaseSpeedOverride = new Dictionary<string, float>();
         private NameSignifierData()
         {
-            if (!Main.isAPIMode)
-            {
-                string path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data", "NameSignifiers.xml");
-                ConstructFromXML(path);
-            }
+            string path = "";
+#if !API_MODE
+            path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data", "NameSignifiers.xml");
+            ConstructFromXML(path);
+#endif
             foreach(var subMod in ModIntegration.SubModManager.dependentModsArray)
             {
-                string path = Path.Combine(subMod.CustomSpawnsDirectoryPath, "NameSignifiers.xml");
+                path = Path.Combine(subMod.CustomSpawnsDirectoryPath, "NameSignifiers.xml");
                 if (File.Exists(path))
                     ConstructFromXML(path);
             }

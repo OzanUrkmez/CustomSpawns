@@ -70,18 +70,18 @@ namespace CustomSpawns.Data
 
         private SpawnDataManager()
         {
-            if (!Main.isAPIMode)
+            string path = "";
+#if !API_MODE
+            path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data", "CustomDailySpawn.xml");
+            if (!File.Exists(path))
             {
-                string path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data", "CustomDailySpawn.xml");
-                if (!File.Exists(path))
-                {
-                    path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data", "RegularBanditDailySpawn.xml");
-                }
-                ConstructListFromXML(path);
+                path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data", "RegularBanditDailySpawn.xml");
             }
+            ConstructListFromXML(path);
+#endif
             foreach (var subMod in ModIntegration.SubModManager.dependentModsArray)
             {
-                string path = Path.Combine(subMod.CustomSpawnsDirectoryPath, "CustomDailySpawn.xml");
+                path = Path.Combine(subMod.CustomSpawnsDirectoryPath, "CustomDailySpawn.xml");
                 if (!File.Exists(path))
                 {
                     path = Path.Combine(subMod.CustomSpawnsDirectoryPath, "RegularBanditDailySpawn.xml");

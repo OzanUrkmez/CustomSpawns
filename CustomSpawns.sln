@@ -17,6 +17,10 @@ Global
 		Stable_Release|x64 = Stable_Release|x64
 		Beta_Debug|x64 = Beta_Debug|x64
 		Beta_Release|x64 = Beta_Release|x64
+		Api_Stable_Debug|x64 = Api_Stable_Debug|x64
+		Api_Stable_Release|x64 = Api_Stable_Release|x64
+		Api_Beta_Debug|x64 = Api_Beta_Debug|x64
+		Api_Beta_Release|x64 = Api_Beta_Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{E1047BC3-78A9-444C-B74F-41E1B9744ED3}.Stable_Debug|x64.ActiveCfg = Stable_Debug|x64
@@ -27,5 +31,23 @@ Global
 		{E1047BC3-78A9-444C-B74F-41E1B9744ED3}.Beta_Debug|x64.Build.0 = Beta_Debug|x64
 		{E1047BC3-78A9-444C-B74F-41E1B9744ED3}.Beta_Release|x64.ActiveCfg = Beta_Release|x64
 		{E1047BC3-78A9-444C-B74F-41E1B9744ED3}.Beta_Release|x64.Build.0 = Beta_Release|x64
+		{E1047BC3-78A9-444C-B74F-41E1B9744ED3}.Api_Stable_Debug|x64.ActiveCfg = Api_Stable_Debug|x64
+		{E1047BC3-78A9-444C-B74F-41E1B9744ED3}.Api_Stable_Debug|x64.Build.0 = Api_Stable_Debug|x64
+		{E1047BC3-78A9-444C-B74F-41E1B9744ED3}.Api_Stable_Release|x64.ActiveCfg = Api_Stable_Release|x64
+		{E1047BC3-78A9-444C-B74F-41E1B9744ED3}.Api_Stable_Release|x64.Build.0 = Api_Stable_Release|x64
+		{E1047BC3-78A9-444C-B74F-41E1B9744ED3}.Api_Beta_Debug|x64.ActiveCfg = Api_Beta_Debug|x64
+		{E1047BC3-78A9-444C-B74F-41E1B9744ED3}.Api_Beta_Debug|x64.Build.0 = Api_Beta_Debug|x64
+		{E1047BC3-78A9-444C-B74F-41E1B9744ED3}.Api_Beta_Release|x64.ActiveCfg = Api_Beta_Release|x64
+		{E1047BC3-78A9-444C-B74F-41E1B9744ED3}.Api_Beta_Release|x64.Build.0 = Api_Beta_Release|x64
+
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CB20C6C8-2857-4B1E-9C00-265893C094E3} = {12CCA2B5-A874-47B3-BB43-799275014D7B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B3D4AB65-9162-4EE2-9413-1867C12DC041}
 	EndGlobalSection
 EndGlobal

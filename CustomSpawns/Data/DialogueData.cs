@@ -57,14 +57,14 @@ namespace CustomSpawns.Data
         {
             try
             {
-                if (!Main.isAPIMode)
-                {
-                    string path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data", "CustomDialogue.xml"); // the usual path deal, located in the CustomSpawns or Data folder
-                    ParseDialogueFile(path);
-                }
+                string path = "";
+#if !API_MODE
+                path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data", "CustomDialogue.xml"); // the usual path deal, located in the CustomSpawns or Data folder
+                ParseDialogueFile(path);
+#endif
                 foreach (var subMod in ModIntegration.SubModManager.dependentModsArray)
                 {
-                    string path = Path.Combine(subMod.CustomSpawnsDirectoryPath, "CustomDialogue.xml");
+                    path = Path.Combine(subMod.CustomSpawnsDirectoryPath, "CustomDialogue.xml");
                     if (File.Exists(path))
                         ParseDialogueFile(path);
                 }

@@ -37,28 +37,21 @@ namespace CustomSpawns.RewardSystem
 
                 string pathToTamplate = "";
                 string pathToSchema = "";
-
-                if (!Main.isAPIMode)
+#if API_MODE
+                pathToSchema = Path.Combine(BasePath.Name, "Modules", "CustomSpawnsCleanAPI", "Schema",
+                    "PartyRewardTemplateSchema.xsd");
+                foreach (var subMod in ModIntegration.SubModManager.dependentModsArray)
                 {
-                    pathToTamplate = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data",
-                        "PartyRewards.xml");
-                    pathToSchema = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "Schema",
-                        "PartyRewardTemplateSchema.xsd");
+                    string path = Path.Combine(subMod.CustomSpawnsDirectoryPath, "PartyRewards.xml");
+                    if (File.Exists(path))
+                        ParseRewardFile(pathToSchema, path);
                 }
-                else
-                {
-                    pathToSchema = Path.Combine(BasePath.Name, "Modules", "CustomSpawnsCleanAPI", "Schema",
-                        "PartyRewardTemplateSchema.xsd");
-                    foreach (var subMod in ModIntegration.SubModManager.dependentModsArray)
-                    {
-                        string path = Path.Combine(subMod.CustomSpawnsDirectoryPath, "PartyRewards.xml");
-                        if (File.Exists(path))
-                            ParseRewardFile(pathToSchema, path);
-                    }
-
-                }
-
-
+#else
+                pathToTamplate = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data",
+                    "PartyRewards.xml");
+                pathToSchema = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "Schema",
+                    "PartyRewardTemplateSchema.xsd");
+#endif
             }
             catch (Exception e)
             {
