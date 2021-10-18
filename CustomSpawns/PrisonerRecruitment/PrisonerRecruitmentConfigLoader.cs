@@ -32,14 +32,11 @@ namespace CustomSpawns.PrisonerRecruitment
         private PrisonerRecruitmentConfigLoader()
         {
             string path = "";
-            if (!Main.isAPIMode)
-            {
-                path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "prisoner_recruitment_config.xml");
-            }
-            else
-            {
-                path = Path.Combine(BasePath.Name, "Modules", "CustomSpawnsCleanAPI", "ModuleData", "prisoner_recruitment_config.xml");
-            }
+#if API_MODE
+            path = Path.Combine(BasePath.Name, "Modules", "CustomSpawnsCleanAPI", "ModuleData", "prisoner_recruitment_config.xml");
+#else
+            path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "prisoner_recruitment_config.xml");
+#endif
             Config = getConfig(path);
         }
 

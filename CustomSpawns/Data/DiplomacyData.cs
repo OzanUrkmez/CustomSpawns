@@ -50,14 +50,14 @@ namespace CustomSpawns.Data
 
         private DiplomacyDataManager()
         {
-            if (!Main.isAPIMode)
-            {
-                string path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data", "Diplomacy.xml");
-                ConstructListFromXML(path);
-            }
+            string path = "";
+#if !API_MODE
+            path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data", "Diplomacy.xml");
+            ConstructListFromXML(path);
+#endif
             foreach (var subMod in ModIntegration.SubModManager.dependentModsArray)
             {
-                string path = Path.Combine(subMod.CustomSpawnsDirectoryPath, "Diplomacy.xml");
+                path = Path.Combine(subMod.CustomSpawnsDirectoryPath, "Diplomacy.xml");
                 if (File.Exists(path))
                     ConstructListFromXML(path);
             }
