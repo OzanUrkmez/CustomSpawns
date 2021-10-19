@@ -81,7 +81,6 @@ namespace CustomSpawns
         {
             if (!removalMode)
             {
-
                 OnSaveStartRunBehaviour.InitializeSave(starter);
                 OnSaveStartRunBehaviour.Singleton.RegisterFunctionToRunOnSaveStart(OnSaveStart);
 
@@ -94,8 +93,6 @@ namespace CustomSpawns
                 starter.AddBehavior(new PrisonerRecruitment.PrisonerRecruitmentBehaviour());
                 starter.AddBehavior(new Dialogues.CustomSpawnsDialogueBehavior());
                 starter.AddBehavior(new SpawnRewardBehavior());
-
-
 
                 //campaign behaviours
                 starter.AddBehavior(CampaignData.DevestationMetricData.Singleton);
@@ -135,6 +132,11 @@ namespace CustomSpawns
 
         public override void OnGameInitializationFinished(Game game) {
             base.OnGameInitializationFinished(game);
+            if(!(game.GameType is Campaign))
+            {
+                return;
+            }
+
             try
             {
                 Harmony harmony = new Harmony("com.Questry.CustomSpawns");
