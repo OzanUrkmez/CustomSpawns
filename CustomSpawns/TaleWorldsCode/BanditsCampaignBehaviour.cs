@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaleWorlds.CampaignSystem.Actions;
-using TaleWorlds.CampaignSystem.Barterables;
-using TaleWorlds.CampaignSystem.CharacterDevelopment.Managers;
 using TaleWorlds.Core;
-using TaleWorlds.Library;
-using TaleWorlds.Localization;
 using TaleWorlds.CampaignSystem;
 
-namespace CustomSpawns.TaleWorldsCode
+namespace TaleWorldsCode
 {
     class BanditsCampaignBehaviour
     {
@@ -85,33 +76,6 @@ namespace CustomSpawns.TaleWorldsCode
             return null;
         }
 
-        public static Settlement SelectARandomSettlementForLooterParty()
-        {
-            int num = 0;
-            foreach (Settlement settlement in Settlement.All)
-            {
-                if (settlement.IsTown || settlement.IsVillage)
-                {
-                    int num2 = CalculateDistanceScore(settlement.Position2D.DistanceSquared(MobileParty.MainParty.Position2D));
-                    num += num2;
-                }
-            }
-            int num3 = MBRandom.RandomInt(num);
-            foreach (Settlement settlement2 in Settlement.All)
-            {
-                if (settlement2.IsTown || settlement2.IsVillage)
-                {
-                    int num4 = CalculateDistanceScore(settlement2.Position2D.DistanceSquared(MobileParty.MainParty.Position2D));
-                    num3 -= num4;
-                    if (num3 <= 0)
-                    {
-                        return settlement2;
-                    }
-                }
-            }
-            return null;
-        }
-
         public static int CalculateDistanceScore(float distance)
         {
             int result = 2;
@@ -137,7 +101,6 @@ namespace CustomSpawns.TaleWorldsCode
         // Token: 0x060020F7 RID: 8439 RVA: 0x00089110 File Offset: 0x00087310
         public static void CreatePartyTrade(MobileParty banditParty)
         {
-            float totalStrength = banditParty.Party.TotalStrength;
             int initialGold = (int)(10f * (float)banditParty.Party.MemberRoster.TotalManCount * (0.5f + 1f * MBRandom.RandomFloat));
             banditParty.InitializePartyTrade(initialGold);
         }
