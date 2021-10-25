@@ -14,7 +14,6 @@ namespace CustomSpawns
 {
     public class Main : MBSubModuleBase
     {
-        public static readonly string version = "v1.6.3";
         public static PartySpeedContext PartySpeedContext;
 
         private static bool removalMode = false;
@@ -59,7 +58,7 @@ namespace CustomSpawns
 
         protected override void OnBeforeInitialModuleScreenSetAsRoot() //assure player :) also myself lol
         {
-            UX.ShowMessage("CustomSpawns " + version + " is now enabled. Enjoy! :)", Color.ConvertStringToColor("#001FFFFF"));
+            UX.ShowMessage("CustomSpawns is now enabled. Enjoy! :)", Color.ConvertStringToColor("#001FFFFF"));
             AI.AIManager.FlushRegisteredBehaviours(); //forget old behaviours to allocate space. 
             foreach (var subMod in ModIntegration.SubModManager.dependentModsArray)
             {
