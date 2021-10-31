@@ -71,6 +71,7 @@ namespace CustomSpawns
 
         private void ClearLastInstances()
         {
+            Data.DynamicSpawnData.ClearInstance(this);
             Data.DiplomacyDataManager.ClearInstance(this);
             Data.SpawnDataManager.ClearInstance(this);
             Data.NameSignifierData.ClearInstance(this);
@@ -151,6 +152,7 @@ namespace CustomSpawns
                 // Spawn Data Init (Read from XML)
                 ClearLastInstances();
                 SpawnDataManager.Init();
+                DynamicSpawnData.Init();
             }
             catch (Exception e)
             {

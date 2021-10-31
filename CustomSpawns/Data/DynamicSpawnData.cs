@@ -10,38 +10,100 @@ using TaleWorlds.Localization;
 
 namespace CustomSpawns.Data
 {
-    static class DynamicSpawnData
+    public class DynamicSpawnData
     {
+        private static DynamicSpawnData _instance;
 
-        private static Dictionary<MobileParty, CSPartyData> dynamicSpawnData = new Dictionary<MobileParty, CSPartyData>();
-
-        public static void FlushSpawnData()
+        public static DynamicSpawnData Instance
         {
-            dynamicSpawnData.Clear();
+            get
+            {
+                return _instance;
+            }
+            private set
+            {
+                _instance = value;
+                
+            }
         }
 
-        public static void AddDynamicSpawnData(MobileParty mb, CSPartyData data)
+        public static void ClearInstance(Main caller)
         {
-            if (dynamicSpawnData.ContainsKey(mb))
+            if (caller == null)
+                return;
+            _dynamicSpawnData.Clear();
+            _instance = null;
+        }
+
+        public static void Init()
+        {
+            if (_instance != null)
+            {
+                throw new Exception("DynamicSpawnData has already been initialised!");
+            }
+            _instance = new DynamicSpawnData();
+        }
+
+        private DynamicSpawnData()
+        {
+            foreach (MobileParty mb in MobileParty.All)
+            {
+                if (mb == null)
+                    return;
+                foreach (var dat in SpawnDataManager.Instance.Data)
+                {
+                    if (CampaignUtils.IsolateMobilePartyStringID(mb) == dat.PartyTemplate.StringId) //TODO could deal with sub parties in the future as well!
+                    {
+                        //this be a custom spawns party :O
+                        AddDynamicSpawnData(mb, new CSPartyData(dat, null));
+                        dat.IncrementNumberSpawned();
+                        UpdateDynamicData(mb);
+                        UpdateRedundantDynamicData(mb);
+                    }
+                }
+            }
+        }
+
+        private static Dictionary<MobileParty, CSPartyData> _dynamicSpawnData = new Dictionary<MobileParty, CSPartyData>();
+
+        public void FlushSpawnData()
+        {
+            _dynamicSpawnData.Clear();
+        }
+
+        public void AddDynamicSpawnData(MobileParty mb, CSPartyData data)
+        {
+            if (_dynamicSpawnData.ContainsKey(mb))
             {
                 return;
             }
-            dynamicSpawnData.Add(mb, data);
+            _dynamicSpawnData.Add(mb, data);
         }
 
-        public static bool RemoveDynamicSpawnData(MobileParty mb)
+        public bool RemoveDynamicSpawnData(MobileParty mb)
         {
-            return dynamicSpawnData.Remove(mb);
+            return _dynamicSpawnData.Remove(mb);
         }
 
-        public static CSPartyData GetDynamicSpawnData(MobileParty mb)
+        public CSPartyData GetDynamicSpawnData(MobileParty mb)
         {
-            if (!dynamicSpawnData.ContainsKey(mb))
+            if (!_dynamicSpawnData.ContainsKey(mb))
                 return null;
-            return dynamicSpawnData[mb];
+            return _dynamicSpawnData[mb];
+        }
+
+        public void UpdateDynamicData(MobileParty mb)
+        {
+
+        }
+
+        public void UpdateRedundantDynamicData(MobileParty mb)
+        {
+            GetDynamicSpawnData(mb).latestClosestSettlement = CampaignUtils.GetClosestHabitedSettlement(mb);
         }
 
     }
+
 
     public class CSPartyData
     {

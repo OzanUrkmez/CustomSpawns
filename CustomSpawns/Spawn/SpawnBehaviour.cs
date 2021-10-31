@@ -14,34 +14,9 @@ namespace CustomSpawns.Spawn
 
         private int lastRedundantDataUpdate = 0;
 
-        private bool dataGottenAtStart = false;
-
         public SpawnBehaviour()
         {
-            DynamicSpawnData.FlushSpawnData();
             lastRedundantDataUpdate = 0;
-            dataGottenAtStart = false;
-        }
-
-        public void GetCurrentData()
-        {
-            foreach (MobileParty mb in MobileParty.All)
-            {
-                if (mb == null)
-                    return;
-                foreach (var dat in SpawnDataManager.Instance.Data)
-                {
-                    if (CampaignUtils.IsolateMobilePartyStringID(mb) == dat.PartyTemplate.StringId) //TODO could deal with sub parties in the future as well!
-                    {
-                        //this be a custom spawns party :O
-                        DynamicSpawnData.AddDynamicSpawnData(mb, new CSPartyData(dat, null));
-                        dat.IncrementNumberSpawned();
-                        UpdateDynamicData(mb);
-                        UpdateRedundantDynamicData(mb);
-                    }
-                }
-            }
-
         }
 
         public void HourlyCheckData()
@@ -56,16 +31,6 @@ namespace CustomSpawns.Spawn
             }
 
             //Now for data checking?
-        }
-
-        public void UpdateDynamicData(MobileParty mb)
-        {
-
-        }
-
-        public void UpdateRedundantDynamicData(MobileParty mb)
-        {
-            DynamicSpawnData.GetDynamicSpawnData(mb).latestClosestSettlement = CampaignUtils.GetClosestHabitedSettlement(mb);
         }
 
         #endregion
@@ -90,11 +55,6 @@ namespace CustomSpawns.Spawn
 
         private void HourlyBehaviour()
         {
-            if (!dataGottenAtStart)
-            {
-                GetCurrentData();
-                dataGottenAtStart = true;
-            }
             HourlyCheckData();
             if (!spawnedToday && Campaign.Current.IsNight)
             {
@@ -111,25 +71,25 @@ namespace CustomSpawns.Spawn
             if (mb == null)
                 return;
 
-            CSPartyData partyData = DynamicSpawnData.GetDynamicSpawnData(mb);
+            CSPartyData partyData = DynamicSpawnData.Instance.GetDynamicSpawnData(mb);
             if (partyData != null)
             {
                 partyData.spawnBaseData.DecrementNumberSpawned();
                 //this is a custom spawns party!!
                 OnPartyDeath(mb, partyData);
                 ModDebug.ShowMessage(mb.StringId + " has died at " + partyData.latestClosestSettlement + ", reducing the total number to: " + partyData.spawnBaseData.GetNumberSpawned(), DebugMessageType.DeathTrack);
-                DynamicSpawnData.RemoveDynamicSpawnData(mb);
+                DynamicSpawnData.Instance.RemoveDynamicSpawnData(mb);
             }
         }
 
         private void HourlyPartyBehaviour(MobileParty mb)
         {
-            if (DynamicSpawnData.GetDynamicSpawnData(mb) == null) //check if it is a custom spawns party
+            if (DynamicSpawnData.Instance.GetDynamicSpawnData(mb) == null) //check if it is a custom spawns party
                 return;
-            UpdateDynamicData(mb);
+            DynamicSpawnData.Instance.UpdateDynamicData(mb);
             if (lastRedundantDataUpdate >= ConfigLoader.Instance.Config.UpdatePartyRedundantDataPerHour)
             {
-                UpdateRedundantDynamicData(mb);
+                DynamicSpawnData.Instance.UpdateRedundantDynamicData(mb);
             }
             //for now for all
             Economics.PartyEconomicUtils.PartyReplenishFood(mb);
@@ -151,7 +111,6 @@ namespace CustomSpawns.Spawn
                 var isSpawnSoundPlaying = false;
                 foreach (Data.SpawnData data in list)
                 {
-                    int j = 0;
                     for (int i = 0; i < data.RepeatSpawnRolls; i++)
                     {
                         if (data.CanSpawn() && (data.MinimumNumberOfDaysUntilSpawn < (int)Math.Ceiling(Campaign.Current.CampaignStartTime.ElapsedDaysUntilNow)))
@@ -177,9 +136,7 @@ namespace CustomSpawns.Spawn
                             data.IncrementNumberSpawned(); //increment for can spawn and chance modifications
                                                            //dynamic data registration
                             //dynamic spawn tracking
-                            DynamicSpawnData.AddDynamicSpawnData(spawnedParty, new CSPartyData(data, spawnSettlement));
-                            //dialogue system
-                            j++;
+                            DynamicSpawnData.Instance.AddDynamicSpawnData(spawnedParty, new CSPartyData(data, spawnSettlement));
                             //AI Checks!
                             Spawner.HandleAIChecks(spawnedParty, data, spawnSettlement);
                             //accompanying spawns

@@ -117,7 +117,7 @@ namespace CustomSpawns.CampaignData {
                 "\nTotal Strength:" + spawned.Party.TotalStrength.ToString() +
                 "\nChance of Spawn: " + chanceOfSpawnBeforeSpawn.ToString();
 
-            var spawnData = DynamicSpawnData.GetDynamicSpawnData(spawned).spawnBaseData;
+            var spawnData = DynamicSpawnData.Instance.GetDynamicSpawnData(spawned).spawnBaseData;
 
             if (spawnData.DynamicSpawnChanceEffect > 0)
             {
@@ -125,7 +125,7 @@ namespace CustomSpawns.CampaignData {
                 msg += "\nDynamic Spawn Chance Base Value During Spawn: " + DataUtils.GetCurrentDynamicSpawnCoeff(spawnData.DynamicSpawnChancePeriod);
             }
 
-            var spawnSettlement = DynamicSpawnData.GetDynamicSpawnData(spawned).latestClosestSettlement;
+            var spawnSettlement = DynamicSpawnData.Instance.GetDynamicSpawnData(spawned).latestClosestSettlement;
 
             if (spawnSettlement.IsVillage)
             {
