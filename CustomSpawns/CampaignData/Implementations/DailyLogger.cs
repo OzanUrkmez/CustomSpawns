@@ -1,23 +1,17 @@
 ﻿using CustomSpawns.Data;
-using CustomSpawns.UtilityBehaviours;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.Library;
-using TaleWorlds.TwoDimension;
 
 namespace CustomSpawns.CampaignData { 
     class DailyLogger : CustomCampaignDataBehaviour<DailyLogger, DailyLoggerConfig>
     {
 
-        private string logDir;
+        private string _logDir;
 
-        private FileStream logStream;
+        private string _filename;
 
         public override void FlushSavedData()
         {
@@ -26,13 +20,14 @@ namespace CustomSpawns.CampaignData {
 
         protected override void OnSaveStart()
         {
-            if (!Directory.Exists(logDir))
+            if (!Directory.Exists(_logDir))
             {
-                Directory.CreateDirectory(logDir);
+                Directory.CreateDirectory(_logDir);
             }
-            if (logStream != null && logStream.CanWrite)
-                logStream.Close();
-            logStream = File.Create(Path.Combine(logDir, "RudimentaryLastSessionLog.txt"));
+
+            var filepath = _logDir + "\\" + _filename;
+            if(!File.Exists(filepath))
+                File.Create(filepath);   
         }
 
         protected override void SyncSaveData(IDataStore dataStore)
@@ -45,14 +40,14 @@ namespace CustomSpawns.CampaignData {
             CampaignEvents.AfterDailyTickEvent.AddNonSerializedListener(this, OnAfterDailyTick);
             CampaignEvents.WarDeclared.AddNonSerializedListener(this, OnWarDeclared);
             CampaignEvents.MakePeace.AddNonSerializedListener(this, OnPeaceMade);
+            CampaignEvents.ClanChangedKingdom.AddNonSerializedListener(this, ClanChangedKingdom);
             CampaignEvents.OnSettlementOwnerChangedEvent.AddNonSerializedListener(this, OnSettlementChange);
         }
 
-
-
         public DailyLogger()
         {
-            logDir = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "Logs");
+            _filename  = "RudimentaryLastSessionLog_" + DateTime.Now.ToString("yyyy-MM-dd_h-mm_tt") + ".txt";
+            _logDir = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "Logs");
         }
 
         private bool DataWrittenToday = false;
@@ -60,34 +55,47 @@ namespace CustomSpawns.CampaignData {
         private void OnAfterDailyTick()
         {
             dayCount = (int)Campaign.Current.CampaignStartTime.ElapsedDaysUntilNow;
-
-            DataWrittenToday = false;
         }
 
+        public void Info(String s)
+        {
+            WriteString(s);
+        }
+        
         private void WriteString(string s)
         {
             try
             {
-                if (logStream != null && logStream.CanWrite)
+                var a = DateTime.Now.ToString("yyyy-MM-dd h:mm tt");
+                using (StreamWriter w = File.AppendText(_logDir + "\\" + _filename))
                 {
-                    if (!DataWrittenToday)
-                    {
-                        DataWrittenToday = true;
-                        WriteString("Day " + dayCount.ToString() + ":\n");
-                    }
-                    logStream.Write(Encoding.UTF8.GetBytes(s), 0, s.Length);
+                    w.WriteLine("[{0} {1}][Campaign Day {2}] {3}", DateTime.Now.ToLongTimeString(),
+                        a, dayCount, s);
                 }
-                else
-                    ModDebug.ShowMessage("Unable to write daily log!", DebugMessageType.Development);
-            }catch(Exception e)
+            }
+            catch (Exception ex)
             {
-                ModDebug.ShowMessage(e.Message, DebugMessageType.Development);
+                throw new TechnicalException("Could not write into the log file", ex);
             }
         }
 
         private void OnWarDeclared(IFaction fac1, IFaction fac2)
         {
             WriteString(fac1.Name + " and " + fac2.Name + " have declared war!\n");
+        }
+        
+        private void ClanChangedKingdom(Clan c, Kingdom k1, Kingdom k2, ChangeKingdomAction.ChangeKingdomActionDetail details, Boolean b)
+        {
+            if (k1 != null && k2 != null)
+            {
+                WriteString("Clan " + c.Name + " has left " + k1.Name + " to join " + k2.Name + ". (reason: " + details + ")");   
+            } else if (k1 != null && k2 == null)
+            {
+                WriteString("Clan " + c.Name + " left " + k1.Name + ". (reason: " + details + ")");   
+            } else if (k1 == null && k2 != null)
+            {
+                WriteString("Clan " + c.Name + " joined " + k2.Name + ". (reason: " + details + ")");
+            }
         }
 
         private void OnPeaceMade(IFaction fac1, IFaction fac2)
@@ -104,7 +112,7 @@ namespace CustomSpawns.CampaignData {
                 if (s == null || oldOwner == null || newOwner == null || oldOwner.Clan == null || newOwner.Clan == null || oldOwner.Clan.Kingdom == null || newOwner.Clan.Kingdom == null) //absolutely disgusting.
                     WriteString("There has been a siege. \n");
                 else
-                    WriteString(s.Name + " has been captured succesfully through siege, changing hands from " + oldOwner.Clan.Kingdom.Name + " to " + newOwner.Clan.Kingdom.Name + "\n");
+                    WriteString(s.Name + " has been captured successfully through siege, changing hands from " + oldOwner.Clan.Kingdom.Name + " to " + newOwner.Clan.Kingdom.Name + "\n");
             }
         }
 

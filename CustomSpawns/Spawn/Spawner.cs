@@ -63,7 +63,7 @@ namespace CustomSpawns.Spawn
                     spawnedSettlement.Hideout, false);
             }
             
-            return MobileParty.CreateParty(templateObject.StringId + "_" + 1);
+            return MobileParty.CreateParty(templateObject.StringId + "_" + 1, null);
         }
 
         private static void InitParty(MobileParty party, TextObject name, Clan faction, Settlement homeSettlement)

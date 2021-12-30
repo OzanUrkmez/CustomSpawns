@@ -37,11 +37,10 @@ namespace CustomSpawns.Data
 
         public static void Init()
         {
-            if (_instance != null)
+            if (_instance == null)
             {
-                throw new Exception("DynamicSpawnData has already been initialised!");
+                _instance = new DynamicSpawnData();
             }
-            _instance = new DynamicSpawnData();
         }
 
         private DynamicSpawnData()

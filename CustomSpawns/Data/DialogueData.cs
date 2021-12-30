@@ -3,17 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 using TaleWorlds.Library;
-using TaleWorlds.Localization;
-using TaleWorlds.Core;
 using CustomSpawns.Dialogues;
 
 using CustomSpawns.Dialogues.DialogueAlgebra;
-using System.Text.RegularExpressions;
+using Dialogues;
 
 namespace CustomSpawns.Data
 {
@@ -102,7 +96,7 @@ namespace CustomSpawns.Data
                 //Dialogue alternative to parent.
                 if(XMLParent == null)
                 {
-                    throw new Exception(node.Name + " is not a valid Custom Spawns Dialogue Token!");
+                    throw new TechnicalException(node.Name + " is not a valid Custom Spawns Dialogue Token!");
                 }
 
                 dat = InitializeDialogueNode(node, XMLParent.Parent, XMLParent); // initialize with same parameters as our XML parent.
@@ -112,7 +106,7 @@ namespace CustomSpawns.Data
 
             if (node.Name != "Dialogue")
             {
-                throw new Exception(node.Name + " is not a valid Custom Spawns Dialogue Token!");
+                throw new TechnicalException(node.Name + " is not a valid Custom Spawns Dialogue Token!");
             }
 
             //regular dialogue node.
@@ -218,7 +212,7 @@ namespace CustomSpawns.Data
                     return ParseConditionToken(tokens[0]);
                 }else if(tokens.Length % 2 == 0)
                 {
-                    throw new Exception("Invalid algebraic expression: " + text);
+                    throw new TechnicalException("Invalid algebraic expression: " + text);
                 }
 
                 //tokens.Length is thus at least 3.
@@ -251,7 +245,7 @@ namespace CustomSpawns.Data
                         }
                         else
                         {
-                            throw new Exception("Unrecognized logic keyword: " + tokens[i]);
+                            throw new TechnicalException("Unrecognized logic keyword: " + tokens[i]);
                         }
 
                         i += 1; // we will add 2 to this and so we will get to next token.
@@ -305,7 +299,7 @@ namespace CustomSpawns.Data
             switch (openPSplit.Count)
             {
                 case 0:
-                    throw new Exception("Can't parse " + token + ". It may be empty.");
+                    throw new TechnicalException("Can't parse " + token + ". It may be empty.");
                 case 1:
                     //no params
                     returned = DialogueConditionsManager.GetDialogueCondition(funcName);
@@ -323,7 +317,7 @@ namespace CustomSpawns.Data
                     returned = DialogueConditionsManager.GetDialogueCondition(funcName, openPSplit[1], openPSplit[2], openPSplit[3]);
                     break;
                 default:
-                    throw new Exception("Can't parse " + token + ". Possibly too many params.");
+                    throw new TechnicalException("Can't parse " + token + ". Possibly too many params.");
             }
 
             if (negationFlag)
@@ -365,7 +359,7 @@ namespace CustomSpawns.Data
                 }
                 else if (tokens.Length % 2 == 0)
                 {
-                    throw new Exception("Invalid consequence expression: " + text);
+                    throw new TechnicalException("Invalid consequence expression: " + text);
                 }
 
                 //tokens.Length is thus at least 3.
@@ -394,7 +388,7 @@ namespace CustomSpawns.Data
                         }
                         else
                         {
-                            throw new Exception("Unrecognized logic keyword for consequences: " + tokens[i]);
+                            throw new TechnicalException("Unrecognized logic keyword for consequences: " + tokens[i]);
                         }
 
                         i += 1; // we will add 2 to this and so we will get to next token.
@@ -435,7 +429,7 @@ namespace CustomSpawns.Data
 
             if (funcName[0] == '!')
             {
-                throw new Exception("Consequences cannot be negated: " + token);
+                throw new TechnicalException("Consequences cannot be negated: " + token);
             }
 
             DialogueConsequence returned = null;
@@ -443,7 +437,7 @@ namespace CustomSpawns.Data
             switch (openPSplit.Count)
             {
                 case 0:
-                    throw new Exception("Can't parse " + token + ". It may be empty.");
+                    throw new TechnicalException("Can't parse " + token + ". It may be empty.");
                 case 1:
                     //no params
                     returned = DialogueConsequencesManager.GetDialogueConsequence(funcName);
@@ -461,7 +455,7 @@ namespace CustomSpawns.Data
                     returned = DialogueConsequencesManager.GetDialogueConsequence(funcName, openPSplit[1], openPSplit[2], openPSplit[3]);
                     break;
                 default:
-                    throw new Exception("Can't parse " + token + ". Possibly too many params.");
+                    throw new TechnicalException("Can't parse " + token + ". Possibly too many params.");
             }
 
             return returned;

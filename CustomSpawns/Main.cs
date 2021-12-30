@@ -1,5 +1,6 @@
 using System;
 using CustomSpawns.Data;
+using CustomSpawns.HarmonyPatches;
 using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.CampaignSystem;
@@ -8,6 +9,8 @@ using CustomSpawns.PartySpeed;
 using CustomSpawns.RewardSystem;
 //using CustomSpawns.MCMv3;
 using CustomSpawns.UtilityBehaviours;
+using Data.Manager;
+using Diplomacy;
 using HarmonyLib;
 
 namespace CustomSpawns
@@ -15,6 +18,10 @@ namespace CustomSpawns
     public class Main : MBSubModuleBase
     {
         public static PartySpeedContext PartySpeedContext;
+
+        private IDiplomacyActionModel _diplomacyActionModel;
+        private TrackClanKingdom _clanKingdomTrackable;
+        private CustomSpawnsClanDiplomacyModel _customSpawnsClanDiplomacyModel;
 
         private static bool removalMode = false;
 
@@ -29,31 +36,30 @@ namespace CustomSpawns
                 return;
             }
             removalMode = false;
-            PartySpeedContext = new PartySpeedContext();
-        }
 
-        public override void OnCampaignStart(Game game, object starterObject)
-        {
-            base.OnCampaignStart(game, starterObject);
-            if (!(game.GameType is Campaign))
-                return;
             try
             {
-                AddBehaviours(starterObject as CampaignGameStarter);
+                // Spawn Data Init (Read from XML)
+                // ClearLastInstances();
+                DiplomacyDataManager.Init();
             }
             catch (Exception e)
             {
-                ErrorHandler.HandleException(e, "Error while adding campaign behaviours");
+                ErrorHandler.HandleException(e, "Could not create an instance of DiplomacyDataManager");
             }
+
+            PartySpeedContext = new PartySpeedContext();
+            _diplomacyActionModel = new ConstantWarDiplomacyActionModel();
+            _clanKingdomTrackable = new TrackClanKingdom();
+            _customSpawnsClanDiplomacyModel = new CustomSpawnsClanDiplomacyModel(_clanKingdomTrackable, _diplomacyActionModel, DiplomacyDataManager.Instance);
         }
 
-        protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
+        protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
         {
-            base.OnGameStart(game, gameStarterObject);
-            //if it is new campaign then the player has to go through the menus etc.
-            if (!(game.GameType is Campaign) || ((Campaign)game.GameType).CampaignGameLoadingType == Campaign.GameLoadingType.NewCampaign) 
-                return;
-            AddBehaviours(gameStarterObject as CampaignGameStarter);
+            if (gameStarterObject is CampaignGameStarter campaignGameStarter)
+            {
+                AddBehaviours((CampaignGameStarter)gameStarterObject);   
+            }
         }
 
         protected override void OnBeforeInitialModuleScreenSetAsRoot() //assure player :) also myself lol
@@ -69,14 +75,6 @@ namespace CustomSpawns
 
         #endregion
 
-        private void ClearLastInstances()
-        {
-            Data.DynamicSpawnData.ClearInstance(this);
-            Data.DiplomacyDataManager.ClearInstance(this);
-            Data.SpawnDataManager.ClearInstance(this);
-            Data.NameSignifierData.ClearInstance(this);
-        }
-
         private void AddBehaviours(CampaignGameStarter starter)
         {
             if (!removalMode)
@@ -88,11 +86,11 @@ namespace CustomSpawns
                 starter.AddBehavior(new AI.HourlyPatrolAroundSpawnBehaviour());
                 starter.AddBehavior(new AI.AttackClosestIfIdleForADayBehaviour());
                 starter.AddBehavior(new AI.PatrolAroundClosestLestInterruptedAndSwitchBehaviour());
-                starter.AddBehavior(new Diplomacy.ForcedWarPeaceBehaviour());
-                starter.AddBehavior(new Diplomacy.ForceNoKingdomBehaviour());
                 starter.AddBehavior(new PrisonerRecruitment.PrisonerRecruitmentBehaviour());
                 starter.AddBehavior(new Dialogues.CustomSpawnsDialogueBehavior());
                 starter.AddBehavior(new SpawnRewardBehavior());
+                starter.AddBehavior(new ForcedWarPeaceBehaviour(_diplomacyActionModel, _clanKingdomTrackable, _customSpawnsClanDiplomacyModel));
+                starter.AddBehavior(new ForceNoKingdomBehaviour(DiplomacyDataManager.Instance));
 
                 //campaign behaviours
                 starter.AddBehavior(CampaignData.DevestationMetricData.Singleton);
@@ -124,7 +122,7 @@ namespace CustomSpawns
                     }
 
                 }
-            }catch(Exception e)
+            } catch(Exception e)
             {
                 ErrorHandler.HandleException(e, " reconstruction of save custom spawns mobile party data");
             }
@@ -137,20 +135,17 @@ namespace CustomSpawns
                 return;
             }
 
-            try
-            {
-                Harmony harmony = new Harmony("com.Questry.CustomSpawns");
-                harmony.PatchAll();
-            }
-            catch (Exception e)
-            {
-                ErrorHandler.HandleException(e, "HARMONY PATCHES");
-            }
+            PatchManager.ApplyPatches();
             
             try
             {
+                // TODO Check how to handle the ClearLastInstances
+                
                 // Spawn Data Init (Read from XML)
-                ClearLastInstances();
+                // ClearLastInstances();
+                Data.SpawnDataManager.ClearInstance(this);
+                Data.NameSignifierData.ClearInstance(this);
+                DynamicSpawnData.ClearInstance(this);
                 SpawnDataManager.Init();
                 DynamicSpawnData.Init();
             }

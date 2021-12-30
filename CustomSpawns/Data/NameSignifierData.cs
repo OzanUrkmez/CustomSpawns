@@ -85,7 +85,7 @@ namespace CustomSpawns.Data
                                 float result;
                                 if (!float.TryParse(node.Attributes["speed_modifier"].InnerText, out result))
                                 {
-                                    throw new Exception("Please enter a valid float for the speed modifier!");
+                                    throw new TechnicalException("Please enter a valid float for the speed modifier!");
                                 }
                                 IDToSpeedModifier.Add(id, result);
                             }
@@ -101,7 +101,7 @@ namespace CustomSpawns.Data
                                 bool result;
                                 if(!bool.TryParse(node.Attributes["escort_main_party"].InnerText, out result))
                                 {
-                                    throw new Exception("The value for escort_main_party must either be true or false!");
+                                    throw new TechnicalException("The value for escort_main_party must either be true or false!");
                                 }
                                 IDToFollowMainParty.Add(id, result);
                             }
@@ -117,7 +117,7 @@ namespace CustomSpawns.Data
                                 float result;
                                 if (!float.TryParse(node.Attributes["base_speed_override"].InnerText, out result))
                                 {
-                                    throw new Exception("Please enter a valid float for the base speed override!");
+                                    throw new TechnicalException("Please enter a valid float for the base speed override!");
                                 }
                                 IDToBaseSpeedOverride.Add(id, result);
                             }

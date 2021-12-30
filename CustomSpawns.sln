@@ -1,6 +1,8 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomSpawns", "CustomSpawns\CustomSpawns.csproj", "{E1047BC3-78A9-444C-B74F-41E1B9744ED3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomSpawns.Tests", "CustomSpawns.Tests\CustomSpawns.Tests.csproj", "{17F43D01-48C7-43DC-A6E6-28C303AAC8DB}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{12CCA2B5-A874-47B3-BB43-799275014D7B}"
 	ProjectSection(SolutionItems) = preProject
 		supported-game-versions.txt = supported-game-versions.txt
@@ -40,6 +42,22 @@ Global
 		{E1047BC3-78A9-444C-B74F-41E1B9744ED3}.Api_Beta_Release|x64.ActiveCfg = Api_Beta_Release|x64
 		{E1047BC3-78A9-444C-B74F-41E1B9744ED3}.Api_Beta_Release|x64.Build.0 = Api_Beta_Release|x64
 
+		{17F43D01-48C7-43DC-A6E6-28C303AAC8DB}.Stable_Debug|x64.ActiveCfg = Stable_Debug|x64
+		{17F43D01-48C7-43DC-A6E6-28C303AAC8DB}.Stable_Debug|x64.Build.0 = Stable_Debug|x64
+		{17F43D01-48C7-43DC-A6E6-28C303AAC8DB}.Stable_Release|x64.ActiveCfg = Stable_Release|x64
+		{17F43D01-48C7-43DC-A6E6-28C303AAC8DB}.Stable_Release|x64.Build.0 = Stable_Release|x64
+		{17F43D01-48C7-43DC-A6E6-28C303AAC8DB}.Beta_Debug|x64.ActiveCfg = Beta_Debug|x64
+		{17F43D01-48C7-43DC-A6E6-28C303AAC8DB}.Beta_Debug|x64.Build.0 = Beta_Debug|x64
+		{17F43D01-48C7-43DC-A6E6-28C303AAC8DB}.Beta_Release|x64.ActiveCfg = Beta_Release|x64
+		{17F43D01-48C7-43DC-A6E6-28C303AAC8DB}.Beta_Release|x64.Build.0 = Beta_Release|x64
+		{17F43D01-48C7-43DC-A6E6-28C303AAC8DB}.Api_Stable_Debug|x64.ActiveCfg = Api_Stable_Debug|x64
+		{17F43D01-48C7-43DC-A6E6-28C303AAC8DB}.Api_Stable_Debug|x64.Build.0 = Api_Stable_Debug|x64
+		{17F43D01-48C7-43DC-A6E6-28C303AAC8DB}.Api_Stable_Release|x64.ActiveCfg = Api_Stable_Release|x64
+		{17F43D01-48C7-43DC-A6E6-28C303AAC8DB}.Api_Stable_Release|x64.Build.0 = Api_Stable_Release|x64
+		{17F43D01-48C7-43DC-A6E6-28C303AAC8DB}.Api_Beta_Debug|x64.ActiveCfg = Api_Beta_Debug|x64
+		{17F43D01-48C7-43DC-A6E6-28C303AAC8DB}.Api_Beta_Debug|x64.Build.0 = Api_Beta_Debug|x64
+		{17F43D01-48C7-43DC-A6E6-28C303AAC8DB}.Api_Beta_Release|x64.ActiveCfg = Api_Beta_Release|x64
+		{17F43D01-48C7-43DC-A6E6-28C303AAC8DB}.Api_Beta_Release|x64.Build.0 = Api_Beta_Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

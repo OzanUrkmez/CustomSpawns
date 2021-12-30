@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaleWorlds.Library;
 using System.IO;
 using System.Xml;
+using CustomSpawns;
 
-namespace CustomSpawns.ModIntegration
+namespace ModIntegration
 {
     public static class SubModManager
     {

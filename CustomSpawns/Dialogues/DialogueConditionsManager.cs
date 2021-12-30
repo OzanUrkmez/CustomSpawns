@@ -46,7 +46,7 @@ namespace CustomSpawns.Dialogues
                 }
             }
 
-            throw new Exception("There is no function with name " + implementor + " that takes no parameters.");
+            throw new TechnicalException("There is no function with name " + implementor + " that takes no parameters.");
         }
 
         public static DialogueCondition GetDialogueCondition(string implementor, string param)
@@ -66,7 +66,7 @@ namespace CustomSpawns.Dialogues
                 }
             }
 
-            throw new Exception("There is no function with name " + implementor + " that takes one parameter.");
+            throw new TechnicalException("There is no function with name " + implementor + " that takes one parameter.");
         }
 
         public static DialogueCondition GetDialogueCondition(string implementor, string param1, string param2)
@@ -86,7 +86,7 @@ namespace CustomSpawns.Dialogues
                 }
             }
 
-            throw new Exception("There is no function with name " + implementor + " that takes two parameters.");
+            throw new TechnicalException("There is no function with name " + implementor + " that takes two parameters.");
         }
 
         public static DialogueCondition GetDialogueCondition(string implementor, string param1, string param2, string param3)
@@ -106,7 +106,7 @@ namespace CustomSpawns.Dialogues
                 } 
             }
 
-            throw new Exception("There is no function with name " + implementor + " that takes three parameters.");
+            throw new TechnicalException("There is no function with name " + implementor + " that takes three parameters.");
         }
 
         #endregion

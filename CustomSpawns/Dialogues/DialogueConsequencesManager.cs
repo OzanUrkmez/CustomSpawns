@@ -2,19 +2,25 @@
 using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using TaleWorlds;
+using CustomSpawns;
+using CustomSpawns.Dialogues;
 using TaleWorlds.CampaignSystem;
 
 using CustomSpawns.Dialogues.DialogueAlgebra;
+using Diplomacy;
 using TaleWorlds.CampaignSystem.Barterables;
 
-namespace CustomSpawns.Dialogues
+namespace Dialogues
 {
-    public static class DialogueConsequencesManager
+    public class DialogueConsequencesManager
     {
+        
+        private readonly ConstantWarDiplomacyActionModel _diplomacyModel;
+
+        public DialogueConsequencesManager()
+        {
+            _diplomacyModel = new ConstantWarDiplomacyActionModel();
+        }
 
         static DialogueConsequencesManager()
         {
@@ -46,7 +52,7 @@ namespace CustomSpawns.Dialogues
                 }
             }
 
-            throw new Exception("There is no function with name " + implementor + " that takes no parameters.");
+            throw new TechnicalException("There is no function with name " + implementor + " that takes no parameters.");
         }
 
         public static DialogueConsequence GetDialogueConsequence(string implementor, string param)
@@ -66,7 +72,7 @@ namespace CustomSpawns.Dialogues
                 }
             }
 
-            throw new Exception("There is no function with name " + implementor + " that takes one parameter.");
+            throw new TechnicalException("There is no function with name " + implementor + " that takes one parameter.");
         }
 
         public static DialogueConsequence GetDialogueConsequence(string implementor, string param1, string param2)
@@ -86,7 +92,7 @@ namespace CustomSpawns.Dialogues
                 }
             }
 
-            throw new Exception("There is no function with name " + implementor + " that takes two parameters.");
+            throw new TechnicalException("There is no function with name " + implementor + " that takes two parameters.");
         }
 
         public static DialogueConsequence GetDialogueConsequence(string implementor, string param1, string param2, string param3)
@@ -106,7 +112,7 @@ namespace CustomSpawns.Dialogues
                 }
             }
 
-            throw new Exception("There is no function with name " + implementor + " that takes three parameters.");
+            throw new TechnicalException("There is no function with name " + implementor + " that takes three parameters.");
         }
 
         #endregion
@@ -131,7 +137,7 @@ namespace CustomSpawns.Dialogues
         }
 
         [DialogueConsequenceImplementorAttribute("War")]
-        private static void declare_war_consequence_delegate(DialogueParams param)
+        private void declare_war_consequence_delegate(DialogueParams param)
         {
             PartyBase encounteredParty = PlayerEncounter.EncounteredParty;
 
@@ -139,12 +145,11 @@ namespace CustomSpawns.Dialogues
             {
                 return;
             }
-
-            Diplomacy.DiplomacyUtils.DeclareWarOverProvocation(Hero.MainHero.MapFaction, encounteredParty.MapFaction);
+            _diplomacyModel.DeclareWar(Hero.MainHero.MapFaction, encounteredParty.MapFaction);
         }
 
         [DialogueConsequenceImplementorAttribute("Peace")]
-        private static void declare_peace_consequence_delegate()
+        private void declare_peace_consequence_delegate()
         {
             PartyBase encounteredParty = PlayerEncounter.EncounteredParty;
 
@@ -153,7 +158,7 @@ namespace CustomSpawns.Dialogues
                 return;
             }
 
-            Diplomacy.DiplomacyUtils.MakePeace(Hero.MainHero.MapFaction, encounteredParty.MapFaction);
+            _diplomacyModel.MakePeace(Hero.MainHero.MapFaction, encounteredParty.MapFaction);
         }
 
         [DialogueConsequenceImplementorAttribute("Surrender")]

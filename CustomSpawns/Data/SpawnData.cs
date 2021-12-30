@@ -42,11 +42,10 @@ namespace CustomSpawns.Data
 
         public static void Init()
         {
-            if (_instance != null)
+            if (_instance == null)
             {
-                throw new Exception("SpawnDataManager has already been initialised!");
+                _instance = new SpawnDataManager();
             }
-            _instance = new SpawnDataManager();
         }
 
         private List<SpawnData> data = new List<SpawnData>();
@@ -113,7 +112,7 @@ namespace CustomSpawns.Data
             }
             catch (System.InvalidOperationException e)
             {
-                throw new Exception("Clan " + clanId + " is not defined. You have to add this clan via xml or use an existing clan.");
+                throw new TechnicalException("Clan " + clanId + " is not defined. You have to add this clan via xml or use an existing clan.");
             }
         }
 
@@ -209,7 +208,7 @@ namespace CustomSpawns.Data
                     dat.MaximumOnMap = node["MaximumOnMap"] == null? 0 : int.Parse(node["MaximumOnMap"].InnerText);
                     if (dat.MaximumOnMap < 1)
                     {
-                        throw new Exception("the node 'MaximumOnMap' cannot be less than 1!");
+                        throw new TechnicalException("the node 'MaximumOnMap' cannot be less than 1!");
                     }
 
                     dat.InheritClanFromSettlement = node["GetClanFromSettlement"] == null ? false : bool.Parse(node["GetClanFromSettlement"].InnerText);
@@ -289,7 +288,7 @@ namespace CustomSpawns.Data
                     if (node["ExtraLinearSpeed"] != null)
                     {
                         if (!float.TryParse(node["ExtraLinearSpeed"].InnerText, out extraSpeed)) { 
-                            throw new Exception("ExtraLinearSpeed must be a float value! ");
+                            throw new TechnicalException("ExtraLinearSpeed must be a float value! ");
                         }
                         Main.PartySpeedContext.RegisterPartyExtraBonusSpeed(dat.PartyTemplate.StringId, extraSpeed);
                     }
@@ -300,7 +299,7 @@ namespace CustomSpawns.Data
                     {
                         if (!float.TryParse(node["BaseSpeedOverride"].InnerText, out baseSpeedOverride))
                         {
-                            throw new Exception("BaseSpeedOverride must be a float value! ");
+                            throw new TechnicalException("BaseSpeedOverride must be a float value! ");
                         }
                         Main.PartySpeedContext.RegisterPartyBaseSpeed(dat.PartyTemplate.StringId, baseSpeedOverride);
                     }
@@ -314,7 +313,7 @@ namespace CustomSpawns.Data
                     if (node["MinimumDevestationToSpawn"] != null)
                     {
                         if(!float.TryParse(node["MinimumDevestationToSpawn"].InnerText, out minimumDevestationToSpawnOverride)){
-                            throw new Exception("MinimumDevestationToSpawn must be a float value!");
+                            throw new TechnicalException("MinimumDevestationToSpawn must be a float value!");
                         }
                         dat.MinimumDevestationToSpawn = minimumDevestationToSpawnOverride;
                     }
@@ -325,7 +324,7 @@ namespace CustomSpawns.Data
                     {
                         if (!float.TryParse(node["DevestationLinearMultiplier"].InnerText, out devestationLinearMultiplierOverride))
                         {
-                            throw new Exception("DevestationLinearMultiplier must be a float value!");
+                            throw new TechnicalException("DevestationLinearMultiplier must be a float value!");
                         }
                         dat.DevestationLinearMultiplier = devestationLinearMultiplierOverride;
                     }
@@ -347,16 +346,16 @@ namespace CustomSpawns.Data
                         try
                         {
                             if (!float.TryParse(innerNode.Attributes["min_stable_days"].InnerText, out minDays))
-                                throw new Exception("min_stable_days must be a float value!");
+                                throw new TechnicalException("min_stable_days must be a float value!");
                             if (!float.TryParse(innerNode.Attributes["max_stable_days"].InnerText, out maxDays))
-                                throw new Exception("max_stable_days must be a float value!");
+                                throw new TechnicalException("max_stable_days must be a float value!");
                             if (innerNode.Attributes["try_patrol_around"] != null && innerNode.Attributes["try_patrol_around"].InnerText != "")
                             {
                                 TryPatrolAround = ConstructTrySettlementList(innerNode.Attributes["try_patrol_around"].InnerText);
                             }
                         }catch
                         {
-                            throw new Exception("not all attributes in PatrolAroundClosestLestInterruptedAndSwitch were filled properly!");
+                            throw new TechnicalException("not all attributes in PatrolAroundClosestLestInterruptedAndSwitch were filled properly!");
                         }
                         dat.PatrolAroundClosestLestInterruptedAndSwitch =
                             new AI.PatrolAroundClosestLestInterruptedAndSwitchBehaviour.PatrolAroundClosestLestInterruptedAndSwitchBehaviourData(null, minDays, maxDays, TryPatrolAround);
@@ -368,7 +367,7 @@ namespace CustomSpawns.Data
                     {
                         if (!float.TryParse(node["MinimumFinalSpeed"].InnerText, out minSpeed))
                         {
-                            throw new Exception("MinimumFinalSpeed must be a float value! ");
+                            throw new TechnicalException("MinimumFinalSpeed must be a float value! ");
                         }
                         Main.PartySpeedContext.RegisterPartyMinimumSpeed(dat.PartyTemplate.StringId, minSpeed);
                     }
@@ -378,7 +377,7 @@ namespace CustomSpawns.Data
                     {
                         if (!float.TryParse(node["MaximumFinalSpeed"].InnerText, out maxSpeed))
                         {
-                            throw new Exception("MaximumFinalSpeed must be a float value! ");
+                            throw new TechnicalException("MaximumFinalSpeed must be a float value! ");
                         }
                         Main.PartySpeedContext.RegisterPartyMaximumSpeed(dat.PartyTemplate.StringId, maxSpeed);
                     }

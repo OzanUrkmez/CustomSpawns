@@ -51,7 +51,7 @@ namespace CustomSpawns.PartySpeed
         public float GetBaseSpeed(string partyBaseID)
         {
             if (!_partyIDToBaseSpeed.ContainsKey(partyBaseID))
-                throw new ArgumentException("Invalid partyId ! Party should have been registered beforehand.");
+                throw new TechnicalException("Invalid partyId ! Party should have been registered beforehand.");
             float baseSpeed;
             _partyIDToBaseSpeed.TryGetValue(partyBaseID, out baseSpeed);
             return baseSpeed;
@@ -60,7 +60,7 @@ namespace CustomSpawns.PartySpeed
         public float GetSpeedWithExtraBonus(string partyBaseID)
         {
             if (!_partyIDToExtraSpeed.ContainsKey(partyBaseID))
-                throw new ArgumentException("Invalid partyId ! Party should have been registered beforehand.");
+                throw new TechnicalException("Invalid partyId ! Party should have been registered beforehand.");
             float speedWithExtraBonus;
             _partyIDToExtraSpeed.TryGetValue(partyBaseID, out speedWithExtraBonus);
             return speedWithExtraBonus;
@@ -69,7 +69,7 @@ namespace CustomSpawns.PartySpeed
         public float GetMinimumSpeed(string partyBaseID)
         {
             if (!_partyIDToMinimumSpeed.ContainsKey(partyBaseID))
-                throw new ArgumentException("Invalid partyId ! Party should have been registered beforehand.");
+                throw new TechnicalException("Invalid partyId ! Party should have been registered beforehand.");
             float minimumSpeed;
             _partyIDToMinimumSpeed.TryGetValue(partyBaseID, out minimumSpeed);
             return minimumSpeed;
@@ -78,7 +78,7 @@ namespace CustomSpawns.PartySpeed
         public float GetMaximumSpeed(string partyBaseID)
         {
             if (!_partyIDToMaximumSpeed.ContainsKey(partyBaseID))
-                throw new ArgumentException("Invalid partyId ! Party should have been registered beforehand.");
+                throw new TechnicalException("Invalid partyId ! Party should have been registered beforehand.");
             float maximumSpeed;
             _partyIDToMaximumSpeed.TryGetValue(partyBaseID, out maximumSpeed);
             return maximumSpeed;
