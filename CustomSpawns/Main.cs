@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using CustomSpawns.Data;
 using CustomSpawns.HarmonyPatches;
 using TaleWorlds.Core;
@@ -11,7 +12,6 @@ using CustomSpawns.RewardSystem;
 using CustomSpawns.UtilityBehaviours;
 using Data.Manager;
 using Diplomacy;
-using HarmonyLib;
 
 namespace CustomSpawns
 {
@@ -56,10 +56,13 @@ namespace CustomSpawns
 
         protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
         {
-            if (gameStarterObject is CampaignGameStarter campaignGameStarter)
+            if (!(gameStarterObject is CampaignGameStarter) || !(game.GameType is Campaign))
             {
-                AddBehaviours((CampaignGameStarter)gameStarterObject);   
+                return;
             }
+            
+            AddBehaviours((CampaignGameStarter) gameStarterObject);
+            LoadXmlFiles((CampaignGameStarter) gameStarterObject);
         }
 
         protected override void OnBeforeInitialModuleScreenSetAsRoot() //assure player :) also myself lol
@@ -104,6 +107,13 @@ namespace CustomSpawns
             {
                 starter.AddBehavior(new Utils.RemoverBehaviour());
             }
+        }
+        
+        private void LoadXmlFiles(CampaignGameStarter starter)
+        {
+#if !API_MODE
+            starter.LoadGameTexts(Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "CraftingTemplateNames.xml"));
+#endif
         }
 
         private void OnSaveStart()
