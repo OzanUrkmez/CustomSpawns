@@ -5,6 +5,7 @@ using CustomSpawns.RewardSystem.Models;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
+using TaleWorlds.MountAndBlade;
 
 namespace CustomSpawns.RewardSystem
 {
@@ -89,9 +90,12 @@ namespace CustomSpawns.RewardSystem
                                 break;
                         }
                     }
+
+                    var a = mapEventPlayerParty.Party?.MobileParty?.PartyComponent?.Leader?.Name.ToString();
+                    
                     InformationManager.DisplayMessage(
                         new InformationMessage(
-                            $"{mapEventPlayerParty.Party.Leader.Name} defeated {party.Party.Name} gaining {moneyAmount} denars, {renownAmount} renown and {influenceAmount} influence", 
+                            $"{mapEventPlayerParty.Party?.LeaderHero?.Name.ToString() ?? Agent.Main.Name} defeated {party.Party.Name} gaining {moneyAmount} denars, {renownAmount} renown and {influenceAmount} influence", 
                             Colors.Green
                             )
                         );
