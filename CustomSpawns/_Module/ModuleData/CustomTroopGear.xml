@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <Items>
-  <CraftedItem id="cs_maul_t3" name="Maul" crafting_template="CS_TwoHandedMace" culture="Culture.empire" is_merchandise="false">
+  <CraftedItem id="cs_maul_t3" name="Maul" crafting_template="TwoHandedMace" culture="Culture.empire" is_merchandise="false">
     <Pieces>
       <Piece id="cs_maul_tip_1" Type="Blade" scale_factor="140" />
       <Piece id="axe_craft_1_handle" Type="Handle" scale_factor="70"/>
@@ -15,7 +15,7 @@
       <Piece id="vlandian_noble_pommel_4" Type="Pommel" scale_factor="100" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_highland_decorated_sword" name="Decorated Highland Sword" crafting_template="CS_OneHandedSword" culture="Culture.battania" is_merchandise="false">
+  <CraftedItem id="cs_highland_decorated_sword" name="Decorated Highland Sword" crafting_template="OneHandedSword" culture="Culture.battania" is_merchandise="false">
     <Pieces>
       <Piece id="battania_noble_blade_1" Type="Blade" scale_factor="85" />
       <Piece id="battania_guard_1" Type="Guard" scale_factor="95" />
@@ -23,7 +23,7 @@
       <Piece id="empire_noble_pommel_4" Type="Pommel" scale_factor="100" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_nordic_rune_sword" name="Northern Rune Sword" crafting_template="CS_TwoHandedSword" culture="Culture.vlandia" is_merchandise="false">
+  <CraftedItem id="cs_nordic_rune_sword" name="Northern Rune Sword" crafting_template="TwoHandedSword" culture="Culture.vlandia" is_merchandise="false">
     <Pieces>
       <Piece id="vlandian_noble_blade_2" Type="Blade" scale_factor="135" />
       <Piece id="sturgian_noble_guard_1" Type="Guard" scale_factor="100" />
@@ -31,7 +31,7 @@
       <Piece id="sturgian_pommel_11" Type="Pommel" scale_factor="100" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_greatsword_t6" name="War Sword" crafting_template="CS_TwoHandedSword" culture="Culture.vlandia" is_merchandise="false">
+  <CraftedItem id="cs_greatsword_t6" name="War Sword" crafting_template="TwoHandedSword" culture="Culture.vlandia" is_merchandise="false">
     <Pieces>
       <Piece id="battania_blade_5" Type="Blade" scale_factor="165" />
       <Piece id="vlandian_guard_3" Type="Guard" scale_factor="100" />
@@ -39,7 +39,7 @@
       <Piece id="vlandian_pommel_8" Type="Pommel" scale_factor="100" />
     </Pieces>
   </CraftedItem>	
-  <CraftedItem id="cs_mercenary_claymore" name="Mercenary Claymore" crafting_template="CS_TwoHandedSword" culture="Culture.vlandia" is_merchandise="false">
+  <CraftedItem id="cs_mercenary_claymore" name="Mercenary Claymore" crafting_template="TwoHandedSword" culture="Culture.vlandia" is_merchandise="false">
     <Pieces>
       <Piece id="battania_blade_1" Type="Blade" scale_factor="135" />
       <Piece id="empire_guard_4" Type="Guard" scale_factor="115" />
@@ -47,7 +47,7 @@
       <Piece id="sturgian_pommel_8" Type="Pommel" scale_factor="115" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_mercenary_greatsword" name="Great Sword" crafting_template="CS_TwoHandedSword" culture="Culture.vlandia" is_merchandise="false">
+  <CraftedItem id="cs_mercenary_greatsword" name="Great Sword" crafting_template="TwoHandedSword" culture="Culture.vlandia" is_merchandise="false">
     <Pieces>
       <Piece id="aserai_blade_11" Type="Blade" scale_factor="115" />
       <Piece id="sturgian_guard_5" Type="Guard" scale_factor="90" />
@@ -55,7 +55,7 @@
       <Piece id="vlandian_pommel_9" Type="Pommel" scale_factor="90" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_wrathbringer" name="Wrathblade" crafting_template="CS_TwoHandedSword" culture="Culture.empire" is_merchandise="false">
+  <CraftedItem id="cs_wrathbringer" name="Wrathblade" crafting_template="TwoHandedSword" culture="Culture.empire" is_merchandise="false">
     <Pieces>
       <Piece id="cleaver_blade_5" Type="Blade" scale_factor="90" />
       <Piece id="vlandian_guard_7" Type="Guard" scale_factor="110" />
@@ -63,19 +63,19 @@
       <Piece id="vlandian_pommel_2" Type="Pommel" scale_factor="100" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_2haxe_t3" name="Mining Pick" crafting_template="CS_TwoHandedAxe" culture="Culture.battania" is_merchandise="false">
+  <CraftedItem id="cs_2haxe_t3" name="Mining Pick" crafting_template="TwoHandedAxe" culture="Culture.battania" is_merchandise="false">
     <Pieces>
       <Piece id="cs_pick_head" Type="Blade" scale_factor="210" />
       <Piece id="axe_craft_30_handle" Type="Handle" scale_factor="95" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_broad_axe" name="Short Waraxe" crafting_template="CS_TwoHandedAxe" culture="Culture.battania" is_merchandise="false">
+  <CraftedItem id="cs_broad_axe" name="Short Waraxe" crafting_template="TwoHandedAxe" culture="Culture.battania" is_merchandise="false">
     <Pieces>
       <Piece id="axe_craft_26_head" Type="Blade" scale_factor="170" />
       <Piece id="axe_craft_7_handle" Type="Handle" scale_factor="85" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_halberd" name="Halberd" crafting_template="CS_TwoHandedPolearm" culture="Culture.vlandia" is_merchandise="false">
+  <CraftedItem id="cs_halberd" name="Halberd" crafting_template="TwoHandedPolearm" culture="Culture.vlandia" is_merchandise="false">
     <Pieces>
       <Piece id="cs_halberd_head" Type="Blade" scale_factor="120" />
       <Piece id="cs_halberd_handle" Type="Handle" scale_factor="252" />
@@ -93,37 +93,37 @@
       <Piece id="cs_throwing_club_handle" Type="Handle" scale_factor="100" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_simple_club" name="Woodland Large Club" crafting_template="CS_TwoHandedMace" culture="Culture.aserai" is_merchandise="false">
+  <CraftedItem id="cs_simple_club" name="Woodland Large Club" crafting_template="TwoHandedMace" culture="Culture.aserai" is_merchandise="false">
     <Pieces>
       <Piece id="cs_no_head" Type="Blade" scale_factor="160" />
       <Piece id="cs_club_handle" Type="Handle" scale_factor="220" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_nailmace_t3" name="Wooden Morningstar" crafting_template="CS_TwoHandedMace" culture="Culture.empire" is_merchandise="false">
+  <CraftedItem id="cs_nailmace_t3" name="Wooden Morningstar" crafting_template="TwoHandedMace" culture="Culture.empire" is_merchandise="false">
     <Pieces>
       <Piece id="cs_wooden_morningstar_head" Type="Blade" scale_factor="130" />
       <Piece id="spear_handle_1" Type="Handle" scale_factor="77" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_spikedmace_t3" name="Heavy Nailclub" crafting_template="CS_TwoHandedMace" culture="Culture.empire" is_merchandise="false">
+  <CraftedItem id="cs_spikedmace_t3" name="Heavy Nailclub" crafting_template="TwoHandedMace" culture="Culture.empire" is_merchandise="false">
     <Pieces>
       <Piece id="cs_wooden_morningstar_head_2" Type="Blade" scale_factor="140" />
       <Piece id="cs_s_morningstar_shaft" Type="Handle" scale_factor="80" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_long_spikedmace_t3" name="Spiked Longmace" crafting_template="CS_TwoHandedMace" culture="Culture.empire" is_merchandise="false">
+  <CraftedItem id="cs_long_spikedmace_t3" name="Spiked Longmace" crafting_template="TwoHandedMace" culture="Culture.empire" is_merchandise="false">
     <Pieces>
       <Piece id="cs_wooden_morningstar_head_3" Type="Blade" scale_factor="115" />
       <Piece id="cs_ls_morningstar_shaft" Type="Handle" scale_factor="100" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_quarter_staff_t1" name="Quarterstaff" is_merchandise="false" crafting_template="CS_TwoHandedPolearm" culture="Culture.vlandia">
+  <CraftedItem id="cs_quarter_staff_t1" name="Quarterstaff" is_merchandise="false" crafting_template="TwoHandedPolearm" culture="Culture.vlandia">
     <Pieces>
       <Piece id="cs_blunt_spear_head" Type="Blade" scale_factor="40" />
       <Piece id="spear_handle_1" Type="Handle" scale_factor="90" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_priest_staff" name="Iron Staff" is_merchandise="false" crafting_template="CS_TwoHandedPolearm" culture="Culture.vlandia">
+  <CraftedItem id="cs_priest_staff" name="Iron Staff" is_merchandise="false" crafting_template="TwoHandedPolearm" culture="Culture.vlandia">
     <Pieces>
       <Piece id="spear_blade_34" Type="Blade" scale_factor="130" />
       <Piece id="spear_guard_3" Type="Guard" scale_factor="130" />
@@ -131,31 +131,31 @@
       <Piece id="spear_pommel_7" Type="Pommel" scale_factor="100" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_2h_morningstar_t4" name="Redemptive Flail" crafting_template="CS_TwoHandedMace" culture="Culture.vlandia" is_merchandise="false">
+  <CraftedItem id="cs_2h_morningstar_t4" name="Redemptive Flail" crafting_template="TwoHandedMace" culture="Culture.vlandia" is_merchandise="false">
     <Pieces>
       <Piece id="cs_morningstar_head" Type="Blade" scale_factor="140" />
       <Piece id="cs_morningstar_shaft" Type="Handle" scale_factor="65"/>
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_rake" name="Farming Rake" is_merchandise="false" crafting_template="CS_TwoHandedPolearm" culture="Culture.vlandia">
+  <CraftedItem id="cs_rake" name="Farming Rake" is_merchandise="false" crafting_template="TwoHandedPolearm" culture="Culture.vlandia">
     <Pieces>
       <Piece id="spear_blade_21" Type="Blade" scale_factor="100" />
       <Piece id="spear_handle_1" Type="Handle" scale_factor="115" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_peasantrake" name="Peasant Rake" is_merchandise="false" crafting_template="CS_TwoHandedPolearm" culture="Culture.vlandia">
+  <CraftedItem id="cs_peasantrake" name="Peasant Rake" is_merchandise="false" crafting_template="TwoHandedPolearm" culture="Culture.vlandia">
     <Pieces>
       <Piece id="spear_blade_30" Type="Blade" scale_factor="100" />
       <Piece id="spear_handle_1" Type="Handle" scale_factor="100" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_shovel" name="Wooden Shovel" is_merchandise="false" crafting_template="CS_TwoHandedPolearm" culture="Culture.vlandia">
+  <CraftedItem id="cs_shovel" name="Wooden Shovel" is_merchandise="false" crafting_template="TwoHandedPolearm" culture="Culture.vlandia">
     <Pieces>
       <Piece id="spear_blade_28" Type="Blade" scale_factor="100" />
       <Piece id="spear_handle_1" Type="Handle" scale_factor="75" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_humar_shortsword_t3" name="Humarian Shortsword" crafting_template="CS_OneHandedSword" culture="Culture.khuzait" is_merchandise="false">
+  <CraftedItem id="cs_humar_shortsword_t3" name="Humarian Shortsword" crafting_template="OneHandedSword" culture="Culture.khuzait" is_merchandise="false">
     <Pieces>
       <Piece id="aserai_blade_3" Type="Blade" scale_factor="75" /> 
       <Piece id="sturgian_guard_1" Type="Guard" scale_factor="60" />
@@ -163,7 +163,7 @@
       <Piece id="khuzait_pommel_2" Type="Pommel" scale_factor="80" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_humar_sword_t5" name="Humarian Slashing Sword" crafting_template="CS_OneHandedSword" culture="Culture.khuzait" is_merchandise="false">
+  <CraftedItem id="cs_humar_sword_t5" name="Humarian Slashing Sword" crafting_template="OneHandedSword" culture="Culture.khuzait" is_merchandise="false">
     <Pieces>
       <Piece id="khuzait_blade_3" Type="Blade" scale_factor="105" />
       <Piece id="khuzait_guard_8" Type="Guard" scale_factor="60" />
@@ -171,7 +171,7 @@
       <Piece id="khuzait_pommel_2" Type="Pommel" scale_factor="80" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_humar_shortsword_t5" name="Humarian Ornamental Knife" crafting_template="CS_OneHandedSword" culture="Culture.khuzait" is_merchandise="false">
+  <CraftedItem id="cs_humar_shortsword_t5" name="Humarian Ornamental Knife" crafting_template="OneHandedSword" culture="Culture.khuzait" is_merchandise="false">
     <Pieces>
       <Piece id="sturgian_blade_5" Type="Blade" scale_factor="90" />
       <Piece id="khuzait_guard_9" Type="Guard" scale_factor="60" />
@@ -179,7 +179,7 @@
       <Piece id="battania_noble_pommel_1" Type="Pommel" scale_factor="70" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_humar_2h_sword_t4" name="Humarian Hillsword" crafting_template="CS_TwoHandedSword" culture="Culture.khuzait" is_merchandise="false">
+  <CraftedItem id="cs_humar_2h_sword_t4" name="Humarian Hillsword" crafting_template="TwoHandedSword" culture="Culture.khuzait" is_merchandise="false">
     <Pieces>
       <Piece id="khuzait_blade_5" Type="Blade" scale_factor="78" />
       <Piece id="sturgian_guard_6" Type="Guard" scale_factor="60" />
@@ -187,7 +187,7 @@
       <Piece id="khuzait_pommel_3" Type="Pommel" scale_factor="100" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_humar_2h_sword_t5" name="Humarian Steel Sword" crafting_template="CS_TwoHandedSword" culture="Culture.khuzait" is_merchandise="false">
+  <CraftedItem id="cs_humar_2h_sword_t5" name="Humarian Steel Sword" crafting_template="TwoHandedSword" culture="Culture.khuzait" is_merchandise="false">
     <Pieces>
       <Piece id="empire_blade_5" Type="Blade" scale_factor="100" />
       <Piece id="khuzait_guard_9" Type="Guard" scale_factor="60" />
@@ -195,7 +195,7 @@
       <Piece id="vlandian_pommel_7" Type="Pommel" scale_factor="90" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_eastern_cleaver" name="Humarian Falchion" is_merchandise="false" crafting_template="CS_OneHandedSword" culture="Culture.vlandia">
+  <CraftedItem id="cs_eastern_cleaver" name="Humarian Falchion" is_merchandise="false" crafting_template="OneHandedSword" culture="Culture.vlandia">
     <Pieces>
       <Piece id="khuzait_noble_blade_4" Type="Blade" scale_factor="70" />
       <Piece id="sturgian_guard_1" Type="Guard" scale_factor="100" />
@@ -235,7 +235,7 @@
     </ItemComponent>
     <Flags />
   </Item>
-  <CraftedItem id="cs_eastern_dec_glaive" name="Far-Eastern Decorated Glaive" crafting_template="CS_TwoHandedPolearm" culture="Culture.khuzait" is_merchandise="false">
+  <CraftedItem id="cs_eastern_dec_glaive" name="Far-Eastern Decorated Glaive" crafting_template="TwoHandedPolearm" culture="Culture.khuzait" is_merchandise="false">
     <Pieces>
       <Piece id="spear_blade_19" Type="Blade" scale_factor="130" />
       <Piece id="spear_guard_20" Type="Guard" scale_factor="60" />
@@ -243,7 +243,7 @@
       <Piece id="spear_pommel_9" Type="Pommel" scale_factor="100" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_humar_glaive" name="Humarian Glaive" crafting_template="CS_TwoHandedPolearm" culture="Culture.khuzait" is_merchandise="false">
+  <CraftedItem id="cs_humar_glaive" name="Humarian Glaive" crafting_template="TwoHandedPolearm" culture="Culture.khuzait" is_merchandise="false">
     <Pieces>
       <Piece id="spear_blade_24" Type="Blade" scale_factor="100" />
       <Piece id="spear_guard_17" Type="Guard" scale_factor="100" />
@@ -251,7 +251,7 @@
       <Piece id="spear_pommel_9" Type="Pommel" scale_factor="100" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_humar_great_glaive" name="Humarian War-Glaive" crafting_template="CS_TwoHandedPolearm" culture="Culture.khuzait" is_merchandise="false">
+  <CraftedItem id="cs_humar_great_glaive" name="Humarian War-Glaive" crafting_template="TwoHandedPolearm" culture="Culture.khuzait" is_merchandise="false">
     <Pieces>
       <Piece id="spear_blade_22" Type="Blade" scale_factor="80" />
       <Piece id="spear_guard_9" Type="Guard" scale_factor="100" />
@@ -259,20 +259,20 @@
       <Piece id="spear_pommel_4" Type="Pommel" scale_factor="100" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_barbarian_pike" name="Woodland Pike" crafting_template="CS_Pike" culture="Culture.sturgia" is_merchandise="false">
+  <CraftedItem id="cs_barbarian_pike" name="Woodland Pike" crafting_template="Pike" culture="Culture.sturgia" is_merchandise="false">
     <Pieces>
       <Piece id="spear_blade_11" Type="Blade" scale_factor="100" />
       <Piece id="spear_guard_17" Type="Guard" scale_factor="105" />
       <Piece id="cs_barbarian_pike_shaft" Type="Handle" scale_factor="175" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_whalehunt_harpoon" name="Whalehunt Harpoon" crafting_template="CS_TwoHandedPolearm" culture="Culture.battania" is_merchandise="false">
+  <CraftedItem id="cs_whalehunt_harpoon" name="Whalehunt Harpoon" crafting_template="TwoHandedPolearm" culture="Culture.battania" is_merchandise="false">
     <Pieces>
       <Piece id="spear_blade_10" Type="Blade" scale_factor="100" />
       <Piece id="cs_harpoon_shaft" Type="Handle" scale_factor="75" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_bamboo_shortspear" name="Bamboo Shortspear" crafting_template="CS_TwoHandedPolearm" culture="Culture.khuzait" is_merchandise="false">
+  <CraftedItem id="cs_bamboo_shortspear" name="Bamboo Shortspear" crafting_template="TwoHandedPolearm" culture="Culture.khuzait" is_merchandise="false">
     <Pieces>
       <Piece id="spear_blade_1" Type="Blade" scale_factor="90" />
       <Piece id="spear_guard_17" Type="Guard" scale_factor="100" />
@@ -280,7 +280,7 @@
       <Piece id="spear_pommel_9" Type="Pommel" scale_factor="100" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_eastern_shortspear" name="Far-Eastern Shortspear" crafting_template="CS_TwoHandedPolearm" culture="Culture.khuzait" is_merchandise="false">
+  <CraftedItem id="cs_eastern_shortspear" name="Far-Eastern Shortspear" crafting_template="TwoHandedPolearm" culture="Culture.khuzait" is_merchandise="false">
     <Pieces>
       <Piece id="spear_blade_15" Type="Blade" scale_factor="90" />
       <Piece id="spear_guard_18" Type="Guard" scale_factor="100" />
@@ -288,7 +288,7 @@
       <Piece id="spear_pommel_1" Type="Pommel" scale_factor="100" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_eastern_spear" name="Far-Eastern Combat Spear" crafting_template="CS_TwoHandedPolearm" culture="Culture.khuzait" is_merchandise="false">
+  <CraftedItem id="cs_eastern_spear" name="Far-Eastern Combat Spear" crafting_template="TwoHandedPolearm" culture="Culture.khuzait" is_merchandise="false">
     <Pieces>
       <Piece id="spear_blade_27" Type="Blade" scale_factor="90" />
       <Piece id="spear_guard_19" Type="Guard" scale_factor="100" /> 
@@ -296,7 +296,7 @@
       <Piece id="spear_pommel_10" Type="Pommel" scale_factor="100" /> 
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_humar_lance" name="Humarian Lance" crafting_template="CS_TwoHandedPolearm" culture="Culture.khuzait" is_merchandise="false">
+  <CraftedItem id="cs_humar_lance" name="Humarian Lance" crafting_template="TwoHandedPolearm" culture="Culture.khuzait" is_merchandise="false">
     <Pieces>
       <Piece id="spear_blade_23" Type="Blade" scale_factor="110" />
       <Piece id="spear_guard_12" Type="Guard" scale_factor="120" />
@@ -304,7 +304,7 @@
       <Piece id="spear_pommel_10" Type="Pommel" scale_factor="100" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_bamboo_javelin" name="Bamboo Javelin" crafting_template="CS_Javelin" culture="Culture.khuzait" is_merchandise="false">
+  <CraftedItem id="cs_bamboo_javelin" name="Bamboo Javelin" crafting_template="Javelin" culture="Culture.khuzait" is_merchandise="false">
     <Pieces>
       <Piece id="spear_blade_15" Type="Blade" scale_factor="100" />
       <Piece id="default_polearm_guard" Type="Guard" scale_factor="100" />
@@ -312,7 +312,7 @@
       <Piece id="default_polearm_pommel" Type="Pommel" scale_factor="100" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_bamboo_humar_spear" name="Bamboo Spear" crafting_template="CS_TwoHandedPolearm" culture="Culture.khuzait" is_merchandise="false">
+  <CraftedItem id="cs_bamboo_humar_spear" name="Bamboo Spear" crafting_template="TwoHandedPolearm" culture="Culture.khuzait" is_merchandise="false">
     <Pieces>
       <Piece id="spear_blade_23" Type="Blade" scale_factor="90" />
       <Piece id="spear_guard_17" Type="Guard" scale_factor="100" />
@@ -320,34 +320,34 @@
       <Piece id="spear_pommel_9" Type="Pommel" scale_factor="100" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_simple_short_spear" name="Simple Short Spear" crafting_template="CS_TwoHandedPolearm" culture="Culture.empire" is_merchandise="false">
+  <CraftedItem id="cs_simple_short_spear" name="Simple Short Spear" crafting_template="TwoHandedPolearm" culture="Culture.empire" is_merchandise="false">
     <Pieces>
       <Piece id="spear_blade_1" Type="Blade" scale_factor="90" />
       <Piece id="spear_handle_1" Type="Handle" scale_factor="80" />
       <Piece id="spear_pommel_1" Type="Pommel" scale_factor="100" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_bamboo_pike" name="Bamboo Pike" crafting_template="CS_Pike" culture="Culture.khuzait" is_merchandise="false">
+  <CraftedItem id="cs_bamboo_pike" name="Bamboo Pike" crafting_template="Pike" culture="Culture.khuzait" is_merchandise="false">
     <Pieces>
       <Piece id="spear_blade_15" Type="Blade" scale_factor="100" />
       <Piece id="spear_guard_17" Type="Guard" scale_factor="100" />
       <Piece id="spear_handle_3" Type="Handle" scale_factor="143" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_eastern_dec_pike" name="Humarian Decorated Pike" crafting_template="CS_Pike" culture="Culture.khuzait" is_merchandise="false">
+  <CraftedItem id="cs_eastern_dec_pike" name="Humarian Decorated Pike" crafting_template="Pike" culture="Culture.khuzait" is_merchandise="false">
     <Pieces>
       <Piece id="spear_blade_23" Type="Blade" scale_factor="100" />
       <Piece id="spear_guard_19" Type="Guard" scale_factor="100" />
       <Piece id="spear_handle_7" Type="Handle" scale_factor="150" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_eastern_pike" name="Humarian Pike" crafting_template="CS_Pike" culture="Culture.khuzait" is_merchandise="false">
+  <CraftedItem id="cs_eastern_pike" name="Humarian Pike" crafting_template="Pike" culture="Culture.khuzait" is_merchandise="false">
     <Pieces>
       <Piece id="spear_blade_23" Type="Blade" scale_factor="100" />
       <Piece id="spear_handle_7" Type="Handle" scale_factor="145" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_eastern_2h_mace_2" name="Headcracker" crafting_template="CS_TwoHandedMace" culture="Culture.khuzait" is_merchandise="false">
+  <CraftedItem id="cs_eastern_2h_mace_2" name="Headcracker" crafting_template="TwoHandedMace" culture="Culture.khuzait" is_merchandise="false">
     <Pieces>
       <Piece id="mace_head_7" Type="Blade" scale_factor="130" />
       <Piece id="mace_handle_15" Type="Handle" scale_factor="120" />
