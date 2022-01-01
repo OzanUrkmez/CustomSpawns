@@ -91,8 +91,6 @@ namespace CustomSpawns.RewardSystem
                         }
                     }
 
-                    var a = mapEventPlayerParty.Party?.MobileParty?.PartyComponent?.Leader?.Name.ToString();
-                    
                     InformationManager.DisplayMessage(
                         new InformationMessage(
                             $"{mapEventPlayerParty.Party?.LeaderHero?.Name.ToString() ?? Agent.Main.Name} defeated {party.Party.Name} gaining {moneyAmount} denars, {renownAmount} renown and {influenceAmount} influence", 
