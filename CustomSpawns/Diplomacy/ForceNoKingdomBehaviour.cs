@@ -32,20 +32,19 @@ namespace Diplomacy
 
         }
 
-        private void MakeSureNoClanJoinAKingdom(Clan c, Kingdom k1, Kingdom k2, ChangeKingdomAction.ChangeKingdomActionDetail details, Boolean b)
+        private void MakeSureNoClanJoinAKingdom(Clan clan, Kingdom oldKingdom, Kingdom newKingdom, ChangeKingdomAction.ChangeKingdomActionDetail details, Boolean b)
         {
-            if (details != JoinAsMercenary && details != JoinKingdom && details != CreateKingdom)
+            if (clan == null || details != JoinAsMercenary && details != JoinKingdom && details != CreateKingdom)
             {
                 return;
             }
             
-            if (_dataManager.Data.ContainsKey(c.StringId))
+            if (_dataManager.Data.ContainsKey(clan.StringId))
             {
-                if(_dataManager.Data[c.StringId].ForceNoKingdom && c.Kingdom != null)
+                if(_dataManager.Data[clan.StringId].ForceNoKingdom && clan.Kingdom != null)
                 {
-                    ChangeKingdomAction.ApplyByLeaveKingdom(c, false);
-                    _dailyLogger.Info(c.StringId + " has forcefully been removed from parent kingdom " + k2.Name);
-                    InformationManager.DisplayMessage(new InformationMessage("The " + c.Name + " no longer serves " + k1.Name, Colors.Gray));
+                    ChangeKingdomAction.ApplyByLeaveKingdom(clan, true);
+                    _dailyLogger.Info(clan.StringId + " has forcefully been removed from parent kingdom " + oldKingdom?.Name ?? "");
                 }
             }
         }
