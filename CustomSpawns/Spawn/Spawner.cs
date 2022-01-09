@@ -38,7 +38,7 @@ namespace CustomSpawns.Spawn
                     return null; //must have had some issue. or maybe it was just the wind.
                 }
 
-                mobileParty.InitializeMobileParty(ConstructTroopRoster(templateObject, mobileParty.Party),
+                mobileParty.InitializeMobilePartyAroundPosition(ConstructTroopRoster(templateObject, mobileParty.Party),
                     new TroopRoster(mobileParty.Party), spawnedSettlement.GatePosition, 0);
 
                 //initialize

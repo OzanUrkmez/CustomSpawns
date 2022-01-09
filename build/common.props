@@ -1,13 +1,13 @@
 <Project>
 
   <PropertyGroup>
-    <Version>1.5.0</Version>
+    <Version>1.6.2</Version>
   </PropertyGroup>
 
   <!-- Versions of Major Dependencies (For Package References & SubModule.xml Substitution) -->
   <PropertyGroup>
     <BuildResourcesVersion>1.0.0.33</BuildResourcesVersion>
-    <HarmonyVersion>2.1.1</HarmonyVersion>
+    <HarmonyVersion>2.2.0</HarmonyVersion>
   </PropertyGroup>
  
   <PropertyGroup>

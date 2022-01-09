@@ -42,13 +42,6 @@
         <UsablePiece piece_id="cs_halberd_head"/>
         <UsablePiece piece_id="cs_halberd_handle"/>
         <UsablePiece piece_id="cs_harpoon_shaft"/>
-    </xsl:template>
-
-    <xsl:template match="//CraftingTemplate[@id='TwoHandedPolearm']//UsablePiece[not(following-sibling::UsablePiece)]">
-        <xsl:copy-of select="."/>
-        <UsablePiece piece_id="cs_halberd_head"/>
-        <UsablePiece piece_id="cs_halberd_handle"/>
-        <UsablePiece piece_id="cs_harpoon_shaft"/>
         <UsablePiece piece_id="cs_blunt_spear_head"/>
     </xsl:template>
 </xsl:stylesheet>

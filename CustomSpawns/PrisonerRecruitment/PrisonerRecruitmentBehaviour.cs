@@ -89,8 +89,8 @@ namespace CustomSpawns.PrisonerRecruitment
 
                 recruitChance = Config.BaseRecruitChance;
                 devalueChance = Config.BaseDevalueChance;
-                recruitChance += Config.MercifulTraitModifier * (mb.Leader == null ? 0 : mb.Leader.GetTraitLevel(DefaultTraits.Mercy));
-                devalueChance -= Config.MercifulTraitModifier * (mb.Leader == null ? 0 : mb.Leader.GetTraitLevel(DefaultTraits.Mercy));
+                recruitChance += Config.MercifulTraitModifier * mb.LeaderHero?.GetTraitLevel(DefaultTraits.Mercy) ?? 0;
+                devalueChance -= Config.MercifulTraitModifier * mb.LeaderHero?.GetTraitLevel(DefaultTraits.Mercy) ?? 0;
                 capTimes = (int)((float)mb.PrisonRoster.Count / ((float)mb.MemberRoster.Count * Config.PrisonerPartyPercentageCap));
                 recruitChance *= (float)Math.Pow(Config.CapReverseFinalCoefficientPerCap, capTimes);
 

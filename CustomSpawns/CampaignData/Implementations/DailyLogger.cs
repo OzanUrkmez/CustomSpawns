@@ -20,14 +20,7 @@ namespace CustomSpawns.CampaignData {
 
         protected override void OnSaveStart()
         {
-            if (!Directory.Exists(_logDir))
-            {
-                Directory.CreateDirectory(_logDir);
-            }
 
-            var filepath = _logDir + "\\" + _filename;
-            if(!File.Exists(filepath))
-                File.Create(filepath);   
         }
 
         protected override void SyncSaveData(IDataStore dataStore)
@@ -48,6 +41,15 @@ namespace CustomSpawns.CampaignData {
         {
             _filename  = "RudimentaryLastSessionLog_" + DateTime.Now.ToString("yyyy-MM-dd_h-mm_tt") + ".txt";
             _logDir = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "Logs");
+
+            if (!Directory.Exists(_logDir))
+            {
+                Directory.CreateDirectory(_logDir);
+            }
+
+            var filepath = _logDir + "\\" + _filename;
+            if(!File.Exists(filepath))
+                File.Create(filepath);
         }
 
         private bool DataWrittenToday = false;

@@ -4,10 +4,10 @@
       <PieceData piece_type="Handle" build_order="0"/>
       <PieceData piece_type="Blade" build_order="1"/>
     </PieceDatas>
-    <WeaponUsageDatas>
-      <WeaponUsageData id="ThrowingAxe"/>
-      <WeaponUsageData id="OneHandedAxe"/>
-    </WeaponUsageDatas>
+    <WeaponDescriptions>
+      <WeaponDescription id="ThrowingAxe"/>
+      <WeaponDescription id="OneHandedAxe"/>
+    </WeaponDescriptions>
     <StatsData usage_data="ThrowingAxe">
       <StatData stat_type="Weight" max_value="7.0"/>
       <StatData stat_type="WeaponReach" max_value="300"/>
@@ -28,11 +28,11 @@
     <UsablePieces>
       <UsablePiece piece_id="axe_craft_11_handle"/>
       <UsablePiece piece_id="axe_craft_12_handle"/>
-	  <UsablePiece piece_id="axe_craft_28_handle"/>
-	  <UsablePiece piece_id="mace_head_6"/>
-	  <UsablePiece piece_id="cs_maul_tip_2"/>
+      <UsablePiece piece_id="axe_craft_28_handle"/>
+      <UsablePiece piece_id="mace_head_6"/>
+      <UsablePiece piece_id="cs_maul_tip_2"/>
       <UsablePiece piece_id="cs_blunt_spear_head"/>
-	  <UsablePiece piece_id="cs_throwing_club_handle"/>
+      <UsablePiece piece_id="cs_throwing_club_handle"/>
       <UsablePiece piece_id="mp_vlandian_throwing_axe_handle" mp_piece="true"/>
       <UsablePiece piece_id="mp_vlandian_throwing_axe_handle_extra" mp_piece="true"/>
       <UsablePiece piece_id="mp_sturgia_throwing_axe_handle" mp_piece="true"/>
