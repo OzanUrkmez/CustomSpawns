@@ -23,7 +23,7 @@
       <Piece id="empire_noble_pommel_4" Type="Pommel" scale_factor="100" />
     </Pieces>
   </CraftedItem>
-  <CraftedItem id="cs_nordic_rune_sword" name="Northern Rune Sword" crafting_template="TwoHandedSword" culture="Culture.vlandia" is_merchandise="false">
+  <CraftedItem id="cs_nordic_rune_sword" name="Northern Rune Sword" crafting_template="OneHandedSword" culture="Culture.vlandia" is_merchandise="false">
     <Pieces>
       <Piece id="vlandian_noble_blade_2" Type="Blade" scale_factor="135" />
       <Piece id="sturgian_noble_guard_1" Type="Guard" scale_factor="100" />
@@ -262,7 +262,6 @@
   <CraftedItem id="cs_barbarian_pike" name="Woodland Pike" crafting_template="Pike" culture="Culture.sturgia" is_merchandise="false">
     <Pieces>
       <Piece id="spear_blade_11" Type="Blade" scale_factor="100" />
-      <Piece id="spear_guard_17" Type="Guard" scale_factor="105" />
       <Piece id="cs_barbarian_pike_shaft" Type="Handle" scale_factor="175" />
     </Pieces>
   </CraftedItem>
@@ -330,14 +329,12 @@
   <CraftedItem id="cs_bamboo_pike" name="Bamboo Pike" crafting_template="Pike" culture="Culture.khuzait" is_merchandise="false">
     <Pieces>
       <Piece id="spear_blade_15" Type="Blade" scale_factor="100" />
-      <Piece id="spear_guard_17" Type="Guard" scale_factor="100" />
       <Piece id="spear_handle_3" Type="Handle" scale_factor="143" />
     </Pieces>
   </CraftedItem>
   <CraftedItem id="cs_eastern_dec_pike" name="Humarian Decorated Pike" crafting_template="Pike" culture="Culture.khuzait" is_merchandise="false">
     <Pieces>
       <Piece id="spear_blade_23" Type="Blade" scale_factor="100" />
-      <Piece id="spear_guard_19" Type="Guard" scale_factor="100" />
       <Piece id="spear_handle_7" Type="Handle" scale_factor="150" />
     </Pieces>
   </CraftedItem>
