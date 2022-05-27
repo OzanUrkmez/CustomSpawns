@@ -12,6 +12,7 @@ using CustomSpawns.RewardSystem;
 using CustomSpawns.UtilityBehaviours;
 using Data.Manager;
 using Diplomacy;
+using TaleWorlds.CampaignSystem.Party;
 
 namespace CustomSpawns
 {

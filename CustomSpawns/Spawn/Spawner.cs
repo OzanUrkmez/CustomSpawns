@@ -6,6 +6,11 @@ using TaleWorlds.Core;
 using TaleWorlds.Localization;
 using TaleWorlds.CampaignSystem;
 using Helpers;
+using TaleWorlds.CampaignSystem.Extensions;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Party.PartyComponents;
+using TaleWorlds.CampaignSystem.Roster;
+using TaleWorlds.CampaignSystem.Settlements;
 
 namespace CustomSpawns.Spawn
 {

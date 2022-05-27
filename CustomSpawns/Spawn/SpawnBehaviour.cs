@@ -4,6 +4,7 @@ using System;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Localization;
 using CustomSpawns.CampaignData;
+using TaleWorlds.CampaignSystem.Party;
 
 namespace CustomSpawns.Spawn
 {

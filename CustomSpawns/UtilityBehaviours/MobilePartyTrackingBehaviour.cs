@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.LogEntries;
-using TaleWorlds.ObjectSystem;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Settlements;
 
 namespace CustomSpawns.UtilityBehaviours
 {
@@ -42,7 +39,7 @@ namespace CustomSpawns.UtilityBehaviours
         {
             CampaignEvents.HourlyTickPartyEvent.AddNonSerializedListener(this, OnMobilePartyHourlyTick);
             CampaignEvents.MobilePartyDestroyed.AddNonSerializedListener(this, OnMobilePartyDestroyed);
-            CampaignEvents.AfterDailyTickEvent.AddNonSerializedListener(this, LateDailyTick);
+            CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, LateDailyTick);
 
             
         }
@@ -54,8 +51,8 @@ namespace CustomSpawns.UtilityBehaviours
 
         #endregion
 
-        private Dictionary<MobileParty, List<Settlement>> dailyPresences = new Dictionary<MobileParty, List<Settlement>>();
-        private Dictionary<Settlement, List<MobileParty>> settlementDailyPresences = new Dictionary<Settlement, List<MobileParty>>();
+        private Dictionary<MobileParty, List<Settlement>> dailyPresences = new();
+        private Dictionary<Settlement, List<MobileParty>> settlementDailyPresences = new();
 
 
         private List<MobileParty> toBeRemoved = new List<MobileParty>();

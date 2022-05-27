@@ -1,14 +1,9 @@
 ﻿using CustomSpawns.Dialogues.DialogueAlgebra;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.Barterables;
-using TaleWorlds.SaveSystem;
-
 using CustomSpawns.Data;
+using TaleWorlds.CampaignSystem.Conversation;
+using TaleWorlds.CampaignSystem.Encounters;
 
 namespace CustomSpawns.Dialogues
 {

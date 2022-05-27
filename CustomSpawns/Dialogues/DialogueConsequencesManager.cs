@@ -8,7 +8,10 @@ using TaleWorlds.CampaignSystem;
 
 using CustomSpawns.Dialogues.DialogueAlgebra;
 using Diplomacy;
-using TaleWorlds.CampaignSystem.Barterables;
+using TaleWorlds.CampaignSystem.BarterSystem;
+using TaleWorlds.CampaignSystem.BarterSystem.Barterables;
+using TaleWorlds.CampaignSystem.Encounters;
+using TaleWorlds.CampaignSystem.Party;
 
 namespace Dialogues
 {

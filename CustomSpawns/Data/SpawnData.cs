@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
 using TaleWorlds.CampaignSystem;
@@ -12,6 +11,8 @@ using TaleWorlds.Engine;
 using TaleWorlds.ObjectSystem;
 using Path = System.IO.Path;
 using CustomSpawns.CampaignData;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Settlements;
 
 namespace CustomSpawns.Data
 {

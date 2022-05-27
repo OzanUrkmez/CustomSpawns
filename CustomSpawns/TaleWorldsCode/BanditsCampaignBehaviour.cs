@@ -1,6 +1,8 @@
 ﻿using System;
 using TaleWorlds.Core;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Settlements;
 
 namespace TaleWorldsCode
 {

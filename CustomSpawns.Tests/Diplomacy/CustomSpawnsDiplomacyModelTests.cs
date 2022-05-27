@@ -7,8 +7,6 @@ using Diplomacy;
 using Moq;
 using NUnit.Framework;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors.AiBehaviors;
-using TaleWorlds.MountAndBlade;
 
 namespace CustomSpawns.Tests.Diplomacy
 {

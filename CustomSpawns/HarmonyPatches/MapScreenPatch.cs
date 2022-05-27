@@ -5,12 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using HarmonyLib;
-using TaleWorlds.CampaignSystem.Barterables;
-using TaleWorlds.CampaignSystem.Actions;
-using TaleWorlds.Engine.InputSystem;
 using TaleWorlds.InputSystem;
 using SandBox.View.Map;
-using System.Reflection;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
@@ -18,7 +14,7 @@ using TaleWorlds.Library;
 namespace CustomSpawns.HarmonyPatches
 {
     //The tick seems to get called whenever on the campaign map view, which makes sense. we can have some hotkeys here!
-    [HarmonyPatch(typeof(MapScreen), "TaleWorlds.CampaignSystem.IMapStateHandler.Tick")]
+    [HarmonyPatch(typeof(MapScreen), "TaleWorlds.CampaignSystem.GameState.IMapStateHandler.Tick")]
     public class MapScrenPatch
     {
 
