@@ -1,18 +1,21 @@
 using System;
 using System.IO;
+using CustomSpawns.AI;
 using CustomSpawns.Data;
+using CustomSpawns.Dialogues;
 using CustomSpawns.HarmonyPatches;
 using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
 using CustomSpawns.PartySpeed;
+using CustomSpawns.PrisonerRecruitment;
 using CustomSpawns.RewardSystem;
+using CustomSpawns.Spawn;
 //using CustomSpawns.MCMv3;
 using CustomSpawns.UtilityBehaviours;
 using Data.Manager;
 using Diplomacy;
-using TaleWorlds.CampaignSystem.Party;
 
 namespace CustomSpawns
 {
@@ -23,6 +26,9 @@ namespace CustomSpawns
         private IDiplomacyActionModel _diplomacyActionModel;
         private TrackClanKingdom _clanKingdomTrackable;
         private CustomSpawnsClanDiplomacyModel _customSpawnsClanDiplomacyModel;
+        private BanditPartySpawnFactory _banditPartySpawnFactory;
+        private CustomPartySpawnFactory _customPartySpawnFactory;
+        private Spawner _spawner;
 
         private static bool removalMode = false;
 
@@ -53,6 +59,9 @@ namespace CustomSpawns
             _diplomacyActionModel = new ConstantWarDiplomacyActionModel();
             _clanKingdomTrackable = new TrackClanKingdom();
             _customSpawnsClanDiplomacyModel = new CustomSpawnsClanDiplomacyModel(_clanKingdomTrackable, _diplomacyActionModel, DiplomacyDataManager.Instance);
+            _banditPartySpawnFactory = new BanditPartySpawnFactory();
+            _customPartySpawnFactory = new CustomPartySpawnFactory();
+            _spawner = new Spawner(_banditPartySpawnFactory, _customPartySpawnFactory);
         }
 
         protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
@@ -84,14 +93,13 @@ namespace CustomSpawns
             if (!removalMode)
             {
                 OnSaveStartRunBehaviour.InitializeSave(starter);
-                OnSaveStartRunBehaviour.Singleton.RegisterFunctionToRunOnSaveStart(OnSaveStart);
 
-                starter.AddBehavior(new Spawn.SpawnBehaviour());
-                starter.AddBehavior(new AI.HourlyPatrolAroundSpawnBehaviour());
-                starter.AddBehavior(new AI.AttackClosestIfIdleForADayBehaviour());
-                starter.AddBehavior(new AI.PatrolAroundClosestLestInterruptedAndSwitchBehaviour());
-                starter.AddBehavior(new PrisonerRecruitment.PrisonerRecruitmentBehaviour());
-                starter.AddBehavior(new Dialogues.CustomSpawnsDialogueBehavior());
+                starter.AddBehavior(new SpawnBehaviour(_spawner));
+                starter.AddBehavior(new HourlyPatrolAroundSpawnBehaviour());
+                starter.AddBehavior(new AttackClosestIfIdleForADayBehaviour());
+                starter.AddBehavior(new PatrolAroundClosestLestInterruptedAndSwitchBehaviour());
+                starter.AddBehavior(new PrisonerRecruitmentBehaviour());
+                starter.AddBehavior(new CustomSpawnsDialogueBehavior());
                 starter.AddBehavior(new SpawnRewardBehavior());
                 starter.AddBehavior(new ForcedWarPeaceBehaviour(_diplomacyActionModel, _clanKingdomTrackable, _customSpawnsClanDiplomacyModel));
                 starter.AddBehavior(new ForceNoKingdomBehaviour(DiplomacyDataManager.Instance));
@@ -117,27 +125,7 @@ namespace CustomSpawns
 #endif
         }
 
-        private void OnSaveStart()
-        {
-            //restore lost AI behaviours!
-            try
-            {
-                var partyIDToData = SpawnDataManager.Instance.PartyIDToData;
-                foreach (MobileParty mb in MobileParty.All)
-                {
-                    string id = CampaignUtils.IsolateMobilePartyStringID(mb);
-                    if(id != "" && partyIDToData.ContainsKey(id))
-                    {
-                        var spawnData = partyIDToData[id];
-                        Spawn.Spawner.HandleAIChecks(mb, spawnData, mb.HomeSettlement);
-                    }
 
-                }
-            } catch(Exception e)
-            {
-                ErrorHandler.HandleException(e, " reconstruction of save custom spawns mobile party data");
-            }
-        }
 
         public override void OnGameInitializationFinished(Game game) {
             base.OnGameInitializationFinished(game);
@@ -154,8 +142,8 @@ namespace CustomSpawns
                 
                 // Spawn Data Init (Read from XML)
                 // ClearLastInstances();
-                Data.SpawnDataManager.ClearInstance(this);
-                Data.NameSignifierData.ClearInstance(this);
+                SpawnDataManager.ClearInstance(this);
+                NameSignifierData.ClearInstance(this);
                 DynamicSpawnData.ClearInstance(this);
                 SpawnDataManager.Init();
                 DynamicSpawnData.Init();

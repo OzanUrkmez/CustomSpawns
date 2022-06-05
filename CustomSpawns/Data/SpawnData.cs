@@ -303,10 +303,12 @@ namespace CustomSpawns.Data
                             throw new TechnicalException("BaseSpeedOverride must be a float value! ");
                         }
                         Main.PartySpeedContext.RegisterPartyBaseSpeed(dat.PartyTemplate.StringId, baseSpeedOverride);
+                        dat.BaseSpeedOverride = baseSpeedOverride;
                     }
                     else
                     {
                         Main.PartySpeedContext.RegisterPartyBaseSpeed(dat.PartyTemplate.StringId, float.MinValue);
+                        dat.BaseSpeedOverride = float.MinValue;
                     }
 
                     //minimum devestation override
@@ -516,6 +518,8 @@ namespace CustomSpawns.Data
         public PartyTemplateObject PartyTemplatePrisoner { get; set; }
         public string Name { get; set; }
         public int RepeatSpawnRolls { get; set; }
+        
+        public float BaseSpeedOverride { get; set; }
         public InformationMessage spawnMessage { get; set; }
         public InquiryData inquiryMessage { get; set; }
         public bool inquiryPause { get; set; }
