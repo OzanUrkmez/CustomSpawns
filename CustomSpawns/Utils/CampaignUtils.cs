@@ -16,15 +16,15 @@ namespace CustomSpawns
         public static Settlement GetPreferableHideout(Clan preferredFaction, bool secondCall = false)
         {
             Settlement settlement;
-            Hideout hideout = TaleWorldsCode.BanditsCampaignBehaviour.SelectARandomHideout(preferredFaction, true, true, false);
+            Hideout hideout = SelectARandomHideout(preferredFaction, true, true, false);
             settlement = ((hideout != null) ? hideout.Owner.Settlement : null);
             if (settlement == null)
             {
-                hideout = TaleWorldsCode.BanditsCampaignBehaviour.SelectARandomHideout(preferredFaction, false, true, false);
+                hideout = SelectARandomHideout(preferredFaction, false, true, false);
                 settlement = ((hideout != null) ? hideout.Owner.Settlement : null);
                 if (settlement == null)
                 {
-                    hideout = TaleWorldsCode.BanditsCampaignBehaviour.SelectARandomHideout(preferredFaction, false, false, false);
+                    hideout = SelectARandomHideout(preferredFaction, false, false, false);
                     settlement = ((hideout != null) ? hideout.Owner.Settlement : null);
                     if (settlement == null && !secondCall) //in case the selected faction is invalid
                     {
@@ -36,58 +36,6 @@ namespace CustomSpawns
                 }
             }
             return settlement;
-        }
-
-        public static Settlement PickRandomSettlementOfCulture(List<CultureCode> c, List<Data.SpawnSettlementType> preferredTypes = null, List<Settlement> exceptions = null)
-        {
-            int num = 0;
-            List<Settlement> permissible = new List<Settlement>();
-
-            if (exceptions == null)
-                exceptions = new List<Settlement>();
-
-            if (preferredTypes != null)
-            {
-                foreach (Settlement s in Settlement.All)
-                {
-                    foreach (var type in preferredTypes)
-                    {
-                        if (SettlementIsOfValidType(s, type) && !exceptions.Contains(s))
-                        {
-                            permissible.Add(s);
-                            break;
-                        }
-                    }
-                }
-            }
-            if (permissible.Count == 0)
-            {
-                foreach (Settlement s in Settlement.All)
-                {
-                    if (!exceptions.Contains(s) && (s.IsTown || s.IsVillage) && (c.Contains(s.Culture.GetCultureCode())))
-                    {
-                        permissible.Add(s);
-                    }
-                }
-            }
-            permissible.Randomize();
-            foreach (Settlement s in permissible)
-            {
-                int num2 = TaleWorldsCode.BanditsCampaignBehaviour.CalculateDistanceScore(s.Position2D.DistanceSquared(MobileParty.MainParty.Position2D));
-                num += num2;
-            }
-            int num3 = MBRandom.RandomInt(num);
-            foreach (Settlement s in permissible)
-            {
-                int num4 = TaleWorldsCode.BanditsCampaignBehaviour.CalculateDistanceScore(s.Position2D.DistanceSquared(MobileParty.MainParty.Position2D)); //makes it more likely that the spawn will be further to the player.
-                num3 -= num4;
-                if (num3 <= 0)
-                {
-                    return s;
-                }
-            }
-            //ModDebug.ShowMessage("Unable to find proper settlement of" + c.ToString() + " for some reason.", DebugMessageType.Spawn);
-            return null;
         }
 
         public static Settlement PickRandomSettlementOfCulture(List<CultureCode> c, Func<Settlement, bool> exceptionPredicate, List<Data.SpawnSettlementType> preferredTypes = null)
@@ -122,13 +70,13 @@ namespace CustomSpawns
             permissible.Randomize();
             foreach (Settlement s in permissible)
             {
-                int num2 = TaleWorldsCode.BanditsCampaignBehaviour.CalculateDistanceScore(s.Position2D.DistanceSquared(MobileParty.MainParty.Position2D));
+                int num2 = CalculateBanditDistanceScore(s.Position2D.DistanceSquared(MobileParty.MainParty.Position2D));
                 num += num2;
             }
             int num3 = MBRandom.RandomInt(num);
             foreach (Settlement s in permissible)
             {
-                int num4 = TaleWorldsCode.BanditsCampaignBehaviour.CalculateDistanceScore(s.Position2D.DistanceSquared(MobileParty.MainParty.Position2D)); //makes it more likely that the spawn will be further to the player.
+                int num4 = CalculateBanditDistanceScore(s.Position2D.DistanceSquared(MobileParty.MainParty.Position2D)); //makes it more likely that the spawn will be further to the player.
                 num3 -= num4;
                 if (num3 <= 0)
                 {
@@ -136,71 +84,6 @@ namespace CustomSpawns
                 }
             }
             //ModDebug.ShowMessage("Unable to find proper settlement of" + c.ToString() + " for some reason.", DebugMessageType.Spawn);
-            return null;
-        }
-
-        public static Settlement PickRandomSettlementOfKingdom(List<Kingdom> f, List<Data.SpawnSettlementType> preferredTypes = null) //instead of PicKRandomSettlementOfCulture, does not prioritize types over kingdom
-        {
-            int num = 0;
-            List<Settlement> permissible = new List<Settlement>();
-            if (preferredTypes.Count != 0)
-            {
-                foreach (Settlement s in Settlement.All)
-                {
-                    if (f.Contains(s.MapFaction))
-                    {
-                        foreach (var type in preferredTypes)
-                        {
-                            if (SettlementIsOfValidType(s, type))
-                            {
-                                permissible.Add(s);
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-            if (permissible.Count == 0)
-            {
-                if (preferredTypes.Count != 0)
-                {
-                    ModDebug.ShowMessage("Spawn type checking for kingdom spawn did not find any valid settlements. Falling back to kingdom.", DebugMessageType.Spawn);
-                }
-                foreach (Settlement s in Settlement.All)
-                {
-                    if ((s.IsTown || s.IsVillage) && f.Contains(s.MapFaction))
-                    {
-                        permissible.Add(s);
-                    }
-                }
-            }
-            permissible.Randomize();
-            foreach (Settlement s in permissible)
-            {
-                int num2 = TaleWorldsCode.BanditsCampaignBehaviour.CalculateDistanceScore(s.Position2D.DistanceSquared(MobileParty.MainParty.Position2D));
-                num += num2;
-            }
-            int num3 = MBRandom.RandomInt(num);
-            foreach (Settlement s in permissible)
-            {
-                int num4 = TaleWorldsCode.BanditsCampaignBehaviour.CalculateDistanceScore(s.Position2D.DistanceSquared(MobileParty.MainParty.Position2D)); //makes it more likely that the spawn will be further to the player.
-                num3 -= num4;
-                if (num3 <= 0)
-                {
-                    return s;
-                }
-            }
-            ModDebug.ShowMessage("Unable to find proper faction settlement of" + f.ToString() + " for some reason.", DebugMessageType.Spawn);
-            return permissible.Count == 0 ? Settlement.All[0] : permissible[0];
-        }
-
-        public static Clan GetClanWithName(string name)
-        {
-            foreach (Clan c in Clan.All)
-            {
-                if (c.Name.ToString().ToLower() == name.ToLower())
-                    return c;
-            }
             return null;
         }
 
@@ -286,38 +169,6 @@ namespace CustomSpawns
             return min;
         }
 
-        public static Settlement GetClosestSettlement(Vec2 pos)
-        {
-            Settlement min = null;
-            float minDistance = float.MaxValue;
-            foreach (Settlement s in Settlement.All)
-            {
-                float dist = pos.Distance(s.GatePosition);
-                if (dist < minDistance)
-                {
-                    minDistance = dist;
-                    min = s;
-                }
-            }
-            return min;
-        }
-
-        public static Settlement GetClosestVillage(MobileParty mb)
-        {
-            Settlement min = null;
-            float minDistance = float.MaxValue;
-            foreach (Settlement s in Settlement.All.Where<Settlement>(x => x.IsVillage))
-            {
-                float dist = mb.Position2D.Distance(s.GatePosition);
-                if (dist < minDistance)
-                {
-                    minDistance = dist;
-                    min = s;
-                }
-            }
-            return min;
-        }
-
         public static Settlement GetClosestVillage(Vec2 pos)
         {
             Settlement min = null;
@@ -381,10 +232,6 @@ namespace CustomSpawns
             return min;
         }
 
-        public static bool IsCustomSpawnsClan(Clan clan)
-        {
-            return (clan.StringId.StartsWith("cs_"));
-        }
 
         public static string IsolateMobilePartyStringID(MobileParty mobileParty)
         {
@@ -452,6 +299,98 @@ namespace CustomSpawns
                 }
             }
             return returned;
+        }
+        
+        private static Hideout SelectARandomHideout(Clan faction, bool isInfestedHideoutNeeded, bool sameFactionIsNeeded, bool selectingFurtherToOthersNeeded = false)
+        {
+            int num = 0;
+            float num2 = Campaign.AverageDistanceBetweenTwoTowns * 0.33f * Campaign.AverageDistanceBetweenTwoTowns * 0.33f;
+            foreach (Settlement settlement in Campaign.Current.Settlements)
+            {
+                if (settlement.IsHideout && (settlement.Culture.Equals(faction.Culture) || !sameFactionIsNeeded) && ((isInfestedHideoutNeeded && ((Hideout)settlement.GetComponent(typeof(Hideout))).IsInfested) || (!isInfestedHideoutNeeded && !((Hideout)settlement.GetComponent(typeof(Hideout))).IsInfested)))
+                {
+                    int num3 = 1;
+                    if (selectingFurtherToOthersNeeded)
+                    {
+                        float num4 = Campaign.MapDiagonal * Campaign.MapDiagonal;
+                        float num5 = Campaign.MapDiagonal * Campaign.MapDiagonal;
+                        foreach (Settlement settlement2 in Campaign.Current.Settlements)
+                        {
+                            if (settlement2.IsHideout && ((Hideout)settlement2.GetComponent(typeof(Hideout))).IsInfested)
+                            {
+                                float num6 = settlement.Position2D.DistanceSquared(settlement2.Position2D);
+                                if (settlement.Culture == settlement2.Culture && num6 < num4)
+                                {
+                                    num4 = num6;
+                                }
+                                if (num6 < num5)
+                                {
+                                    num5 = num6;
+                                }
+                            }
+                        }
+                        num3 = (int)Math.Max(1f, num4 / num2 + 5f * (num5 / num2));
+                    }
+                    num += num3;
+                }
+            }
+            int num7 = MBRandom.RandomInt(num);
+            foreach (Settlement settlement3 in Campaign.Current.Settlements)
+            {
+                if (settlement3.IsHideout && (settlement3.Culture.Equals(faction.Culture) || !sameFactionIsNeeded) && ((isInfestedHideoutNeeded && ((Hideout)settlement3.GetComponent(typeof(Hideout))).IsInfested) || (!isInfestedHideoutNeeded && !((Hideout)settlement3.GetComponent(typeof(Hideout))).IsInfested)))
+                {
+                    int num8 = 1;
+                    if (selectingFurtherToOthersNeeded)
+                    {
+                        float num9 = Campaign.MapDiagonal * Campaign.MapDiagonal;
+                        float num10 = Campaign.MapDiagonal * Campaign.MapDiagonal;
+                        foreach (Settlement settlement4 in Campaign.Current.Settlements)
+                        {
+                            if (settlement4.IsHideout && ((Hideout)settlement4.GetComponent(typeof(Hideout))).IsInfested)
+                            {
+                                float num11 = settlement3.Position2D.DistanceSquared(settlement4.Position2D);
+                                if (settlement3.Culture == settlement4.Culture && num11 < num9)
+                                {
+                                    num9 = num11;
+                                }
+                                if (num11 < num10)
+                                {
+                                    num10 = num11;
+                                }
+                            }
+                        }
+                        num8 = (int)Math.Max(1f, num9 / num2 + 5f * (num10 / num2));
+                    }
+                    num7 -= num8;
+                    if (num7 < 0)
+                    {
+                        return settlement3.GetComponent(typeof(Hideout)) as Hideout;
+                    }
+                }
+            }
+            return null;
+        }
+        
+        private static int CalculateBanditDistanceScore(float distance)
+        {
+            int result = 2;
+            if (distance < 10000f)
+            {
+                result = 8;
+            }
+            else if (distance < 40000f)
+            {
+                result = 6;
+            }
+            else if (distance < 160000f)
+            {
+                result = 4;
+            }
+            else if (distance < 420000f)
+            {
+                result = 3;
+            }
+            return result;
         }
 
     }

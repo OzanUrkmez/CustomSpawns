@@ -10,18 +10,16 @@ namespace CustomSpawns.Spawn
 {
     public abstract class MobilePartySpawnFactory : IMobilePartySpawn
     {
-        internal abstract MobileParty CreateParty(Settlement spawnedSettlement, Clan clan, PartyTemplateObject templateObject);
-
-        internal abstract MobileParty InitParty(MobileParty mobileParty, TextObject partyName, Settlement homeSettlement, Clan clan, float speed = 0f);
+        internal abstract MobileParty CreateParty(Settlement spawnedSettlement, Clan clan, PartyTemplateObject templateObject, TextObject partyName, float speed = 0f);
 
         public MobileParty SpawnParty(Settlement homeSettlement, TextObject partyName, Clan clan, PartyTemplateObject partyTemplate, float customPartyBaseSpeed = 0f)
         {
-            MobileParty mobileParty = CreateParty(homeSettlement, clan, partyTemplate);
+            MobileParty mobileParty = CreateParty(homeSettlement, clan, partyTemplate, partyName ?? clan.Name, customPartyBaseSpeed);
             
             mobileParty.InitializeMobilePartyAroundPosition(ConstructTroopRoster(partyTemplate, mobileParty.Party),
                 new TroopRoster(mobileParty.Party), homeSettlement.GatePosition, 0);
 
-            return InitParty(mobileParty, partyName ?? clan.Name, homeSettlement, clan, customPartyBaseSpeed);
+            return mobileParty;
         }
 
         private static TroopRoster ConstructTroopRoster(PartyTemplateObject pt, PartyBase ownerParty, int troopNumberLimit = -1) //TODO implement troop number limit.

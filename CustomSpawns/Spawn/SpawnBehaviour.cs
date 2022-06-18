@@ -18,29 +18,28 @@ namespace CustomSpawns.Spawn
     class SpawnBehaviour : CampaignBehaviorBase
     {
 
-        private Spawner _spawner;
+        private readonly Spawner _spawner;
         
         #region Data Management
 
-        private int lastRedundantDataUpdate = 0;
+        private int _lastRedundantDataUpdate = 0;
 
         public SpawnBehaviour(Spawner spawner)
         {
             _spawner = spawner;
-            lastRedundantDataUpdate = 0;
+            _lastRedundantDataUpdate = 0;
             OnSaveStartRunBehaviour.Singleton.RegisterFunctionToRunOnSaveStart(OnSaveStart);
-            OnSaveStartRunBehaviour.Singleton.RegisterFunctionToRunOnSaveStart(addPartyComponentToAllCsMobileParties);
         }
 
-        public void HourlyCheckData()
+        private void HourlyCheckData()
         {
-            if (lastRedundantDataUpdate < ConfigLoader.Instance.Config.UpdatePartyRedundantDataPerHour + 1) // + 1 to give leeway and make sure every party gets updated. 
+            if (_lastRedundantDataUpdate < ConfigLoader.Instance.Config.UpdatePartyRedundantDataPerHour + 1) // + 1 to give leeway and make sure every party gets updated. 
             {
-                lastRedundantDataUpdate++;
+                _lastRedundantDataUpdate++;
             }
             else
             {
-                lastRedundantDataUpdate = 0;
+                _lastRedundantDataUpdate = 0;
             }
 
             //Now for data checking?
@@ -64,7 +63,7 @@ namespace CustomSpawns.Spawn
 
         }
 
-        private bool spawnedToday = false;
+        private bool _spawnedToday = false;
 
         private void OnSaveStart()
         {
@@ -87,60 +86,15 @@ namespace CustomSpawns.Spawn
                 ErrorHandler.HandleException(e, " reconstruction of save custom spawns mobile party data");
             }
         }
-        
-        internal static readonly FieldInfo OwnerFieldInfo = typeof(CustomPartyComponent)
-            .GetField("_owner", NonPublic | Instance | DeclaredOnly);
-        
-        internal static readonly FieldInfo HomeSettlementFieldInfo = typeof(CustomPartyComponent)
-            .GetField("_homeSettlement", NonPublic | Instance | DeclaredOnly);
-        
-        internal static readonly FieldInfo NameFieldInfo = typeof(CustomPartyComponent)
-            .GetField("_name", NonPublic | Instance | DeclaredOnly);
-        
-        private void addPartyComponentToAllCsMobileParties()
-        {
-            //restore lost AI behaviours!
-            try
-            {
-                var partyIDToData = SpawnDataManager.Instance.PartyIDToData;
-                foreach (MobileParty mb in MobileParty.All)
-                {
-                    string id = CampaignUtils.IsolateMobilePartyStringID(mb);
-                    if(id != "" && partyIDToData.ContainsKey(id))
-                    {
-                        var dat = partyIDToData[id];
-                        if (!mb.ActualClan.IsBanditFaction && mb.PartyComponent == null)
-                        {
-                            mb.PartyComponent = new CustomPartyComponent();
-                            var spawnSettlement = GetSpawnSettlement(dat, (s => dat.MinimumDevestationToSpawn > DevestationMetricData.Singleton.GetDevestation(s)));
-                            new CustomPartySpawnFactory().InitParty(mb, new TextObject(dat.Name), spawnSettlement, dat.SpawnClan,
-                                dat.BaseSpeedOverride); // TODO handle correctly when BaseSpeedOverride is not used
-                            
-                            OwnerFieldInfo.SetValue(mb.PartyComponent, dat.SpawnClan.Leader);
-                            HomeSettlementFieldInfo.SetValue(mb.PartyComponent, spawnSettlement);
-                            NameFieldInfo.SetValue(mb.PartyComponent, new TextObject(dat.Name));
-                            mb.UpdatePartyComponentFlags();
-                        }
 
-                        int a = 1;
-                    }
-
-                }
-            } catch(Exception e)
-            {
-                ErrorHandler.HandleException(e, " reconstruction of save custom spawns mobile party data");
-            }
-        }
-        
         private void HourlyBehaviour()
         {
             HourlyCheckData();
-            if (!spawnedToday && Campaign.Current.IsNight)
+            if (!_spawnedToday && Campaign.Current.IsNight)
             {
                 RegularSpawn();
-                spawnedToday = true;
+                _spawnedToday = true;
             }
-
         }
 
         //deal with our parties being removed! Also this is more efficient ;)
@@ -166,17 +120,18 @@ namespace CustomSpawns.Spawn
             if (DynamicSpawnData.Instance.GetDynamicSpawnData(mb) == null) //check if it is a custom spawns party
                 return;
             DynamicSpawnData.Instance.UpdateDynamicData(mb);
-            if (lastRedundantDataUpdate >= ConfigLoader.Instance.Config.UpdatePartyRedundantDataPerHour)
+            if (_lastRedundantDataUpdate >= ConfigLoader.Instance.Config.UpdatePartyRedundantDataPerHour)
             {
                 DynamicSpawnData.Instance.UpdateRedundantDynamicData(mb);
             }
             //for now for all
             Economics.PartyEconomicUtils.PartyReplenishFood(mb);
+            var b = 0;
         }
 
         private void DailyBehaviour()
         {
-            spawnedToday = false;
+            _spawnedToday = false;
         }
 
         #endregion
@@ -187,7 +142,6 @@ namespace CustomSpawns.Spawn
             {
                 var list = SpawnDataManager.Instance.Data;
                 Random rand = new();
-                var isSpawnSoundPlaying = false;
                 foreach (SpawnData data in list)
                 {
                     for (int i = 0; i < data.RepeatSpawnRolls; i++)

@@ -9,36 +9,35 @@ namespace CustomSpawns.Spawn
 {
     public class CustomPartySpawnFactory : MobilePartySpawnFactory
     {
-        internal override MobileParty CreateParty(Settlement spawnedSettlement, Clan clan, PartyTemplateObject templateObject)
-        {
-            return MobileParty.CreateParty(templateObject.StringId + "_" + 1, new CustomPartyComponent());
-        }
-
-        internal override MobileParty InitParty(MobileParty mobileParty, TextObject partyName, Settlement homeSettlement, Clan clan,
+        internal override MobileParty CreateParty(Settlement spawnedSettlement, Clan clan, PartyTemplateObject templateObject, TextObject partyName,
             float speed = 0)
         {
-            if (clan.Leader != null)
-            {
-                mobileParty.Party.SetCustomOwner(clan.Leader);
-            }
-            else if (clan.Heroes.Count > 0)
-            {
-                mobileParty.Party.SetCustomOwner(clan.Heroes.First());
-            }
 
-            if (clan.Leader?.HomeSettlement == null)
+            PartyComponent.OnPartyComponentCreatedDelegate initParty = party =>
             {
-                clan.UpdateHomeSettlement(homeSettlement);
-            }
-            mobileParty.Party.Visuals.SetMapIconAsDirty();
-            mobileParty.SetCustomName(partyName);
-            mobileParty.ActualClan = clan;
-            mobileParty.SetCustomHomeSettlement(homeSettlement);
-            ((CustomPartyComponent) mobileParty.PartyComponent).CustomPartyBaseSpeed = speed;
-            ((CustomPartyComponent) mobileParty.PartyComponent).AvoidHostileActions = false;
-            return mobileParty;
+                if (clan.Leader != null)
+                {
+                    party.Party.SetCustomOwner(clan.Leader);
+                }
+                else if (clan.Heroes.Count > 0)
+                {
+                    party.Party.SetCustomOwner(clan.Heroes.First());
+                }
+
+                if (clan.Leader?.HomeSettlement == null)
+                {
+                    clan.UpdateHomeSettlement(spawnedSettlement);
+                }
+                party.Party.Visuals.SetMapIconAsDirty();
+                party.SetCustomName(partyName);
+                party.ActualClan = clan;
+                party.SetCustomHomeSettlement(spawnedSettlement);
+                ((CustomPartyComponent) party.PartyComponent).CustomPartyBaseSpeed = speed;
+                ((CustomPartyComponent) party.PartyComponent).AvoidHostileActions = false;
+            };
+            
+            return MobileParty.CreateParty(templateObject.StringId + "_" + 1, new CustomPartyComponent(), initParty);
         }
-
 
         // private static MethodInfo InitializeQuestPartyPropertiesMethodInfo => typeof(CustomPartyComponent)
         //     .GetMethod("InitializeQuestPartyProperties", NonPublic)!;

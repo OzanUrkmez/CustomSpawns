@@ -21,7 +21,6 @@ namespace CustomSpawns.Spawn
         {
             try
             {
-
                 if(templateObject == null)
                 {
                     ErrorHandler.ShowPureErrorMessage(
@@ -38,10 +37,7 @@ namespace CustomSpawns.Spawn
                 {
                     return _banditPartySpawnFactory.SpawnParty(spawnedSettlement, name, clan, templateObject, speed);
                 }
-                else
-                {
-                    return _customPartySpawnFactory.SpawnParty(spawnedSettlement, name, clan, templateObject, speed);
-                }
+                return _customPartySpawnFactory.SpawnParty(spawnedSettlement, name, clan, templateObject, speed);
             }
             catch (Exception e) {
                 ErrorHandler.ShowPureErrorMessage("Possible invalid spawn data. Spawning of party terminated.");
