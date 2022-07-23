@@ -1,11 +1,6 @@
-﻿using CustomSpawns.UtilityBehaviours;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CustomSpawns.CampaignData.Config;
+using CustomSpawns.UtilityBehaviours;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.TwoDimension;
 
 namespace CustomSpawns.CampaignData
 {

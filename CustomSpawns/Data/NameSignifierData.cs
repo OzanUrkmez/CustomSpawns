@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Xml;
-using TaleWorlds.Core;
+using CustomSpawns.Exception;
+using CustomSpawns.Utils;
 using TaleWorlds.Library;
-
 
 namespace CustomSpawns.Data
 {
@@ -48,7 +44,7 @@ namespace CustomSpawns.Data
             path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data", "NameSignifiers.xml");
             ConstructFromXML(path);
 #endif
-            foreach(var subMod in ModIntegration.SubModManager.dependentModsArray)
+            foreach(var subMod in ModIntegration.SubModManager.LoadAllValidDependentMods())
             {
                 path = Path.Combine(subMod.CustomSpawnsDirectoryPath, "NameSignifiers.xml");
                 if (File.Exists(path))
@@ -70,7 +66,7 @@ namespace CustomSpawns.Data
                         continue;
                     if (node.Attributes["id"] == null || node.Attributes["value"] == null)
                     {
-                        ErrorHandler.HandleException(new Exception("There must be an id and value attribute defined for each element in NameSignifiers.xml"));
+                        ErrorHandler.HandleException(new System.Exception("There must be an id and value attribute defined for each element in NameSignifiers.xml"));
                         continue;
                     }
                     string id = node.Attributes["id"].InnerText;
@@ -130,7 +126,7 @@ namespace CustomSpawns.Data
                 }
 
             }
-            catch (Exception e)
+            catch (System.Exception e)
             {
                 ErrorHandler.HandleException(e, "Name Signifier Data Parsing of " + path);
             }

@@ -51,7 +51,7 @@ namespace CustomSpawns.RewardSystem
                 var partyReward = partyRewards.FirstOrDefault(el => party.Party.Id.Contains(el.PartyId));
                 if (partyReward != null)
                 {
-                    foreach (var reward in partyReward.Rewards)
+                    foreach (Reward reward in partyReward.Rewards)
                     {
                         switch (reward.Type)
                         {

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using CustomSpawns.Utils;
 using HarmonyLib;
 
 namespace CustomSpawns.HarmonyPatches
@@ -20,7 +20,7 @@ namespace CustomSpawns.HarmonyPatches
                 harmony.PatchAll();
                 _isApplied = true;
             }
-            catch (Exception e)
+            catch (System.Exception e)
             {
                 ErrorHandler.HandleException(e, "HARMONY PATCHES");
             }

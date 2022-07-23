@@ -1,4 +1,4 @@
-﻿namespace ModIntegration
+﻿namespace CustomSpawns.ModIntegration
 {
     public class SubMod
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomSpawns.Dialogues.DialogueAlgebra
+namespace CustomSpawns.Dialogues.DialogueAlgebra.Condition
 {
     public class DialogueConditionWithExtraStaticParams<T> : DialogueCondition
     {

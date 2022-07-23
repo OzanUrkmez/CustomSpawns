@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using System.Xml.Schema;
-using System.Xml.Serialization;
 using CustomSpawns.RewardSystem.Models;
+using CustomSpawns.Utils;
 using TaleWorlds.Library;
 
 namespace CustomSpawns.RewardSystem
 {
     public class XmlRewardData
     {
-        private static XmlRewardData _instance = null;
+        private static XmlRewardData? _instance;
 
-        public List<PartyReward> PartyRewards { get; set; } = new List<PartyReward>();
+        public List<PartyReward> PartyRewards { get; } = new();
 
         private XmlRewardData()
         {
@@ -53,7 +53,7 @@ namespace CustomSpawns.RewardSystem
                     "PartyRewardTemplateSchema.xsd");
 #endif
             }
-            catch (Exception e)
+            catch (System.Exception e)
             {
                 ErrorHandler.HandleException(e);
             }

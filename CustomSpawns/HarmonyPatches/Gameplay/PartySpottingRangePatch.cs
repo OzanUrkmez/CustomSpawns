@@ -8,7 +8,7 @@ namespace CustomSpawns.HarmonyPatches.Gameplay
     static class PartySpottingRangePatch
     {
 
-        public static int AdditionalSpottingRange { get; set; } = 0;
+        public static int AdditionalSpottingRange { get; set; }
 
         static void Postfix(ref ExplainedNumber __result)
         {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Data.Manager
+namespace CustomSpawns.Data.Manager
 {
     public abstract class AbstractDataManager<T, D> : IDataManager<D> where T : class
     {

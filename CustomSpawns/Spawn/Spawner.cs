@@ -1,4 +1,4 @@
-﻿using System;
+﻿using CustomSpawns.Utils;
 using TaleWorlds.Localization;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Party;
@@ -16,7 +16,8 @@ namespace CustomSpawns.Spawn
             _banditPartySpawnFactory = banditPartySpawnFactory;
             _customPartySpawnFactory = customPartySpawnFactory;
         }
-
+        
+        // TODO use the speed parameter here instead of using the harmony patch  
         public MobileParty SpawnParty(Settlement spawnedSettlement, Clan clan, PartyTemplateObject templateObject, float speed, TextObject partyName = null)
         {
             try
@@ -35,11 +36,11 @@ namespace CustomSpawns.Spawn
 
                 if (clan.IsBanditFaction)
                 {
-                    return _banditPartySpawnFactory.SpawnParty(spawnedSettlement, name, clan, templateObject, speed);
+                    return _banditPartySpawnFactory.SpawnParty(spawnedSettlement, name, clan, templateObject);
                 }
-                return _customPartySpawnFactory.SpawnParty(spawnedSettlement, name, clan, templateObject, speed);
+                return _customPartySpawnFactory.SpawnParty(spawnedSettlement, name, clan, templateObject);
             }
-            catch (Exception e) {
+            catch (System.Exception e) {
                 ErrorHandler.ShowPureErrorMessage("Possible invalid spawn data. Spawning of party terminated.");
                 ErrorHandler.HandleException(e, "party spawning");
                 return null;

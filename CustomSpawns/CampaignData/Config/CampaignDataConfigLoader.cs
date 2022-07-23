@@ -1,17 +1,14 @@
-﻿using Microsoft.SqlServer.Server;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using CustomSpawns.Utils;
 using TaleWorlds.Library;
 
-namespace CustomSpawns.CampaignData
+namespace CustomSpawns.CampaignData.Config
 {
     class CampaignDataConfigLoader
     {
@@ -76,7 +73,7 @@ namespace CustomSpawns.CampaignData
                     }
                 }
             }
-            catch (Exception e)
+            catch (System.Exception e)
             {
                 ErrorHandler.HandleException(e, "CAMPAIGN DATA XML READING");
             }

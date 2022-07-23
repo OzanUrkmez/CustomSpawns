@@ -3,7 +3,7 @@ using System.Linq;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 
-namespace Diplomacy
+namespace CustomSpawns.Diplomacy
 {
     public class ConstantWarDiplomacyActionModel : IDiplomacyActionModel
     {

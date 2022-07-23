@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace CustomSpawns
+namespace CustomSpawns.Exception
 {
-    public class TechnicalException : Exception
+    public class TechnicalException : System.Exception
     {
         public TechnicalException()
         {
@@ -13,7 +13,7 @@ namespace CustomSpawns
         {
         }
 
-        public TechnicalException(string message, Exception inner)
+        public TechnicalException(string message, System.Exception inner)
             : base(message, inner)
         {
         }

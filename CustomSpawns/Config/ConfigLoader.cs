@@ -1,19 +1,15 @@
 ﻿using System;
 using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
-using TaleWorlds.Core;
+using CustomSpawns.Utils;
 using TaleWorlds.Library;
 
-namespace CustomSpawns
+namespace CustomSpawns.Config
 {
     class ConfigLoader
     {
-        private static ConfigLoader _instance = null;
-        public Config Config { get; private set; }
+        private static ConfigLoader? _instance;
+        public Config Config { get; }
 
         public static ConfigLoader Instance
         {
@@ -43,16 +39,16 @@ namespace CustomSpawns
         {
             try
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(Config));
+                XmlSerializer serializer = new(typeof(Config));
                 using (var reader = new StreamReader(filePath))
                 {
                     return (Config)serializer.Deserialize(reader);
                 }
             }
-            catch (Exception e)
+            catch (System.Exception e)
             {
                 ErrorHandler.HandleException(e);
-                Config config = new Config();
+                Config config = new();
                 config.IsDebugMode = true;
                 return config;
             }

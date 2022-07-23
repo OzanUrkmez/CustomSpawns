@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using CustomSpawns;
-using CustomSpawns.CampaignData;
+using CustomSpawns.CampaignData.Implementations;
 using CustomSpawns.Data;
-using Data.Manager;
+using CustomSpawns.Data.Manager;
+using CustomSpawns.Exception;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
-using TaleWorlds.Core;
 using static TaleWorlds.CampaignSystem.Actions.ChangeKingdomAction.ChangeKingdomActionDetail;
 
-namespace Diplomacy
+namespace CustomSpawns.Diplomacy
 {
     class ForcedWarPeaceBehaviour : CampaignBehaviorBase
     {

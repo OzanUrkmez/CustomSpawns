@@ -1,17 +1,16 @@
-﻿using CustomSpawns.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-//using CustomSpawns.MCMv3;
+using CustomSpawns.CampaignData.Implementations;
+using CustomSpawns.Config;
+using CustomSpawns.Data;
+using CustomSpawns.Economics;
+using CustomSpawns.UtilityBehaviours;
+using CustomSpawns.Utils;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Localization;
-using CustomSpawns.CampaignData;
-using CustomSpawns.UtilityBehaviours;
 using TaleWorlds.CampaignSystem.Party;
-using TaleWorlds.CampaignSystem.Party.PartyComponents;
 using TaleWorlds.CampaignSystem.Settlements;
-using static System.Reflection.BindingFlags;
 
 namespace CustomSpawns.Spawn
 {
@@ -81,7 +80,7 @@ namespace CustomSpawns.Spawn
                     }
 
                 }
-            } catch(Exception e)
+            } catch(System.Exception e)
             {
                 ErrorHandler.HandleException(e, " reconstruction of save custom spawns mobile party data");
             }
@@ -125,8 +124,7 @@ namespace CustomSpawns.Spawn
                 DynamicSpawnData.Instance.UpdateRedundantDynamicData(mb);
             }
             //for now for all
-            Economics.PartyEconomicUtils.PartyReplenishFood(mb);
-            var b = 0;
+            PartyEconomicUtils.PartyReplenishFood(mb);
         }
 
         private void DailyBehaviour()
@@ -201,7 +199,7 @@ namespace CustomSpawns.Spawn
                     }
                 }
             }
-            catch (Exception e)
+            catch (System.Exception e)
             {
                 ErrorHandler.HandleException(e);
             }
@@ -255,7 +253,7 @@ namespace CustomSpawns.Spawn
                         "\n Here is more info about the behaviours being registered: \n" + String.Join("\n", aiRegistrations.Keys));
                 }
             }
-            catch (Exception e)
+            catch (System.Exception e)
             {
                 ErrorHandler.HandleException(e);
             }
