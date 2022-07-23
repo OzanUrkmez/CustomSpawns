@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using CustomSpawns.Utils;
+using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.GameComponents;
 using TaleWorlds.CampaignSystem.Party;
@@ -9,9 +10,7 @@ namespace CustomSpawns.HarmonyPatches
     [HarmonyPatch(typeof(DefaultPartySpeedCalculatingModel), "CalculateFinalSpeed")]
     public class PartySpeedModelPatch
     {
-        private static readonly TextObject _baseSpeedExplanationText = new TextObject("Custom Spawns Base Speed Modification");
-
-        private static readonly TextObject _extraSpeedExplanationText = new TextObject("Custom Spawns Extra Speed Modification");
+        private static readonly TextObject ExtraSpeedExplanationText = new("Custom Spawns Extra Speed Modification");
 
         static bool Prefix(MobileParty mobileParty, ref ExplainedNumber finalSpeed)
         {
@@ -24,7 +23,7 @@ namespace CustomSpawns.HarmonyPatches
             if (Main.PartySpeedContext.IsPartyEligibleForExtraSpeed(partyId))
             {
                 float extraSpeed = Main.PartySpeedContext.GetSpeedWithExtraBonus(partyId);
-                finalSpeed.Add(extraSpeed, _extraSpeedExplanationText);
+                finalSpeed.Add(extraSpeed, ExtraSpeedExplanationText);
             }
             else if (Main.PartySpeedContext.IsBasePartySpeedOverriden(partyId))
             {

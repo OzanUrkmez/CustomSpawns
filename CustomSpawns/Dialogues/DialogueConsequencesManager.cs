@@ -2,18 +2,17 @@
 using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
-using CustomSpawns;
-using CustomSpawns.Dialogues;
-using TaleWorlds.CampaignSystem;
-
 using CustomSpawns.Dialogues.DialogueAlgebra;
-using Diplomacy;
+using CustomSpawns.Diplomacy;
+using CustomSpawns.Exception;
+using CustomSpawns.Utils;
+using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.BarterSystem;
 using TaleWorlds.CampaignSystem.BarterSystem.Barterables;
 using TaleWorlds.CampaignSystem.Encounters;
 using TaleWorlds.CampaignSystem.Party;
 
-namespace Dialogues
+namespace CustomSpawns.Dialogues
 {
     public class DialogueConsequencesManager
     {
@@ -177,7 +176,7 @@ namespace Dialogues
             {   //Interestingly, PlayerEncounter.EnemySurrender = true; results in a null reference crash.
                 param.PlayerParty.Party.AddPrisoners(param.AdversaryParty.Party.MemberRoster);
                 param.AdversaryParty.RemoveParty();
-                CustomSpawns.UX.ShowMessage("You have taken your enemies prisoner.", TaleWorlds.Library.Colors.Green);
+                UX.ShowMessage("You have taken your enemies prisoner.", TaleWorlds.Library.Colors.Green);
                 end_conversation_consequence_delegate(param);
             }
             else

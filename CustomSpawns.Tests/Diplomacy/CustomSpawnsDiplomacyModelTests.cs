@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using CustomSpawns.Data;
-using Data.Manager;
-using Diplomacy;
+using CustomSpawns.Data.Manager;
+using CustomSpawns.Diplomacy;
 using Moq;
 using NUnit.Framework;
 using TaleWorlds.CampaignSystem;

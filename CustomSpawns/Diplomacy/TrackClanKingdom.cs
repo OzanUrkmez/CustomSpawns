@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
-using CustomSpawns;
+using CustomSpawns.Exception;
+using CustomSpawns.Utils;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
 using static TaleWorlds.CampaignSystem.Actions.ChangeKingdomAction.ChangeKingdomActionDetail;
 
-namespace Diplomacy
+namespace CustomSpawns.Diplomacy
 {
     public class TrackClanKingdom : IClanKingdom
     {
@@ -40,7 +41,7 @@ namespace Diplomacy
 
                     if (detail == LeaveKingdom || detail == LeaveAsMercenary || detail == LeaveByClanDestruction)
                     {
-                        ClanInKingdoms.Add(clan.StringId, null);
+                        ClanInKingdoms.Add(clan.StringId, null!);
                     } else if(detail == CreateKingdom || detail == JoinKingdom || detail == JoinAsMercenary || detail == LeaveWithRebellion)
                     {
                         ClanInKingdoms.Add(clan.StringId, newKingdom);

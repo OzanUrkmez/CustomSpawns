@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using CustomSpawns.Data;
-using Data.Manager;
+using CustomSpawns.Data.Manager;
 using TaleWorlds.CampaignSystem;
 
-namespace Diplomacy
+namespace CustomSpawns.Diplomacy
 {
     public class CustomSpawnsClanDiplomacyModel
     {
@@ -46,22 +46,22 @@ namespace Diplomacy
         /// <param name="warTarget">Clan or kingdom faction</param>
         /// <returns>true if war is possible between both factions or not</returns>
         ///
-        public bool IsWarDeclarationPossible(IFaction attacker, IFaction warTarget)
+        public bool IsWarDeclarationPossible(IFaction? attacker, IFaction? warTarget)
         {
             if (attacker == null || warTarget == null)
             {
                 return false;
             }
 
-            var hasAttackerForcedWarPeaceBehaviour = attacker != null && _customSpawnsClanData.ContainsKey(attacker.StringId) &&
-                                                     _customSpawnsClanData[attacker.StringId].ForcedWarPeaceDataInstance != null;
-            var hasWarTargetForcedWarPeaceBehaviour = warTarget != null && _customSpawnsClanData.ContainsKey(warTarget.StringId) &&
-                                                      _customSpawnsClanData[warTarget.StringId].ForcedWarPeaceDataInstance != null;
-
             if (IsPlayerActionAgainstCustomSpawnFaction(attacker, warTarget))
             {
                 return false;
             }
+            
+            var hasAttackerForcedWarPeaceBehaviour = _customSpawnsClanData.ContainsKey(attacker.StringId) &&
+                                                     _customSpawnsClanData[attacker.StringId].ForcedWarPeaceDataInstance != null;
+            var hasWarTargetForcedWarPeaceBehaviour = _customSpawnsClanData.ContainsKey(warTarget.StringId) &&
+                                                      _customSpawnsClanData[warTarget.StringId].ForcedWarPeaceDataInstance != null;
 
             if (hasAttackerForcedWarPeaceBehaviour && hasWarTargetForcedWarPeaceBehaviour)
             {
@@ -79,15 +79,10 @@ namespace Diplomacy
                 return IsCustomSpawnClanWarDeclarationPossible(warTarget, attacker);
             }
             
-            if (IsPlayerActionAgainstCustomSpawnFaction(attacker, warTarget))
-            {
-                return false;
-            }
-
             return false;
         }
         
-        private bool IsCustomSpawnClanWarDeclarationPossible(IFaction customFaction, IFaction warTarget)
+        private bool IsCustomSpawnClanWarDeclarationPossible(IFaction? customFaction, IFaction? warTarget)
         {
             if (customFaction == null || warTarget == null || customFaction == warTarget || customFaction.IsEliminated || warTarget.IsEliminated ||
                 customFaction.IsBanditFaction || warTarget.IsBanditFaction || GetHardCodedExceptionClans().Contains(customFaction.StringId) || GetHardCodedExceptionClans().Contains(warTarget.StringId) || _diplomacyModel.IsAtWar(customFaction, warTarget))
@@ -101,7 +96,7 @@ namespace Diplomacy
                 return false;
             }
 
-            var forcedWarPeaceInstance = _customSpawnsClanData[customFaction.StringId].ForcedWarPeaceDataInstance;
+            var forcedWarPeaceInstance = _customSpawnsClanData[customFaction.StringId].ForcedWarPeaceDataInstance!;
 
             if (customFaction.IsClan && !_clanKingdom.IsPartOfAKingdom(customFaction))
             {
@@ -164,37 +159,37 @@ namespace Diplomacy
         /// <param name="attacker">Clan or kingdom faction</param>
         /// <param name="peaceTarget">Clan or kingdom faction</param>
         /// <returns>true if peace is possible between both factions or not</returns>
-        public bool IsPeaceDeclarationPossible(IFaction attacker, IFaction warTarget)
+        public bool IsPeaceDeclarationPossible(IFaction? attacker, IFaction? peaceTarget)
         {
-            if (attacker == null || warTarget == null)
+            if (attacker == null || peaceTarget == null)
             {
                 return false;
             }
 
-            var hasAttackerForcedWarPeaceBehaviour = attacker != null && _customSpawnsClanData.ContainsKey(attacker.StringId) &&
+            if (IsPlayerActionAgainstCustomSpawnFaction(attacker, peaceTarget))
+            {
+                return false;
+            }
+            
+            var hasAttackerForcedWarPeaceBehaviour = _customSpawnsClanData.ContainsKey(attacker.StringId) &&
                                                      _customSpawnsClanData[attacker.StringId].ForcedWarPeaceDataInstance != null;
-            var hasWarTargetForcedWarPeaceBehaviour = warTarget != null && _customSpawnsClanData.ContainsKey(warTarget.StringId) &&
-                                                      _customSpawnsClanData[warTarget.StringId].ForcedWarPeaceDataInstance != null;
-
-            if (IsPlayerActionAgainstCustomSpawnFaction(attacker, warTarget))
-            {
-                return false;
-            }
+            var hasWarTargetForcedWarPeaceBehaviour = _customSpawnsClanData.ContainsKey(peaceTarget.StringId) &&
+                                                      _customSpawnsClanData[peaceTarget.StringId].ForcedWarPeaceDataInstance != null;
 
             if (hasAttackerForcedWarPeaceBehaviour && hasWarTargetForcedWarPeaceBehaviour)
             {
-                return IsCustomSpawnsClanPeaceDeclarationPossible(attacker, warTarget)
-                    && IsCustomSpawnsClanPeaceDeclarationPossible(warTarget, attacker);
+                return IsCustomSpawnsClanPeaceDeclarationPossible(attacker, peaceTarget)
+                    && IsCustomSpawnsClanPeaceDeclarationPossible(peaceTarget, attacker);
             }
 
             if (hasAttackerForcedWarPeaceBehaviour)
             {
-                return IsCustomSpawnsClanPeaceDeclarationPossible(attacker, warTarget);
+                return IsCustomSpawnsClanPeaceDeclarationPossible(attacker, peaceTarget);
             }
             
             if (hasWarTargetForcedWarPeaceBehaviour)
             {
-                return IsCustomSpawnsClanPeaceDeclarationPossible(warTarget, attacker);
+                return IsCustomSpawnsClanPeaceDeclarationPossible(peaceTarget, attacker);
             }
 
             return false;
@@ -208,7 +203,7 @@ namespace Diplomacy
                 || attacker.IsKingdomFaction && attacker.Leader == Hero.MainHero);
         }
         
-        private bool IsCustomSpawnsClanPeaceDeclarationPossible(IFaction attacker, IFaction peaceTarget)
+        private bool IsCustomSpawnsClanPeaceDeclarationPossible(IFaction? attacker, IFaction? peaceTarget)
         {
             if (attacker == null || peaceTarget == null || attacker == peaceTarget || attacker.IsEliminated || peaceTarget.IsEliminated ||
                 attacker.IsBanditFaction || peaceTarget.IsBanditFaction || GetHardCodedExceptionClans().Contains(attacker.StringId) || GetHardCodedExceptionClans().Contains(peaceTarget.StringId) ||
@@ -223,7 +218,7 @@ namespace Diplomacy
                 return false;
             } 
             
-            var forcedWarPeaceInstance = _customSpawnsClanData[attacker.StringId].ForcedWarPeaceDataInstance;
+            var forcedWarPeaceInstance = _customSpawnsClanData[attacker.StringId].ForcedWarPeaceDataInstance!;
 
             if (attacker.IsClan && !_clanKingdom.IsPartOfAKingdom(attacker))
             {

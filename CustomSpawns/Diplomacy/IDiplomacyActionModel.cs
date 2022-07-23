@@ -1,6 +1,6 @@
 ﻿using TaleWorlds.CampaignSystem;
 
-namespace Diplomacy
+namespace CustomSpawns.Diplomacy
 {
     public interface IDiplomacyActionModel
     {

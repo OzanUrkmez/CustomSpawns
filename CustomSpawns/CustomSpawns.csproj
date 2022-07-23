@@ -6,7 +6,6 @@
         <LangVersion>9.0</LangVersion>
         <Nullable>enable</Nullable>
         <Configurations>Api_Stable_Debug;Api_Stable_Release;Api_Beta_Debug;Api_Beta_Release;Stable_Debug;Stable_Release;Beta_Debug;Beta_Release</Configurations>
-        <RootNamespace>$(DisplayName)</RootNamespace>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -65,6 +64,9 @@
       <Content Include="..\CustomSpawnsCleanAPI\_Module\SubModule.xml">
         <Link>CustomSpawnsCleanAPI\_Module\SubModule.xml</Link>
       </Content>
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="PrisonerRecruitment" />
     </ItemGroup>
 
 </Project>

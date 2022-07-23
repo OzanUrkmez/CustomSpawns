@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using CustomSpawns.Data;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 
-namespace Data.Validator
+namespace CustomSpawns.Data.Validator
 {
     // TODO create data validator system
     public class DiplomacyDataValidator : IValidator<Dictionary<string,DiplomacyData>>

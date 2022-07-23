@@ -1,16 +1,7 @@
-﻿using CustomSpawns.Data;
-using CustomSpawns.UtilityBehaviours;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CustomSpawns.CampaignData.Config;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.Library;
-using TaleWorlds.TwoDimension;
 
-namespace CustomSpawns.CampaignData
+namespace CustomSpawns.CampaignData.Implementations
 {
     class CampaignTest : CustomCampaignDataBehaviour<CampaignTest, CampaignTestConfig>
     {
@@ -37,15 +28,6 @@ namespace CustomSpawns.CampaignData
         {
 
         }
-
-
-
-        public CampaignTest()
-        {
-            
-        }
-
- 
 
     }
 }

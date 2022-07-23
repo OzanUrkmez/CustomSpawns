@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Xml;
-using CustomSpawns;
-using CustomSpawns.Data;
+using CustomSpawns.Exception;
 using MonoMod.Utils;
 using TaleWorlds.Library;
 
-namespace Data.Manager
+namespace CustomSpawns.Data.Manager
 {
     public class DiplomacyDataManager : AbstractDataManager<DiplomacyDataManager, Dictionary<string,DiplomacyData>>
     {
@@ -21,7 +19,7 @@ namespace Data.Manager
                 path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data", "Diplomacy.xml");
                 diplomacyData = ConstructListFromXML(path);
 #endif
-                foreach (var subMod in ModIntegration.SubModManager.dependentModsArray)
+                foreach (var subMod in ModIntegration.SubModManager.LoadAllValidDependentMods())
                 {
                     path = Path.Combine(subMod.CustomSpawnsDirectoryPath, "Diplomacy.xml");
                     if (File.Exists(path))
@@ -30,7 +28,7 @@ namespace Data.Manager
 
                 Data = diplomacyData;
             }
-            catch (Exception e)
+            catch (System.Exception e)
             {
                 throw new TechnicalException("Diplomacy Data Parsing of " + path, e);
             }

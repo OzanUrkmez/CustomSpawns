@@ -1,15 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaleWorlds.Core;
-using TaleWorlds.Localization;
-using TaleWorlds.MountAndBlade;
 using TaleWorlds.Library;
-using CustomSpawns.Data;
 
-namespace CustomSpawns
+namespace CustomSpawns.Utils
 {
     public static class UX
     {

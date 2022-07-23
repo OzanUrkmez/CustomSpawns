@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-//using CustomSpawns.MCMv3;
+﻿using CustomSpawns.CampaignData.Config;
+using CustomSpawns.Config;
 using TaleWorlds.Core;
-using TaleWorlds.Localization;
-using TaleWorlds.MountAndBlade;
 using TaleWorlds.Library;
 
 
-namespace CustomSpawns
+namespace CustomSpawns.Utils
 {
     class ModDebug
     {
@@ -21,14 +15,12 @@ namespace CustomSpawns
                 return;
             if (messageType == DebugMessageType.AI && !ConfigLoader.Instance.Config.ShowAIDebug)
                 return;
-            if (messageType == DebugMessageType.Prisoner && !PrisonerRecruitment.PrisonerRecruitmentConfigLoader.Instance.Config.PrisonRecruitmentDebugEnabled)
-                return;
             if (messageType == DebugMessageType.DeathTrack && !ConfigLoader.Instance.Config.ShowDeathTrackDebug)
                 return;
             InformationManager.DisplayMessage(new InformationMessage(message, Color.ConvertStringToColor("#FF8F00FF")));
         }
 
-        public static void ShowMessage(string message, CampaignData.ICampaignDataConfig config)
+        public static void ShowMessage(string message, ICampaignDataConfig config)
         {
             if (!config.ShowConfigDebug)
             {

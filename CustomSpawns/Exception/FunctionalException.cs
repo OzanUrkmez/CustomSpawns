@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace CustomSpawns
+﻿namespace CustomSpawns.Exception
 {
-    public class FunctionalException : Exception
+    public class FunctionalException : System.Exception
     {
         public FunctionalException()
         {
@@ -13,7 +11,7 @@ namespace CustomSpawns
         {
         }
 
-        public FunctionalException(string message, Exception inner)
+        public FunctionalException(string message, System.Exception inner)
             : base(message, inner)
         {
         }

@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using CustomSpawns.Utils;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.CampaignSystem.Settlements;
@@ -79,7 +79,7 @@ namespace CustomSpawns.AI
             var patrollerInstance = GetPatroller(mb);
             if (patrollerInstance.patrollerParty != null && patrollerInstance.patrolledSettlement != s)
             {
-                ErrorHandler.HandleException(new Exception("The same mobile party cannot patrol around two different settlements!"));
+                ErrorHandler.HandleException(new System.Exception("The same mobile party cannot patrol around two different settlements!"));
             }
             if (patrollerInstance.patrolledSettlement == s)
                 return false;

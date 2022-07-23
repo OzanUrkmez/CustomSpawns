@@ -1,24 +1,26 @@
-using System;
 using System.IO;
 using CustomSpawns.AI;
+using CustomSpawns.CampaignData.Implementations;
+using CustomSpawns.Config;
 using CustomSpawns.Data;
+using CustomSpawns.Data.Manager;
 using CustomSpawns.Dialogues;
+using CustomSpawns.Diplomacy;
 using CustomSpawns.HarmonyPatches;
+using CustomSpawns.ModIntegration;
+using CustomSpawns.PartySpeed;
+using CustomSpawns.RewardSystem;
+using CustomSpawns.Spawn;
+using CustomSpawns.UtilityBehaviours;
+using CustomSpawns.Utils;
 using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
-using CustomSpawns.PartySpeed;
-using CustomSpawns.PrisonerRecruitment;
-using CustomSpawns.RewardSystem;
-using CustomSpawns.Spawn;
-//using CustomSpawns.MCMv3;
-using CustomSpawns.UtilityBehaviours;
-using Data.Manager;
-using Diplomacy;
 
 namespace CustomSpawns
 {
+
     public class Main : MBSubModuleBase
     {
         public static PartySpeedContext PartySpeedContext;
@@ -36,12 +38,13 @@ namespace CustomSpawns
 
         protected override void OnSubModuleLoad()
         {
-            ModIntegration.SubModManager.LoadAllValidDependentMods();
+            SubModManager.LoadAllValidDependentMods();
             if (ConfigLoader.Instance.Config.IsRemovalMode)
             {
                 removalMode = true;
                 return;
             }
+
             removalMode = false;
 
             try
@@ -50,7 +53,7 @@ namespace CustomSpawns
                 // ClearLastInstances();
                 DiplomacyDataManager.Init();
             }
-            catch (Exception e)
+            catch (System.Exception e)
             {
                 ErrorHandler.HandleException(e, "Could not create an instance of DiplomacyDataManager");
             }
@@ -58,7 +61,8 @@ namespace CustomSpawns
             PartySpeedContext = new PartySpeedContext();
             _diplomacyActionModel = new ConstantWarDiplomacyActionModel();
             _clanKingdomTrackable = new TrackClanKingdom();
-            _customSpawnsClanDiplomacyModel = new CustomSpawnsClanDiplomacyModel(_clanKingdomTrackable, _diplomacyActionModel, DiplomacyDataManager.Instance);
+            _customSpawnsClanDiplomacyModel = new CustomSpawnsClanDiplomacyModel(_clanKingdomTrackable,
+                _diplomacyActionModel, DiplomacyDataManager.Instance);
             _banditPartySpawnFactory = new BanditPartySpawnFactory();
             _customPartySpawnFactory = new CustomPartySpawnFactory();
             _spawner = new Spawner(_banditPartySpawnFactory, _customPartySpawnFactory);
@@ -70,7 +74,7 @@ namespace CustomSpawns
             {
                 return;
             }
-            
+
             AddBehaviours((CampaignGameStarter) gameStarterObject);
             LoadXmlFiles((CampaignGameStarter) gameStarterObject);
         }
@@ -78,11 +82,13 @@ namespace CustomSpawns
         protected override void OnBeforeInitialModuleScreenSetAsRoot() //assure player :) also myself lol
         {
             UX.ShowMessage("CustomSpawns is now enabled. Enjoy! :)", Color.ConvertStringToColor("#001FFFFF"));
-            AI.AIManager.FlushRegisteredBehaviours(); //forget old behaviours to allocate space. 
-            foreach (var subMod in ModIntegration.SubModManager.dependentModsArray)
+            AIManager.FlushRegisteredBehaviours(); //forget old behaviours to allocate space. 
+            foreach (var subMod in SubModManager.LoadAllValidDependentMods())
             {
-                UX.ShowMessage( subMod.SubModuleName + " is now integrated into the CustomSpawns API.", Color.ConvertStringToColor("#001FFFFF"));
+                UX.ShowMessage(subMod.SubModuleName + " is now integrated into the CustomSpawns API.",
+                    Color.ConvertStringToColor("#001FFFFF"));
             }
+
             //ConfigLoader.Instance.Config.GetInstance();
         }
 
@@ -98,48 +104,50 @@ namespace CustomSpawns
                 starter.AddBehavior(new HourlyPatrolAroundSpawnBehaviour());
                 starter.AddBehavior(new AttackClosestIfIdleForADayBehaviour());
                 starter.AddBehavior(new PatrolAroundClosestLestInterruptedAndSwitchBehaviour());
-                starter.AddBehavior(new PrisonerRecruitmentBehaviour());
                 starter.AddBehavior(new CustomSpawnsDialogueBehavior());
                 starter.AddBehavior(new SpawnRewardBehavior());
-                starter.AddBehavior(new ForcedWarPeaceBehaviour(_diplomacyActionModel, _clanKingdomTrackable, _customSpawnsClanDiplomacyModel));
+                starter.AddBehavior(new ForcedWarPeaceBehaviour(_diplomacyActionModel, _clanKingdomTrackable,
+                    _customSpawnsClanDiplomacyModel));
                 starter.AddBehavior(new ForceNoKingdomBehaviour(DiplomacyDataManager.Instance));
 
                 //campaign behaviours
-                starter.AddBehavior(CampaignData.DevestationMetricData.Singleton);
-                starter.AddBehavior(CampaignData.DailyLogger.Singleton);
-                starter.AddBehavior(CampaignData.CampaignTest.Singleton);
+                starter.AddBehavior(DevestationMetricData.Singleton);
+                starter.AddBehavior(DailyLogger.Singleton);
+                starter.AddBehavior(CampaignTest.Singleton);
 
                 //these come last! assuming those that are added last are also run last.
                 starter.AddBehavior(MobilePartyTrackingBehaviour.Singleton);
             }
             else
             {
-                starter.AddBehavior(new Utils.RemoverBehaviour());
+                starter.AddBehavior(new RemoverBehaviour());
             }
         }
-        
+
         private void LoadXmlFiles(CampaignGameStarter starter)
         {
 #if !API_MODE
-            starter.LoadGameTexts(Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "CraftingTemplateNames.xml"));
+            starter.LoadGameTexts(Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData",
+                "CraftingTemplateNames.xml"));
 #endif
         }
 
 
 
-        public override void OnGameInitializationFinished(Game game) {
+        public override void OnGameInitializationFinished(Game game)
+        {
             base.OnGameInitializationFinished(game);
-            if(!(game.GameType is Campaign))
+            if (!(game.GameType is Campaign))
             {
                 return;
             }
 
             PatchManager.ApplyPatches();
-            
+
             try
             {
                 // TODO Check how to handle the ClearLastInstances
-                
+
                 // Spawn Data Init (Read from XML)
                 // ClearLastInstances();
                 SpawnDataManager.ClearInstance(this);
@@ -148,10 +156,11 @@ namespace CustomSpawns
                 SpawnDataManager.Init();
                 DynamicSpawnData.Init();
             }
-            catch (Exception e)
+            catch (System.Exception e)
             {
-                ErrorHandler.HandleException(e, "Could not create an instance of SpawnDataManager. Might have encountered an " +
-                                                "issue while parsing the XML file or invalid parameters/values have been found");
+                ErrorHandler.HandleException(e,
+                    "Could not create an instance of SpawnDataManager. Might have encountered an " +
+                    "issue while parsing the XML file or invalid parameters/values have been found");
             }
         }
 

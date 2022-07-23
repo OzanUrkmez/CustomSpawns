@@ -8,7 +8,7 @@ using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.CampaignSystem.Settlements;
 
 
-namespace CustomSpawns
+namespace CustomSpawns.Utils
 {
     class CampaignUtils
     {
