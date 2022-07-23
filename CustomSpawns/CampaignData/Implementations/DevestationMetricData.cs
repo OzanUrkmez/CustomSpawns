@@ -1,18 +1,19 @@
-﻿using CustomSpawns.UtilityBehaviours;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CustomSpawns.CampaignData.Config;
+using CustomSpawns.UtilityBehaviours;
+using CustomSpawns.Utils;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.MapEvents;
+using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.TwoDimension;
 
-namespace CustomSpawns.CampaignData
+namespace CustomSpawns.CampaignData.Implementations
 {
     class DevestationMetricData : CustomCampaignDataBehaviour<DevestationMetricData, DevestationMetricConfig>
     {
 
-        private Dictionary<Settlement, float> settlementToDevestation = new Dictionary<Settlement, float>();
+        private Dictionary<Settlement, float> settlementToDevestation = new();
 
 
         #region Custom Campaign Data Implementation
@@ -69,7 +70,7 @@ namespace CustomSpawns.CampaignData
 
             if (!settlementToDevestation.ContainsKey(closestSettlement))
             {
-                ErrorHandler.HandleException(new Exception("Devestation value for settlement could not be found!"));
+                ErrorHandler.HandleException(new System.Exception("Devestation value for settlement could not be found!"));
                 return;
             }
 
@@ -95,7 +96,7 @@ namespace CustomSpawns.CampaignData
 
             if (!settlementToDevestation.ContainsKey(s))
             {
-                ErrorHandler.HandleException(new Exception("Devastation value for settlement could not be found!"));
+                ErrorHandler.HandleException(new System.Exception("Devastation value for settlement could not be found!"));
                 return;
             }
 
@@ -154,7 +155,7 @@ namespace CustomSpawns.CampaignData
         {
             if (!settlementToDevestation.ContainsKey(s))
             {
-                ErrorHandler.HandleException(new Exception("Devastation value for settlement could not be found!"));
+                ErrorHandler.HandleException(new System.Exception("Devastation value for settlement could not be found!"));
                 return;
             }
 
@@ -168,12 +169,11 @@ namespace CustomSpawns.CampaignData
             if (!s.IsVillage)
             {
                 return 0;
-                ModDebug.ShowMessage("Non-village devestation data is not currently supported!", campaignConfig);
             }
             if (settlementToDevestation.ContainsKey(s))
                 return settlementToDevestation[s];
 
-            ErrorHandler.HandleException(new Exception("Devestation value for settlement could not be found!"));
+            ErrorHandler.HandleException(new System.Exception("Devestation value for settlement could not be found!"));
             return 0;
         }
 

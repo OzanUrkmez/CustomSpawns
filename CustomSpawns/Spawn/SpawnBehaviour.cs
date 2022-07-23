@@ -1,33 +1,44 @@
-﻿using CustomSpawns.Data;
-using System;
-//using CustomSpawns.MCMv3;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using CustomSpawns.CampaignData.Implementations;
+using CustomSpawns.Config;
+using CustomSpawns.Data;
+using CustomSpawns.Economics;
+using CustomSpawns.UtilityBehaviours;
+using CustomSpawns.Utils;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Localization;
-using CustomSpawns.CampaignData;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Settlements;
 
 namespace CustomSpawns.Spawn
 {
     class SpawnBehaviour : CampaignBehaviorBase
     {
 
+        private readonly Spawner _spawner;
+        
         #region Data Management
 
-        private int lastRedundantDataUpdate = 0;
+        private int _lastRedundantDataUpdate = 0;
 
-        public SpawnBehaviour()
+        public SpawnBehaviour(Spawner spawner)
         {
-            lastRedundantDataUpdate = 0;
+            _spawner = spawner;
+            _lastRedundantDataUpdate = 0;
+            OnSaveStartRunBehaviour.Singleton.RegisterFunctionToRunOnSaveStart(OnSaveStart);
         }
 
-        public void HourlyCheckData()
+        private void HourlyCheckData()
         {
-            if (lastRedundantDataUpdate < ConfigLoader.Instance.Config.UpdatePartyRedundantDataPerHour + 1) // + 1 to give leeway and make sure every party gets updated. 
+            if (_lastRedundantDataUpdate < ConfigLoader.Instance.Config.UpdatePartyRedundantDataPerHour + 1) // + 1 to give leeway and make sure every party gets updated. 
             {
-                lastRedundantDataUpdate++;
+                _lastRedundantDataUpdate++;
             }
             else
             {
-                lastRedundantDataUpdate = 0;
+                _lastRedundantDataUpdate = 0;
             }
 
             //Now for data checking?
@@ -51,17 +62,38 @@ namespace CustomSpawns.Spawn
 
         }
 
-        private bool spawnedToday = false;
+        private bool _spawnedToday = false;
+
+        private void OnSaveStart()
+        {
+            //restore lost AI behaviours!
+            try
+            {
+                var partyIDToData = SpawnDataManager.Instance.PartyIDToData;
+                foreach (MobileParty mb in MobileParty.All)
+                {
+                    string id = CampaignUtils.IsolateMobilePartyStringID(mb);
+                    if(id != "" && partyIDToData.ContainsKey(id))
+                    {
+                        var spawnData = partyIDToData[id];
+                        HandleAIChecks(mb, spawnData, mb.HomeSettlement);
+                    }
+
+                }
+            } catch(System.Exception e)
+            {
+                ErrorHandler.HandleException(e, " reconstruction of save custom spawns mobile party data");
+            }
+        }
 
         private void HourlyBehaviour()
         {
             HourlyCheckData();
-            if (!spawnedToday && Campaign.Current.IsNight)
+            if (!_spawnedToday && Campaign.Current.IsNight)
             {
                 RegularSpawn();
-                spawnedToday = true;
+                _spawnedToday = true;
             }
-
         }
 
         //deal with our parties being removed! Also this is more efficient ;)
@@ -87,17 +119,17 @@ namespace CustomSpawns.Spawn
             if (DynamicSpawnData.Instance.GetDynamicSpawnData(mb) == null) //check if it is a custom spawns party
                 return;
             DynamicSpawnData.Instance.UpdateDynamicData(mb);
-            if (lastRedundantDataUpdate >= ConfigLoader.Instance.Config.UpdatePartyRedundantDataPerHour)
+            if (_lastRedundantDataUpdate >= ConfigLoader.Instance.Config.UpdatePartyRedundantDataPerHour)
             {
                 DynamicSpawnData.Instance.UpdateRedundantDynamicData(mb);
             }
             //for now for all
-            Economics.PartyEconomicUtils.PartyReplenishFood(mb);
+            PartyEconomicUtils.PartyReplenishFood(mb);
         }
 
         private void DailyBehaviour()
         {
-            spawnedToday = false;
+            _spawnedToday = false;
         }
 
         #endregion
@@ -107,9 +139,8 @@ namespace CustomSpawns.Spawn
             try
             {
                 var list = SpawnDataManager.Instance.Data;
-                Random rand = new Random();
-                var isSpawnSoundPlaying = false;
-                foreach (Data.SpawnData data in list)
+                Random rand = new();
+                foreach (SpawnData data in list)
                 {
                     for (int i = 0; i < data.RepeatSpawnRolls; i++)
                     {
@@ -120,7 +151,7 @@ namespace CustomSpawns.Spawn
                                 (float)rand.NextDouble() >= currentChanceOfSpawn * ConfigLoader.Instance.Config.SpawnChanceFlatMultiplier)
                                 continue;
 
-                            var spawnSettlement = Spawner.GetSpawnSettlement(data, (s => data.MinimumDevestationToSpawn > DevestationMetricData.Singleton.GetDevestation(s)), rand);
+                            var spawnSettlement = GetSpawnSettlement(data, (s => data.MinimumDevestationToSpawn > DevestationMetricData.Singleton.GetDevestation(s)), rand);
                             //spawn nao!
 
                             if (spawnSettlement == null)
@@ -130,7 +161,7 @@ namespace CustomSpawns.Spawn
                                 break;
                             }
 
-                            MobileParty spawnedParty = Spawner.SpawnParty(spawnSettlement, data.SpawnClan, data.PartyTemplate, data.PartyType, new TextObject(data.Name));
+                            MobileParty spawnedParty = _spawner.SpawnParty(spawnSettlement, data.SpawnClan, data.PartyTemplate, data.BaseSpeedOverride, new TextObject(data.Name));
                             if (spawnedParty == null)
                                 return;
                             data.IncrementNumberSpawned(); //increment for can spawn and chance modifications
@@ -138,14 +169,14 @@ namespace CustomSpawns.Spawn
                             //dynamic spawn tracking
                             DynamicSpawnData.Instance.AddDynamicSpawnData(spawnedParty, new CSPartyData(data, spawnSettlement));
                             //AI Checks!
-                            Spawner.HandleAIChecks(spawnedParty, data, spawnSettlement);
+                            HandleAIChecks(spawnedParty, data, spawnSettlement);
                             //accompanying spawns
                             foreach (var accomp in data.SpawnAlongWith)
                             {
-                                MobileParty juniorParty = Spawner.SpawnParty(spawnSettlement, data.SpawnClan, accomp.templateObject, data.PartyType, new TextObject(accomp.name));
+                                MobileParty juniorParty = _spawner.SpawnParty(spawnSettlement, data.SpawnClan, accomp.templateObject, data.BaseSpeedOverride, new TextObject(accomp.name));
                                 if (juniorParty == null)
                                     continue;
-                                Spawner.HandleAIChecks(juniorParty, data, spawnSettlement); //junior party has same AI behaviour as main party. TODO in future add some junior party AI and reconstruction.
+                                HandleAIChecks(juniorParty, data, spawnSettlement); //junior party has same AI behaviour as main party. TODO in future add some junior party AI and reconstruction.
                             }
                             //message if available
                             if (data.spawnMessage != null)
@@ -168,7 +199,7 @@ namespace CustomSpawns.Spawn
                     }
                 }
             }
-            catch (Exception e)
+            catch (System.Exception e)
             {
                 ErrorHandler.HandleException(e);
             }
@@ -190,5 +221,89 @@ namespace CustomSpawns.Spawn
         }
 
         #endregion
+        
+        private void HandleAIChecks(MobileParty mb, SpawnData data, Settlement spawnedSettlement) //TODO handle sub parties being reconstructed!
+        {
+            try
+            {
+                bool invalid = false;
+                Dictionary<string, bool> aiRegistrations = new();
+                if (data.PatrolAroundSpawn)
+                {
+                    bool success = AI.AIManager.HourlyPatrolAroundSpawn.RegisterParty(mb, spawnedSettlement);
+                    aiRegistrations.Add("Patrol around spawn behaviour: ", success);
+                    invalid = invalid ? true : !success;
+                }
+                if (data.AttackClosestIfIdleForADay)
+                {
+                    bool success = AI.AIManager.AttackClosestIfIdleForADayBehaviour.RegisterParty(mb);
+                    aiRegistrations.Add("Attack Closest Settlement If Idle for A Day Behaviour: ", success);
+                    invalid = invalid ? true : !success;
+                }
+                if (data.PatrolAroundClosestLestInterruptedAndSwitch.isValidData)
+                {
+                    bool success = AI.AIManager.PatrolAroundClosestLestInterruptedAndSwitchBehaviour.RegisterParty(mb, 
+                        new AI.PatrolAroundClosestLestInterruptedAndSwitchBehaviour.PatrolAroundClosestLestInterruptedAndSwitchBehaviourData(mb, data.PatrolAroundClosestLestInterruptedAndSwitch));
+                    aiRegistrations.Add("Patrol Around Closest Lest Interrupted And Switch Behaviour: ", success);
+                    invalid = invalid ? true : !success;
+                }
+                if (invalid && ConfigLoader.Instance.Config.IsDebugMode)
+                {
+                    ErrorHandler.ShowPureErrorMessage("Custom Spawns AI XML registration error has occured. The party being registered was: " + mb.StringId +
+                        "\n Here is more info about the behaviours being registered: \n" + String.Join("\n", aiRegistrations.Keys));
+                }
+            }
+            catch (System.Exception e)
+            {
+                ErrorHandler.HandleException(e);
+            }
+        }
+        private Settlement GetSpawnSettlement(Data.SpawnData data, Func<Settlement , bool> exceptionPredicate, Random rand = null)
+        {
+            if (rand == null)
+                rand = new Random();
+
+
+            Clan spawnClan = data.SpawnClan;
+            //deal with override of spawn clan.
+            if (data.OverridenSpawnClan.Count != 0)
+            {
+                spawnClan = data.OverridenSpawnClan[rand.Next(0, data.OverridenSpawnClan.Count)];
+            }
+            //check for one hideout
+            Settlement firstHideout = null;
+            if (ConfigLoader.Instance.Config.SpawnAtOneHideout)
+            {
+                foreach (Settlement s in Settlement.All)
+                {
+                    if (s.IsHideout)
+                    {
+                        firstHideout = s;
+                        break;
+                    }
+                }
+            }
+
+            //deal with town spawn
+            Settlement spawnOverride = null;
+            if (data.OverridenSpawnSettlements.Count != 0)
+            {
+                spawnOverride = CampaignUtils.PickRandomSettlementAmong(new List<Settlement>(data.OverridenSpawnSettlements.Where(s => !exceptionPredicate(s))),
+                    data.TrySpawnAtList, rand);
+            }
+
+            if (spawnOverride == null && data.OverridenSpawnCultures.Count != 0)
+            {
+                //spawn at overriden spawn instead!
+                spawnOverride = CampaignUtils.PickRandomSettlementOfCulture(data.OverridenSpawnCultures, exceptionPredicate, data.TrySpawnAtList);
+            }
+
+            if (spawnOverride != null)
+                return spawnOverride;
+
+            //get settlement
+            Settlement spawnSettlement = ConfigLoader.Instance.Config.SpawnAtOneHideout ? firstHideout : (data.TrySpawnAtList.Count == 0 ? CampaignUtils.GetPreferableHideout(spawnClan) : null);
+            return spawnSettlement;
+        }
     }
 }

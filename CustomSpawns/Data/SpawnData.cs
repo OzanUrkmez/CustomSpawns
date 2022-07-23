@@ -2,16 +2,19 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
+using CustomSpawns.CampaignData.Implementations;
+using CustomSpawns.Exception;
+using CustomSpawns.Utils;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Library;
 using TaleWorlds.Core;
 using TaleWorlds.Engine;
 using TaleWorlds.ObjectSystem;
 using Path = System.IO.Path;
-using CustomSpawns.CampaignData;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Settlements;
 
 namespace CustomSpawns.Data
 {
@@ -78,7 +81,7 @@ namespace CustomSpawns.Data
             }
             ConstructListFromXML(path);
 #endif
-            foreach (var subMod in ModIntegration.SubModManager.dependentModsArray)
+            foreach (var subMod in ModIntegration.SubModManager.LoadAllValidDependentMods())
             {
                 path = Path.Combine(subMod.CustomSpawnsDirectoryPath, "CustomDailySpawn.xml");
                 if (!File.Exists(path))
@@ -302,10 +305,12 @@ namespace CustomSpawns.Data
                             throw new TechnicalException("BaseSpeedOverride must be a float value! ");
                         }
                         Main.PartySpeedContext.RegisterPartyBaseSpeed(dat.PartyTemplate.StringId, baseSpeedOverride);
+                        dat.BaseSpeedOverride = baseSpeedOverride;
                     }
                     else
                     {
                         Main.PartySpeedContext.RegisterPartyBaseSpeed(dat.PartyTemplate.StringId, float.MinValue);
+                        dat.BaseSpeedOverride = float.MinValue;
                     }
 
                     //minimum devestation override
@@ -412,7 +417,7 @@ namespace CustomSpawns.Data
                         partyIDtoData.Add(dat.PartyTemplate.StringId, dat);
                 }
             }
-            catch (Exception e)
+            catch (System.Exception e)
             {
                 ErrorHandler.HandleException(e, "Spawn Data Parsing of " + filePath);
             }
@@ -515,6 +520,8 @@ namespace CustomSpawns.Data
         public PartyTemplateObject PartyTemplatePrisoner { get; set; }
         public string Name { get; set; }
         public int RepeatSpawnRolls { get; set; }
+        
+        public float BaseSpeedOverride { get; set; }
         public InformationMessage spawnMessage { get; set; }
         public InquiryData inquiryMessage { get; set; }
         public bool inquiryPause { get; set; }

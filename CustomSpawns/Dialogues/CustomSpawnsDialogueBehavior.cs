@@ -1,14 +1,9 @@
-﻿using CustomSpawns.Dialogues.DialogueAlgebra;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.Barterables;
-using TaleWorlds.SaveSystem;
-
+﻿using System;
 using CustomSpawns.Data;
+using CustomSpawns.Dialogues.DialogueAlgebra;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Conversation;
+using TaleWorlds.CampaignSystem.Encounters;
 
 namespace CustomSpawns.Dialogues
 {
@@ -21,7 +16,7 @@ namespace CustomSpawns.Dialogues
             DialogueManager.CustomSpawnsDialogueBehavior = this;
         }
 
-        private Data.DialogueDataManager dataManager;
+        private DialogueDataManager dataManager;
 
         public override void SyncData(IDataStore dataStore)
         {
@@ -50,7 +45,7 @@ namespace CustomSpawns.Dialogues
                 GetData();
             }
 
-            foreach (Data.DialogueData d in dataManager.Data) // handle the dialogues
+            foreach (DialogueData d in dataManager.Data) // handle the dialogues
             {
 
                 AddDialogLine(starter, d, "start");
@@ -143,7 +138,7 @@ namespace CustomSpawns.Dialogues
 
         private void GetData() // the classic
         {
-            dataManager = Data.DialogueDataManager.Instance;
+            dataManager = DialogueDataManager.Instance;
         }
 
         // final version uses no structs, yay!!! no more lazy copouts (well, at least a reduced amount of them)

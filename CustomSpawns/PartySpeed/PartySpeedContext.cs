@@ -1,86 +1,83 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using CustomSpawns.Config;
+using CustomSpawns.Exception;
 
 namespace CustomSpawns.PartySpeed
 {
     public class PartySpeedContext
     {
-        private Dictionary<string, float> _partyIDToExtraSpeed = new Dictionary<string, float>();
-        private Dictionary<string, float> _partyIDToBaseSpeed = new Dictionary<string, float>();
-        private Dictionary<string, float> _partyIDToMinimumSpeed = new Dictionary<string, float>();
-        private Dictionary<string, float> _partyIDToMaximumSpeed = new Dictionary<string, float>();
+        private readonly Dictionary<string, float> _partyIdToExtraSpeed = new();
+        private readonly Dictionary<string, float> _partyIdToBaseSpeed = new();
+        private readonly Dictionary<string, float> _partyIdToMinimumSpeed = new();
+        private readonly Dictionary<string, float> _partyIdToMaximumSpeed = new();
 
-        public void RegisterPartyExtraBonusSpeed(string partyBaseID, float extraSpeed)
+        public void RegisterPartyExtraBonusSpeed(string partyBaseId, float extraSpeed)
         {
-            if (_partyIDToExtraSpeed.ContainsKey(partyBaseID) || !ConfigLoader.Instance.Config.ModifyPartySpeeds)
+            if (_partyIdToExtraSpeed.ContainsKey(partyBaseId) || !ConfigLoader.Instance.Config.ModifyPartySpeeds)
                 return;
-            _partyIDToExtraSpeed.Add(partyBaseID, extraSpeed);
+            _partyIdToExtraSpeed.Add(partyBaseId, extraSpeed);
         }
 
-        public void RegisterPartyMinimumSpeed(string partyBaseID, float minimumSpeed)
+        public void RegisterPartyMinimumSpeed(string partyBaseId, float minimumSpeed)
         {
-            if (_partyIDToMinimumSpeed.ContainsKey(partyBaseID) || !ConfigLoader.Instance.Config.ModifyPartySpeeds)
+            if (_partyIdToMinimumSpeed.ContainsKey(partyBaseId) || !ConfigLoader.Instance.Config.ModifyPartySpeeds)
                 return;
-            _partyIDToMinimumSpeed.Add(partyBaseID, minimumSpeed);
+            _partyIdToMinimumSpeed.Add(partyBaseId, minimumSpeed);
         }
 
-        public void RegisterPartyMaximumSpeed(string partyBaseID, float maximumSpeed)
+        public void RegisterPartyMaximumSpeed(string partyBaseId, float maximumSpeed)
         {
-            if (_partyIDToMaximumSpeed.ContainsKey(partyBaseID) || !ConfigLoader.Instance.Config.ModifyPartySpeeds)
+            if (_partyIdToMaximumSpeed.ContainsKey(partyBaseId) || !ConfigLoader.Instance.Config.ModifyPartySpeeds)
                 return;
-            _partyIDToMaximumSpeed.Add(partyBaseID, maximumSpeed);
+            _partyIdToMaximumSpeed.Add(partyBaseId, maximumSpeed);
         }
 
-        public void RegisterPartyBaseSpeed(string partyBaseID, float maximumSpeed)
+        public void RegisterPartyBaseSpeed(string partyBaseId, float maximumSpeed)
         {
-            if (_partyIDToBaseSpeed.ContainsKey(partyBaseID) || !ConfigLoader.Instance.Config.ModifyPartySpeeds)
+            if (_partyIdToBaseSpeed.ContainsKey(partyBaseId) || !ConfigLoader.Instance.Config.ModifyPartySpeeds)
                 return;
-            _partyIDToBaseSpeed.Add(partyBaseID, maximumSpeed);
+            _partyIdToBaseSpeed.Add(partyBaseId, maximumSpeed);
         }
 
         public bool IsPartySpeedBonusAllowedByUser() => ConfigLoader.Instance.Config.ModifyPartySpeeds;
         
-        public bool IsBasePartySpeedOverriden(string partyBaseID) => _partyIDToBaseSpeed.ContainsKey(partyBaseID);
+        public bool IsBasePartySpeedOverriden(string partyBaseId) => _partyIdToBaseSpeed.ContainsKey(partyBaseId);
         
-        public bool IsPartyEligibleForExtraSpeed(string partyBaseID) => _partyIDToExtraSpeed.ContainsKey(partyBaseID);
+        public bool IsPartyEligibleForExtraSpeed(string partyBaseId) => _partyIdToExtraSpeed.ContainsKey(partyBaseId);
         
-        public bool IsPartyMinimumSpeedOverriden(string partyBaseID) => _partyIDToMinimumSpeed.ContainsKey(partyBaseID);
+        public bool IsPartyMinimumSpeedOverriden(string partyBaseId) => _partyIdToMinimumSpeed.ContainsKey(partyBaseId);
         
-        public bool IsPartyMaximumSpeedOverriden(string partyBaseID) => _partyIDToMaximumSpeed.ContainsKey(partyBaseID);
+        public bool IsPartyMaximumSpeedOverriden(string partyBaseId) => _partyIdToMaximumSpeed.ContainsKey(partyBaseId);
         
-        public float GetBaseSpeed(string partyBaseID)
+        public float GetBaseSpeed(string partyBaseId)
         {
-            if (!_partyIDToBaseSpeed.ContainsKey(partyBaseID))
+            if (!_partyIdToBaseSpeed.ContainsKey(partyBaseId))
                 throw new TechnicalException("Invalid partyId ! Party should have been registered beforehand.");
-            float baseSpeed;
-            _partyIDToBaseSpeed.TryGetValue(partyBaseID, out baseSpeed);
+            _partyIdToBaseSpeed.TryGetValue(partyBaseId, out float baseSpeed);
             return baseSpeed;
         }
         
-        public float GetSpeedWithExtraBonus(string partyBaseID)
+        public float GetSpeedWithExtraBonus(string partyBaseId)
         {
-            if (!_partyIDToExtraSpeed.ContainsKey(partyBaseID))
+            if (!_partyIdToExtraSpeed.ContainsKey(partyBaseId))
                 throw new TechnicalException("Invalid partyId ! Party should have been registered beforehand.");
-            float speedWithExtraBonus;
-            _partyIDToExtraSpeed.TryGetValue(partyBaseID, out speedWithExtraBonus);
+            _partyIdToExtraSpeed.TryGetValue(partyBaseId, out float speedWithExtraBonus);
             return speedWithExtraBonus;
         }
         
-        public float GetMinimumSpeed(string partyBaseID)
+        public float GetMinimumSpeed(string partyBaseId)
         {
-            if (!_partyIDToMinimumSpeed.ContainsKey(partyBaseID))
+            if (!_partyIdToMinimumSpeed.ContainsKey(partyBaseId))
                 throw new TechnicalException("Invalid partyId ! Party should have been registered beforehand.");
-            float minimumSpeed;
-            _partyIDToMinimumSpeed.TryGetValue(partyBaseID, out minimumSpeed);
+            _partyIdToMinimumSpeed.TryGetValue(partyBaseId, out float minimumSpeed);
             return minimumSpeed;
         }
         
-        public float GetMaximumSpeed(string partyBaseID)
+        public float GetMaximumSpeed(string partyBaseId)
         {
-            if (!_partyIDToMaximumSpeed.ContainsKey(partyBaseID))
+            if (!_partyIdToMaximumSpeed.ContainsKey(partyBaseId))
                 throw new TechnicalException("Invalid partyId ! Party should have been registered beforehand.");
-            float maximumSpeed;
-            _partyIDToMaximumSpeed.TryGetValue(partyBaseID, out maximumSpeed);
+            _partyIdToMaximumSpeed.TryGetValue(partyBaseId, out float maximumSpeed);
             return maximumSpeed;
         }
     }

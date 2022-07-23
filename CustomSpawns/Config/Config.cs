@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomSpawns
+namespace CustomSpawns.Config
 {
     [Serializable]
     public class Config

@@ -1,11 +1,15 @@
-﻿using CustomSpawns.Data;
-using System;
+﻿using System;
 using System.IO;
+using CustomSpawns.CampaignData.Config;
+using CustomSpawns.Data;
+using CustomSpawns.Exception;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Library;
 
-namespace CustomSpawns.CampaignData { 
+namespace CustomSpawns.CampaignData.Implementations { 
     class DailyLogger : CustomCampaignDataBehaviour<DailyLogger, DailyLoggerConfig>
     {
 
@@ -30,7 +34,7 @@ namespace CustomSpawns.CampaignData {
 
         protected override void OnRegisterEvents()
         {
-            CampaignEvents.AfterDailyTickEvent.AddNonSerializedListener(this, OnAfterDailyTick);
+            CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, OnAfterDailyTick);
             CampaignEvents.WarDeclared.AddNonSerializedListener(this, OnWarDeclared);
             CampaignEvents.MakePeace.AddNonSerializedListener(this, OnPeaceMade);
             CampaignEvents.ClanChangedKingdom.AddNonSerializedListener(this, ClanChangedKingdom);
@@ -75,7 +79,7 @@ namespace CustomSpawns.CampaignData {
                         a, dayCount, s);
                 }
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 throw new TechnicalException("Could not write into the log file", ex);
             }
@@ -124,8 +128,8 @@ namespace CustomSpawns.CampaignData {
                 return;
 
             string msg = "New Spawn: " + spawned.StringId +
-                "\nTotal Strength:" + spawned.Party.TotalStrength.ToString() +
-                "\nChance of Spawn: " + chanceOfSpawnBeforeSpawn.ToString();
+                "\nTotal Strength:" + spawned.Party.TotalStrength +
+                "\nChance of Spawn: " + chanceOfSpawnBeforeSpawn;
 
             var spawnData = DynamicSpawnData.Instance.GetDynamicSpawnData(spawned).spawnBaseData;
 

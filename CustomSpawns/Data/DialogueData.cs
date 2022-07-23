@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using System.Linq;
-using TaleWorlds.Library;
 using CustomSpawns.Dialogues;
-
 using CustomSpawns.Dialogues.DialogueAlgebra;
-using Dialogues;
+using CustomSpawns.Exception;
+using CustomSpawns.Utils;
+using TaleWorlds.Library;
 
 namespace CustomSpawns.Data
 {
@@ -56,14 +55,14 @@ namespace CustomSpawns.Data
                 path = Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData", "Data", "CustomDialogue.xml"); // the usual path deal, located in the CustomSpawns or Data folder
                 ParseDialogueFile(path);
 #endif
-                foreach (var subMod in ModIntegration.SubModManager.dependentModsArray)
+                foreach (var subMod in ModIntegration.SubModManager.LoadAllValidDependentMods())
                 {
                     path = Path.Combine(subMod.CustomSpawnsDirectoryPath, "CustomDialogue.xml");
                     if (File.Exists(path))
                         ParseDialogueFile(path);
                 }
             }
-            catch (Exception e)
+            catch (System.Exception e)
             {
                 ErrorHandler.HandleException(e, " Dialogue System XML loading");
             }
@@ -256,7 +255,7 @@ namespace CustomSpawns.Data
                 return aggregate;
 
             }
-            catch(Exception e)
+            catch(System.Exception e)
             {
                 ErrorHandler.ShowPureErrorMessage("Could not parse dialogue condition: \n" + text + "\n Error Message: \n" + e.Message);
                 return null;
@@ -398,7 +397,7 @@ namespace CustomSpawns.Data
                 return aggregate;
 
             }
-            catch (Exception e)
+            catch (System.Exception e)
             {
                 ErrorHandler.ShowPureErrorMessage("Could not parse dialogue consequnce: \n" + text + "\n Error Message: \n" + e.Message);
                 return null;

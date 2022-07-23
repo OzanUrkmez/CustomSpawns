@@ -1,10 +1,9 @@
 ﻿using Helpers;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CustomSpawns.Utils;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Settlements;
 
 namespace CustomSpawns.AI
 {
@@ -53,7 +52,7 @@ namespace CustomSpawns.AI
 
         public bool RegisterParty(MobileParty mb)
         {
-            var behaviours = AI.AIManager.GetAIBehavioursForParty(mb);
+            var behaviours = AIManager.GetAIBehavioursForParty(mb);
             foreach(var b in behaviours)
             {
                 if (!b.IsCompatible(this))

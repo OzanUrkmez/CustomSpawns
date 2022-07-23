@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using System.Xml.Schema;
-using System.Xml.Serialization;
 using CustomSpawns.RewardSystem.Models;
+using CustomSpawns.Utils;
 using TaleWorlds.Library;
 
 namespace CustomSpawns.RewardSystem
 {
     public class XmlRewardData
     {
-        private static XmlRewardData _instance = null;
+        private static XmlRewardData? _instance;
 
-        public List<PartyReward> PartyRewards { get; set; } = new List<PartyReward>();
+        public List<PartyReward> PartyRewards { get; } = new();
 
         private XmlRewardData()
         {
@@ -40,7 +40,7 @@ namespace CustomSpawns.RewardSystem
 #if API_MODE
                 pathToSchema = Path.Combine(BasePath.Name, "Modules", "CustomSpawnsCleanAPI", "Schema",
                     "PartyRewardTemplateSchema.xsd");
-                foreach (var subMod in ModIntegration.SubModManager.dependentModsArray)
+                foreach (var subMod in ModIntegration.SubModManager.LoadAllValidDependentMods())
                 {
                     string path = Path.Combine(subMod.CustomSpawnsDirectoryPath, "PartyRewards.xml");
                     if (File.Exists(path))
@@ -53,7 +53,7 @@ namespace CustomSpawns.RewardSystem
                     "PartyRewardTemplateSchema.xsd");
 #endif
             }
-            catch (Exception e)
+            catch (System.Exception e)
             {
                 ErrorHandler.HandleException(e);
             }

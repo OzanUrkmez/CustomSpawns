@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using CustomSpawns.Data;
+using CustomSpawns.Utils;
 using HarmonyLib;
 using SandBox.ViewModelCollection.MobilePartyTracker;
-using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.CharacterDevelopment.Managers;
+using TaleWorlds.CampaignSystem.Party;
 
 namespace CustomSpawns.HarmonyPatches
 {

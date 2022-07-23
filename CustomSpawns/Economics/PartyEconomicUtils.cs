@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Extensions;
+using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.Core;
 using TaleWorlds.TwoDimension;
 
@@ -14,21 +16,17 @@ namespace CustomSpawns.Economics
 
         public static void PartyReplenishFood(MobileParty mobileParty)
         {
-            if (mobileParty.IsPartyTradeActive && mobileParty.Food < Mathf.Abs(mobileParty.FoodChange * 2))
+            if (mobileParty.MapEvent == null && mobileParty.Food < Mathf.Abs(mobileParty.FoodChange * 2))
             {
-                mobileParty.PartyTradeGold = (int)((double)mobileParty.PartyTradeGold * 0.95 + (double)(50f * (float)mobileParty.Party.MemberRoster.TotalManCount * 0.05f));
-                if (mobileParty.Food < 0 || (MBRandom.RandomFloat < 0.1f && mobileParty.MapEvent != null))
+                foreach (ItemObject itemObject in Items.All)
                 {
-                    foreach (ItemObject itemObject in Items.All)
+                    if (itemObject.IsFood)
                     {
-                        if (itemObject.IsFood)
+                        int num = 12;
+                        int num2 = MBRandom.RoundRandomized(mobileParty.MemberRoster.TotalManCount * (1f / itemObject.Value) * num * MBRandom.RandomFloat * MBRandom.RandomFloat * MBRandom.RandomFloat * MBRandom.RandomFloat);
+                        if (num2 > 0)
                         {
-                            int num = 12;
-                            int num2 = MBRandom.RoundRandomized((float)mobileParty.MemberRoster.TotalManCount * (1f / (float)itemObject.Value) * (float)num * MBRandom.RandomFloat * MBRandom.RandomFloat * MBRandom.RandomFloat * MBRandom.RandomFloat);
-                            if (num2 > 0)
-                            {
-                                mobileParty.ItemRoster.AddToCounts(itemObject, num2);
-                            }
+                            mobileParty.ItemRoster.AddToCounts(itemObject, num2);
                         }
                     }
                 }

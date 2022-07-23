@@ -1,4 +1,4 @@
-﻿namespace Data.Manager
+﻿namespace CustomSpawns.Data.Manager
 {
     public interface IDataManager<T>
     {

@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using CustomSpawns.RewardSystem.Models;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Extensions;
+using TaleWorlds.CampaignSystem.MapEvents;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
@@ -50,7 +51,7 @@ namespace CustomSpawns.RewardSystem
                 var partyReward = partyRewards.FirstOrDefault(el => party.Party.Id.Contains(el.PartyId));
                 if (partyReward != null)
                 {
-                    foreach (var reward in partyReward.Rewards)
+                    foreach (Reward reward in partyReward.Rewards)
                     {
                         switch (reward.Type)
                         {

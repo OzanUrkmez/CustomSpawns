@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CustomSpawns.Config;
+using CustomSpawns.HarmonyPatches.Gameplay;
 using TaleWorlds.CampaignSystem;
 using HarmonyLib;
-using TaleWorlds.CampaignSystem.Barterables;
-using TaleWorlds.CampaignSystem.Actions;
-using TaleWorlds.Engine.InputSystem;
 using TaleWorlds.InputSystem;
 using SandBox.View.Map;
-using System.Reflection;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
@@ -18,43 +11,35 @@ using TaleWorlds.Library;
 namespace CustomSpawns.HarmonyPatches
 {
     //The tick seems to get called whenever on the campaign map view, which makes sense. we can have some hotkeys here!
-    [HarmonyPatch(typeof(MapScreen), "TaleWorlds.CampaignSystem.IMapStateHandler.Tick")]
-    public class MapScrenPatch
+    [HarmonyPatch(typeof(MapScreen), "TaleWorlds.CampaignSystem.GameState.IMapStateHandler.Tick")]
+    public class MapScreenPatch
     {
 
-        static bool TrueSight = false;
+        private static bool _trueSight;
 
         static void Postfix()
         {
-
-            try
-            {
                 ProcessTrueSightControls();
                 ProcessAdditionalPartySpottingRange();
-            }
-            catch
-            {
-
-            }
         }
 
         static void ProcessTrueSightControls()
         {
-            var MapInput = MapScreen.Instance.Input;
+            var mapInput = MapScreen.Instance.Input;
 
-            if (MapInput == null)
+            if (mapInput == null)
             {
                 return;
             }
 
-            if (MapInput.IsKeyReleased(InputKey.T) && MapInput.IsControlDown())
+            if (mapInput.IsKeyReleased(InputKey.T) && mapInput.IsControlDown())
             {
-                TrueSight = !TrueSight;
+                _trueSight = !_trueSight;
             }
 
             if (ConfigLoader.Instance.Config.IsDebugMode)
             {
-                Campaign.Current.TrueSight = TrueSight;
+                Campaign.Current.TrueSight = _trueSight;
             }
         }
 
@@ -65,26 +50,26 @@ namespace CustomSpawns.HarmonyPatches
                 return;
             }
 
-            var MapInput = MapScreen.Instance.Input;
+            var mapInput = MapScreen.Instance.Input;
 
-            if (MapInput == null)
+            if (mapInput == null)
             {
                 return;
             }
 
-            if (MapInput.IsKeyReleased(InputKey.R) && MapInput.IsControlDown())
+            if (mapInput.IsKeyReleased(InputKey.R) && mapInput.IsControlDown())
             {
-                Gameplay.PartySpottingRangePatch.AdditionalSpottingRange -= 2;
+                PartySpottingRangePatch.AdditionalSpottingRange -= 2;
                 InformationManager.DisplayMessage(
-                    new InformationMessage($"Additional Spotting Range is Now: {Gameplay.PartySpottingRangePatch.AdditionalSpottingRange}", Colors.Green));
+                    new InformationMessage($"Additional Spotting Range is Now: {PartySpottingRangePatch.AdditionalSpottingRange}", Colors.Green));
             }
 
 
-            if (MapInput.IsKeyReleased(InputKey.Y) && MapInput.IsControlDown())
+            if (mapInput.IsKeyReleased(InputKey.Y) && mapInput.IsControlDown())
             {
-                Gameplay.PartySpottingRangePatch.AdditionalSpottingRange += 2;
+                PartySpottingRangePatch.AdditionalSpottingRange += 2;
                 InformationManager.DisplayMessage(
-                    new InformationMessage($"Additional Spotting Range is Now: {Gameplay.PartySpottingRangePatch.AdditionalSpottingRange}", Colors.Green));
+                    new InformationMessage($"Additional Spotting Range is Now: {PartySpottingRangePatch.AdditionalSpottingRange}", Colors.Green));
             }
         }
 
