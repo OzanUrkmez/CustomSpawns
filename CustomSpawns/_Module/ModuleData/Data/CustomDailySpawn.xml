@@ -7,7 +7,7 @@
 	 party_template ="PartyTemplate.cs_mountain_raider_squad_template"
 	 spawn_clan = "Faction.mountain_bandits"
 	 overriden_spawn_clan_0 = "">
-	 	<MaximumOnMap>6</MaximumOnMap>
+	 	<MaximumOnMap>18</MaximumOnMap>
 	 	<ChanceOfSpawn>0.0225</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.0675</ChanceInverseConstant>
 	 	<Name>Mountain Raiders</Name>
@@ -23,7 +23,7 @@
 	 overriden_spawn_culture_1 = "Culture.vlandia"
 	 overriden_spawn_culture_2 = "Culture.battania"
 	 >
-	 	<MaximumOnMap>2</MaximumOnMap>
+	 	<MaximumOnMap>6</MaximumOnMap>
 	 	<ChanceOfSpawn>0.0013</ChanceOfSpawn>
 	 	<DevestationLinearMultiplier>0.002</DevestationLinearMultiplier>
 	 	<ChanceInverseConstant>0.0015</ChanceInverseConstant>
@@ -63,7 +63,7 @@
 	 spawn_clan = "Faction.forest_bandits"
 	 overriden_spawn_clan_0 = ""
 	 >
-	 	<MaximumOnMap>6</MaximumOnMap>
+	 	<MaximumOnMap>18</MaximumOnMap>
 	 	<ChanceOfSpawn>0.0275</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.04775</ChanceInverseConstant>
 	 	<Name>Ambushers</Name>
@@ -76,7 +76,7 @@
 	 party_template ="PartyTemplate.cs_forest_giant_trainer_group"
 	 spawn_clan = "Faction.forest_bandits"
 	 overriden_spawn_clan_0 = "">
-	 	<MaximumOnMap>2</MaximumOnMap>
+	 	<MaximumOnMap>6</MaximumOnMap>
 	 	<ChanceOfSpawn>0.0015</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.001</ChanceInverseConstant>
 	 	<Name>Expeditioners</Name>
@@ -102,7 +102,7 @@
 	 overriden_spawn_clan_1 = "Faction.forest_bandits"
 	 overriden_spawn_clan_2 = "Faction.sea_raiders"
 	 >
-	 	<MaximumOnMap>4</MaximumOnMap>
+	 	<MaximumOnMap>12</MaximumOnMap>
 	 	<ChanceOfSpawn>0.01</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.03</ChanceInverseConstant>
 	 	<Name>Battanian Deserters</Name>
@@ -116,7 +116,7 @@
 	 spawn_clan = "Faction.cs_aserai_deserters"
 	 overriden_spawn_clan_0 = ""
 	 >
-	 	<MaximumOnMap>4</MaximumOnMap>
+	 	<MaximumOnMap>12</MaximumOnMap>
 	 	<ChanceOfSpawn>0.01</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.03</ChanceInverseConstant>
 	 	<Name>Aserai Deserters</Name>
@@ -132,7 +132,7 @@
 	 overriden_spawn_clan_1 = "Faction.forest_bandits"
 	 overriden_spawn_clan_2 = "Faction.sea_raiders"
 	 >
-	 	<MaximumOnMap>4</MaximumOnMap>
+	 	<MaximumOnMap>12</MaximumOnMap>
 	 	<ChanceOfSpawn>0.014</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.05</ChanceInverseConstant>
 	 	<Name>Imperial Deserters</Name>
@@ -146,7 +146,7 @@
 	 spawn_clan = "Faction.cs_khuzait_deserters"
 	 overriden_spawn_clan_0 = ""
 	 >
-	 	<MaximumOnMap>4</MaximumOnMap>
+	 	<MaximumOnMap>12</MaximumOnMap>
 	 	<ChanceOfSpawn>0.01</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.03</ChanceInverseConstant>
 	 	<Name>Khuzait Deserters</Name>
@@ -161,7 +161,7 @@
 	 overriden_spawn_clan_0 = "Faction.forest_bandits"
 	 overriden_spawn_clan_1 = "Faction.sea_raiders"
 	 >
-	 	<MaximumOnMap>4</MaximumOnMap>
+	 	<MaximumOnMap>12</MaximumOnMap>
 	 	<ChanceOfSpawn>0.01</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.03</ChanceInverseConstant>
 	 	<Name>Vlandian Deserters</Name>
@@ -176,7 +176,7 @@
 	 overriden_spawn_clan_0 = "Faction.mountain_bandits"
 	 overriden_spawn_clan_1 = "Faction.sea_raiders"
 	 >
-	 	<MaximumOnMap>4</MaximumOnMap>
+	 	<MaximumOnMap>12</MaximumOnMap>
 	 	<ChanceOfSpawn>0.01</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.03</ChanceInverseConstant>
 	 	<Name>Sturgian Deserters</Name>
@@ -196,7 +196,7 @@
 	 overriden_spawn_culture_4 = "Culture.khuzait"
 	 overriden_spawn_culture_5 = "Culture.sturgia"
 	 >
-	 	<MaximumOnMap>1</MaximumOnMap>
+	 	<MaximumOnMap>3</MaximumOnMap>
 	 	<ChanceOfSpawn>0.0013</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.01</ChanceInverseConstant>
 	 	<Name>United Deserters</Name>
@@ -221,7 +221,7 @@
 	 overriden_spawn_culture_1 = "Culture.battania"
 	 overriden_spawn_culture_2 = "Culture.sturgia"
 	 >
-	 	<MaximumOnMap>3</MaximumOnMap>
+	 	<MaximumOnMap>9</MaximumOnMap>
 	 	<ChanceOfSpawn>0.03</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.4</ChanceInverseConstant>
 	 	<Name>Razes' Raiders</Name>
@@ -239,7 +239,7 @@
 	 overriden_spawn_culture_1 = "Culture.aserai"
 	 overriden_spawn_culture_2 = "Culture.empire"
 	 >
-	 	<MaximumOnMap>3</MaximumOnMap>
+	 	<MaximumOnMap>9</MaximumOnMap>
 	 	<ChanceOfSpawn>0.03</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.04</ChanceInverseConstant>
 	 	<Name>Obaktu Manhunt</Name>
@@ -258,7 +258,7 @@
 	 overriden_spawn_culture_2 = "Culture.sturgia"
 	 overriden_spawn_culture_3 = "Culture.empire"
 	 >
-	 	<MaximumOnMap>3</MaximumOnMap>
+	 	<MaximumOnMap>9</MaximumOnMap>
 	 	<ChanceOfSpawn>0.03</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.04</ChanceInverseConstant>
 	 	<Name>Slavecoast Patrol</Name>
@@ -276,7 +276,7 @@
 	 overriden_spawn_culture_1 = "Culture.battania"
 	 overriden_spawn_culture_2 = "Culture.sturgia"
 	 >
-	 	<MaximumOnMap>3</MaximumOnMap>
+	 	<MaximumOnMap>9</MaximumOnMap>
 	 	<ChanceOfSpawn>0.01</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.02</ChanceInverseConstant>
 	 	<Name>Minor Slave Stack</Name>
@@ -294,7 +294,7 @@
 	 overriden_spawn_culture_1 = "Culture.battania"
 	 overriden_spawn_culture_2 = "Culture.sturgia"
 	 >
-	 	<MaximumOnMap>1</MaximumOnMap>
+	 	<MaximumOnMap>3</MaximumOnMap>
 	 	<ChanceOfSpawn>0.008</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0</ChanceInverseConstant>
 	 	<Name>Giant Slave Stack</Name>
@@ -317,7 +317,7 @@
 	 overriden_spawn_culture_1 = "Culture.khuzait"
 	 overriden_spawn_culture_2 = "Culture.empire"
 	 >
-	 	<MaximumOnMap>3</MaximumOnMap>
+	 	<MaximumOnMap>9</MaximumOnMap>
 	 	<ChanceOfSpawn>0.03</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.04</ChanceInverseConstant>
 	 	<Name>Bjornings</Name>
@@ -336,7 +336,7 @@
 	 overriden_spawn_culture_2 = "Culture.empire"
 	 overriden_spawn_culture_3 = "Culture.vlandia"
 	 >
-	 	<MaximumOnMap>4</MaximumOnMap>
+	 	<MaximumOnMap>12</MaximumOnMap>
 	 	<ChanceOfSpawn>0.03</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.04</ChanceInverseConstant>
 	 	<Name>Merry Sellswords</Name>
@@ -354,7 +354,7 @@
 	 overriden_spawn_culture_1 = "Culture.battania"
 	 overriden_spawn_culture_2 = "Culture.empire"
 	 >
-	 	<MaximumOnMap>4</MaximumOnMap>
+	 	<MaximumOnMap>12</MaximumOnMap>
 	 	<ChanceOfSpawn>0.03</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.04</ChanceInverseConstant>
 	 	<Name>Bloodsworn</Name>
@@ -372,7 +372,7 @@
 	 overriden_spawn_culture_1 = "Culture.khuzait"
 	 overriden_spawn_culture_2 = "Culture.empire"
 	 >
-	 	<MaximumOnMap>4</MaximumOnMap>
+	 	<MaximumOnMap>12</MaximumOnMap>
 	 	<ChanceOfSpawn>0.01</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.02</ChanceInverseConstant>
 	 	<Name>Minor Pillaging Stack</Name>
@@ -390,7 +390,7 @@
 	 overriden_spawn_culture_1 = "Culture.khuzait"
 	 overriden_spawn_culture_2 = "Culture.empire"
 	 >
-	 	<MaximumOnMap>1</MaximumOnMap>
+	 	<MaximumOnMap>3</MaximumOnMap>
 	 	<ChanceOfSpawn>0.0013</ChanceOfSpawn>
 	 	<DevestationLinearMultiplier>0.002</DevestationLinearMultiplier>
 	 	<ChanceInverseConstant>0</ChanceInverseConstant>
@@ -417,7 +417,7 @@
 	 overriden_spawn_culture_4 = "Culture.khuzait"
 	 overriden_spawn_culture_5 = "Culture.sturgia"
 	 >
-	 	<MaximumOnMap>3</MaximumOnMap>
+	 	<MaximumOnMap>9</MaximumOnMap>
 	 	<ChanceOfSpawn>0.01</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.99</ChanceInverseConstant>
 	 	<Name>Madmen</Name>
@@ -438,7 +438,7 @@
 	 overriden_spawn_culture_4 = "Culture.khuzait"
 	 overriden_spawn_culture_5 = "Culture.sturgia"
 	 >
-	 	<MaximumOnMap>1</MaximumOnMap>
+	 	<MaximumOnMap>3</MaximumOnMap>
 	 	<ChanceOfSpawn>0.0013</ChanceOfSpawn>
 	 	<DevestationLinearMultiplier>0.002</DevestationLinearMultiplier>
 	 	<ChanceInverseConstant>0</ChanceInverseConstant>
@@ -467,7 +467,7 @@
 	 overriden_spawn_culture_4 = "Culture.khuzait"
 	 overriden_spawn_culture_5 = "Culture.sturgia"
 	 >
-	 	<MaximumOnMap>1</MaximumOnMap>
+	 	<MaximumOnMap>3</MaximumOnMap>
 	 	<ChanceOfSpawn>0.02</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0</ChanceInverseConstant>
 	 	<Name>Revolting Jesters</Name>
@@ -485,7 +485,7 @@
 	 overriden_spawn_culture_0 = "Culture.empire"
 	 overriden_spawn_culture_1 = "Culture.vlandia"
 	 >
-	 	<MaximumOnMap>10</MaximumOnMap>
+	 	<MaximumOnMap>30</MaximumOnMap>
 	 	<ChanceOfSpawn>0.06</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.4</ChanceInverseConstant>
 	 	<MinimumDevestationToSpawn>110</MinimumDevestationToSpawn>
@@ -504,7 +504,7 @@
 	 overriden_spawn_culture_0 = "Culture.empire"
 	 overriden_spawn_culture_1 = "Culture.vlandia"
 	 >
-	 	<MaximumOnMap>1</MaximumOnMap>
+	 	<MaximumOnMap>3</MaximumOnMap>
 	 	<ChanceOfSpawn>0.0013</ChanceOfSpawn>
 	 	<DevestationLinearMultiplier>0.002</DevestationLinearMultiplier>
 	 	<ChanceInverseConstant>0</ChanceInverseConstant>
@@ -531,7 +531,7 @@
 	 overriden_spawn_culture_0 = "Culture.empire"
 	 overriden_spawn_culture_1 = "Culture.vlandia"
 	 >
-	 	<MaximumOnMap>5</MaximumOnMap>
+	 	<MaximumOnMap>15</MaximumOnMap>
 	 	<ChanceOfSpawn>0.1</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.4</ChanceInverseConstant>
 	 	<Name>Pilgrimage</Name>
@@ -548,7 +548,7 @@
 	 overriden_spawn_culture_0 = "Culture.empire"
 	 overriden_spawn_culture_1 = "Culture.vlandia"
 	 >
-	 	<MaximumOnMap>5</MaximumOnMap>
+	 	<MaximumOnMap>15</MaximumOnMap>
 	 	<ChanceOfSpawn>0.05</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.04</ChanceInverseConstant>
 	 	<Name>Inquisition</Name>
@@ -565,7 +565,7 @@
 	 overriden_spawn_culture_0 = "Culture.empire"
 	 overriden_spawn_culture_1 = "Culture.vlandia"
 	 >
-	 	<MaximumOnMap>1</MaximumOnMap>
+	 	<MaximumOnMap>3</MaximumOnMap>
 	 	<ChanceOfSpawn>0.0013</ChanceOfSpawn>
 	 	<DevestationLinearMultiplier>0.002</DevestationLinearMultiplier>
 	 	<ChanceInverseConstant>0</ChanceInverseConstant>
@@ -586,7 +586,7 @@
 	 overriden_spawn_clan_0 = ""
 	 overriden_spawn_culture_0 = "Culture.vlandia"
 	 >
-	 	<MaximumOnMap>4</MaximumOnMap>
+	 	<MaximumOnMap>12</MaximumOnMap>
 	 	<ChanceOfSpawn>0.05</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.04</ChanceInverseConstant>
 	 	<Name>Knights Errant</Name>
@@ -602,7 +602,7 @@
 	 overriden_spawn_clan_0 = ""
 	 overriden_spawn_culture_0 = "Culture.vlandia"
 	 >
-	 	<MaximumOnMap>4</MaximumOnMap>
+	 	<MaximumOnMap>12</MaximumOnMap>
 	 	<ChanceOfSpawn>0.06</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.04</ChanceInverseConstant>
 	 	<Name>Hunting Party</Name>
@@ -624,7 +624,7 @@
 	 spawn_along_with_1 = "PartyTemplate.cs_peasant_revolutionary_revolt"
 	 spawn_along_with_2 = "PartyTemplate.cs_peasant_revolutionary_revolt"
 	 spawn_along_with_3 = "PartyTemplate.cs_peasant_revolutionary_revolt">
-	 	<MaximumOnMap>1</MaximumOnMap>
+	 	<MaximumOnMap>3</MaximumOnMap>
 	 	<ChanceOfSpawn>0.0013</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0</ChanceInverseConstant>
 	 	<MinimumDevestationToSpawn>190</MinimumDevestationToSpawn>
@@ -651,7 +651,7 @@
 	 overriden_spawn_culture_0 = "Culture.empire"
 	 overriden_spawn_culture_1 = "Culture.vlandia"
 	 >
-	 	<MaximumOnMap>6</MaximumOnMap>
+	 	<MaximumOnMap>18</MaximumOnMap>
 	 	<ChanceOfSpawn>0.03</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.04</ChanceInverseConstant>
 	 	<Name>Angry Peasants</Name>
@@ -673,7 +673,7 @@
 	 spawn_along_with_1 = "PartyTemplate.cs_peasant_absolutist_revolt"
 	 spawn_along_with_2 = "PartyTemplate.cs_peasant_absolutist_revolt"
 	 spawn_along_with_3 = "PartyTemplate.cs_peasant_absolutist_revolt">
-	 	<MaximumOnMap>1</MaximumOnMap>
+	 	<MaximumOnMap>3</MaximumOnMap>
 	 	<ChanceOfSpawn>0.0013</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0</ChanceInverseConstant>
 	 	<MinimumDevestationToSpawn>190</MinimumDevestationToSpawn>
@@ -700,7 +700,7 @@
 	 overriden_spawn_culture_1 = "Culture.sturgia"
 	 >
 	 
-	 	<MaximumOnMap>8</MaximumOnMap>
+	 	<MaximumOnMap>24</MaximumOnMap>
 	 	<ChanceOfSpawn>0.1</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.4</ChanceInverseConstant>
 	 	<Name>Oathbreakers</Name>
@@ -717,7 +717,7 @@
 	 overriden_spawn_culture_0 = "Culture.battania"
 	 overriden_spawn_culture_1 = "Culture.sturgia"
 	 >
-	 	<MaximumOnMap>5</MaximumOnMap>
+	 	<MaximumOnMap>15</MaximumOnMap>
 	 	<ChanceOfSpawn>0.03</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.04</ChanceInverseConstant>
 	 	<Name>Belligerent Drunks</Name>
@@ -735,7 +735,7 @@
 	 overriden_spawn_culture_1 = "Culture.sturgia"
 	 overriden_spawn_culture_2 = "Culture.vlandia"
 	 >
-	 	<MaximumOnMap>8</MaximumOnMap>
+	 	<MaximumOnMap>24</MaximumOnMap>
 	 	<ChanceOfSpawn>0.04</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0</ChanceInverseConstant>
 	 	<Name>Witches</Name>
@@ -757,7 +757,7 @@
 	 spawn_along_with_1 = "PartyTemplate.cs_peasant_revolt"
 	 spawn_along_with_2 = "PartyTemplate.cs_peasant_revolt"
 	 spawn_along_with_3 = "PartyTemplate.cs_peasant_revolt">
-	 	<MaximumOnMap>1</MaximumOnMap>
+	 	<MaximumOnMap>3</MaximumOnMap>
 	 	<ChanceOfSpawn>0.0013</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0</ChanceInverseConstant>
 	 	<MinimumDevestationToSpawn>190</MinimumDevestationToSpawn>
@@ -783,7 +783,7 @@
 	 overriden_spawn_culture_0 = "Culture.aserai"
 	 overriden_spawn_culture_1 = "Culture.khuzait"
 	 >
-	 	<MaximumOnMap>8</MaximumOnMap>
+	 	<MaximumOnMap>24</MaximumOnMap>
 	 	<ChanceOfSpawn>0.1</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.04</ChanceInverseConstant>
 	 	<Name>Thieves</Name>
@@ -800,7 +800,7 @@
 	 overriden_spawn_culture_0 = "Culture.aserai"
 	 overriden_spawn_culture_1 = "Culture.khuzait"
 	 >
-	 	<MaximumOnMap>8</MaximumOnMap>
+	 	<MaximumOnMap>24</MaximumOnMap>
 	 	<ChanceOfSpawn>0.02</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0</ChanceInverseConstant>
 	 	<Name>Arena Outlaws</Name>
@@ -818,7 +818,7 @@
 	 overriden_spawn_clan_0 = ""
 	 >
 	 	<PartyType>Default</PartyType>
-	 	<MaximumOnMap>3</MaximumOnMap>
+	 	<MaximumOnMap>9</MaximumOnMap>
 	 	<ChanceOfSpawn>0.0175</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.09</ChanceInverseConstant>
 	 	<Name>Brainwasher</Name>
@@ -837,7 +837,7 @@
 	 overriden_spawn_culture_5 = "Culture.sturgia"
 	 >
 	 	<PartyType>Default</PartyType>
-	 	<MaximumOnMap>6</MaximumOnMap>
+	 	<MaximumOnMap>18</MaximumOnMap>
 	 	<ChanceOfSpawn>0.0075</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.03775</ChanceInverseConstant>
 	 	<Name>Cult Militia</Name>
@@ -858,7 +858,7 @@
 	 overriden_spawn_culture_5 = "Culture.sturgia"
 	 >
 	 	<PartyType>Default</PartyType>
-	 	<MaximumOnMap>1</MaximumOnMap>
+	 	<MaximumOnMap>3</MaximumOnMap>
 	 	<ChanceOfSpawn>0.0013</ChanceOfSpawn>
 	 	<DevestationLinearMultiplier>0.002</DevestationLinearMultiplier>
 	 	<ChanceInverseConstant>0</ChanceInverseConstant>
@@ -886,7 +886,7 @@
 	 overriden_spawn_culture_1 = "Culture.battania"
 	 overriden_spawn_culture_2 = "Culture.vlandia"
 	 >
-	 	<MaximumOnMap>3</MaximumOnMap>
+	 	<MaximumOnMap>9</MaximumOnMap>
 	 	<ChanceOfSpawn>0.02</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.08</ChanceInverseConstant>
 	 	<Name>Barbarian Foragers</Name>
@@ -903,7 +903,7 @@
 	 overriden_spawn_culture_1 = "Culture.battania"
 	 overriden_spawn_culture_2 = "Culture.vlandia"
 	 >
-	 	<MaximumOnMap>3</MaximumOnMap>
+	 	<MaximumOnMap>9</MaximumOnMap>
 	 	<ChanceOfSpawn>0.02</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.08</ChanceInverseConstant>
 	 	<Name>Barbarian Troop</Name>
@@ -920,7 +920,7 @@
 	 overriden_spawn_culture_1 = "Culture.battania"
 	 overriden_spawn_culture_2 = "Culture.vlandia"
 	 >
-	 	<MaximumOnMap>5</MaximumOnMap>
+	 	<MaximumOnMap>15</MaximumOnMap>
 	 	<ChanceOfSpawn>0.01</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.04</ChanceInverseConstant>
 	 	<Name>Barbarian Raiders</Name>
@@ -941,7 +941,7 @@
 	 spawn_along_with_2 = "PartyTemplate.cs_barbarian_refugees"
 	 spawn_along_with_3 = "PartyTemplate.cs_barbarian_refugees"
 	 >
-	 	<MaximumOnMap>1</MaximumOnMap>
+	 	<MaximumOnMap>3</MaximumOnMap>
 	 	<ChanceOfSpawn>0.0013</ChanceOfSpawn>
 	 	<DevestationLinearMultiplier>0.002</DevestationLinearMultiplier>
 	 	<ChanceInverseConstant>0</ChanceInverseConstant>
@@ -971,7 +971,7 @@
 	 overriden_spawn_culture_5 = "Culture.sturgia"
 	 >
 	 	<PartyType>Default</PartyType>
-	 	<MaximumOnMap>5</MaximumOnMap>
+	 	<MaximumOnMap>15</MaximumOnMap>
 	 	<ChanceOfSpawn>0.05</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.4</ChanceInverseConstant>
 	 	<Name>Village Watch</Name>
@@ -996,7 +996,7 @@
 	 overriden_spawn_culture_5 = "Culture.sturgia"
 	 >
 	 	<PartyType>Default</PartyType>
-	 	<MaximumOnMap>5</MaximumOnMap>
+	 	<MaximumOnMap>15</MaximumOnMap>
 	 	<ChanceOfSpawn>0.05</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.4</ChanceInverseConstant>
 	 	<Name>Town Watch</Name>
@@ -1021,7 +1021,7 @@
 	 overriden_spawn_culture_5 = "Culture.sturgia"
 	 >
 	 	<PartyType>Default</PartyType>
-	 	<MaximumOnMap>5</MaximumOnMap>
+	 	<MaximumOnMap>15</MaximumOnMap>
 	 	<ChanceOfSpawn>0.05</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.4</ChanceInverseConstant>
 	 	<Name>Manhunters</Name>
@@ -1045,7 +1045,7 @@
 	 overriden_spawn_culture_5 = "Culture.sturgia"
 	 >
 	 	<PartyType>Default</PartyType>
-	 	<MaximumOnMap>4</MaximumOnMap>
+	 	<MaximumOnMap>12</MaximumOnMap>
 	 	<ChanceOfSpawn>0.05</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.15</ChanceInverseConstant>
 	 	<Name>Zealous Conscripts</Name>
@@ -1069,7 +1069,7 @@
 	 overriden_spawn_culture_5 = "Culture.sturgia"
 	 >
 	 	<PartyType>Default</PartyType>
-	 	<MaximumOnMap>4</MaximumOnMap>
+	 	<MaximumOnMap>12</MaximumOnMap>
 	 	<ChanceOfSpawn>0</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.9</ChanceInverseConstant>
 	 	<Name>Idealistic Citizens</Name>
@@ -1093,7 +1093,7 @@
 	 overriden_spawn_culture_5 = "Culture.sturgia"
 	 >
 	 	<PartyType>Default</PartyType>
-	 	<MaximumOnMap>1</MaximumOnMap>
+	 	<MaximumOnMap>3</MaximumOnMap>
 	 	<ChanceOfSpawn>0.0013</ChanceOfSpawn>
 	 	<DevestationLinearMultiplier>0.002</DevestationLinearMultiplier>
 	 	<ChanceInverseConstant>0</ChanceInverseConstant>
@@ -1124,7 +1124,7 @@
 	 overriden_spawn_culture_2 = "Culture.vlandia"
 	 overriden_spawn_culture_3 = "Culture.sturgia"
 	 >
-	 	<MaximumOnMap>5</MaximumOnMap>
+	 	<MaximumOnMap>15</MaximumOnMap>
 	 	<ChanceOfSpawn>0.01</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.04</ChanceInverseConstant>
 	 	<Name>Makkonian Scouts</Name>
@@ -1146,7 +1146,7 @@
 	 spawn_along_with_1 = "PartyTemplate.cs_makko_army_party"
 	 spawn_along_with_2 = "PartyTemplate.cs_makko_army_party"
 	 >
-	 	<MaximumOnMap>1</MaximumOnMap>
+	 	<MaximumOnMap>3</MaximumOnMap>
 	 	<ChanceOfSpawn>0.0013</ChanceOfSpawn>
 	 	<DevestationLinearMultiplier>0.002</DevestationLinearMultiplier>
 	 	<ChanceInverseConstant>0</ChanceInverseConstant>
@@ -1173,7 +1173,7 @@
 	 overriden_spawn_culture_0 = "Culture.khuzait"
 	 overriden_spawn_culture_1 = "Culture.aserai"
 	 >
-	 	<MaximumOnMap>3</MaximumOnMap>
+	 	<MaximumOnMap>9</MaximumOnMap>
 	 	<ChanceOfSpawn>0.01</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.04</ChanceInverseConstant>
 	 	<Name>Humarian Scouts</Name>
@@ -1193,7 +1193,7 @@
 	 spawn_along_with_1 = "PartyTemplate.cs_humar_army_party"
 	 spawn_along_with_2 = "PartyTemplate.cs_humar_army_party"
 	 >
-	 	<MaximumOnMap>1</MaximumOnMap>
+	 	<MaximumOnMap>3</MaximumOnMap>
 	 	<ChanceOfSpawn>0.0013</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0</ChanceInverseConstant>
 	 	<DevestationLinearMultiplier>0.002</DevestationLinearMultiplier>
@@ -1218,7 +1218,7 @@
 	 overriden_spawn_culture_0 = "Culture.aserai"
 	 overriden_spawn_culture_1 = "Culture.khuzait"
 	 >
-	 	<MaximumOnMap>8</MaximumOnMap>
+	 	<MaximumOnMap>24</MaximumOnMap>
 	 	<ChanceOfSpawn>0.02</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.04</ChanceInverseConstant>
 	 	<Name>Ronin</Name>
