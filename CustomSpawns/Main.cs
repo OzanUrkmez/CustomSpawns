@@ -1,4 +1,3 @@
-using System.IO;
 using CustomSpawns.AI;
 using CustomSpawns.CampaignData.Implementations;
 using CustomSpawns.Config;
@@ -76,7 +75,6 @@ namespace CustomSpawns
             }
 
             AddBehaviours((CampaignGameStarter) gameStarterObject);
-            LoadXmlFiles((CampaignGameStarter) gameStarterObject);
         }
 
         protected override void OnBeforeInitialModuleScreenSetAsRoot() //assure player :) also myself lol
@@ -123,16 +121,6 @@ namespace CustomSpawns
                 starter.AddBehavior(new RemoverBehaviour());
             }
         }
-
-        private void LoadXmlFiles(CampaignGameStarter starter)
-        {
-#if !API_MODE
-            starter.LoadGameTexts(Path.Combine(BasePath.Name, "Modules", "CustomSpawns", "ModuleData",
-                "CraftingTemplateNames.xml"));
-#endif
-        }
-
-
 
         public override void OnGameInitializationFinished(Game game)
         {

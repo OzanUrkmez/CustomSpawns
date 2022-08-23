@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using CustomSpawns.Data;
 using CustomSpawns.Utils;
 using HarmonyLib;

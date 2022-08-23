@@ -1,6 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
-    <strings>
-        <string id="str_crafting_template.CS_ThrowingHammer" text="{=mVsS00uC}Throwing Hammer" />
-    </strings>
-</base>
+<strings>
+    <string id="str_crafting_template.CS_ThrowingHammer" text="{=mVsS00uC}Throwing Hammer" />
+</strings>
