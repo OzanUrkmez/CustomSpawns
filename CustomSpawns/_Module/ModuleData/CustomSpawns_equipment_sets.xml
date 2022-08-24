@@ -20,6 +20,9 @@
         <Equipment id="Item.light_tunic" slot="Body"/>
         <Equipment id="Item.eastern_leather_boots" slot="Leg"/>
     </EquipmentSet>
+    <Flags IsFemaleTemplate="true"
+           IsNoncombatantTemplate="true"
+           IsNobleTemplate="true"/>
   </EquipmentRoster>
   <EquipmentRoster id="cs_desertcult_template_highlord">
     <EquipmentSet>
@@ -41,6 +44,9 @@
         <Equipment id="Item.eastern_silk_clothing" slot="Body"/>
         <Equipment id="Item.eastern_leather_boots" slot="Leg"/>
     </EquipmentSet>
+    <Flags
+           IsNoncombatantTemplate="true"
+           IsNobleTemplate="true"/>
   </EquipmentRoster>
   
   <EquipmentRoster id="cs_redemptive_template_lord">
@@ -73,6 +79,9 @@
     <EquipmentSet civilian="true">
         <Equipment id="Item.vlandian_woman_dress" slot="Body"/>
         <Equipment id="Item.ladys_shoe" slot="Leg"/>
+        <Flags IsFemaleTemplate="true"
+               IsNoncombatantTemplate="true"
+               IsNobleTemplate="true"/>
     </EquipmentSet>
   </EquipmentRoster>
   <EquipmentRoster id="cs_redemptive_template_lord_civic">
@@ -81,12 +90,17 @@
         <Equipment id="Item.leather_coat" slot="Body"/>
         <Equipment id="Item.leather_cavalier_boots" slot="Leg"/>
     </EquipmentSet>
+    <Flags IsFemaleTemplate="true"
+         IsNoncombatantTemplate="true"
+         IsNobleTemplate="true"/>
   </EquipmentRoster>
   <EquipmentRoster id="cs_redemptive_template_inquisitor_civic">
     <EquipmentSet civilian="true">
         <Equipment id="Item.monk_robe" slot="Body"/>
         <Equipment id="Item.decorated_imperial_boots" slot="Leg"/>
     </EquipmentSet>
+    <Flags IsNoncombatantTemplate="true"
+           IsNobleTemplate="true"/>
   </EquipmentRoster>
 
   <EquipmentRoster id="cs_wrath_template_cultlord">
@@ -107,6 +121,8 @@
         <Equipment id="Item.long_woolen_tunic" slot="Body"/>
         <Equipment id="Item.fine_town_boots" slot="Leg"/>
     </EquipmentSet>
+    <Flags IsNoncombatantTemplate="true"
+           IsNobleTemplate="true"/>
   </EquipmentRoster>
   
   <EquipmentRoster id="cs_manhunter_template_lord">
@@ -129,6 +145,8 @@
         <Equipment id="Item.imperial_lamellar_over_leather" slot="Body"/>
         <Equipment id="Item.decorated_imperial_boots" slot="Leg"/>
     </EquipmentSet>
+    <Flags IsNoncombatantTemplate="true"
+           IsNobleTemplate="true"/>
   </EquipmentRoster>
   
   <EquipmentRoster id="cs_razesraiders_template_lord">
@@ -154,6 +172,8 @@
         <Equipment id="Item.buttoned_leather_bracers" slot="Gloves"/>
         <Equipment id="Item.eastern_leather_boots" slot="Leg"/>
     </EquipmentSet>
+    <Flags IsNoncombatantTemplate="true"
+           IsNobleTemplate="true"/>
   </EquipmentRoster>
   <EquipmentRoster id="cs_slavecoast_template_lord">
     <EquipmentSet>
@@ -174,6 +194,8 @@
         <Equipment id="Item.padded_leather_shirt" slot="Body"/>
         <Equipment id="Item.empire_horseman_boots" slot="Leg"/>
     </EquipmentSet>
+    <Flags IsNoncombatantTemplate="true"
+           IsNobleTemplate="true"/>
   </EquipmentRoster>
   <EquipmentRoster id="cs_obaktu_template_lord">
     <EquipmentSet>
@@ -196,6 +218,8 @@
         <Equipment id="Item.northern_brass_bracers" slot="Gloves"/>
         <Equipment id="Item.battania_fur_boots" slot="Leg"/>
     </EquipmentSet>
+    <Flags IsNoncombatantTemplate="true"
+           IsNobleTemplate="true"/>  
   </EquipmentRoster>
   
   <EquipmentRoster id="cs_bjorning_template_lord">
@@ -219,6 +243,8 @@
         <Equipment id="Item.nordic_sloven" slot="Body"/>
         <Equipment id="Item.battania_leather_boots" slot="Leg"/>
     </EquipmentSet>
+    <Flags IsNoncombatantTemplate="true"
+           IsNobleTemplate="true"/>
   </EquipmentRoster>
   <EquipmentRoster id="cs_bloodsworn_template_lord">
     <EquipmentSet>
@@ -239,6 +265,8 @@
         <Equipment id="Item.battania_cloak" slot="Cape"/>
         <Equipment id="Item.strapped_shoes" slot="Leg"/>
     </EquipmentSet>
+    <Flags IsNoncombatantTemplate="true"
+           IsNobleTemplate="true"/>
   </EquipmentRoster>
   <EquipmentRoster id="cs_sellswords_template_boss">
     <EquipmentSet>
@@ -256,6 +284,8 @@
         <Equipment id="Item.merchants_fur_coat" slot="Body"/>
         <Equipment id="Item.fine_town_boots" slot="Leg"/>
     </EquipmentSet>
+    <Flags IsNoncombatantTemplate="true"
+           IsNobleTemplate="true"/>
   </EquipmentRoster>
   
   <EquipmentRoster id="cs_revolutionaries_template_lord">
@@ -278,6 +308,8 @@
         <Equipment id="Item.guarded_armwraps" slot="Gloves"/>
         <Equipment id="Item.hood" slot="Cape"/>
     </EquipmentSet>
+    <Flags IsNoncombatantTemplate="true"
+           IsNobleTemplate="true"/>
   </EquipmentRoster>
   <EquipmentRoster id="cs_revolutionaries_template_female_civic">
     <EquipmentSet civilian="true">
@@ -286,6 +318,9 @@
         <Equipment id="Item.ragged_boots" slot="Leg"/>
         <Equipment id="Item.female_hood" slot="Cape"/>
     </EquipmentSet>
+    <Flags IsFemaleTemplate="true"
+           IsNoncombatantTemplate="true"
+           IsNobleTemplate="true"/> 
   </EquipmentRoster>
   <EquipmentRoster id="cs_outcast_template_lord">
     <EquipmentSet>
@@ -303,6 +338,8 @@
         <Equipment id="Item.guarded_padded_vambrace" slot="Gloves"/>
         <Equipment id="Item.rough_tied_boots" slot="Leg"/>
     </EquipmentSet>
+    <Flags IsNoncombatantTemplate="true"
+           IsNobleTemplate="true"/>
   </EquipmentRoster>
   <EquipmentRoster id="cs_outcast_template_female_civic">
     <EquipmentSet civilian="true">
@@ -310,6 +347,9 @@
         <Equipment id="Item.long_fur_coat" slot="Body"/>
         <Equipment id="Item.rough_tied_boots" slot="Leg"/>
     </EquipmentSet>
+    <Flags IsFemaleTemplate="true"
+           IsNoncombatantTemplate="true"
+           IsNobleTemplate="true"/>
   </EquipmentRoster>
   <EquipmentRoster id="cs_roamingbrigand_template_lord">
     <EquipmentSet>
@@ -333,6 +373,8 @@
         <Equipment id="Item.wolf_shoulder" slot="Cape"/>
         <Equipment id="Item.plated_strip_boots" slot="Leg"/>
     </EquipmentSet>
+    <Flags IsNoncombatantTemplate="true"
+           IsNobleTemplate="true"/>
   </EquipmentRoster>
   
   <EquipmentRoster id="cs_barbarians_template_chieftain">
@@ -362,6 +404,8 @@
         <Equipment id="Item.battania_woodland_boots" slot="Leg"/>
         <Equipment id="Item.rough_bearskin" slot="Cape"/>
     </EquipmentSet>
+    <Flags IsNoncombatantTemplate="true"
+           IsNobleTemplate="true"/>
   </EquipmentRoster>
   <EquipmentRoster id="cs_barbarians_template_female_civic">
     <EquipmentSet civilian="true">
@@ -369,6 +413,9 @@
         <Equipment id="Item.sleeveless_fur_coat" slot="Body"/>
         <Equipment id="Item.battania_woodland_boots" slot="Leg"/>
     </EquipmentSet>
+    <Flags IsFemaleTemplate="true"
+           IsNoncombatantTemplate="true"
+           IsNobleTemplate="true"/>
   </EquipmentRoster>
   
   <EquipmentRoster id="cs_phoenix_template_lord">
@@ -392,6 +439,8 @@
         <Equipment id="Item.leather_gloves" slot="Gloves"/>
         <Equipment id="Item.strapped_shoes" slot="Leg"/>
     </EquipmentSet>
+    <Flags IsNoncombatantTemplate="true"
+           IsNobleTemplate="true"/>
   </EquipmentRoster>
   
   <EquipmentRoster id="cs_makko_template_grandgeneral">
@@ -416,6 +465,8 @@
         <Equipment id="Item.merchants_fur_coat" slot="Body"/>
         <Equipment id="Item.khuzait_curved_boots" slot="Leg"/>
     </EquipmentSet>
+    <Flags IsNoncombatantTemplate="true"
+           IsNobleTemplate="true"/>
   </EquipmentRoster>
   
   <EquipmentRoster id="cs_humar_template_lord">
@@ -439,6 +490,8 @@
         <Equipment id="Item.imperial_robes" slot="Body"/>
         <Equipment id="Item.woven_leather_boots" slot="Leg"/>
     </EquipmentSet>
+    <Flags IsNoncombatantTemplate="true"
+           IsNobleTemplate="true"/>
   </EquipmentRoster>
   
   <EquipmentRoster id="cs_madman_template_boss">
@@ -450,5 +503,7 @@
     <EquipmentSet civilian="true">
         <Equipment id="Item.peasant_pitchfork_1_t1" slot="Item0"/>
     </EquipmentSet>
+    <Flags IsNoncombatantTemplate="true"
+           IsNobleTemplate="true"/>
   </EquipmentRoster>
 </EquipmentRosters>
