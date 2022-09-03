@@ -971,7 +971,7 @@
 	 overriden_spawn_culture_5 = "Culture.sturgia"
 	 >
 	 	<PartyType>Default</PartyType>
-	 	<MaximumOnMap>15</MaximumOnMap>
+	 	<MaximumOnMap>5</MaximumOnMap>
 	 	<ChanceOfSpawn>0.05</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.4</ChanceInverseConstant>
 	 	<Name>Village Watch</Name>
@@ -996,7 +996,7 @@
 	 overriden_spawn_culture_5 = "Culture.sturgia"
 	 >
 	 	<PartyType>Default</PartyType>
-	 	<MaximumOnMap>15</MaximumOnMap>
+	 	<MaximumOnMap>5</MaximumOnMap>
 	 	<ChanceOfSpawn>0.05</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.4</ChanceInverseConstant>
 	 	<Name>Town Watch</Name>
@@ -1021,7 +1021,7 @@
 	 overriden_spawn_culture_5 = "Culture.sturgia"
 	 >
 	 	<PartyType>Default</PartyType>
-	 	<MaximumOnMap>15</MaximumOnMap>
+	 	<MaximumOnMap>5</MaximumOnMap>
 	 	<ChanceOfSpawn>0.05</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.4</ChanceInverseConstant>
 	 	<Name>Manhunters</Name>
@@ -1045,7 +1045,7 @@
 	 overriden_spawn_culture_5 = "Culture.sturgia"
 	 >
 	 	<PartyType>Default</PartyType>
-	 	<MaximumOnMap>12</MaximumOnMap>
+	 	<MaximumOnMap>4</MaximumOnMap>
 	 	<ChanceOfSpawn>0.05</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.15</ChanceInverseConstant>
 	 	<Name>Zealous Conscripts</Name>
@@ -1069,7 +1069,7 @@
 	 overriden_spawn_culture_5 = "Culture.sturgia"
 	 >
 	 	<PartyType>Default</PartyType>
-	 	<MaximumOnMap>12</MaximumOnMap>
+	 	<MaximumOnMap>4</MaximumOnMap>
 	 	<ChanceOfSpawn>0</ChanceOfSpawn>
 	 	<ChanceInverseConstant>0.9</ChanceInverseConstant>
 	 	<Name>Idealistic Citizens</Name>
@@ -1093,7 +1093,7 @@
 	 overriden_spawn_culture_5 = "Culture.sturgia"
 	 >
 	 	<PartyType>Default</PartyType>
-	 	<MaximumOnMap>3</MaximumOnMap>
+	 	<MaximumOnMap>1</MaximumOnMap>
 	 	<ChanceOfSpawn>0.0013</ChanceOfSpawn>
 	 	<DevestationLinearMultiplier>0.002</DevestationLinearMultiplier>
 	 	<ChanceInverseConstant>0</ChanceInverseConstant>

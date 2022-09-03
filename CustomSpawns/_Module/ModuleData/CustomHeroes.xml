@@ -21,7 +21,7 @@
   <Hero id="cs_lord_peasant_revolutionaries_1" faction="Faction.cs_peasant_revolutionaries" text="Karlinn is the leader of the Revolutionaries. Once a simple farmhand, now an enraged man with determination in his eyes. His fiery temper and hate for the upper classes made him the vanguard of the peasant uprising movements."/>
   <Hero id="cs_lord_peasant_revolutionaries_2" faction="Faction.cs_peasant_revolutionaries" father="Hero.cs_lord_peasant_revolutionaries_1"/>
   <Hero id="cs_lord_peasant_absolutists_1" faction="Faction.cs_peasant_absolutists" text="Hiltminn is the leader of the Outcasts. He's a tower among men. Before he got thrown out of his home for his dishonorable clan, he fought as a bodyguard for an unthankful noble. Since his banishment, the Outcasts have been like a family for him. He became a lighthouse and protector for all the poor souls who lost their homes and families just like him."/>
-  <Hero id="cs_lord_peasant_absolutists_2" faction="Faction.cs_peasant_absolutists" />
+  <Hero id="cs_lord_peasant_absolutists_2" faction="Faction.cs_peasant_absolutists" father="Hero.cs_lord_peasant_absolutists_1" />
   <Hero id="cs_lord_peasant_revolters_1" faction="Faction.cs_peasant_revolters" text="Chungis is the leader of the Roaming Brigands. He's one of the most devious and cunning steppe warlords. Scoundrels of all sorts admire him and follow his horde gladly."/>
   <Hero id="cs_lord_peasant_revolters_2" faction="Faction.cs_peasant_revolters" father="Hero.cs_lord_peasant_revolters_1"/>
   <Hero id="cs_lord_barbarians_1" faction="Faction.cs_barbarians" mother="Hero.cs_lord_barbarians_3" text="Bubla is the de-facto leader of the barbarians, and each smaller semi-nomadic family unit eventually answers to him."/>
@@ -31,7 +31,7 @@
   <Hero id="cs_lord_barbarians_5" faction="Faction.cs_barbarians" father="Hero.cs_lord_barbarians_2" />
   <Hero id="cs_lord_barbarians_6" faction="Faction.cs_barbarians" father="Hero.cs_lord_barbarians_2" />
   <Hero id="cs_lord_ko_phoenix_1" faction="Faction.cs_ko_phoenix" text="Bertholdt is the leader of the Order of the Phoenix."/>
-  <Hero id="cs_lord_ko_phoenix_2" faction="Faction.cs_ko_phoenix" />
+  <Hero id="cs_lord_ko_phoenix_2" faction="Faction.cs_ko_phoenix" father="Hero.cs_lord_ko_phoenix_1" />
   <Hero id="cs_lord_makko_1" faction="Faction.cs_makko" text="Momumbus is the captain of the giant expedition that eventually reaches Calradia."/>
   <Hero id="cs_lord_humar_1" faction="Faction.cs_humar" text="Ceng is the current ruler of the far-eastern Humar tribes."/>
   <Hero id="cs_lord_madmen_1" faction="Faction.cs_madmen"/>

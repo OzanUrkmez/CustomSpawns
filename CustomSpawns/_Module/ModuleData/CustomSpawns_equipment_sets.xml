@@ -79,10 +79,10 @@
     <EquipmentSet civilian="true">
         <Equipment id="Item.vlandian_woman_dress" slot="Body"/>
         <Equipment id="Item.ladys_shoe" slot="Leg"/>
-        <Flags IsFemaleTemplate="true"
-               IsNoncombatantTemplate="true"
-               IsNobleTemplate="true"/>
     </EquipmentSet>
+    <Flags IsFemaleTemplate="true"
+           IsNoncombatantTemplate="true"
+           IsNobleTemplate="true"/>
   </EquipmentRoster>
   <EquipmentRoster id="cs_redemptive_template_lord_civic">
     <EquipmentSet civilian="true">
