@@ -40,7 +40,7 @@ namespace CustomSpawns.RewardSystem
 #if API_MODE
                 pathToSchema = Path.Combine(BasePath.Name, "Modules", "CustomSpawnsCleanAPI", "Schema",
                     "PartyRewardTemplateSchema.xsd");
-                foreach (var subMod in ModIntegration.SubModManager.dependentModsArray)
+                foreach (var subMod in ModIntegration.SubModManager.LoadAllValidDependentMods())
                 {
                     string path = Path.Combine(subMod.CustomSpawnsDirectoryPath, "PartyRewards.xml");
                     if (File.Exists(path))

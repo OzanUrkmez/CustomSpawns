@@ -65,5 +65,8 @@
         <Link>CustomSpawnsCleanAPI\_Module\SubModule.xml</Link>
       </Content>
     </ItemGroup>
+    <ItemGroup>
+      <Folder Include="PrisonerRecruitment" />
+    </ItemGroup>
 
 </Project>
