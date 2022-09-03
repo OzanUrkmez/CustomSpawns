@@ -384,13 +384,6 @@ if set to true this is player dialogue. If multiple player dialogues are trigger
 		</Dialogue>
 	</Dialogue>
 
-	<!-- Manhunters -->
-
-	<Dialogue condition = "PartyIsInFaction(cs_manhunters) AND IsHostile AND IsAttacking" text = "More pestilence upon this tumultuous land. I, of the last standing Knight Order of Calradia, the Phoenix, shall ensure your swift death." consequence = "Battle" />
-	<Dialogue condition = "PartyIsInFaction(cs_manhunters) AND IsHostile AND IsDefending" text = "Go on then. A Knight does not fear any adversity! I shall die in honour, and laugh down on your pitiful existence from the heavens." consequence = "Battle" />
-	<Dialogue condition = "PartyIsInFaction(cs_manhunters) AND IsFriendly" text = "How rare! A friendly face on the road" consequence = "Leave" >
-		<Dialogue text = "It's my pleasure! Take care, sir Knight." consequence = "Leave" player = "true" />
-	</Dialogue>
 <!-- -->
 
 </root>
