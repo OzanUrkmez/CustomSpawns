@@ -359,7 +359,7 @@
     </Equipments>
   </NPCCharacter>
   <!-- Outcasts -->
-  <NPCCharacter age="55" culture="Culture.battania" default_group="Infantry" id="cs_lord_peasant_absolutists_1" is_hero="true" name="Hiltminn" occupation="Lord" voice="curt">
+  <NPCCharacter age="39" culture="Culture.battania" default_group="Infantry" id="cs_lord_peasant_absolutists_1" is_hero="true" name="Hiltminn" occupation="Lord" voice="curt">
     <face>
       <BodyProperties age="38" build="0.8" key="00005C07150024CAB77216196072AAE6728B78827641ED973887AC168234162501F770140F99E955000000000000000000000000000000000000000005F05082" version="4" weight="0.5"/>
     </face>
