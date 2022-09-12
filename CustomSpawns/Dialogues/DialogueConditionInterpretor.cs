@@ -348,7 +348,13 @@ namespace CustomSpawns.Dialogues
         private static bool IsCustomSpawnParty(DialogueParams param)
         {
             // TODO refactor when these "managers" are not singletons anymore. 
-            return SpawnDataManager.Instance.AllSpawnData().Keys.Any(partyId => param.AdversaryParty.StringId.StartsWith(partyId));
+            return SpawnDataManager.Instance.AllSpawnData().Keys.Any(partyId => param?.AdversaryParty?.StringId?.StartsWith(partyId) ?? false);
+        }
+
+        [DialogueConditionImplementor("IsPlayerEncounterInsideSettlement")]
+        private static bool IsPlayerEncounterInsideSettlement(DialogueParams param)
+        {
+            return PlayerEncounter.InsideSettlement;
         }
 
         [DialogueConditionImplementor("BarterSuccessful")]

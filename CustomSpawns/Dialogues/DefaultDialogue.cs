@@ -9,6 +9,11 @@ namespace CustomSpawns.Dialogues
         private readonly DialogueConditionInterpretor _dialogueConditionInterpretor;
         private readonly DialogueConsequenceInterpretor _dialogueConsequenceInterpretor;
 
+        // There is currently no use case requiring the handling of settlement dialogues for custom spawn troops / parties.
+        // Custom spawn parties without a leader can not be talked to via the settlement interface (e1.8.0)
+        // Even if a custom spawn lord was to be in a settlement, it would trigger by default the vanilla's lord dialogue.
+        // If CaW or submods require settlement dialogues, the mod should add their own custom dialogue instead of relying
+        // on this default implementation.
         public DefaultDialogue(DialogueConditionInterpretor dialogueConditionInterpretor, DialogueConsequenceInterpretor dialogueConsequenceInterpretor)
         {
             _dialogueConditionInterpretor = dialogueConditionInterpretor;
@@ -24,7 +29,8 @@ namespace CustomSpawns.Dialogues
         private DialogueData HostileAttackDialogue()
         {
             DialogueCondition dialogueCondition =
-                _dialogueConditionInterpretor.ParseCondition("IsCustomSpawnParty AND IsHostile AND IsAttacking");
+                _dialogueConditionInterpretor.ParseCondition("!IsPlayerEncounterInsideSettlement " +
+                                                             "AND IsCustomSpawnParty AND IsHostile AND IsAttacking");
             DialogueConsequence consequence = _dialogueConsequenceInterpretor.ParseConsequence("Battle");
             DialogueData dialogueData = new();
             dialogueData.Dialogue_ID = "CS_Default_Dialogue_1";
@@ -40,7 +46,8 @@ namespace CustomSpawns.Dialogues
         private DialogueData HostileDefendDialogue()
         {
             DialogueCondition dialogueCondition =
-                _dialogueConditionInterpretor.ParseCondition("IsCustomSpawnParty AND IsHostile AND IsDefending");
+                _dialogueConditionInterpretor.ParseCondition("!IsPlayerEncounterInsideSettlement " +
+                                                             "AND IsCustomSpawnParty AND IsHostile AND IsDefending");
             DialogueConsequence consequence = _dialogueConsequenceInterpretor.ParseConsequence("Battle");
             DialogueData dialogueData = new();
             dialogueData.Dialogue_ID = "CS_Default_Dialogue_2";
@@ -56,7 +63,8 @@ namespace CustomSpawns.Dialogues
         private DialogueData FriendlyDialogue()
         {
             DialogueCondition dialogueCondition =
-                _dialogueConditionInterpretor.ParseCondition("IsCustomSpawnParty AND IsFriendly");
+                _dialogueConditionInterpretor.ParseCondition("!IsPlayerEncounterInsideSettlement " +
+                                                             "AND IsCustomSpawnParty AND IsFriendly");
             DialogueData dialogueData = new();
             dialogueData.Dialogue_ID = "CS_Default_Dialogue_3";
             dialogueData.InjectedToTaleworlds = false;
