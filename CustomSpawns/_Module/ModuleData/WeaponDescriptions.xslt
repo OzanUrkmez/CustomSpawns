@@ -61,7 +61,10 @@
 
     <xsl:variable name="javelin-pieces" select="'cs_bamboo_spear_handle'"/>
 
-    <xsl:variable name="pike-pieces" select="'cs_barbarian_pike_shaft'"/>
+    <xsl:variable name="pike-pieces" select="concat(
+					'cs_barbarian_pike_shaft,', 
+					'spear_handle_3'
+				)"/>
 
     <xsl:variable name="two-handed-axe-pieces" select="'cs_pick_head'"/>
     
