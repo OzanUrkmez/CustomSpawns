@@ -57,7 +57,7 @@
             'cs_ls_morningstar_shaft,',
             'cs_club_handle,',
             'cs_no_head,',
-			'mace_head_7',
+			'mace_head_7,',
 			'mace_handle_15'
         )"/>
 
