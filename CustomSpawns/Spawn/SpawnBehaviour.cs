@@ -8,6 +8,7 @@ using CustomSpawns.Economics;
 using CustomSpawns.UtilityBehaviours;
 using CustomSpawns.Utils;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Map;
 using TaleWorlds.Localization;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.CampaignSystem.Settlements;
@@ -69,13 +70,13 @@ namespace CustomSpawns.Spawn
             //restore lost AI behaviours!
             try
             {
-                var partyIDToData = SpawnDataManager.Instance.PartyIDToData;
+                var allSpawnData = SpawnDataManager.Instance.AllSpawnData();
                 foreach (MobileParty mb in MobileParty.All)
                 {
                     string id = CampaignUtils.IsolateMobilePartyStringID(mb);
-                    if(id != "" && partyIDToData.ContainsKey(id))
+                    if(id != "" && allSpawnData.ContainsKey(id))
                     {
-                        var spawnData = partyIDToData[id];
+                        var spawnData = allSpawnData[id];
                         HandleAIChecks(mb, spawnData, mb.HomeSettlement);
                     }
 
@@ -302,7 +303,9 @@ namespace CustomSpawns.Spawn
                 return spawnOverride;
 
             //get settlement
-            Settlement spawnSettlement = ConfigLoader.Instance.Config.SpawnAtOneHideout ? firstHideout : (data.TrySpawnAtList.Count == 0 ? CampaignUtils.GetPreferableHideout(spawnClan) : null);
+            List<IMapPoint> parties = spawnClan.WarPartyComponents.Select(warParty => warParty.MobileParty).ToList<IMapPoint>();
+            List<Settlement> hideouts = Settlement.All.Where(settlement => settlement.IsHideout).ToList();
+            Settlement spawnSettlement = ConfigLoader.Instance.Config.SpawnAtOneHideout ? firstHideout : (data.TrySpawnAtList.Count == 0 ? CampaignUtils.GetNearestSettlement(hideouts, parties) : null);
             return spawnSettlement;
         }
     }

@@ -4,44 +4,19 @@ using System.Linq;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Map;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.CampaignSystem.Settlements;
 
 
 namespace CustomSpawns.Utils
 {
-    class CampaignUtils
+    public class CampaignUtils
     {
-
-        public static Settlement GetPreferableHideout(Clan preferredFaction, bool secondCall = false)
-        {
-            Settlement settlement;
-            Hideout hideout = SelectARandomHideout(preferredFaction, true, true, false);
-            settlement = ((hideout != null) ? hideout.Owner.Settlement : null);
-            if (settlement == null)
-            {
-                hideout = SelectARandomHideout(preferredFaction, false, true, false);
-                settlement = ((hideout != null) ? hideout.Owner.Settlement : null);
-                if (settlement == null)
-                {
-                    hideout = SelectARandomHideout(preferredFaction, false, false, false);
-                    settlement = ((hideout != null) ? hideout.Owner.Settlement : null);
-                    if (settlement == null && !secondCall) //in case the selected faction is invalid
-                    {
-                        List<Clan> clans = Clan.BanditFactions.ToList();
-                        Random rnd = new Random();
-                        Clan chosen = clans[rnd.Next(0, clans.Count)];
-                        return GetPreferableHideout(chosen, true);
-                    }
-                }
-            }
-            return settlement;
-        }
-
         public static Settlement PickRandomSettlementOfCulture(List<CultureCode> c, Func<Settlement, bool> exceptionPredicate, List<Data.SpawnSettlementType> preferredTypes = null)
         {
             int num = 0;
-            List<Settlement> permissible = new List<Settlement>();
+            List<Settlement> permissible = new();
 
             if (preferredTypes != null && preferredTypes.Count != 0)
             {
@@ -258,117 +233,43 @@ namespace CustomSpawns.Utils
             return false;
         }
 
-        public static List<PrisonerInfo> GetPrisonersInSettlement(SettlementComponent sc)
+        public static Settlement? GetNearestSettlement(List<Settlement>? settlements,
+            List<IMapPoint>? mapPositions)
         {
-            List<PartyBase> list = new List<PartyBase>
+            if (settlements == null || settlements.IsEmpty() || mapPositions == null)
             {
-                sc.Owner
-            };
-            foreach (MobileParty mobileParty in sc.Owner.Settlement.Parties)
-            {
-                if (mobileParty.IsCommonAreaParty || mobileParty.IsGarrison)
-                {
-                    list.Add(mobileParty.Party);
-                }
+                return null;
             }
-            List<PrisonerInfo> list2 = new List<PrisonerInfo>();
-            foreach (PartyBase partyBase in list)
-            {
-                for (int i = 0; i < partyBase.PrisonRoster.Count; i++)
-                {
-                    list2.Add(new PrisonerInfo()
-                    {
-                        prisoner = partyBase.PrisonRoster.GetCharacterAtIndex(i),
-                        count = partyBase.PrisonRoster.GetTroopCount(partyBase.PrisonRoster.GetCharacterAtIndex(i)),
-                        acquiringParty = null,
-                        prisonerParty = partyBase
-                    });
-                }
-            }
-            return list2;
-        }
 
-        public static int GetGarrisonCountInSettlement(SettlementComponent sc)
-        {
-            int returned = 0;
-            foreach (MobileParty mobileParty in sc.Owner.Settlement.Parties)
+            if (mapPositions.IsEmpty())
             {
-                if (mobileParty.IsCommonAreaParty || mobileParty.IsGarrison)
-                {
-                    returned += mobileParty.MemberRoster.TotalManCount;
-                }
+                return settlements[0]; 
             }
-            return returned;
+
+            Settlement? settlement = mapPositions
+                .Select(mapPosition => GetNearestSettlement(mapPosition, settlements))
+                .GroupBy(h => h)
+                .Select(group => new
+                {
+                    Settlement = group.Key,
+                    Count = group.Count()
+                })
+                .Aggregate((leftSettlement, rightSettlement) => leftSettlement.Count >= rightSettlement.Count ? leftSettlement : rightSettlement)?
+                .Settlement;
+
+            if (settlement == null)
+            {
+                return settlements[0];
+            }
+
+            return settlement;
         }
         
-        private static Hideout SelectARandomHideout(Clan faction, bool isInfestedHideoutNeeded, bool sameFactionIsNeeded, bool selectingFurtherToOthersNeeded = false)
+        private static Settlement GetNearestSettlement(IMapPoint party, List<Settlement> settlements)
         {
-            int num = 0;
-            float num2 = Campaign.AverageDistanceBetweenTwoTowns * 0.33f * Campaign.AverageDistanceBetweenTwoTowns * 0.33f;
-            foreach (Settlement settlement in Campaign.Current.Settlements)
-            {
-                if (settlement.IsHideout && (settlement.Culture.Equals(faction.Culture) || !sameFactionIsNeeded) && ((isInfestedHideoutNeeded && ((Hideout)settlement.GetComponent(typeof(Hideout))).IsInfested) || (!isInfestedHideoutNeeded && !((Hideout)settlement.GetComponent(typeof(Hideout))).IsInfested)))
-                {
-                    int num3 = 1;
-                    if (selectingFurtherToOthersNeeded)
-                    {
-                        float num4 = Campaign.MapDiagonal * Campaign.MapDiagonal;
-                        float num5 = Campaign.MapDiagonal * Campaign.MapDiagonal;
-                        foreach (Settlement settlement2 in Campaign.Current.Settlements)
-                        {
-                            if (settlement2.IsHideout && ((Hideout)settlement2.GetComponent(typeof(Hideout))).IsInfested)
-                            {
-                                float num6 = settlement.Position2D.DistanceSquared(settlement2.Position2D);
-                                if (settlement.Culture == settlement2.Culture && num6 < num4)
-                                {
-                                    num4 = num6;
-                                }
-                                if (num6 < num5)
-                                {
-                                    num5 = num6;
-                                }
-                            }
-                        }
-                        num3 = (int)Math.Max(1f, num4 / num2 + 5f * (num5 / num2));
-                    }
-                    num += num3;
-                }
-            }
-            int num7 = MBRandom.RandomInt(num);
-            foreach (Settlement settlement3 in Campaign.Current.Settlements)
-            {
-                if (settlement3.IsHideout && (settlement3.Culture.Equals(faction.Culture) || !sameFactionIsNeeded) && ((isInfestedHideoutNeeded && ((Hideout)settlement3.GetComponent(typeof(Hideout))).IsInfested) || (!isInfestedHideoutNeeded && !((Hideout)settlement3.GetComponent(typeof(Hideout))).IsInfested)))
-                {
-                    int num8 = 1;
-                    if (selectingFurtherToOthersNeeded)
-                    {
-                        float num9 = Campaign.MapDiagonal * Campaign.MapDiagonal;
-                        float num10 = Campaign.MapDiagonal * Campaign.MapDiagonal;
-                        foreach (Settlement settlement4 in Campaign.Current.Settlements)
-                        {
-                            if (settlement4.IsHideout && ((Hideout)settlement4.GetComponent(typeof(Hideout))).IsInfested)
-                            {
-                                float num11 = settlement3.Position2D.DistanceSquared(settlement4.Position2D);
-                                if (settlement3.Culture == settlement4.Culture && num11 < num9)
-                                {
-                                    num9 = num11;
-                                }
-                                if (num11 < num10)
-                                {
-                                    num10 = num11;
-                                }
-                            }
-                        }
-                        num8 = (int)Math.Max(1f, num9 / num2 + 5f * (num10 / num2));
-                    }
-                    num7 -= num8;
-                    if (num7 < 0)
-                    {
-                        return settlement3.GetComponent(typeof(Hideout)) as Hideout;
-                    }
-                }
-            }
-            return null;
+            return settlements.Select(settlement => new Tuple<Settlement, float>(settlement, party.Position2D.DistanceSquared(settlement.GatePosition)))
+                .Aggregate((closestHideout, hideout) => closestHideout.Item2 < hideout.Item2 ? closestHideout : hideout)
+                .Item1;
         }
         
         private static int CalculateBanditDistanceScore(float distance)
@@ -393,13 +294,5 @@ namespace CustomSpawns.Utils
             return result;
         }
 
-    }
-
-    public struct PrisonerInfo
-    {
-        public CharacterObject prisoner;
-        public int count;
-        public PartyBase acquiringParty;
-        public PartyBase prisonerParty;
     }
 }

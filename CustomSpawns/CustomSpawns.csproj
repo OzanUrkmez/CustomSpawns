@@ -55,9 +55,6 @@
       <Content Include="..\CustomSpawnsCleanAPI\_Module\ModuleData\custom_spawns_campaign_data_config.xml">
         <Link>CustomSpawnsCleanAPI\_Module\ModuleData\custom_spawns_campaign_data_config.xml</Link>
       </Content>
-      <Content Include="..\CustomSpawnsCleanAPI\_Module\ModuleData\prisoner_recruitment_config.xml">
-        <Link>CustomSpawnsCleanAPI\_Module\ModuleData\prisoner_recruitment_config.xml</Link>
-      </Content>
       <Content Include="..\CustomSpawnsCleanAPI\_Module\Schema\PartyRewardTemplateSchema.xsd">
         <Link>CustomSpawnsCleanAPI\_Module\Schema\PartyRewardTemplateSchema.xsd</Link>
       </Content>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -62,12 +63,9 @@ namespace CustomSpawns.Data
             }
         }
 
-        public MBReadOnlyDictionary<string, SpawnData> PartyIDToData
+        public ReadOnlyDictionary<string, SpawnData> AllSpawnData()
         {
-            get
-            {
-                return partyIDtoData.GetReadOnlyDictionary();
-            }
+                return new(partyIDtoData);   
         }
 
         private SpawnDataManager()

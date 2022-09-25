@@ -1,13 +1,13 @@
-﻿using System.Linq;
+using System.Linq;
 using CustomSpawns.Data;
 using CustomSpawns.Utils;
 using HarmonyLib;
-using SandBox.ViewModelCollection.MobilePartyTracker;
+using SandBox.ViewModelCollection.Map;
 using TaleWorlds.CampaignSystem.Party;
 
 namespace CustomSpawns.HarmonyPatches
 {
-    [HarmonyPatch(typeof(MobilePartyTrackerVM), "CanAddParty")]
+    [HarmonyPatch(typeof(MapMobilePartyTrackerVM), "CanAddParty")]
     public class RemovePartyTrackersFromNonBanditPartiesPatch
     {
         static void Postfix(MobileParty party, ref bool __result)

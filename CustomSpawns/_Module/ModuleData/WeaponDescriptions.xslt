@@ -56,14 +56,22 @@
             'cs_s_morningstar_shaft,',
             'cs_ls_morningstar_shaft,',
             'cs_club_handle,',
-            'cs_no_head'
+            'cs_no_head,',
+			'mace_head_7,',
+			'mace_handle_15'
         )"/>
 
     <xsl:variable name="javelin-pieces" select="'cs_bamboo_spear_handle'"/>
 
-    <xsl:variable name="pike-pieces" select="'cs_barbarian_pike_shaft'"/>
+    <xsl:variable name="pike-pieces" select="concat(
+					'cs_barbarian_pike_shaft,', 
+					'spear_handle_3'
+				)"/>
 
-    <xsl:variable name="two-handed-axe-pieces" select="'cs_pick_head'"/>
+    <xsl:variable name="two-handed-axe-pieces" select="concat(
+					'cs_pick_head,',
+					'axe_craft_26_head'
+				)"/>
     
     <xsl:variable name="two-handed-polearm-pieces" select="concat(
                     'cs_halberd_head,',
